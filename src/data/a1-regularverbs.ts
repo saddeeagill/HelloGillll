@@ -1,0 +1,749 @@
+export const A1_REGULAR_VERBS = [
+  {
+    "id": 1,
+    "word": "abholen",
+    "translation": "to pick up",
+    "principalParts": "abholen - holte ab - abgeholt",
+    "conjugation": "ich hole ab\ndu holst ab\ner/sie/es holt ab\nwir holen ab\nihr holt ab\nSie/sie holen ab",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 2,
+    "word": "anklicken",
+    "translation": "to click",
+    "principalParts": "anklicken - klickte an - angeklickt",
+    "conjugation": "ich klicke an\ndu klickst an\ner/sie/es klickt an\nwir klicken an\nihr klickt an\nSie/sie klicken an",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 3,
+    "word": "ankreuzen",
+    "translation": "to check/mark",
+    "principalParts": "ankreuzen - kreuzte an - angekreuzt",
+    "conjugation": "ich kreuze an\ndu kreuzst an\ner/sie/es kreuzt an\nwir kreuzen an\nihr kreuzt an\nSie/sie kreuzen an",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 4,
+    "word": "anmachen",
+    "translation": "to turn on",
+    "principalParts": "anmachen - machte an - angemacht",
+    "conjugation": "ich mache an\ndu machst an\ner/sie/es macht an\nwir machen an\nihr macht an\nSie/sie machen an",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 5,
+    "word": "anmelden (sich)",
+    "translation": "to register/sign up",
+    "principalParts": "anmelden (sich) - meldete an - angemeldet",
+    "conjugation": "ich melde mich an\ndu meldest dich an\ner/sie/es meldet sich\nan\nwir melden uns an\nihr meldet euch an\nSie/sie melden sich\nan",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 6,
+    "word": "antworten",
+    "translation": "to answer",
+    "principalParts": "antworten - antwortete - geantwortet",
+    "conjugation": "ich antworte\ndu antwortest\ner/sie/es antwortet\nwir antworten\nihr antwortet\nSie/sie antworten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 7,
+    "word": "arbeiten",
+    "translation": "to work",
+    "principalParts": "arbeiten - arbeitete - gearbeitet",
+    "conjugation": "ich arbeite\ndu arbeitest\ner/sie/es arbeitet\nwir arbeiten\nihr arbeitet\nSie/sie arbeiten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 8,
+    "word": "aufhören",
+    "translation": "to stop",
+    "principalParts": "aufhören - hörte auf - aufgehört",
+    "conjugation": "ich höre auf\ndu hörst auf\ner/sie/es hört auf\nwir hören auf\nihr hört auf\nSie/sie hören auf",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 9,
+    "word": "ausfüllen",
+    "translation": "to fill out",
+    "principalParts": "ausfüllen - füllte aus - ausgefüllt",
+    "conjugation": "ich fülle aus\ndu füllst aus\ner/sie/es füllt aus\nwir füllen aus\nihr füllt aus\nSie/sie füllen aus",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 10,
+    "word": "ausmachen",
+    "translation": "to turn off",
+    "principalParts": "ausmachen - machte aus - ausgemacht",
+    "conjugation": "ich mache aus\ndu machst aus\ner/sie/es macht aus\nwir machen aus\nihr macht aus\nSie/sie machen aus",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 11,
+    "word": "baden",
+    "translation": "to bathe",
+    "principalParts": "baden - badete - gebadet",
+    "conjugation": "ich bade\ndu badest\ner/sie/es badet\nwir baden\nihr badet\nSie/sie baden",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 12,
+    "word": "bedeuten",
+    "translation": "to mean",
+    "principalParts": "bedeuten - bedeutete - bedeutet",
+    "conjugation": "ich bedeute\ndu bedeutest\ner/sie/es bedeutet\nwir bedeuten\nihr bedeutet\nSie/sie bedeuten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 13,
+    "word": "benutzen",
+    "translation": "to use",
+    "principalParts": "benutzen - benutzte - benutzt",
+    "conjugation": "ich benutze\ndu benutzst\ner/sie/es benutzt\nwir benutzen\nihr benutzt\nSie/sie benutzen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 14,
+    "word": "besichtigen",
+    "translation": "to visit/tour",
+    "principalParts": "besichtigen - besichtigte - besichtigt",
+    "conjugation": "ich besichtige\ndu besichtigt\ner/sie/es besichtigt\nwir besichtigen\nihr besichtigt\nSie/sie besichtigen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 15,
+    "word": "bestellen",
+    "translation": "to order",
+    "principalParts": "bestellen - bestellte - bestellt",
+    "conjugation": "ich bestelle\ndu bestellst\ner/sie/es bestellt\nwir bestellen\nihr bestellt\nSie/sie bestellen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 16,
+    "word": "besuchen",
+    "translation": "to visit",
+    "principalParts": "besuchen - besuchte - besucht",
+    "conjugation": "ich besuche\ndu besuchst\ner/sie/es besucht\nwir besuchen\nihr besucht\nSie/sie besuchen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 17,
+    "word": "bezahlen",
+    "translation": "to pay",
+    "principalParts": "bezahlen - bezahlte - bezahlt",
+    "conjugation": "ich bezahle\ndu bezahlst\ner/sie/es bezahlt\nwir bezahlen\nihr bezahlt\nSie/sie bezahlen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 18,
+    "word": "brauchen",
+    "translation": "to need",
+    "principalParts": "brauchen - brauchte - gebraucht",
+    "conjugation": "ich brauche\ndu brauchst\ner/sie/es braucht\nwir brauchen\nihr braucht\nSie/sie brauchen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 19,
+    "word": "danken",
+    "translation": "to thank",
+    "principalParts": "danken - dankte - gedankt",
+    "conjugation": "ich danke\ndu dankst\ner/sie/es dankt\nwir danken\nihr dankt\nSie/sie danken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 20,
+    "word": "drucken",
+    "translation": "to print",
+    "principalParts": "drucken - druckte - gedruckt",
+    "conjugation": "ich drucke\ndu druckst\ner/sie/es druckt\nwir drucken\nihr druckt\nSie/sie drucken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 21,
+    "word": "drücken",
+    "translation": "to press/push",
+    "principalParts": "drücken - drückte - gedrückt",
+    "conjugation": "ich drücke\ndu drückst\ner/sie/es drückt\nwir drücken\nihr drückt\nSie/sie drücken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 22,
+    "word": "duschen",
+    "translation": "to shower",
+    "principalParts": "duschen - duschte - geduscht",
+    "conjugation": "ich dusche\ndu duschst\ner/sie/es duscht\nwir duschen\nihr duscht\nSie/sie duschen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 23,
+    "word": "einkaufen",
+    "translation": "to shop",
+    "principalParts": "einkaufen - kaufte ein - eingekauft",
+    "conjugation": "ich kaufe ein\ndu kaufst ein\ner/sie/es kauft ein\nwir kaufen ein\nihr kauft ein\nSie/sie kaufen ein",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 24,
+    "word": "enden",
+    "translation": "to end",
+    "principalParts": "enden - endete - geendet",
+    "conjugation": "ich ende\ndu endest\ner/sie/es endet\nwir enden\nihr endet\nSie/sie enden",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 25,
+    "word": "entschuldigen",
+    "translation": "",
+    "principalParts": "entschuldigte - entschuldigt",
+    "conjugation": "ich entschuldige\ndu entschuldigst\ner/sie/es\nentschuldigt\nto\nexcuse/apologize\nto\nexcuse/apologize\nwir entschuldigen\nihr entschuldigt\nSie/sie\nentschuldigen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 26,
+    "word": "erklären",
+    "translation": "to explain",
+    "principalParts": "erklären - erklärte - erklärt",
+    "conjugation": "ich erkläre\ndu erklärst\ner/sie/es erklärt\nwir erklären\nihr erklärt\nSie/sie erklären",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 27,
+    "word": "erlauben",
+    "translation": "to allow",
+    "principalParts": "erlauben - erlaubte - erlaubt",
+    "conjugation": "ich erlaube\ndu erlaubst\ner/sie/es erlaubt\nwir erlauben\nihr erlaubt\nSie/sie erlauben",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 28,
+    "word": "erzählen",
+    "translation": "to tell/narrate",
+    "principalParts": "erzählen - erzählte - erzählt",
+    "conjugation": "ich erzähle\ndu erzählst\ner/sie/es erzählt\nwir erzählen\nihr erzählt\nSie/sie erzählen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 29,
+    "word": "feiern",
+    "translation": "to celebrate",
+    "principalParts": "feiern - feierte - gefeiert",
+    "conjugation": "ich feie\ndu feist\ner/sie/es feit\nwir feien\nihr feit\nSie/sie feien",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 30,
+    "word": "fehlen",
+    "translation": "to be missing",
+    "principalParts": "fehlen - fehlte - gefehlt",
+    "conjugation": "ich fehle\ndu fehlst\ner/sie/es fehlt\nwir fehlen\nihr fehlt\nSie/sie fehlen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 31,
+    "word": "fragen",
+    "translation": "to ask",
+    "principalParts": "fragen - fragte - gefragt",
+    "conjugation": "ich frage\ndu fragst\ner/sie/es fragt\nwir fragen\nihr fragt\nSie/sie fragen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 32,
+    "word": "sich freuen",
+    "translation": "to be happy/glad",
+    "principalParts": "sich freuen - freute - gefreut",
+    "conjugation": "ich sich freue\ndu sich freust\ner/sie/es sich freut\nwir sich freuen\nihr sich freut\nSie/sie sich freuen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 33,
+    "word": "frühstücken",
+    "translation": "to have breakfast",
+    "principalParts": "frühstücken - frühstückte - gefrühstückt",
+    "conjugation": "ich frühstücke\ndu frühstückst\ner/sie/es frühstückt\nwir frühstücken\nihr frühstückt\nSie/sie frühstücken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 34,
+    "word": "glauben",
+    "translation": "to believe",
+    "principalParts": "glauben - glaubte - geglaubt",
+    "conjugation": "ich glaube\ndu glaubst\ner/sie/es glaubt\nwir glauben\nihr glaubt\nSie/sie glauben",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 35,
+    "word": "gratulieren",
+    "translation": "to congratulate",
+    "principalParts": "gratulieren - gratulierte - gegratuliert",
+    "conjugation": "ich gratuliere\ndu gratulierst\ner/sie/es gratuliert\nwir gratulieren\nihr gratuliert\nSie/sie gratulieren",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 36,
+    "word": "grillen",
+    "translation": "to grill/barbecue",
+    "principalParts": "grillen - grillte - gegrillt",
+    "conjugation": "ich grille\ndu grillst\ner/sie/es grillt\nwir grillen\nihr grillt\nSie/sie grillen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 37,
+    "word": "heiraten",
+    "translation": "to marry",
+    "principalParts": "heiraten - heiratete - geheiratet",
+    "conjugation": "ich heirate\ndu heiratest\ner/sie/es heiratet\nwir heiraten\nihr heiratet\nSie/sie heiraten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 38,
+    "word": "holen",
+    "translation": "to get/fetch",
+    "principalParts": "holen - holte - geholt",
+    "conjugation": "ich hole\ndu holst\ner/sie/es holt\nwir holen\nihr holt\nSie/sie holen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 39,
+    "word": "hören",
+    "translation": "to hear/listen",
+    "principalParts": "hören - hörte - gehört",
+    "conjugation": "ich höre\ndu hörst\ner/sie/es hört\nwir hören\nihr hört\nSie/sie hören",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 40,
+    "word": "kaufen",
+    "translation": "to buy",
+    "principalParts": "kaufen - kaufte - gekauft",
+    "conjugation": "ich kaufe\ndu kaufst\ner/sie/es kauft\nwir kaufen\nihr kauft\nSie/sie kaufen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 41,
+    "word": "kennenlernen",
+    "translation": "to get to know to get to know",
+    "principalParts": "kennenlernen - lernte kennen - kennengelernt",
+    "conjugation": "ich kennenlerne\ndu kennenlernst\ner/sie/es\nkennenlernt\nwir kennenlernen\nihr kennenlernt\nSie/sie\nkennenlernen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 42,
+    "word": "kochen",
+    "translation": "to cook",
+    "principalParts": "kochen - kochte - gekocht",
+    "conjugation": "ich koche\ndu kochst\ner/sie/es kocht\nwir kochen\nihr kocht\nSie/sie kochen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 43,
+    "word": "kosten",
+    "translation": "to cost",
+    "principalParts": "kosten - kostete - gekostet",
+    "conjugation": "ich koste\ndu kostest\ner/sie/es kostet\nwir kosten\nihr kostet\nSie/sie kosten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 44,
+    "word": "kriegen",
+    "translation": "to get/receive",
+    "principalParts": "kriegen - kriegte - gekriegt",
+    "conjugation": "ich kriege\ndu kriegst\ner/sie/es kriegt\nwir kriegen\nihr kriegt\nSie/sie kriegen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 45,
+    "word": "sich kümmern",
+    "translation": "to take care of",
+    "principalParts": "sich kümmern - kümmerte - gekümmert",
+    "conjugation": "ich sich kümme\ndu sich kümmst\ner/sie/es sich kümmt\nwir sich kümmen\nihr sich kümmt\nSie/sie sich kümmen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 46,
+    "word": "lachen",
+    "translation": "to laugh",
+    "principalParts": "lachen - lachte - gelacht",
+    "conjugation": "ich lache\ndu lachst\ner/sie/es lacht\nwir lachen\nihr lacht\nSie/sie lachen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 47,
+    "word": "leben",
+    "translation": "to live",
+    "principalParts": "leben - lebte - gelebt",
+    "conjugation": "ich lebe\ndu lebst\ner/sie/es lebt\nwir leben\nihr lebt\nSie/sie leben",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 48,
+    "word": "legen",
+    "translation": "to put/lay",
+    "principalParts": "legen - legte - gelegt",
+    "conjugation": "ich lege\ndu legst\ner/sie/es legt\nwir legen\nihr legt\nSie/sie legen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 49,
+    "word": "lernen",
+    "translation": "to learn",
+    "principalParts": "lernen - lernte - gelernt",
+    "conjugation": "ich lerne\ndu lernst\ner/sie/es lernt\nwir lernen\nihr lernt\nSie/sie lernen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 50,
+    "word": "lieben",
+    "translation": "to love",
+    "principalParts": "lieben - liebte - geliebt",
+    "conjugation": "ich liebe\ndu liebst\ner/sie/es liebt\nwir lieben\nihr liebt\nSie/sie lieben",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 51,
+    "word": "machen",
+    "translation": "to make/do",
+    "principalParts": "machen - machte - gemacht",
+    "conjugation": "ich mache\ndu machst\ner/sie/es macht\nwir machen\nihr macht\nSie/sie machen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 52,
+    "word": "mieten",
+    "translation": "to rent",
+    "principalParts": "mieten - mietete - gemietet",
+    "conjugation": "ich miete\ndu mietest\ner/sie/es mietet\nwir mieten\nihr mietet\nSie/sie mieten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 53,
+    "word": "mitmachen",
+    "translation": "to participate",
+    "principalParts": "mitmachen - machte mit - mitgemacht",
+    "conjugation": "ich mache mit\ndu machst mit\ner/sie/es macht mit\nwir machen mit\nihr macht mit\nSie/sie machen mit",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 54,
+    "word": "öffnen",
+    "translation": "to open",
+    "principalParts": "öffnen - öffnete - geöffnet",
+    "conjugation": "ich öffne\ndu öffnest\ner/sie/es öffnet\nwir öffnen\nihr öffnet\nSie/sie öffnen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 55,
+    "word": "rauchen",
+    "translation": "to smoke",
+    "principalParts": "rauchen - rauchte - geraucht",
+    "conjugation": "ich rauche\ndu rauchst\ner/sie/es raucht\nwir rauchen\nihr raucht\nSie/sie rauchen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 56,
+    "word": "regnen",
+    "translation": "to rain",
+    "principalParts": "regnen - regnete - geregnet",
+    "conjugation": "ich regne\ndu regnest\ner/sie/es regnet\nwir regnen\nihr regnet\nSie/sie regnen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 57,
+    "word": "reisen",
+    "translation": "to travel",
+    "principalParts": "reisen - reiste - gereist",
+    "conjugation": "ich reise\ndu reisst\ner/sie/es reist\nwir reisen\nihr reist\nSie/sie reisen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 58,
+    "word": "reparieren",
+    "translation": "to repair",
+    "principalParts": "reparieren - reparierte - repariert",
+    "conjugation": "ich repariere\ndu reparierst\ner/sie/es repariert\nwir reparieren\nihr repariert\nSie/sie reparieren",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 59,
+    "word": "sagen",
+    "translation": "to say",
+    "principalParts": "sagen - sagte - gesagt",
+    "conjugation": "ich sage\ndu sagst\ner/sie/es sagt\nwir sagen\nihr sagt\nSie/sie sagen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 60,
+    "word": "schicken",
+    "translation": "to send",
+    "principalParts": "schicken - schickte - geschickt",
+    "conjugation": "ich schicke\ndu schickst\ner/sie/es schickt\nwir schicken\nihr schickt\nSie/sie schicken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 61,
+    "word": "schmecken",
+    "translation": "to taste",
+    "principalParts": "schmecken - schmeckte - geschmeckt",
+    "conjugation": "ich schmecke\ndu schmeckst\ner/sie/es schmeckt\nwir schmecken\nihr schmeckt\nSie/sie schmecken",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 62,
+    "word": "spielen",
+    "translation": "to play",
+    "principalParts": "spielen - spielte - gespielt",
+    "conjugation": "ich spiele\ndu spielst\ner/sie/es spielt\nwir spielen\nihr spielt\nSie/sie spielen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 63,
+    "word": "stellen",
+    "translation": "to put/place",
+    "principalParts": "stellen - stellte - gestellt",
+    "conjugation": "ich stelle\ndu stellst\ner/sie/es stellt\nwir stellen\nihr stellt\nSie/sie stellen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 64,
+    "word": "studieren",
+    "translation": "to study",
+    "principalParts": "studieren - studierte - studiert",
+    "conjugation": "ich studiere\ndu studierst\ner/sie/es studiert\nwir studieren\nihr studiert\nSie/sie studieren",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 65,
+    "word": "suchen",
+    "translation": "to search",
+    "principalParts": "suchen - suchte - gesucht",
+    "conjugation": "ich suche\ndu suchst\ner/sie/es sucht\nwir suchen\nihr sucht\nSie/sie suchen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 66,
+    "word": "tanzen",
+    "translation": "to dance",
+    "principalParts": "tanzen - tanzte - getanzt",
+    "conjugation": "ich tanze\ndu tanzst\ner/sie/es tanzt\nwir tanzen\nihr tanzt\nSie/sie tanzen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 67,
+    "word": "telefonieren",
+    "translation": "to telephone",
+    "principalParts": "telefonieren - telefonierte - getelefoniert",
+    "conjugation": "ich telefoniere\ndu telefonierst\ner/sie/es telefoniert\nwir telefonieren\nihr telefoniert\nSie/sie telefonieren",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 68,
+    "word": "übernachten",
+    "translation": "to stay overnight",
+    "principalParts": "übernachten - übernachtete - geübernachtet",
+    "conjugation": "ich übernachte\ndu übernachtest\ner/sie/es\nübernachtet\nwir übernachten\nihr übernachtet\nSie/sie übernachten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 69,
+    "word": "verdienen",
+    "translation": "to earn",
+    "principalParts": "verdienen - verdiente - verdient",
+    "conjugation": "ich verdiene\ndu verdienst\ner/sie/es verdient\nwir verdienen\nihr verdient\nSie/sie verdienen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 70,
+    "word": "verkaufen",
+    "translation": "to sell",
+    "principalParts": "verkaufen - verkaufte - verkauft",
+    "conjugation": "ich verkaufe\ndu verkaufst\ner/sie/es verkauft\nwir verkaufen\nihr verkauft\nSie/sie verkaufen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 71,
+    "word": "vermieten",
+    "translation": "to rent out",
+    "principalParts": "vermieten - vermietete - vermietet",
+    "conjugation": "ich vermiete\ndu vermietest\ner/sie/es vermietet\nwir vermieten\nihr vermietet\nSie/sie vermieten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 72,
+    "word": "verpassen",
+    "translation": "to miss",
+    "principalParts": "verpassen - verpasste - verpasst",
+    "conjugation": "ich verpasse\ndu verpassst\ner/sie/es verpasst\nwir verpassen\nihr verpasst\nSie/sie verpassen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 73,
+    "word": "(sich) vorstellen",
+    "translation": "",
+    "principalParts": "(sich) vorstellen - stellte vor - vorgestellt",
+    "conjugation": "ich vorstelle mich\ndu vorstellst dich\ner/sie/es vorstellt\nsich\nwir vorstellen uns\nihr vorstellt euch\nSie/sie vorstellen\nsich\nto\nintroduce/imagine\nto\nintroduce/imagine",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 74,
+    "word": "wandern",
+    "translation": "to hike",
+    "principalParts": "wandern - wanderte - gewandert",
+    "conjugation": "ich wande\ndu wandest\ner/sie/es wandet\nwir wanden\nihr wandet\nSie/sie wanden",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 75,
+    "word": "warten",
+    "translation": "to wait",
+    "principalParts": "warten - wartete - gewartet",
+    "conjugation": "ich warte\ndu wartest\ner/sie/es wartet\nwir warten\nihr wartet\nSie/sie warten",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 76,
+    "word": "weinen",
+    "translation": "to cry",
+    "principalParts": "weinen - weinte - geweint",
+    "conjugation": "ich weine\ndu weinst\ner/sie/es weint\nwir weinen\nihr weint\nSie/sie weinen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 77,
+    "word": "wohnen",
+    "translation": "to live/reside",
+    "principalParts": "wohnen - wohnte - gewohnt",
+    "conjugation": "ich wohne\ndu wohnst\ner/sie/es wohnt\nwir wohnen\nihr wohnt\nSie/sie wohnen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 78,
+    "word": "wünschen",
+    "translation": "to wish",
+    "principalParts": "wünschen - wünschte - gewünscht",
+    "conjugation": "ich wünsche\ndu wünschst\ner/sie/es wünscht\nwir wünschen\nihr wünscht\nSie/sie wünschen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 79,
+    "word": "zahlen",
+    "translation": "to pay",
+    "principalParts": "zahlen - zahlte - gezahlt",
+    "conjugation": "ich zahle\ndu zahlst\ner/sie/es zahlt\nwir zahlen\nihr zahlt\nSie/sie zahlen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 80,
+    "word": "zuhören",
+    "translation": "to listen",
+    "principalParts": "zuhören - hörte zu - zugehört",
+    "conjugation": "ich höre zu\ndu hörst zu\ner/sie/es hört zu\nwir hören zu\nihr hört zu\nSie/sie hören zu",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 81,
+    "word": "zumachen",
+    "translation": "to close",
+    "principalParts": "zumachen - machte zu - zugemacht",
+    "conjugation": "ich mache zu\ndu machst zu\ner/sie/es macht zu\nwir machen zu\nihr macht zu\nSie/sie machen zu",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 82,
+    "word": "putzen",
+    "translation": "to clean",
+    "principalParts": "putzen - putzte - geputzt",
+    "conjugation": "ich putze\ndu putzst\ner/sie/es putzt\nwir putzen\nihr putzt\nSie/sie putzen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  },
+  {
+    "id": 83,
+    "word": "drehen",
+    "translation": "to turn",
+    "principalParts": "drehen - drehte - gedreht",
+    "conjugation": "ich drehe\ndu drehst\ner/sie/es dreht\nwir drehen\nihr dreht\nSie/sie drehen",
+    "category": "Regular Verbs",
+    "level": "A1"
+  }
+];
