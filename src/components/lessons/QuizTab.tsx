@@ -117,7 +117,7 @@ export default function QuizTab() {
       <div className="w-full h-2.5 bg-gray-100 rounded-full mb-10 overflow-hidden">
         <div 
           className="h-full bg-[#0f7650] transition-all duration-300"
-          style={{ width: \`\${((currentQuestionIndex) / QUIZ_QUESTIONS.length) * 100}%\` }}
+          style={{ width: `${((currentQuestionIndex) / QUIZ_QUESTIONS.length) * 100}%` }}
         ></div>
       </div>
 
