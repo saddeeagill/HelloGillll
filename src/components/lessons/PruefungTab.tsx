@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-type QuestionType = "mcq" | "tf";
+type QuestionType = "mcq" | "tf" | "text";
 
 interface ExamQuestion {
   id: number;
@@ -54,6 +54,18 @@ const EXAM_SECTIONS: ExamSection[] = [
       { id: 19, type: "tf", question: "Maria hears the children saying numbers.", correctAnswerBool: true, tts: true },
       { id: 20, type: "tf", question: "Maria ruft ihre Schwester an.", correctAnswerBool: false, tts: true },
     ]
+  },
+  {
+    id: "write",
+    tabLabel: "3 WRITE",
+    title: "Enter your answer here...",
+    questions: [
+      { id: 21, type: "text", question: "Name → Write: \"My name is ...\"" },
+      { id: 22, type: "text", question: "Origin → Write: \"I come from ...\"" },
+      { id: 23, type: "text", question: "Place of residence → Write: \"I live in ...\"" },
+      { id: 24, type: "text", question: "Pet → Write: \"I have ...\" (e.g. dog, cat)" },
+      { id: 25, type: "text", question: "Family → Write: \"My family...\" (e.g., is large, lives in ...)" },
+    ]
   }
 ];
 
@@ -64,7 +76,7 @@ export default function PruefungTab() {
 
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, number | boolean>>({});
+  const [answers, setAnswers] = useState<Record<number, number | boolean | string>>({});
   const [showResults, setShowResults] = useState(false);
 
   const currentSection = EXAM_SECTIONS[currentSectionIndex];
@@ -77,7 +89,7 @@ export default function PruefungTab() {
     }
   };
 
-  const handleAnswer = (answer: number | boolean) => {
+  const handleAnswer = (answer: number | boolean | string) => {
     setAnswers((prev) => ({
       ...prev,
       [currentQuestion.id]: answer,
@@ -181,6 +193,10 @@ export default function PruefungTab() {
       return total + sec.questions.reduce((secTotal, q) => {
         if (q.type === 'mcq') return secTotal + (answers[q.id] === q.correctAnswerIndex ? 1 : 0);
         if (q.type === 'tf') return secTotal + (answers[q.id] === q.correctAnswerBool ? 1 : 0);
+        if (q.type === 'text') {
+          const textAns = answers[q.id] as string;
+          return secTotal + (textAns && textAns.trim().length > 0 ? 1 : 0);
+        }
         return secTotal;
       }, 0);
     }, 0);
@@ -225,7 +241,7 @@ export default function PruefungTab() {
         <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4">
           <span className={`px-4 py-2 text-sm font-bold rounded-md ${currentSectionIndex === 0 ? "bg-[#0f7650] text-white" : "bg-gray-100 text-gray-400"}`}>1 READ</span>
           <span className={`px-4 py-2 text-sm font-bold rounded-md ${currentSectionIndex === 1 ? "bg-[#0f7650] text-white" : "bg-gray-100 text-gray-400"}`}>2 LISTEN / READ</span>
-          <span className="px-4 py-2 bg-gray-100 text-gray-400 text-sm font-bold rounded-md">3 WRITE</span>
+          <span className={`px-4 py-2 text-sm font-bold rounded-md ${currentSectionIndex === 2 ? "bg-[#0f7650] text-white" : "bg-gray-100 text-gray-400"}`}>3 WRITE</span>
         </div>
       </div>
 
@@ -312,6 +328,17 @@ export default function PruefungTab() {
         </div>
       )}
 
+      {currentQuestion.type === "text" && (
+        <div className="mb-10 w-full">
+          <textarea
+            value={(answers[currentQuestion.id] as string) || ""}
+            onChange={(e) => handleAnswer(e.target.value)}
+            placeholder="Enter your answer here..."
+            className="w-full h-40 p-5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0f7650] focus:border-transparent transition-all font-medium resize-none shadow-sm text-lg"
+          ></textarea>
+        </div>
+      )}
+
       {/* Navigation */}
       <div className="flex justify-between items-center pt-6 border-t border-gray-100 mt-auto">
         <button
@@ -335,9 +362,12 @@ export default function PruefungTab() {
           </button>
           <button
             onClick={handleNext}
-            disabled={answers[currentQuestion.id] === undefined}
+            disabled={
+              answers[currentQuestion.id] === undefined || 
+              (currentQuestion.type === 'text' && ((answers[currentQuestion.id] as string) || '').trim().length === 0)
+            }
             className={`px-8 py-3 rounded-xl font-bold transition-all shadow-sm ${
-              answers[currentQuestion.id] === undefined 
+              answers[currentQuestion.id] === undefined || (currentQuestion.type === 'text' && ((answers[currentQuestion.id] as string) || '').trim().length === 0)
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
                 : 'bg-black text-white hover:bg-gray-800'
             }`}
