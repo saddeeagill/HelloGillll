@@ -3,10 +3,12 @@ export type FormField = {
   label: string;
   placeholder: string;
   type: 'text' | 'email' | 'date' | 'tel';
+  required?: boolean;
 };
 
 export type SchreibenPart1 = {
   part: 1;
+  title: string;
   instruction: string;
   situation: string;
   fields: FormField[];
@@ -14,6 +16,7 @@ export type SchreibenPart1 = {
 
 export type SchreibenPart2 = {
   part: 2;
+  title: string;
   instruction: string;
   situation: string;
   bulletPoints: string[];
@@ -25,6 +28,7 @@ export type SchreibenExam = [SchreibenPart1, SchreibenPart2];
 export const SCHREIBEN_EXAM: SchreibenExam = [
   {
     part: 1,
+    title: "Formular ausfüllen",
     instruction: "Füllen Sie das Formular aus. Schreiben Sie die Informationen in die Felder.",
     situation: "Situation: Sie möchten einen Deutschkurs besuchen. Füllen Sie das Anmeldeformular aus.",
     fields: [
@@ -40,6 +44,7 @@ export const SCHREIBEN_EXAM: SchreibenExam = [
   },
   {
     part: 2,
+    title: "Kurzen Text schreiben",
     instruction: "Schreiben Sie einen kurzen Text (ca. 30 Wörter) zu der Situation.",
     situation: "Situation: Ihre Freundin hat Geburtstag. Sie können nicht zur Party kommen. Schreiben Sie eine Nachricht an Ihre Freundin.",
     bulletPoints: [
