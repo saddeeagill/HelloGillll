@@ -55,26 +55,29 @@ export default function ExamView() {
         
         {examState === 'start' && (
           <div className="w-full flex flex-col items-center animate-fade-in mt-4">
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full max-w-4xl">
-              {modules.map((mod) => (
-                <button
-                  key={mod.id}
-                  onClick={() => setExamState(mod.id as ExamState)}
-                  className="group relative bg-white rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center border-2 border-gray-100 hover:border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer text-center"
-                >
-                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${mod.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-                  
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-gray-800 mb-2">{mod.titleDe}</h3>
-                  <span className="text-gray-400 font-bold text-base md:text-xl uppercase tracking-wider">{mod.titleEn}</span>
-                  
-                  <div className="mt-8 inline-flex items-center gap-2 text-[#0f7650] font-bold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    Starten 
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                  </div>
-                </button>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl">
+            {[
+              { id: 'listen', title: 'Hören', active: true },
+              { id: 'read', title: 'Lesen', active: true },
+              { id: 'write', title: 'Schreiben', active: true },
+              { id: 'speak', title: 'Sprechen', active: true }
+            ].map((item) => (
+              <button 
+                key={item.id}
+                onClick={() => setExamState(item.id as ExamState)}
+                disabled={!item.active}
+                className={`flex items-center justify-center p-6 rounded-2xl border-2 transition-all ${
+                  item.active 
+                    ? 'bg-white border-gray-200 hover:border-[#0f7650] hover:text-[#0f7650] text-black hover:shadow-lg' 
+                    : 'bg-white border-gray-100 text-gray-300 opacity-60 cursor-not-allowed'
+                }`}
+              >
+                <h3 className="text-xl font-bold leading-tight">
+                  {item.title}
+                </h3>
+              </button>
+            ))}
+          </div>
           </div>
         )}
 

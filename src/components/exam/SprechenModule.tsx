@@ -75,21 +75,21 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
   }
 
   return (
-    <div className="w-full bg-white rounded-3xl p-6 md:p-12 border-2 border-gray-100 shadow-sm min-h-[400px] flex flex-col animate-fade-in relative">
+    <div className="w-full bg-white rounded-2xl p-4 md:p-8 border border-gray-100 shadow-sm min-h-[400px] flex flex-col animate-fade-in relative">
       
       {/* Top Navigation */}
-      <div className="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-100">
+      <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
         <button 
           onClick={onBack}
-          className="text-gray-400 hover:text-gray-700 font-medium flex items-center gap-2 transition-colors bg-gray-50 hover:bg-gray-100 py-2 px-4 rounded-full"
+          className="text-black text-sm font-medium flex items-center gap-1 transition-colors bg-white hover:bg-gray-50 py-1.5 px-3 rounded-md border border-gray-200"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           Menü
         </button>
 
         <div className="flex gap-2">
           {SPRECHEN_EXAM.map((p, i) => (
-            <div key={p.part} className={`w-3 h-3 rounded-full ${i === currentPartIndex ? 'bg-[#0f7650]' : i < currentPartIndex ? 'bg-[#0f7650]/40' : 'bg-gray-200'}`}></div>
+            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#0f7650]' : 'bg-gray-300'}`}></div>
           ))}
         </div>
       </div>
@@ -97,53 +97,52 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
       <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full">
         
         {/* Header Section */}
-        <div className="mb-10 text-center">
-          <span className="bg-[#ffe400] text-black font-extrabold px-6 py-2 rounded-full text-sm inline-block mb-6 uppercase tracking-wider">
+        <div className="mb-6">
+          <span className="bg-[#0f7650] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
             Teil {currentPart.part}
           </span>
-          <h2 className="text-2xl md:text-3xl font-black text-gray-800 leading-tight mb-4">
+          <h2 className="text-lg md:text-xl font-semibold text-black leading-snug mb-3">
             {currentPart.instruction}
           </h2>
-          <div className="inline-flex items-center gap-4 bg-gray-50 px-6 py-2 rounded-full text-gray-500 font-medium">
-            <span className="flex items-center gap-2"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> {currentPart.duration}</span>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-3 py-1 rounded-md text-black text-xs font-medium">
+            <span className="flex items-center gap-1"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> {currentPart.duration}</span>
           </div>
         </div>
 
         {/* Note Banner */}
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-10 rounded-r-xl shadow-sm flex items-start gap-3">
-          <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <p className="font-medium text-blue-900">{currentPart.note}</p>
+        <div className="bg-white border-l-4 border-[#0f7650] p-3 mb-6 rounded-r-lg shadow-sm flex items-start gap-2 border-y border-r border-gray-200">
+          <svg className="w-5 h-5 text-[#0f7650] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <p className="font-medium text-black text-sm leading-relaxed">{currentPart.note}</p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 mb-8">
+        <div className="flex flex-col lg:flex-row gap-6 mb-6">
           
           {/* Left Column: Topics & Cards */}
-          <div className="flex-1 space-y-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4 border-b-2 border-gray-100 pb-2">Themen & Aufgaben</h3>
+          <div className="flex-1 space-y-4">
+            <h3 className="text-base font-semibold text-black mb-3 border-b border-gray-200 pb-2">Themen & Aufgaben</h3>
             
-            <div className={`grid gap-4 ${currentPart.part === 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`grid gap-3 ${currentPart.part === 1 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'}`}>
               {currentPart.topics?.map((topic, idx) => (
-                <div key={idx} className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#0f7650] hover:shadow-md transition-all cursor-default">
-                  <div className="flex items-center gap-3 mb-3">
-                    {topic.icon && <span className="text-3xl">{topic.icon}</span>}
-                    <h4 className="font-bold text-lg text-gray-800">{topic.title}</h4>
+                <div key={idx} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-[#0f7650] transition-colors cursor-default">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h4 className="font-semibold text-sm text-black">{topic.title}</h4>
                   </div>
                   
                   {topic.questions && (
-                    <ul className="space-y-2 mt-4 border-t-2 border-gray-50 pt-4">
+                    <ul className="space-y-1 mt-2 border-t border-gray-200 pt-2">
                       {topic.questions.map((q, i) => (
-                        <li key={i} className="flex gap-2 text-gray-600 font-medium">
-                          <span className="text-[#0f7650] font-bold">•</span> {q}
+                        <li key={i} className="flex gap-2 text-black text-xs">
+                          <span className="text-[#0f7650]">•</span> {q}
                         </li>
                       ))}
                     </ul>
                   )}
 
                   {topic.examples && (
-                    <ul className="space-y-2 mt-4 border-t-2 border-gray-50 pt-4">
+                    <ul className="space-y-1 mt-2 border-t border-gray-200 pt-2">
                       {topic.examples.map((ex, i) => (
-                        <li key={i} className={`flex gap-2 font-medium ${i === 0 ? 'text-gray-800 italic' : 'text-gray-600'}`}>
-                          {i !== 0 && <span className="text-blue-500 font-bold">•</span>} {ex.replace('• ', '')}
+                        <li key={i} className={`flex gap-2 text-xs text-black ${i === 0 ? 'italic' : ''}`}>
+                          {i !== 0 && <span className="text-black">•</span>} {ex.replace('• ', '')}
                         </li>
                       ))}
                     </ul>
@@ -154,19 +153,19 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
           </div>
 
           {/* Right Column: Examples & Tips */}
-          <div className="w-full lg:w-1/3 flex flex-col gap-6">
+          <div className="w-full lg:w-1/3 flex flex-col gap-4">
             
             {/* Example Box */}
             {currentPart.example && (
-              <div className="bg-yellow-50 rounded-2xl p-6 border-2 border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-4 flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+              <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                <h3 className="text-sm font-semibold text-black mb-2 flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                   Beispiel
                 </h3>
-                <div className="text-gray-700 font-medium leading-relaxed italic space-y-2">
+                <div className="text-black text-sm leading-relaxed italic space-y-1">
                   {Array.isArray(currentPart.example) 
                     ? currentPart.example.map((line, i) => (
-                        <p key={i} className={line.includes('✓') ? 'text-green-600' : line.includes('✗') ? 'text-red-500' : line.includes('Person') ? 'font-bold' : ''}>
+                        <p key={i} className={line.includes('Person') ? 'font-semibold' : ''}>
                           {line}
                         </p>
                       ))
@@ -177,15 +176,15 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
             )}
 
             {/* Tips Box */}
-            <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
-              <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+              <h3 className="text-sm font-semibold text-black mb-2 flex items-center gap-1">
+                <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 Tipps
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {currentPart.tips.map((tip, idx) => (
-                  <li key={idx} className="flex gap-3 text-gray-600 font-medium text-sm">
-                    <span className="text-[#0f7650] font-black mt-0.5">✓</span>
+                  <li key={idx} className="flex gap-2 text-black text-xs">
+                    <span className="text-[#0f7650] mt-0.5">✓</span>
                     {tip}
                   </li>
                 ))}
@@ -196,12 +195,12 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="mt-8 flex justify-between items-center pt-6 border-t-2 border-gray-100">
+        <div className="mt-6 flex justify-between items-center pt-4 border-t border-gray-200">
           <button
             onClick={handlePrevious}
             disabled={currentPartIndex === 0}
-            className={`px-6 py-3 rounded-xl font-bold transition-all ${
-              currentPartIndex === 0 ? 'opacity-0 pointer-events-none' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 ${
+              currentPartIndex === 0 ? 'opacity-0 pointer-events-none' : 'bg-white text-black hover:bg-gray-50'
             }`}
           >
             Zurück
@@ -209,10 +208,10 @@ export default function SprechenModule({ onBack }: SprechenModuleProps) {
           
           <button
             onClick={handleNext}
-            className="px-8 py-3 rounded-xl font-bold bg-[#0f7650] text-white hover:bg-[#0a5237] transition-all shadow-md active:scale-95 flex items-center gap-2"
+            className="px-6 py-2 rounded-lg text-sm font-medium bg-[#0f7650] text-white hover:bg-[#0a5237] transition-colors flex items-center gap-2"
           >
             {currentPartIndex === SPRECHEN_EXAM.length - 1 ? 'Prüfung abschließen' : 'Weiter'}
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </button>
         </div>
       </div>
