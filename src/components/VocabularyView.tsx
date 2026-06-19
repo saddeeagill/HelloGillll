@@ -18,7 +18,6 @@ interface VocabItem {
 }
 
 const CATEGORIES = [
-  "All",
   "Nouns",
   "Adjectives",
   "Adverbs",
@@ -29,7 +28,7 @@ const CATEGORIES = [
 
 export default function VocabularyView() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Nouns");
   const [selectedLangCode, setSelectedLangCode] = useState("en");
 
   // Filter logic
@@ -37,8 +36,7 @@ export default function VocabularyView() {
     const matchesSearch =
       item.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.translation.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory =
-      activeCategory === "All" || item.category === activeCategory;
+    const matchesCategory = item.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -136,13 +134,12 @@ export default function VocabularyView() {
                 <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
                   Deutsch
                 </th>
-                {activeCategory === "All" || activeCategory === "Nouns" ? (
+                {activeCategory === "Nouns" ? (
                   <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
                     Plural
                   </th>
                 ) : null}
-                {(activeCategory === "All" ||
-                  activeCategory === "Irregular Verbs" ||
+                {(activeCategory === "Irregular Verbs" ||
                   activeCategory === "Regular Verbs" ||
                   activeCategory === "Modal Verbs") && (
                   <>
@@ -169,12 +166,10 @@ export default function VocabularyView() {
                     item.category === "Modal Verbs";
                   const isNoun = item.category === "Nouns";
                   const showVerbColumns =
-                    activeCategory === "All" ||
                     activeCategory === "Irregular Verbs" ||
                     activeCategory === "Regular Verbs" ||
                     activeCategory === "Modal Verbs";
-                  const showNounColumns =
-                    activeCategory === "All" || activeCategory === "Nouns";
+                  const showNounColumns = activeCategory === "Nouns";
 
                   return (
                     <tr
@@ -262,11 +257,10 @@ export default function VocabularyView() {
                     colSpan={
                       1 + // Deutsch
                       1 + // English
-                      (activeCategory === "All" || activeCategory === "Nouns"
+                      (activeCategory === "Nouns"
                         ? 1
                         : 0) +
-                      (activeCategory === "All" ||
-                      activeCategory === "Irregular Verbs" ||
+                      (activeCategory === "Irregular Verbs" ||
                       activeCategory === "Regular Verbs" ||
                       activeCategory === "Modal Verbs"
                         ? 2
