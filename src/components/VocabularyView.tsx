@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { VOCABULARY } from "../data/vocabulary";
+import { SUPPORTED_LANGUAGES, getGoogleTranslateUrl } from "../data/languages";
 
 interface VocabItem {
   id: number;
@@ -28,6 +29,7 @@ const CATEGORIES = [
 export default function VocabularyView() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedLangCode, setSelectedLangCode] = useState("en");
 
   // Filter logic
   const filteredWords = VOCABULARY.filter((item) => {
@@ -59,6 +61,22 @@ export default function VocabularyView() {
           <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight">
             Vocabulary
           </h1>
+        </div>
+        
+        {/* Language Selector */}
+        <div className="flex items-center gap-2">
+          <label className="text-sm font-bold text-gray-500 uppercase tracking-wide">Language:</label>
+          <select 
+            value={selectedLangCode}
+            onChange={(e) => setSelectedLangCode(e.target.value)}
+            className="bg-white border border-gray-200 text-black text-sm rounded-lg focus:ring-[#0f7650] focus:border-[#0f7650] block p-2 font-medium cursor-pointer shadow-sm"
+          >
+            {SUPPORTED_LANGUAGES.map(lang => (
+              <option key={lang.code} value={lang.code}>
+                {lang.name} ({lang.nativeName})
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -136,7 +154,7 @@ export default function VocabularyView() {
                   </>
                 )}
                 <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
-                  English
+                  {SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || "Translation"}
                 </th>
               </tr>
             </thead>
@@ -222,9 +240,25 @@ export default function VocabularyView() {
                       )}
 
                       <td className="py-2 px-3 md:py-3 md:px-4 align-top">
-                        <span className="text-sm font-medium text-black mt-1 block">
-                          {item.translation}
-                        </span>
+                        {selectedLangCode === 'en' ? (
+                          <span className="text-sm font-medium text-black mt-1 block">
+                            {item.translation}
+                          </span>
+                        ) : selectedLangCode === 'ur' && (item as any).urdu ? (
+                          <span className="text-sm font-medium text-black mt-1 block">
+                            {(item as any).urdu}
+                          </span>
+                        ) : (
+                          <a 
+                            href={getGoogleTranslateUrl(item.word, selectedLangCode)} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-sm font-bold text-[#0f7650] hover:underline flex items-center gap-1 mt-1"
+                          >
+                            Translate
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                          </a>
+                        )}
                       </td>
                     </tr>
                   );

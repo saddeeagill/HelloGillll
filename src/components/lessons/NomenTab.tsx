@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Lesson } from "@/data/lessons";
+import { SUPPORTED_LANGUAGES, getGoogleTranslateUrl } from "@/data/languages";
 
 const NOMEN_LIST = [
   { id: 1, singular: 'Anruf', plural: 'Anrufe', english: 'phone call' },
@@ -24,6 +25,7 @@ const NOMEN_LIST = [
 
 export default function NomenTab({ lesson }: { lesson: Lesson }) {
   const [activeTopicId, setActiveTopicId] = useState(lesson.topics[0]?.id || "");
+  const [selectedLangCode, setSelectedLangCode] = useState("en");
   const activeTopic = lesson.topics.find((t) => t.id === activeTopicId);
 
   // Helper to highlight specific nouns in the text
@@ -63,7 +65,26 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
     <div className="flex flex-col gap-8">
       {/* Nouns Table Area */}
       <div className="w-full">
-        <h2 className="text-xl md:text-2xl font-bold mb-4 text-[#0f7650]">Nomen (Nouns)</h2>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+          <h2 className="text-xl md:text-2xl font-bold text-[#0f7650]">Nomen (Nouns)</h2>
+          
+          {/* Language Selector */}
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-bold text-gray-500 uppercase tracking-wide">Language:</label>
+            <select 
+              value={selectedLangCode}
+              onChange={(e) => setSelectedLangCode(e.target.value)}
+              className="bg-white border border-gray-200 text-black text-sm rounded-lg focus:ring-[#0f7650] focus:border-[#0f7650] block p-2 font-medium cursor-pointer shadow-sm"
+            >
+              {SUPPORTED_LANGUAGES.map(lang => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.name} ({lang.nativeName})
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[600px]">
             <thead>
@@ -71,7 +92,9 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
                 <th className="py-3 px-4 font-semibold text-sm w-16">Nr.</th>
                 <th className="py-3 px-4 font-semibold text-sm">Singular</th>
                 <th className="py-3 px-4 font-semibold text-sm">Plural</th>
-                <th className="py-3 px-4 font-semibold text-sm">English</th>
+                <th className="py-3 px-4 font-semibold text-sm">
+                  {SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || "Translation"}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -105,7 +128,21 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
                     {item.plural}
                   </td>
                   <td className="py-3 px-4 text-sm text-black align-middle">
-                    {item.english}
+                    {selectedLangCode === 'en' ? (
+                      <span className="font-medium text-black">
+                        {item.english}
+                      </span>
+                    ) : (
+                      <a 
+                        href={getGoogleTranslateUrl(item.singular, selectedLangCode)} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="font-bold text-[#0f7650] hover:underline flex items-center gap-1"
+                      >
+                        Translate
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    )}
                   </td>
                 </tr>
               ))}
