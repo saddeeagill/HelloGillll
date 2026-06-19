@@ -38,5 +38,5 @@ export const SUPPORTED_LANGUAGES: Language[] = [
 ];
 
 export const getGoogleTranslateUrl = (word: string, targetLangCode: string) => {
-  return \`https://translate.google.com/?sl=de&tl=\${targetLangCode}&text=\${encodeURIComponent(word)}&op=translate\`;
+  return `https://translate.google.com/?sl=de&tl=${targetLangCode}&text=${encodeURIComponent(word)}&op=translate`;
 };
