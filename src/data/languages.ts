@@ -36,7 +36,3 @@ export const SUPPORTED_LANGUAGES: Language[] = [
   { code: 'ku', name: 'Kurdish', nativeName: 'Kurdî' },
   { code: 'nl', name: 'Dutch', nativeName: 'Nederlands' }
 ];
-
-export const getGoogleTranslateUrl = (word: string, targetLangCode: string) => {
-  return `https://translate.google.com/?sl=de&tl=${targetLangCode}&text=${encodeURIComponent(word)}&op=translate`;
-};
