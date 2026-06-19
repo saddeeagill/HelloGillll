@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { VOCABULARY } from "../data/vocabulary";
-import { SUPPORTED_LANGUAGES, getGoogleTranslateUrl } from "../data/languages";
+import { SUPPORTED_LANGUAGES } from "../data/languages";
+import TranslateText from "./TranslateText";
 
 interface VocabItem {
   id: number;
@@ -249,15 +250,7 @@ export default function VocabularyView() {
                             {(item as any).urdu}
                           </span>
                         ) : (
-                          <a 
-                            href={getGoogleTranslateUrl(item.word, selectedLangCode)} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-sm font-bold text-[#0f7650] hover:underline flex items-center gap-1 mt-1"
-                          >
-                            Translate
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                          </a>
+                          <TranslateText text={item.word} targetLang={selectedLangCode} />
                         )}
                       </td>
                     </tr>
