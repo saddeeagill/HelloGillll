@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { A1_VOCABULARY } from '../data/vocabulary';
+import React, { useState } from "react";
+import { VOCABULARY } from "../data/vocabulary";
 
 interface VocabItem {
   id: number;
@@ -15,26 +15,36 @@ interface VocabItem {
   conjugation?: string;
 }
 
-const CATEGORIES = ['Nouns', 'Adjectives', 'Adverbs', 'Irregular Verbs', 'Regular Verbs', 'Modal Verbs'];
+const CATEGORIES = [
+  "All",
+  "Nouns",
+  "Adjectives",
+  "Adverbs",
+  "Regular Verbs",
+  "Irregular Verbs",
+  "Modal Verbs",
+];
 
 export default function VocabularyView() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('Nouns');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   // Filter logic
-  const filteredWords = A1_VOCABULARY.filter(item => {
-    const matchesSearch = item.word.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          item.translation.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
+  const filteredWords = VOCABULARY.filter((item) => {
+    const matchesSearch =
+      item.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.translation.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      activeCategory === "All" || item.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
 
   const playAudio = (word: string) => {
-    if ('speechSynthesis' in window) {
+    if ("speechSynthesis" in window) {
       // Cancel any ongoing speech to prevent queuing up too many
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = 'de-DE';
+      utterance.lang = "de-DE";
       window.speechSynthesis.speak(utterance);
     } else {
       alert("Text-to-speech is not supported in your browser.");
@@ -43,7 +53,6 @@ export default function VocabularyView() {
 
   return (
     <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-3 md:px-0">
-      
       {/* Header section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 md:mb-6 pt-2">
         <div className="flex items-center gap-2">
@@ -58,8 +67,18 @@ export default function VocabularyView() {
         {/* Search Bar */}
         <div className="relative group">
           <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
-            <svg className="h-4 w-4 md:h-5 md:w-5 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <svg
+              className="h-4 w-4 md:h-5 md:w-5 text-gray-400 group-focus-within:text-black transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </div>
           <input
@@ -79,8 +98,8 @@ export default function VocabularyView() {
               onClick={() => setActiveCategory(cat)}
               className={`snap-start whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-xs md:text-sm transition-colors border ${
                 activeCategory === cat
-                  ? 'bg-[#0f7650] text-white border-[#0f7650] shadow-sm'
-                  : 'bg-white text-black border-gray-200 hover:border-black hover:bg-gray-50'
+                  ? "bg-[#0f7650] text-white border-[#0f7650] shadow-sm"
+                  : "bg-white text-black border-gray-200 hover:border-black hover:bg-gray-50"
               }`}
             >
               {cat}
@@ -95,40 +114,62 @@ export default function VocabularyView() {
           <table className="w-full text-left border-collapse min-w-[500px] md:min-w-[800px]">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200 text-black">
-                <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">Deutsch</th>
-                {activeCategory === 'All' || activeCategory === 'Nouns' ? (
-                  <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">Plural</th>
+                <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
+                  Deutsch
+                </th>
+                {activeCategory === "All" || activeCategory === "Nouns" ? (
+                  <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
+                    Plural
+                  </th>
                 ) : null}
-                {(activeCategory === 'All' || activeCategory === 'Irregular Verbs' || activeCategory === 'Regular Verbs' || activeCategory === 'Modal Verbs') && (
+                {(activeCategory === "All" ||
+                  activeCategory === "Irregular Verbs" ||
+                  activeCategory === "Regular Verbs" ||
+                  activeCategory === "Modal Verbs") && (
                   <>
-                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">Stammformen</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">Konjugationen</th>
+                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
+                      Stammformen
+                    </th>
+                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
+                      Konjugationen
+                    </th>
                   </>
                 )}
-                <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">English</th>
+                <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
+                  English
+                </th>
               </tr>
             </thead>
             <tbody>
               {filteredWords.length > 0 ? (
                 filteredWords.map((item, index) => {
                   const uniqueId = `${item.category}-${item.id}`;
-                  const isVerb = item.category === 'Irregular Verbs' || item.category === 'Regular Verbs' || item.category === 'Modal Verbs';
-                  const isNoun = item.category === 'Nouns';
-                  const showVerbColumns = activeCategory === 'All' || activeCategory === 'Irregular Verbs' || activeCategory === 'Regular Verbs' || activeCategory === 'Modal Verbs';
-                  const showNounColumns = activeCategory === 'All' || activeCategory === 'Nouns';
-                  
+                  const isVerb =
+                    item.category === "Irregular Verbs" ||
+                    item.category === "Regular Verbs" ||
+                    item.category === "Modal Verbs";
+                  const isNoun = item.category === "Nouns";
+                  const showVerbColumns =
+                    activeCategory === "All" ||
+                    activeCategory === "Irregular Verbs" ||
+                    activeCategory === "Regular Verbs" ||
+                    activeCategory === "Modal Verbs";
+                  const showNounColumns =
+                    activeCategory === "All" || activeCategory === "Nouns";
+
                   return (
-                    <tr 
+                    <tr
                       key={uniqueId}
                       className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${
-                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                        index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                       }`}
                     >
-                      <td className="py-2 px-3 md:py-3 md:px-4 align-top">
-                        <div className="flex items-start gap-2">
+                      <td className="py-2 px-3 md:py-3 md:px-4 align-middle">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-black whitespace-nowrap">{item.id})</span>
                           <button 
                             onClick={(e) => { e.stopPropagation(); playAudio(item.word); }}
-                            className="w-6 h-6 rounded-full bg-[#0f7650] text-white flex items-center justify-center hover:bg-[#0a5237] transition-colors flex-shrink-0 mt-0.5"
+                            className="w-6 h-6 rounded-full bg-[#0f7650] text-white flex items-center justify-center hover:bg-[#0a5237] transition-colors flex-shrink-0"
                             title="Hören (Listen)"
                           >
                             <svg className="w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="currentColor">
@@ -137,9 +178,7 @@ export default function VocabularyView() {
                               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                             </svg>
                           </button>
-                          <span className="text-sm font-medium text-black mt-0.5">
-                            {item.id}) {item.word}
-                          </span>
+                          <span className="text-sm font-medium text-black">{item.word}</span>
                         </div>
                       </td>
 
@@ -154,7 +193,7 @@ export default function VocabularyView() {
                           )}
                         </td>
                       )}
-                      
+
                       {showVerbColumns && (
                         <>
                           <td className="py-2 px-3 md:py-3 md:px-4 align-top">
@@ -163,7 +202,9 @@ export default function VocabularyView() {
                                 {(item as VocabItem).principalParts}
                               </span>
                             ) : (
-                              <span className="text-gray-400 mt-1 block">-</span>
+                              <span className="text-gray-400 mt-1 block">
+                                -
+                              </span>
                             )}
                           </td>
                           <td className="py-2 px-3 md:py-3 md:px-4 align-top">
@@ -172,29 +213,47 @@ export default function VocabularyView() {
                                 {(item as VocabItem).conjugation}
                               </div>
                             ) : (
-                              <span className="text-gray-400 mt-1 block">-</span>
+                              <span className="text-gray-400 mt-1 block">
+                                -
+                              </span>
                             )}
                           </td>
                         </>
                       )}
 
                       <td className="py-2 px-3 md:py-3 md:px-4 align-top">
-                        <span className="text-sm font-medium text-black mt-1 block">{item.translation}</span>
+                        <span className="text-sm font-medium text-black mt-1 block">
+                          {item.translation}
+                        </span>
                       </td>
                     </tr>
-                  )
+                  );
                 })
               ) : (
                 <tr>
-                  <td colSpan={
-                    1 + // Deutsch
-                    1 + // English
-                    (activeCategory === 'All' || activeCategory === 'Nouns' ? 1 : 0) +
-                    (activeCategory === 'All' || activeCategory === 'Irregular Verbs' || activeCategory === 'Regular Verbs' || activeCategory === 'Modal Verbs' ? 2 : 0)
-                  } className="py-12 text-center">
+                  <td
+                    colSpan={
+                      1 + // Deutsch
+                      1 + // English
+                      (activeCategory === "All" || activeCategory === "Nouns"
+                        ? 1
+                        : 0) +
+                      (activeCategory === "All" ||
+                      activeCategory === "Irregular Verbs" ||
+                      activeCategory === "Regular Verbs" ||
+                      activeCategory === "Modal Verbs"
+                        ? 2
+                        : 0)
+                    }
+                    className="py-12 text-center"
+                  >
                     <div className="text-5xl mb-4">🔍</div>
-                    <h3 className="text-xl font-bold text-gray-600">No words found</h3>
-                    <p className="text-gray-400 mt-2">Try a different search or category.</p>
+                    <h3 className="text-xl font-bold text-gray-600">
+                      No words found
+                    </h3>
+                    <p className="text-gray-400 mt-2">
+                      Try a different search or category.
+                    </p>
                   </td>
                 </tr>
               )}

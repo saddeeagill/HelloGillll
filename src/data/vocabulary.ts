@@ -153,4 +153,9 @@ import { A1_IRREGULAR_VERBS } from './a1-verbs';
 import { A1_MODAL_VERBS } from './a1-modalverbs';
 import { A1_REGULAR_VERBS } from './a1-regularverbs';
 import { A1_NOUNS } from './a1-nouns';
+import { A2_ADJECTIVES } from './a2-adjectives';
+
 export const A1_VOCABULARY = [...A1_ADJECTIVES, ...A1_ADVERBS, ...A1_IRREGULAR_VERBS, ...A1_MODAL_VERBS, ...A1_REGULAR_VERBS, ...A1_NOUNS];
+export const A2_VOCABULARY = [...A2_ADJECTIVES];
+
+export const VOCABULARY = [...A1_VOCABULARY, ...A2_VOCABULARY];
