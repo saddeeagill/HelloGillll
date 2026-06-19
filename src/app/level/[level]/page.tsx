@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import VocabularyView from '@/components/VocabularyView';
 import ExamView from '@/components/ExamView';
+import LessonView from '@/components/lessons/LessonView';
 import Logo from '@/components/Logo';
 
 export default function LevelPage() {
@@ -96,7 +97,14 @@ export default function LevelPage() {
             <h2 className="text-xl font-bold mt-10 mb-4 text-[#0f7650]">Lektionen</h2>
             <ul className="space-y-2">
               <li>
-                <button className="w-full text-left px-5 py-3 text-gray-800 font-semibold hover:text-black hover:bg-gray-200 rounded-lg transition-all">
+                <button 
+                  onClick={() => { setActiveView('lektion_1'); setSidebarOpen(false); }}
+                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
+                    activeView === 'lektion_1'
+                      ? 'bg-[#ffe400] text-black shadow-sm'
+                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
+                  }`}
+                >
                   Lektion 1
                 </button>
               </li>
@@ -119,6 +127,7 @@ export default function LevelPage() {
           <div className="w-full max-w-5xl mx-auto h-full">
             {activeView === 'vocabulary' && <VocabularyView />}
             {activeView === 'exam' && <ExamView />}
+            {activeView === 'lektion_1' && <LessonView lessonId="lektion_1" />}
             {activeView === 'haben_sein' && (
               <div className="flex flex-col items-center justify-center h-64 text-center">
                 <h2 className="text-2xl font-bold text-gray-500 mb-2">haben & sein coming soon!</h2>
