@@ -4,25 +4,7 @@ import { Lesson } from "@/data/lessons";
 import { SUPPORTED_LANGUAGES } from "@/data/languages";
 import TranslateText from "../TranslateText";
 
-const NOMEN_LIST = [
-  { id: 1, singular: 'Anruf', plural: 'Anrufe', english: 'phone call' },
-  { id: 2, singular: 'Ausweis', plural: 'Ausweise', english: 'ID card' },
-  { id: 3, singular: 'Baby', plural: 'Babys', english: 'baby' },
-  { id: 4, singular: 'Bekannte', plural: 'Bekannten', english: 'acquaintance (female)' },
-  { id: 5, singular: 'Ehefrau', plural: 'Ehefrauen', english: 'wife' },
-  { id: 6, singular: 'Ehemann', plural: 'Ehemänner', english: 'husband' },
-  { id: 7, singular: 'Erwachsene', plural: 'Erwachsenen', english: 'adult' },
-  { id: 8, singular: 'Heimat', plural: '-', english: 'homeland' },
-  { id: 9, singular: 'Herr', plural: 'Herren', english: 'mister/gentleman' },
-  { id: 10, singular: 'Hochzeit', plural: 'Hochzeiten', english: 'wedding' },
-  { id: 11, singular: 'Hund', plural: 'Hunde', english: 'dog' },
-  { id: 12, singular: 'Jugendliche', plural: 'Jugendlichen', english: 'teenager' },
-  { id: 13, singular: 'Kind', plural: 'Kinder', english: 'child' },
-  { id: 14, singular: 'Mutter', plural: 'Mütter', english: 'mother' },
-  { id: 15, singular: 'Partner', plural: 'Partner', english: 'partner (male)' },
-  { id: 16, singular: 'Partnerin', plural: 'Partnerinnen', english: 'partner (female)' },
-  { id: 17, singular: 'Vater', plural: 'Väter', english: 'father' },
-];
+
 
 export default function NomenTab({ lesson }: { lesson: Lesson }) {
   const [activeTopicId, setActiveTopicId] = useState(lesson.topics[0]?.id || "");
@@ -33,7 +15,8 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
   const highlightNouns = (text: string) => {
     // Collect all singular and plural forms to highlight
     const wordsToHighlight = new Set<string>();
-    NOMEN_LIST.forEach(n => {
+    const nomenList = lesson.nomenList || [];
+    nomenList.forEach(n => {
       wordsToHighlight.add(n.singular);
       if (n.plural !== '-') wordsToHighlight.add(n.plural);
     });
@@ -99,7 +82,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
               </tr>
             </thead>
             <tbody>
-              {NOMEN_LIST.map((item, index) => (
+              {(lesson.nomenList || []).map((item, index) => (
                 <tr 
                   key={item.id} 
                   className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${
