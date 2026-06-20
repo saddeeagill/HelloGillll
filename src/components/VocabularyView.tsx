@@ -26,18 +26,19 @@ const CATEGORIES = [
   "Modal Verbs",
 ];
 
-export default function VocabularyView() {
+export default function VocabularyView({ level = "A1" }: { level?: string }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("Nouns");
   const [selectedLangCode, setSelectedLangCode] = useState("en");
 
   // Filter logic
   const filteredWords = VOCABULARY.filter((item) => {
+    const matchesLevel = item.level === level.toUpperCase();
     const matchesSearch =
       item.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.translation.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = item.category === activeCategory;
-    return matchesSearch && matchesCategory;
+    return matchesLevel && matchesSearch && matchesCategory;
   });
 
   const playAudio = (word: string) => {

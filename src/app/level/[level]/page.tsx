@@ -13,6 +13,11 @@ export default function LevelPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeView, setActiveView] = useState('vocabulary');
   const levelUpper = level.toUpperCase();
+  
+  const a1Lektionen = Array.from({ length: 16 }, (_, i) => i + 1);
+  // We'll prepare an array for A2 lessons as well (currently empty or placeholder)
+  const a2Lektionen = [1]; 
+
 
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
@@ -95,224 +100,63 @@ export default function LevelPage() {
             </ul>
 
             <h2 className="text-xl font-bold mt-10 mb-4 text-[#0f7650]">Lektionen</h2>
-            <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_1'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_1'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 1
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_2'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_2'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 2
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_3'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_3'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 3
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_4'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_4'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 4
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_5'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_5'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 5
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_6'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_6'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 6
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_7'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_7'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 7
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_8'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_8'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 8
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_9'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_9'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 9
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_10'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_10'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 10
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_11'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_11'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 11
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_12'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_12'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 12
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_13'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_13'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 13
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_14'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_14'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 14
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_15'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_15'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 15
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('lektion_16'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
-                    activeView === 'lektion_16'
-                      ? 'bg-[#ffe400] text-black shadow-sm'
-                      : 'text-gray-800 hover:text-black hover:bg-gray-200'
-                  }`}
-                >
-                  Lektion 16
-                </button>
-              </li>
-            </ul>
+            
+            {levelUpper === 'A1' && (
+              <ul className="space-y-2">
+                {a1Lektionen.map(num => (
+                  <li key={`a1_lektion_${num}`}>
+                    <button 
+                      onClick={() => { setActiveView(`lektion_${num}`); setSidebarOpen(false); }}
+                      className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
+                        activeView === `lektion_${num}`
+                          ? 'bg-[#ffe400] text-black shadow-sm'
+                          : 'text-gray-800 hover:text-black hover:bg-gray-200'
+                      }`}
+                    >
+                      Lektion {num}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {levelUpper === 'A2' && (
+              <ul className="space-y-2">
+                {a2Lektionen.map(num => (
+                  <li key={`a2_lektion_${num}`}>
+                    <button 
+                      onClick={() => { setActiveView(`a2_lektion_${num}`); setSidebarOpen(false); }}
+                      className={`w-full text-left px-5 py-3 font-semibold rounded-lg transition-all ${
+                        activeView === `a2_lektion_${num}`
+                          ? 'bg-[#ffe400] text-black shadow-sm'
+                          : 'text-gray-800 hover:text-black hover:bg-gray-200'
+                      }`}
+                    >
+                      Lektion {num} (A2)
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </aside>
 
         {/* Main Content Area */}
         <main className="flex-grow p-4 md:p-8 lg:p-12 text-black overflow-y-auto w-full bg-gray-50/30">
           <div className="w-full max-w-5xl mx-auto h-full">
-            {activeView === 'vocabulary' && <VocabularyView />}
+            {activeView === 'vocabulary' && <VocabularyView level={levelUpper} />}
             {activeView === 'exam' && <ExamView />}
-            {activeView === 'lektion_1' && <LessonView lessonId="lektion_1" />}
-            {activeView === 'lektion_2' && <LessonView lessonId="lektion_2" />}
-            {activeView === 'lektion_3' && <LessonView lessonId="lektion_3" />}
-            {activeView === 'lektion_4' && <LessonView lessonId="lektion_4" />}
-            {activeView === 'lektion_5' && <LessonView lessonId="lektion_5" />}
-            {activeView === 'lektion_6' && <LessonView lessonId="lektion_6" />}
-            {activeView === 'lektion_7' && <LessonView lessonId="lektion_7" />}
-            {activeView === 'lektion_8' && <LessonView lessonId="lektion_8" />}
-            {activeView === 'lektion_9' && <LessonView lessonId="lektion_9" />}
-            {activeView === 'lektion_10' && <LessonView lessonId="lektion_10" />}
-            {activeView === 'lektion_11' && <LessonView lessonId="lektion_11" />}
-            {activeView === 'lektion_12' && <LessonView lessonId="lektion_12" />}
-            {activeView === 'lektion_13' && <LessonView lessonId="lektion_13" />}
-            {activeView === 'lektion_14' && <LessonView lessonId="lektion_14" />}
-            {activeView === 'lektion_15' && <LessonView lessonId="lektion_15" />}
-            {activeView === 'lektion_16' && <LessonView lessonId="lektion_16" />}
+            
+            {/* A1 Lessons */}
+            {levelUpper === 'A1' && a1Lektionen.map(num => (
+              activeView === `lektion_${num}` && <LessonView key={`a1_${num}`} lessonId={`lektion_${num}`} />
+            ))}
+
+            {/* A2 Lessons */}
+            {levelUpper === 'A2' && a2Lektionen.map(num => (
+              activeView === `a2_lektion_${num}` && <LessonView key={`a2_${num}`} lessonId={`a2_lektion_${num}`} />
+            ))}
+
             {activeView === 'haben_sein' && (
               <div className="flex flex-col items-center justify-center h-64 text-center">
                 <h2 className="text-2xl font-bold text-gray-500 mb-2">haben & sein coming soon!</h2>

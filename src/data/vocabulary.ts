@@ -155,8 +155,25 @@ import { A1_REGULAR_VERBS } from './a1-regularverbs';
 import { A1_NOUNS } from './a1-nouns';
 import { A2_ADJECTIVES } from './a2-adjectives';
 import { A2_ADVERBS } from './a2-adverbs';
+import { A2_IRREGULAR_VERBS } from './a2-irregularverbs';
+import { A2_NOUNS } from './a2-nouns';
+import { A2_REGULAR_VERBS } from './a2-regularverbs';
+import { B1_ADJECTIVES } from './b1-adjectives';
+import { B1_ADVERBS } from './b1-adverbs';
+import { B1_IRREGULAR_VERBS } from './b1-irregularverbs';
+import { B1_MODAL_VERBS } from './b1-modalverbs';
+import { B1_NOUNS_PARTIAL } from './b1-nouns-partial';
+import { B1_REGULAR_VERBS } from './b1-regularverbs';
+import { B2_ADJECTIVES } from './b2-adjectives';
+import { B2_ADVERBS } from './b2-adverbs';
+import { B2_IRREGULAR_VERBS } from './b2-irregularverbs';
+import { B2_MODAL_VERBS } from './b2-modalverbs';
+import { B2_NOUNS_PART1 } from './b2-nouns-part1';
+import { B2_REGULAR_VERBS } from './b2-regularverbs';
 
 export const A1_VOCABULARY = [...A1_ADJECTIVES, ...A1_ADVERBS, ...A1_IRREGULAR_VERBS, ...A1_MODAL_VERBS, ...A1_REGULAR_VERBS, ...A1_NOUNS];
-export const A2_VOCABULARY = [...A2_ADJECTIVES, ...A2_ADVERBS];
+export const A2_VOCABULARY = [...A2_ADJECTIVES, ...A2_ADVERBS, ...A2_IRREGULAR_VERBS, ...A2_NOUNS, ...A2_REGULAR_VERBS];
+export const B1_VOCABULARY = [...B1_ADJECTIVES, ...B1_ADVERBS, ...B1_IRREGULAR_VERBS, ...B1_MODAL_VERBS, ...B1_NOUNS_PARTIAL, ...B1_REGULAR_VERBS];
+export const B2_VOCABULARY = [...B2_ADJECTIVES, ...B2_ADVERBS, ...B2_IRREGULAR_VERBS, ...B2_MODAL_VERBS, ...B2_NOUNS_PART1, ...B2_REGULAR_VERBS];
 
-export const VOCABULARY = [...A1_VOCABULARY, ...A2_VOCABULARY];
+export const VOCABULARY = [...A1_VOCABULARY, ...A2_VOCABULARY, ...B1_VOCABULARY, ...B2_VOCABULARY];
