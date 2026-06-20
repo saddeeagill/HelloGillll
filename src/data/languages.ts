@@ -5,16 +5,16 @@ export interface Language {
 }
 
 export const SUPPORTED_LANGUAGES: Language[] = [
-  { code: 'en', name: 'English', nativeName: 'English' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اردو' },
   { code: 'pt', name: 'Portuguese', nativeName: 'Português' },
   { code: 'it', name: 'Italian', nativeName: 'Italiano' },
   { code: 'tr', name: 'Turkish', nativeName: 'Türkçe' },
+  { code: 'en', name: 'English', nativeName: 'English' },
   { code: 'ti', name: 'Tigrinya', nativeName: 'ትግርኛ' },
   { code: 'am', name: 'Amharic', nativeName: 'አማርኛ' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية' },
   { code: 'uk', name: 'Ukrainian', nativeName: 'Українська' },
   { code: 'fa', name: 'Persian', nativeName: 'فارسی' },
+  { code: 'ur', name: 'Urdu', nativeName: 'اردو' },
   { code: 'pa', name: 'Punjabi (Shahmukhi)', nativeName: 'پنجابی' },
   { code: 'pa-IN', name: 'Punjabi (Gurmukhi)', nativeName: 'ਪੰਜਾਬੀ' },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी' },

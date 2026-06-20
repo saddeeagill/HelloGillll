@@ -83,7 +83,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
 
         <div className="flex gap-2">
           {HOREN_EXAM.map((p, i) => (
-            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#0f7650]' : 'bg-gray-300'}`}></div>
+            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#000000]' : 'bg-gray-300'}`}></div>
           ))}
         </div>
       </div>
@@ -96,18 +96,18 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
             <span>{answeredCount} / {totalQuestions} beantwortet</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-[#0f7650] h-2 rounded-full transition-all duration-500" style={{ width: `${progressPercentage}%` }}></div>
+            <div className="bg-[#000000] h-2 rounded-full transition-all duration-500" style={{ width: `${progressPercentage}%` }}></div>
           </div>
         </div>
         <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center min-w-[100px]">
           <span className="text-[10px] font-bold text-black uppercase tracking-wider">Ergebnis</span>
-          <span className="text-lg font-bold text-[#0f7650]">{correctCount} <span className="text-xs font-medium text-black">Richtig</span></span>
+          <span className="text-lg font-bold text-[#000000]">{correctCount} <span className="text-xs font-medium text-black">Richtig</span></span>
         </div>
       </div>
 
       <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full">
         <div className="mb-6">
-          <span className="bg-[#0f7650] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
+          <span className="bg-[#000000] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
             Teil {currentPart.part}
           </span>
           <h2 className="text-lg md:text-xl font-semibold text-black leading-snug">
@@ -120,7 +120,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
           <div className="bg-white p-4 rounded-xl mb-6 border border-gray-200 flex flex-row items-center gap-4 w-max">
             <button 
               onClick={() => playAudio(currentPart.audioText!)}
-              className="w-10 h-10 rounded-full bg-[#0f7650] text-white flex items-center justify-center hover:bg-[#0a5237] transition-colors shadow-sm"
+              className="w-10 h-10 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors shadow-sm"
             >
               <svg className="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
             </button>
@@ -137,7 +137,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-200">
                   <button 
                     onClick={() => playAudio(q.audioText!)}
-                    className="w-8 h-8 rounded-full bg-[#0f7650] text-white flex items-center justify-center flex-shrink-0 hover:bg-[#0a5237] transition-colors"
+                    className="w-8 h-8 rounded-full bg-[#000000] text-white flex items-center justify-center flex-shrink-0 hover:bg-[#333333] transition-colors"
                   >
                     <svg className="w-4 h-4 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
                   </button>
@@ -158,7 +158,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
                       key={opt.id}
                       onClick={() => handleSelectAnswer(q.id, opt.id)}
                       className={`w-full text-left p-3 rounded-lg border text-sm font-medium transition-colors ${
-                        isCorrect ? 'bg-white border-[#0f7650] text-black shadow-sm' :
+                        isCorrect ? 'bg-white border-[#000000] text-black shadow-sm' :
                         isWrong ? 'bg-white border-red-500 text-black shadow-sm' :
                         isSelected ? 'bg-white border-black text-black shadow-sm' :
                         'bg-white border-gray-200 text-black hover:border-black'
@@ -166,7 +166,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
                     >
                       <div className="flex items-center gap-3">
                         <div className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 ${
-                          isCorrect ? 'border-[#0f7650] bg-[#0f7650] text-white' :
+                          isCorrect ? 'border-[#000000] bg-[#000000] text-white' :
                           isWrong ? 'border-red-500 bg-red-500 text-white' :
                           isSelected ? 'border-black bg-black' :
                           'border-gray-300'
@@ -203,7 +203,7 @@ export default function HorenModule({ onBack, onContinue }: HorenModuleProps) {
             className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
               !allCurrentQuestionsAnswered 
                 ? 'bg-white border border-gray-200 text-gray-400 cursor-not-allowed' 
-                : 'bg-[#0f7650] text-white hover:bg-[#0a5237]'
+                : 'bg-[#000000] text-white hover:bg-[#333333]'
             }`}
           >
             {currentPartIndex === HOREN_EXAM.length - 1 ? 'Weiter zu Lesen' : 'Weiter'}

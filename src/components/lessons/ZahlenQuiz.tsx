@@ -87,16 +87,15 @@ export default function ZahlenQuiz() {
   if (showResults) {
     return (
       <div className="flex flex-col items-center justify-center p-8 bg-gray-50 rounded-xl border border-gray-100 min-h-[400px]">
-        <div className="w-20 h-20 bg-[#ffe400] rounded-full flex items-center justify-center mb-6 shadow-sm">
-          <span className="text-3xl">🎉</span>
+        <div className="text-xl text-black font-bold mb-2">
+          Ergebnis: {score} / 20
         </div>
-        <h2 className="text-3xl font-bold text-black mb-2">Zahlenquiz Beendet!</h2>
-        <p className="text-xl text-gray-700 mb-8">
-          Ihre Punktzahl: <span className="font-bold text-[#0f7650]">{score}</span> von <span className="font-bold">20</span>
-        </p>
+        <div className="text-4xl font-black text-black mb-8">
+          {Math.round((score / 20) * 100)}%
+        </div>
         <button
           onClick={resetQuiz}
-          className="px-8 py-3 bg-[#0f7650] text-white font-bold rounded-xl hover:bg-[#0a5237] transition-all shadow-sm"
+          className="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-sm"
         >
           Nochmal spielen
         </button>
@@ -131,7 +130,7 @@ export default function ZahlenQuiz() {
       {/* Progress Bar */}
       <div className="w-full h-2.5 bg-gray-100 rounded-full mb-8 overflow-hidden">
         <div 
-          className="h-full bg-[#0f7650] transition-all duration-300"
+          className="h-full bg-[#000000] transition-all duration-300"
           style={{ width: `${(totalIndex / 20) * 100}%` }}
         ></div>
       </div>
@@ -142,13 +141,13 @@ export default function ZahlenQuiz() {
         </p>
         
         {currentStage === 1 ? (
-          <h3 className="text-3xl md:text-4xl font-bold text-center text-[#0f7650] leading-snug tracking-tight mb-8">
+          <h3 className="text-3xl md:text-4xl font-bold text-center text-[#000000] leading-snug tracking-tight mb-8">
             {currentQuestion.word}
           </h3>
         ) : (
           <button
             onClick={() => playAudio(currentQuestion.word)}
-            className="w-20 h-20 rounded-full bg-[#0f7650] text-white flex items-center justify-center hover:bg-[#0a5237] transition-all shadow-md mb-8 hover:scale-105 active:scale-95"
+            className="w-20 h-20 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-all shadow-md mb-8 hover:scale-105 active:scale-95"
             title="Zahl hören"
           >
             <svg className="w-8 h-8 ml-1" viewBox="0 0 24 24" fill="currentColor">
@@ -171,16 +170,16 @@ export default function ZahlenQuiz() {
             placeholder="z.B. 27"
             className={`w-full text-center text-2xl p-4 border-2 rounded-xl focus:outline-none transition-colors shadow-sm ${
               feedback === "correct" 
-                ? "bg-green-50 border-green-500 text-green-700" 
+                ? "bg-gray-100 border-gray-300 text-black" 
                 : feedback === "incorrect"
                 ? "bg-red-50 border-red-500 text-red-700"
-                : "bg-white border-gray-300 focus:border-[#0f7650]"
+                : "bg-white border-gray-300 focus:border-[#000000]"
             }`}
             autoFocus
           />
           
           {feedback === "correct" && (
-            <p className="text-green-600 font-bold mt-4 flex items-center gap-2">
+            <p className="text-black font-bold mt-4 flex items-center gap-2">
               <span>✅</span> Richtig!
             </p>
           )}
@@ -205,7 +204,7 @@ export default function ZahlenQuiz() {
       </div>
       
       <div className="flex justify-between items-center text-sm font-bold text-gray-500 px-2">
-        <span>Aktuelle Punktzahl: <span className="text-[#0f7650] text-base">{score}</span></span>
+        <span>Aktuelle Punktzahl: <span className="text-[#000000] text-base">{score}</span></span>
       </div>
     </div>
   );

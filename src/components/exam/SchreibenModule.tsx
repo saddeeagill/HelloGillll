@@ -68,14 +68,14 @@ export default function SchreibenModule({ onBack, onContinue }: SchreibenModuleP
 
         <div className="flex gap-2">
           {SCHREIBEN_EXAM.map((p, i) => (
-            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#0f7650]' : 'bg-gray-300'}`}></div>
+            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#000000]' : 'bg-gray-300'}`}></div>
           ))}
         </div>
       </div>
 
       <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full">
         <div className="mb-6">
-          <span className="bg-[#0f7650] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
+          <span className="bg-[#000000] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
             Teil {currentPart.part}: {currentPart.title}
           </span>
           <h2 className="text-lg md:text-xl font-semibold text-black leading-snug">
@@ -86,7 +86,7 @@ export default function SchreibenModule({ onBack, onContinue }: SchreibenModuleP
         <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-200 flex flex-col shadow-sm">
           {/* Situation Box */}
           <div className="bg-white p-4 rounded-lg mb-6 border border-gray-200 shadow-sm">
-            <span className="block text-xs font-bold text-[#0f7650] mb-2 uppercase tracking-wide">Situation</span>
+            <span className="block text-xs font-bold text-[#000000] mb-2 uppercase tracking-wide">Situation</span>
             <p className="text-sm text-black leading-relaxed whitespace-pre-wrap">{currentPart.situation}</p>
           </div>
           
@@ -116,7 +116,7 @@ export default function SchreibenModule({ onBack, onContinue }: SchreibenModuleP
             <div className="flex flex-col flex-1 h-full min-h-[300px]">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-semibold text-black">Ihre Nachricht:</span>
-                <span className={`text-xs font-bold px-2 py-1 rounded-md border ${wordCount < 30 ? 'bg-white border-black text-black' : 'bg-white border-[#0f7650] text-[#0f7650]'}`}>
+                <span className={`text-xs font-bold px-2 py-1 rounded-md border ${wordCount < 30 ? 'bg-white border-black text-black' : 'bg-white border-[#000000] text-[#000000]'}`}>
                   {wordCount} / ~30 Wörter
                 </span>
               </div>
@@ -148,7 +148,7 @@ export default function SchreibenModule({ onBack, onContinue }: SchreibenModuleP
             className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
               !isCurrentPartValid 
                 ? 'bg-white border border-gray-200 text-gray-400 cursor-not-allowed' 
-                : 'bg-[#0f7650] text-white hover:bg-[#0a5237]'
+                : 'bg-[#000000] text-white hover:bg-[#333333]'
             }`}
           >
             {currentPartIndex === SCHREIBEN_EXAM.length - 1 ? 'Weiter zu Sprechen' : 'Weiter'}

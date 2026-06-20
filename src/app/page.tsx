@@ -12,14 +12,12 @@ export default function Home() {
       <Logo />
       
       {/* The yellow horizontal bar under the logo */}
-      <div className="w-full h-[3px] bg-[#ffe400] relative z-10"></div>
+      <div className="w-full h-[3px] bg-[#e5e7eb] relative z-10"></div>
 
       <main className="flex-grow p-8 md:p-16 text-black overflow-y-auto w-full">
         <div className="max-w-2xl mx-auto">
           {/* Main Heading in German */}
-          <h1 className="text-3xl md:text-4xl font-bold mb-10 text-[#0f7650] text-center">
-            Wählen Sie Ihr Sprachniveau
-          </h1>
+          {/* Main Heading in German */}
           
           {/* Grid layout for 2 columns: A1 A2, B1 B2 */}
           <div className="grid grid-cols-2 gap-6">

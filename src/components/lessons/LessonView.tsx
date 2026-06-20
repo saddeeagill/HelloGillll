@@ -46,7 +46,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
               onClick={() => setActiveTab(tab)}
               className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-colors border-2 ${
                 activeTab === tab
-                  ? "bg-[#ffe400] text-black border-[#ffe400] shadow-sm"
+                  ? "bg-[#e5e7eb] text-black border-[#e5e7eb] shadow-sm"
                   : "bg-white text-black border-gray-200 hover:border-gray-400 hover:shadow-sm"
               }`}
             >

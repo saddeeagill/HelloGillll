@@ -25,7 +25,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
     return text.split(/(\b)/).map((segment, i) => {
       if (wordsToHighlight.has(segment)) {
         return (
-          <span key={i} className="bg-[#0f7650] text-white px-1 py-0.5 rounded font-bold mx-px shadow-sm">
+          <span key={i} className="bg-[#000000] text-white px-1 py-0.5 rounded font-bold mx-px shadow-sm">
             {segment}
           </span>
         );
@@ -50,7 +50,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
       {/* Nouns Table Area */}
       <div className="w-full">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-          <h2 className="text-xl md:text-2xl font-bold text-[#0f7650]">Nomen (Nouns)</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-[#000000]">Nomen (Nouns)</h2>
           
           {/* Language Selector */}
           <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
             <select 
               value={selectedLangCode}
               onChange={(e) => setSelectedLangCode(e.target.value)}
-              className="bg-white border border-gray-200 text-black text-sm rounded-lg focus:ring-[#0f7650] focus:border-[#0f7650] block p-2 font-medium cursor-pointer shadow-sm"
+              className="bg-white border border-gray-200 text-black text-sm rounded-lg focus:ring-[#000000] focus:border-[#000000] block p-2 font-medium cursor-pointer shadow-sm"
             >
               {SUPPORTED_LANGUAGES.map(lang => (
                 <option key={lang.code} value={lang.code}>
@@ -96,7 +96,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
                     <div className="flex items-center gap-2">
                       <button 
                         onClick={() => playAudio(item.singular)}
-                        className="w-6 h-6 rounded-full bg-[#0f7650] text-white flex items-center justify-center hover:bg-[#0a5237] transition-colors flex-shrink-0"
+                        className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0"
                         title="Hören (Listen)"
                       >
                         <svg className="w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="currentColor">

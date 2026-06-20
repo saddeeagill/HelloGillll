@@ -84,7 +84,7 @@ export default function LesenModule({ onBack, onContinue }: LesenModuleProps) {
 
         <div className="flex gap-2">
           {LESEN_EXAM.map((p, i) => (
-            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#0f7650]' : 'bg-gray-300'}`}></div>
+            <div key={p.part} className={`w-2 h-2 rounded-full ${i === currentPartIndex ? 'bg-[#000000]' : 'bg-gray-300'}`}></div>
           ))}
         </div>
       </div>
@@ -97,18 +97,18 @@ export default function LesenModule({ onBack, onContinue }: LesenModuleProps) {
             <span>{answeredCount} / {totalQuestions} beantwortet</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-[#0f7650] h-2 rounded-full transition-all duration-500" style={{ width: `${progressPercentage}%` }}></div>
+            <div className="bg-[#000000] h-2 rounded-full transition-all duration-500" style={{ width: `${progressPercentage}%` }}></div>
           </div>
         </div>
         <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center min-w-[100px]">
           <span className="text-[10px] font-bold text-black uppercase tracking-wider">Ergebnis</span>
-          <span className="text-lg font-bold text-[#0f7650]">{correctCount} <span className="text-xs font-medium text-black">Richtig</span></span>
+          <span className="text-lg font-bold text-[#000000]">{correctCount} <span className="text-xs font-medium text-black">Richtig</span></span>
         </div>
       </div>
 
       <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full">
         <div className="mb-6">
-          <span className="bg-[#0f7650] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
+          <span className="bg-[#000000] text-white font-bold px-3 py-1 rounded-md text-xs inline-block mb-2">
             Teil {currentPart.part}
           </span>
           <h2 className="text-lg md:text-xl font-semibold text-black leading-snug">
@@ -132,7 +132,7 @@ export default function LesenModule({ onBack, onContinue }: LesenModuleProps) {
               {/* Question specific reading text (Part 1) */}
               {q.readingText && (
                 <div className="bg-white p-4 rounded-lg mb-4 border border-gray-200 shadow-sm text-sm text-black whitespace-pre-wrap leading-relaxed">
-                  <span className="block text-xs font-bold text-[#0f7650] mb-2 uppercase tracking-wide">Text lesen</span>
+                  <span className="block text-xs font-bold text-[#000000] mb-2 uppercase tracking-wide">Text lesen</span>
                   {q.readingText}
                 </div>
               )}
@@ -188,7 +188,7 @@ export default function LesenModule({ onBack, onContinue }: LesenModuleProps) {
             className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
               !allCurrentQuestionsAnswered 
                 ? 'bg-white border border-gray-200 text-gray-400 cursor-not-allowed' 
-                : 'bg-[#0f7650] text-white hover:bg-[#0a5237]'
+                : 'bg-[#000000] text-white hover:bg-[#333333]'
             }`}
           >
             {currentPartIndex === LESEN_EXAM.length - 1 ? 'Weiter zu Schreiben' : 'Weiter'}

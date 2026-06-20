@@ -44,7 +44,7 @@ export default function ExamView() {
       {/* Header section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 pt-4">
         <div className="flex items-center gap-3 md:gap-4">
-          <h1 className="text-2xl md:text-4xl font-extrabold text-[#0f7650] drop-shadow-sm tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-[#000000] drop-shadow-sm tracking-tight">
             Prüfung <span className="text-gray-400 text-xl md:text-2xl font-semibold ml-2">(Exam)</span>
           </h1>
         </div>
@@ -68,7 +68,7 @@ export default function ExamView() {
                 disabled={!item.active}
                 className={`flex items-center justify-center p-6 rounded-2xl border-2 transition-all ${
                   item.active 
-                    ? 'bg-white border-gray-200 hover:border-[#0f7650] hover:text-[#0f7650] text-black hover:shadow-lg' 
+                    ? 'bg-white border-gray-200 hover:border-[#000000] hover:text-[#000000] text-black hover:shadow-lg' 
                     : 'bg-white border-gray-100 text-gray-300 opacity-60 cursor-not-allowed'
                 }`}
               >

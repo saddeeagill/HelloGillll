@@ -280,38 +280,15 @@ export default function QuizTab({ lesson }: { lesson?: Lesson }) {
 
     return (
       <div className="flex flex-col items-center justify-center p-8 bg-gray-50 rounded-xl border border-gray-100 min-h-[400px]">
-        <div className="w-20 h-20 bg-[#ffe400] rounded-full flex items-center justify-center mb-6 shadow-sm">
-          <span className="text-3xl">🎉</span>
+        <div className="text-xl text-black font-bold mb-2">
+          Ergebnis: {score} / {currentQuizQuestions.length}
         </div>
-        <h2 className="text-3xl font-bold text-black mb-2">Quiz Beendet!</h2>
-        <p className="text-xl text-gray-700 mb-8">
-          Ihr Ergebnis: <span className="font-bold text-[#0f7650]">{score}</span> von <span className="font-bold">{currentQuizQuestions.length}</span>
-        </p>
-        
-        <div className="w-full max-w-2xl space-y-3 mb-8">
-          {currentQuizQuestions.map(q => {
-            const isCorrect = answers[q.id] === q.isTrue;
-            return (
-              <div key={q.id} className={`p-4 rounded-lg flex items-center justify-between border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
-                <span className="text-black text-sm md:text-base font-medium">{q.text}</span>
-                <div className="flex items-center gap-2">
-                  <span className={`text-xs font-bold px-2 py-1 rounded ${isCorrect ? 'text-green-700 bg-green-100' : 'text-red-700 bg-red-100'}`}>
-                    Ihre Antwort: {answers[q.id] ? 'Richtig' : 'Falsch'}
-                  </span>
-                  {!isCorrect && (
-                    <span className="text-xs font-bold px-2 py-1 rounded text-gray-700 bg-gray-200">
-                      Korrekt: {q.isTrue ? 'Richtig' : 'Falsch'}
-                    </span>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        <div className="text-4xl font-black text-black mb-8">
+          {Math.round((score / currentQuizQuestions.length) * 100)}%
         </div>
-
         <button
           onClick={resetQuiz}
-          className="px-8 py-3 bg-[#0f7650] text-white font-bold rounded-xl hover:bg-[#0a5237] transition-all shadow-sm"
+          className="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-sm"
         >
           Nochmal spielen
         </button>
@@ -335,7 +312,7 @@ export default function QuizTab({ lesson }: { lesson?: Lesson }) {
       {/* Progress Bar */}
       <div className="w-full h-2.5 bg-gray-100 rounded-full mb-10 overflow-hidden">
         <div 
-          className="h-full bg-[#0f7650] transition-all duration-300"
+          className="h-full bg-[#000000] transition-all duration-300"
           style={{ width: `${((currentQuestionIndex) / currentQuizQuestions.length) * 100}%` }}
         ></div>
       </div>
@@ -353,8 +330,8 @@ export default function QuizTab({ lesson }: { lesson?: Lesson }) {
           onClick={() => handleAnswer(true)}
           className={`py-4 md:py-6 rounded-xl font-bold text-lg transition-all border-2 ${
             answers[currentQuestion.id] === true
-              ? "bg-[#0f7650] text-white border-[#0f7650] shadow-md scale-[1.02]"
-              : "bg-white text-[#0f7650] border-[#0f7650] hover:bg-green-50"
+              ? "bg-[#000000] text-white border-[#000000] shadow-md scale-[1.02]"
+              : "bg-white text-[#000000] border-[#000000] hover:bg-gray-100"
           }`}
         >
           Richtig

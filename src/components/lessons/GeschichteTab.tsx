@@ -42,7 +42,7 @@ export default function GeschichteTab({ lesson }: { lesson: Lesson }) {
             }}
             className={`text-left px-4 py-3 rounded-lg font-semibold transition-all ${
               activeTopicId === topic.id
-                ? "bg-[#0f7650] text-white"
+                ? "bg-[#000000] text-white"
                 : "bg-gray-50 text-gray-700 hover:bg-gray-100"
             }`}
           >
@@ -69,7 +69,7 @@ export default function GeschichteTab({ lesson }: { lesson: Lesson }) {
 
           <button
             onClick={playAudio}
-            className="flex items-center gap-2 px-4 py-2 bg-[#0f7650] text-white text-sm font-bold rounded-lg hover:bg-[#0a5237] transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 bg-[#000000] text-white text-sm font-bold rounded-lg hover:bg-[#333333] transition-colors shadow-sm"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>

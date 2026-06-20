@@ -942,7 +942,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder={isLektionGerman ? "Geben Sie Ihren Vornamen ein" : "Enter your first name"}
-                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0f7650] focus:border-transparent transition-all font-medium"
+                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#000000] focus:border-transparent transition-all font-medium"
               />
             </div>
             <div>
@@ -955,13 +955,13 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder={isLektionGerman ? "Geben Sie Ihren Nachnamen ein" : "Enter your last name"}
-                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0f7650] focus:border-transparent transition-all font-medium"
+                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#000000] focus:border-transparent transition-all font-medium"
               />
             </div>
             <button
               type="submit"
               disabled={!firstName.trim() || !lastName.trim()}
-              className="w-full py-4 mt-4 bg-[#ffe400] text-black font-bold text-lg rounded-xl hover:bg-[#e6cd00] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+              className="w-full py-4 mt-4 bg-[#e5e7eb] text-black font-bold text-lg rounded-xl hover:bg-[#d1d5db] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             >
               {isLektionGerman ? "Prüfung starten" : "Start exam"}
             </button>
@@ -989,18 +989,20 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
 
     return (
       <div className="flex flex-col items-center justify-center p-8 bg-gray-50 rounded-xl border border-gray-100 min-h-[400px]">
-        <h2 className="text-3xl font-bold text-black mb-2">Exam Completed!</h2>
-        <p className="text-lg text-gray-600 mb-8 font-medium">
+        <p className="text-lg text-gray-600 mb-6 font-medium">
           Name: <span className="text-black font-bold">{firstName} {lastName}</span>
         </p>
-        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-sm border-4 border-[#0f7650]">
-          <span className="text-4xl font-black text-[#0f7650]">{score}/{totalQuestions}</span>
+        <div className="text-xl text-black font-bold mb-2">
+          Ergebnis: {score} / {totalQuestions}
+        </div>
+        <div className="text-4xl font-black text-black mb-8">
+          {Math.round((score / totalQuestions) * 100)}%
         </div>
         
         <div className="flex gap-4">
           <button
             onClick={restartFromQuestions}
-            className="px-6 py-3 bg-white border-2 border-gray-200 text-black font-bold rounded-xl hover:bg-gray-50 transition-all shadow-sm"
+            className="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-sm"
           >
             Start anew
           </button>
@@ -1024,7 +1026,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
         {/* Exam Section Tabs */}
         <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4">
           {EXAM_SECTIONS.map((sec, idx) => (
-            <span key={sec.id} className={`px-4 py-2 text-sm font-bold rounded-md ${currentSectionIndex === idx ? "bg-[#0f7650] text-white" : "bg-gray-100 text-gray-400"}`}>
+            <span key={sec.id} className={`px-4 py-2 text-sm font-bold rounded-md ${currentSectionIndex === idx ? "bg-[#000000] text-white" : "bg-gray-100 text-gray-400"}`}>
               {sec.tabLabel}
             </span>
           ))}
@@ -1032,7 +1034,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
       </div>
 
       <div className="flex flex-col mb-4">
-        <span className="text-[#0f7650] font-bold text-lg uppercase tracking-wider mb-2">
+        <span className="text-[#000000] font-bold text-lg uppercase tracking-wider mb-2">
           {isLektionGerman ? `Frage ${currentQuestionIndex + 1} von ${currentSection.questions.length}` : `Question ${currentQuestionIndex + 1} of ${currentSection.questions.length}`}
         </span>
         <span className="text-gray-700 font-bold text-xl">
@@ -1043,7 +1045,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
       {/* Progress Bar */}
       <div className="w-full h-2.5 bg-gray-100 rounded-full mb-8 overflow-hidden">
         <div 
-          className="h-full bg-[#0f7650] transition-all duration-300"
+          className="h-full bg-[#000000] transition-all duration-300"
           style={{ width: `${((currentQuestionIndex) / currentSection.questions.length) * 100}%` }}
         ></div>
       </div>
@@ -1058,7 +1060,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
             {currentQuestion.tts && (
               <button 
                 onClick={() => playTTS(currentQuestion.question)}
-                className="flex-shrink-0 w-10 h-10 bg-[#0f7650] text-white rounded-full flex items-center justify-center hover:bg-[#0a5237] transition-colors shadow-md"
+                className="flex-shrink-0 w-10 h-10 bg-[#000000] text-white rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors shadow-md"
               >
                 <svg className="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="currentColor">
                   <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1082,7 +1084,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
                 onClick={() => handleAnswer(index)}
                 className={`py-5 px-6 rounded-xl font-bold text-lg text-left transition-all border-2 ${
                   isSelected
-                    ? "bg-[#ffe400] text-black border-[#ffe400] shadow-md scale-[1.02]"
+                    ? "bg-[#e5e7eb] text-black border-[#e5e7eb] shadow-md scale-[1.02]"
                     : "bg-gray-50 text-black border-gray-200 hover:bg-white hover:border-gray-400"
                 }`}
               >
@@ -1099,8 +1101,8 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
             onClick={() => handleAnswer(true)}
             className={`py-5 px-6 rounded-xl font-bold text-lg text-center transition-all border-2 ${
               answers[currentQuestion.id] === true
-                ? "bg-[#0f7650] text-white border-[#0f7650] shadow-md scale-[1.02]"
-                : "bg-gray-50 text-black border-gray-200 hover:bg-green-50"
+                ? "bg-[#000000] text-white border-[#000000] shadow-md scale-[1.02]"
+                : "bg-gray-50 text-black border-gray-200 hover:bg-gray-100"
             }`}
           >
             {isLektionGerman ? "Richtig" : "Correct"}
@@ -1124,7 +1126,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
             value={(answers[currentQuestion.id] as string) || ""}
             onChange={(e) => handleAnswer(e.target.value)}
             placeholder={isLektionGerman ? "Ihre Antwort hier eingeben..." : "Enter your answer here..."}
-            className="w-full h-40 p-5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0f7650] focus:border-transparent transition-all font-medium resize-none shadow-sm text-lg"
+            className="w-full h-40 p-5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#000000] focus:border-transparent transition-all font-medium resize-none shadow-sm text-lg"
           ></textarea>
         </div>
       )}
@@ -1134,7 +1136,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
           <p className="text-gray-500 mb-6 font-medium text-center">
             {isLektion2 ? "Schreiben Sie diese Zahl als Nummer:" : "Write this number as digits:"}
           </p>
-          <h3 className="text-3xl md:text-4xl font-bold text-center text-[#0f7650] leading-snug tracking-tight mb-8">
+          <h3 className="text-3xl md:text-4xl font-bold text-center text-[#000000] leading-snug tracking-tight mb-8">
             {currentQuestion.question}
           </h3>
           <div className="w-full max-w-sm flex flex-col items-center">
@@ -1146,7 +1148,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
               value={(answers[currentQuestion.id] as string) || ""}
               onChange={(e) => handleAnswer(e.target.value)}
               placeholder="z.B. 27"
-              className="w-full text-center text-2xl p-4 border-2 rounded-xl focus:outline-none transition-colors shadow-sm bg-white border-gray-300 focus:border-[#0f7650]"
+              className="w-full text-center text-2xl p-4 border-2 rounded-xl focus:outline-none transition-colors shadow-sm bg-white border-gray-300 focus:border-[#000000]"
               autoFocus
             />
           </div>

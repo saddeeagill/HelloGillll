@@ -1,8 +1,19 @@
 'use client';
 
-export default function Logo() {
+import Link from 'next/link';
+
+export default function Logo({ showBack = false }: { showBack?: boolean }) {
   return (
-    <div className="flex justify-center py-4 bg-white">
+    <div className="flex justify-center py-4 bg-white relative">
+      {showBack && (
+        <Link 
+          href="/" 
+          className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black font-semibold text-sm flex items-center gap-1"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+          Zurück
+        </Link>
+      )}
       <div
         translate="no"
         className="notranslate"
