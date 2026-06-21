@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import VocabularyView from '@/components/VocabularyView';
 import ExamView from '@/components/ExamView';
 import LessonView from '@/components/lessons/LessonView';
+import HabenSeinView from '@/components/HabenSeinView';
 import Logo from '@/components/Logo';
 
 export default function LevelPage() {
@@ -15,7 +16,7 @@ export default function LevelPage() {
   const [vocabCategory, setVocabCategory] = useState('Nouns');
   const [vocabExpanded, setVocabExpanded] = useState(true);
   const [lessonsExpanded, setLessonsExpanded] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+
   const levelUpper = level.toUpperCase();
   
   const a1Lektionen = Array.from({ length: 16 }, (_, i) => i + 1);
@@ -32,35 +33,18 @@ export default function LevelPage() {
             <Logo showBack={true} />
           </div>
           
+          {/* Mobile Level Title */}
+          <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-black z-10 pointer-events-none">
+            {levelUpper}
+          </div>
+
           {/* Mobile Sidebar Toggle Button */}
           <button 
-            className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-800 hover:text-black transition-colors z-30"
+            className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-800 hover:text-black transition-colors z-30 flex items-center gap-1.5 bg-gray-50/80 px-2.5 py-1.5 rounded-lg border border-gray-200"
             onClick={() => setSidebarOpen(!sidebarOpen)}
           >
-            {sidebarOpen ? (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            ) : (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            )}
+            <span className="font-semibold text-sm">Menü</span>
           </button>
-
-          {/* Search Bar on Desktop (Absolute Right) */}
-          <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 w-64 lg:w-80 z-30">
-            <div className="relative group w-full">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Suchen..."
-                className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-          </div>
         </div>
 
       </div>
@@ -101,7 +85,7 @@ export default function LevelPage() {
                       : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
                   }`}
                 >
-                  <span>Wortschatz</span>
+                  <span>Vokabular</span>
                   <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${vocabExpanded && activeView === 'vocabulary' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${vocabExpanded && activeView === 'vocabulary' ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
@@ -141,18 +125,7 @@ export default function LevelPage() {
                   haben & sein
                 </button>
               </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('exam'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
-                    activeView === 'exam' 
-                      ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
-                      : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
-                  }`}
-                >
-                  Prüfung
-                </button>
-              </li>
+
             </ul>
 
             {levelUpper === 'A1' && (
@@ -216,6 +189,18 @@ export default function LevelPage() {
                 </div>
               </div>
             )}
+            <div className="mt-8">
+              <button 
+                onClick={() => { setActiveView('exam'); setSidebarOpen(false); }}
+                className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
+                  activeView === 'exam' 
+                    ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
+                    : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
+                }`}
+              >
+                Prüfung {levelUpper}
+              </button>
+            </div>
           </div>
         </aside>
 
@@ -223,7 +208,7 @@ export default function LevelPage() {
         <main className="flex-grow p-4 md:p-8 lg:p-12 text-black overflow-y-auto w-full bg-gray-50/30">
           <div className="w-full max-w-5xl mx-auto h-full">
             {activeView === 'vocabulary' && (
-              <VocabularyView level={levelUpper} activeCategory={vocabCategory} searchQuery={searchQuery} />
+              <VocabularyView level={levelUpper} activeCategory={vocabCategory} />
             )}
             {activeView === 'exam' && <ExamView />}
             
@@ -237,12 +222,7 @@ export default function LevelPage() {
               activeView === `a2_lektion_${num}` && <LessonView key={`a2_${num}`} lessonId={`a2_lektion_${num}`} />
             ))}
 
-            {activeView === 'haben_sein' && (
-              <div className="flex flex-col items-center justify-center h-64 text-center">
-                <h2 className="text-2xl font-bold text-gray-500 mb-2">haben & sein coming soon!</h2>
-                <p className="text-gray-400">This section is under construction.</p>
-              </div>
-            )}
+            {activeView === 'haben_sein' && <HabenSeinView />}
           </div>
         </main>
       </div>

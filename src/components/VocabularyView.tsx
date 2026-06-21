@@ -35,8 +35,9 @@ const CATEGORIES = [
   "Modal Verbs",
 ];
 
-export default function VocabularyView({ level = "A1", activeCategory = "Nouns", searchQuery = "" }: { level?: string, activeCategory?: string, searchQuery?: string }) {
-  const [selectedLangCode, setSelectedLangCode] = useState("en");
+export default function VocabularyView({ level = "A1", activeCategory = "Nouns" }: { level?: string, activeCategory?: string }) {
+  const [selectedLangCode, setSelectedLangCode] = useState("pt");
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Quiz State
   const [quizState, setQuizState] = useState<{
@@ -181,15 +182,29 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns",
     <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-3 md:px-0 relative">
       {/* Header section */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-4 md:mb-6 pt-2">
-        <div className="flex items-center gap-2">
-          <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight">
-            Wortschatz
+        <div className="flex flex-col items-start gap-3 w-full lg:w-auto">
+          <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight whitespace-nowrap">
+            Vokabular
           </h1>
+          <div className="relative group w-full md:w-64 lg:w-80">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg className="h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Suchen..."
+              className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
         
         {/* Controls: Language Selector */}
         <div className="flex items-center gap-2 shrink-0 justify-end w-full lg:w-auto">
-          <label className="text-sm font-bold text-gray-500 uppercase tracking-wide">Sprache:</label>
+          <label className="text-sm font-bold text-gray-500 uppercase tracking-wide"> Muttersprache </label>
           <select 
             value={selectedLangCode}
             onChange={(e) => setSelectedLangCode(e.target.value)}
@@ -338,7 +353,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns",
 
                     const quizRow = (
                       <tr key={`quiz-row-${wordsSoFar}`} className="bg-gray-100">
-                        <td colSpan={colSpanCount} className="py-4 px-4 text-right border-b border-gray-200">
+                        <td colSpan={colSpanCount} className="py-4 px-4 text-left border-b border-gray-200">
                           <button
                             onClick={() => startQuiz(wordsSoFar, numQuestions)}
                             className="px-10 py-2.5 bg-black text-white font-bold rounded-xl shadow-md hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"

@@ -29,7 +29,7 @@ export default function VocabQuizView({ level = "A1" }: { level?: string }) {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 md:mb-6 pt-2">
         <div className="flex items-center gap-2">
           <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight">
-            Wortschatz Quiz
+            Vokabular Quiz
           </h1>
         </div>
         

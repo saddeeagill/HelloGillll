@@ -45,7 +45,7 @@ export default function ExamView() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 pt-4">
         <div className="flex items-center gap-3 md:gap-4">
           <h1 className="text-2xl md:text-4xl font-extrabold text-[#000000] drop-shadow-sm tracking-tight">
-            Prüfung <span className="text-gray-400 text-xl md:text-2xl font-semibold ml-2">(Exam)</span>
+            Prüfung
           </h1>
         </div>
       </div>

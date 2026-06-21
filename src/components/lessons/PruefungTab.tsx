@@ -928,7 +928,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
             {isLektionGerman ? "Lektionsprüfung" : "Lesson test"}
           </h2>
           <p className="text-gray-500 text-center mb-10 font-medium">
-            {isLektion16 ? "Lektion 16 - Wortschatz" : (isLektion15 ? "Lektion 15 - Vergangenheit" : (isLektion14 ? "Lektion 14 - Zeit" : (isLektion13 ? "Lektion 13 - Trennbare Verben" : (isLektion12 ? "Lektion 12 - Adjektive" : (isLektion11 ? "Lektion 11 - Negation" : (isLektion10 ? "Lektion 10 - Fragen" : (isLektion9 ? "Lektion 9 - Präpositionen" : (isLektion8 ? "Lektion 8 - Satzbau" : (isLektion7 ? "Lektion 7 - Modalverben (Super Sieben)" : (isLektion6 ? "Lektion 6 - Verben" : (isLektion5 ? "Lektion 5 - Artikel und Demonstrativpronomen" : (isLektion4 ? "Lektion 4 - Pronomen" : (isLektion3 ? "Lektion 3 - Nomen, Geschlecht, Plural" : (isLektion2 ? "Lektion 2 - Zahlen" : "Lesson 1 - Introducing yourself"))))))))))))))}
+            {isLektion16 ? "Lektion 16 - Vokabular" : (isLektion15 ? "Lektion 15 - Vergangenheit" : (isLektion14 ? "Lektion 14 - Zeit" : (isLektion13 ? "Lektion 13 - Trennbare Verben" : (isLektion12 ? "Lektion 12 - Adjektive" : (isLektion11 ? "Lektion 11 - Negation" : (isLektion10 ? "Lektion 10 - Fragen" : (isLektion9 ? "Lektion 9 - Präpositionen" : (isLektion8 ? "Lektion 8 - Satzbau" : (isLektion7 ? "Lektion 7 - Modalverben (Super Sieben)" : (isLektion6 ? "Lektion 6 - Verben" : (isLektion5 ? "Lektion 5 - Artikel und Demonstrativpronomen" : (isLektion4 ? "Lektion 4 - Pronomen" : (isLektion3 ? "Lektion 3 - Nomen, Geschlecht, Plural" : (isLektion2 ? "Lektion 2 - Zahlen" : "Lesson 1 - Introducing yourself"))))))))))))))}
           </p>
 
           <form onSubmit={handleStart} className="space-y-6">
@@ -1020,7 +1020,7 @@ export default function PruefungTab({ lesson }: { lesson?: Lesson }) {
           {isLektionGerman ? "Lektionsprüfung" : "Lesson test"}
         </h2>
         <p className="text-gray-500 font-medium mb-6">
-          {isLektion16 ? "Lektion 16 - Wortschatz" : (isLektion15 ? "Lektion 15 - Vergangenheit" : (isLektion14 ? "Lektion 14 - Zeit" : (isLektion13 ? "Lektion 13 - Trennbare Verben" : (isLektion12 ? "Lektion 12 - Adjektive" : (isLektion11 ? "Lektion 11 - Negation" : (isLektion10 ? "Lektion 10 - Fragen" : (isLektion9 ? "Lektion 9 - Präpositionen" : (isLektion8 ? "Lektion 8 - Satzbau" : (isLektion7 ? "Lektion 7 - Modalverben (Super Sieben)" : (isLektion6 ? "Lektion 6 - Verben" : (isLektion5 ? "Lektion 5 - Artikel und Demonstrativpronomen" : (isLektion4 ? "Lektion 4 - Pronomen" : (isLektion3 ? "Lektion 3 - Nomen, Geschlecht, Plural" : (isLektion2 ? "Lektion 2 - Zahlen" : "Lesson 1 - Introducing yourself"))))))))))))))}
+          {isLektion16 ? "Lektion 16 - Vokabular" : (isLektion15 ? "Lektion 15 - Vergangenheit" : (isLektion14 ? "Lektion 14 - Zeit" : (isLektion13 ? "Lektion 13 - Trennbare Verben" : (isLektion12 ? "Lektion 12 - Adjektive" : (isLektion11 ? "Lektion 11 - Negation" : (isLektion10 ? "Lektion 10 - Fragen" : (isLektion9 ? "Lektion 9 - Präpositionen" : (isLektion8 ? "Lektion 8 - Satzbau" : (isLektion7 ? "Lektion 7 - Modalverben (Super Sieben)" : (isLektion6 ? "Lektion 6 - Verben" : (isLektion5 ? "Lektion 5 - Artikel und Demonstrativpronomen" : (isLektion4 ? "Lektion 4 - Pronomen" : (isLektion3 ? "Lektion 3 - Nomen, Geschlecht, Plural" : (isLektion2 ? "Lektion 2 - Zahlen" : "Lesson 1 - Introducing yourself"))))))))))))))}
         </p>
         
         {/* Exam Section Tabs */}

@@ -28,12 +28,12 @@ export const LESSON_1: Lesson = {
     {
       id: 't_wie_tee',
       title: 'T wie Tee',
-      content: 'Inhalte für "T wie Tee" kommen bald...'
+      content: 'Ich lerne Buchstaben. Meine Freundin Lisa hilft mir. Lisa ist meine beste Freundin. Wir trinken Tee zusammen. Tee ist warm. Wir sitzen am Tisch. Mein Bruder Pedro ist lustig. Er will auch Deutsch lernen. Wir sagen A, B, C. Ich kann Buchstaben schreiben. Mein Vorname ist Maria. Mein Familienname ist Silva. Ich habe eine Oma und einen Opa. Meine Grosseltern wohnen in Portugal. Ich schreibe ihnen Briefe. Lisa hat einen Sohn. Ihr Sohn ist klein. Er spielt mit Ball. Eine Dame und ein Mann wohnen nebenan. Sie sind Grossmutter und Grossvater. Sie sind sehr nett. Ich kenne ein Mädchen. Sie heisst Anna. Anna ist eine Jugendliche und sie sagt Dank an ihre Grosseltern. Buchstaben machen uns Spass. Ich will mehr üben. Wir können jeden Tag lernen. Ich bin froh und ich kann bald Deutsch sprechen. Leichte Sprache ist toll. Ich bin eine Hausfrau, aber ich will arbeiten. Mein Partner ist Hausmann. Wir wollen zusammen lernen und leben.'
     },
     {
       id: 'zahl_mit_ball',
       title: 'Zahl mit Ball',
-      content: 'Inhalte für "Zahl mit Ball" kommen bald...'
+      content: 'Ich bin neu in Schweiz. Ich will sprechen, hören und lernen. Ich gehe oft raus und schaue Leute. Heute gehe ich zu einem Platz mit vielen Kindern. Zwei Jungen spielen mit einem Ball. Sie rufen laut: eins, zwei, drei. Dann vier, fünf, sechs. Ich höre zu. Ich spreche die Zahlen leise mit. Ich lache. Ich bin froh. Ich will so lernen. Ich sehe auch ein Mädchen. Es steht bei einer Mutter. Die Mutter trägt ein Baby. Das Baby schläft. Ich gehe langsam weiter. Ich sehe einen alten Grossvater. Er redet mit einer Grossmutter. Beide sitzen ruhig. Ich nicke höflich. Ich höre, wie sie leise sprechen. Ich finde das schön. Ich sehe eine Hausfrau, die ich schon kenne. Sie ist meine Bekannte. Wir sprechen langsam. Ich sage meinen Vornamen, sie sagt ihren Familiennamen. Ich sage Danke. Dann gehe ich weiter. Ich mache einen Anruf. Ich rufe meinen Bruder an. Ich sage: "Ich bin draussen." Ich sehe Kinder mit Ball. Sie zählen laut. Ich spreche mit. Ich lerne Deutsch. Mein Bruder sagt: "gut gemacht". Ich höre gern seine Stimme. Ich sehe einen Hund. Er läuft mit einem Mädchen. Der Hund bleibt kurz stehen. Ich streichle ihn. Er ist freundlich. Ich denke, ich bin erwachsen. Ich kann überall lernen. Ich muss nur offen sein. Lernen ist überall möglich. Ich bin stolz. Ich gehe nach Hause. Ich schreibe eine kleine Liste. Ich will Wörter wiederholen. Ich freue mich auf den nächsten Tag. Ich will wieder Menschen sehen. Ich will wieder lernen. Ich will sprechen und verstehen.'
     }
   ],
   nomenList: [
@@ -69,7 +69,7 @@ export const LESSON_2: Lesson = {
     {
       id: 'berg_bett',
       title: 'Berg & Bett',
-      content: 'Inhalte für "Berg & Bett" kommen bald...'
+      content: 'Ich wohne jetzt in Schweiz. Ich bin neu hier. Ich habe ein Apartment in Dorf. Meine Schwester hat zwei Apartments im Heimatland. Aber meine Mutter hat drei Häuser. Balkon in mein Apartment ist gross. Ich sehe sechs Berge und Wald. Ich finde Natur schön. Im Haus gibt es vier Wohnungen. Mein Eingang ist bei Strasse und Strasse ist laut. Hinter Haus sind zwei Gärten. Ich höre drei Autos. Neben Eingang ist Aufzug. Ich kann Aufzug nehmen, aber ich will Treppe laufen. Treppe ist lang. Ich wohne im dritten Stock. Ich muss oft Stöcke zählen. Mein Raum ist gross. Ich habe Licht im Raum. Neben Raum ist Bad. Im Bad ist Toilette, und Toilette ist neu. Dusche ist klein, aber ich kann gut duschen. Im Bad ist auch Ecke mit zwei Schränke. Schränke sind grün und gross. Ich lege Handtuch in Schrank. Bett steht in Mitte vom Raum. Bett ist weich. Ich schlafe gut. Neben Bett ist Tisch. Auf Tisch liegen drei Schlüssel. Ohne Schlüssel kann ich nicht raus. Auf Wand hängt Bild und Bild zeigt See und Berge. Ich liebe das Bild. In Küche habe ich Herd und Kühlschrank. Kühlschrank ist leer. Ich will Suppe kochen. Ich brauche Gemüse. Herd ist alt, aber ich kann gut kochen. Miete ist hoch, aber ich will bleiben. Ich finde Wohnung super. Ich will Ordnung machen. Möbel sind schön. Ich habe zwei Tische. Tische sind alt. Ich will Farbe kaufen. Ich will Wand bunt machen. Mein Leben ist ruhig hier. Ich finde Ruhe gut.'
     }
   ],
   nomenList: [
@@ -131,7 +131,7 @@ export const LESSON_3: Lesson = {
     {
       id: "wollen_chillen",
       title: "Wollen chillen",
-      content: "",
+      content: "Mia wacht am Morgen auf. Die Sonne scheint hell. Der Wind kommt durch das Fenster. Es ist Winter, aber Mia hat warme Decken. Sie steht auf und geht in den Garten. Dort sieht sie einen grossen Baum. Der Baum ist still. Neben dem Baum liegt eine kleine Blume. Die Blume ist bunt, auch im Winter. Mia freut sich.\n\nDann läuft sie weiter zum See. Das Wasser im See ist klar. Der Wind macht kleine Wellen. Die Sonne spiegelt sich im Wasser. Mia setzt sich auf eine Bank und schaut lange. Sie denkt: „Ich habe den Morgen. Ich habe die Sonne. Ich habe den Wind.\" Sie lächelt.\n\nMia denkt an ihre Woche. Am Montag hat sie Arbeit. Am Dienstag besucht sie ihre Mutter. Am Mittwoch hat sie Sport. Am Donnerstag spielt sie Musik. Am Freitag kocht sie. Am Samstag liest sie ein Buch. Am Sonntag geht sie wieder zum See. Dort sieht sie den Baum, die Blume und das Wasser. Sie atmet tief. Sie denkt: „Ich habe den Winter. Ich habe eine gute Woche. Ich bin glücklich.\"",
     }
   ],
   nomenList: [
@@ -223,6 +223,11 @@ export const LESSON_6: Lesson = {
       id: "r_wie_ring",
       title: "R wie Ring",
       content: "Ein Mann findet auf der Strasse einen Ring. Der Ring ist aus Gold. Der Mann fragt: „Wem gehört der Ring?“ Ein Kind antwortet: „Keine Ahnung.“ Der Mann geht in eine Bäckerei. Er fragt die Frau hinter dem Tresen: „Ist das Ihr Ring?“ Die Frau antwortet: „Nein, das ist nicht mein Ring.“ Der Mann legt den Ring in seine Tasche. Er geht nach Hause. Zu Hause sieht er eine Adresse auf dem Ring. Die Adresse steht ganz klein auf dem Ring. Der Mann schreibt einen Brief. Im Brief schreibt er: „Ich habe Ihren Ring gefunden.“ Am nächsten Tag ruft eine Person an. Die Person sagt: „Das ist mein Ring! Danke!“ Der Mann lacht.",
+    },
+    {
+      id: "geschenk",
+      title: "Geschenk!",
+      content: "Elena geht in einen Laden. Vor der Tür hängt ein Schild. Auf dem Schild steht: „Neue Kleidung, kleiner Preis.\" Elena freut sich. Im Laden sieht sie eine rote Jacke. Sie nimmt die Jacke und schaut auf die Grösse. Die Grösse passt. Elena probiert auch einen Schuh. Der Schuh ist bequem. Sie nimmt ein Paar. Dann sieht sie auf die Uhr. Es ist schon spät. Elena geht zur Kasse und nimmt eine Tüte. Sie legt die Jacke und die Schuhe hinein. Der Preis ist gut. Elena bezahlt. Vor dem Laden denkt sie an ein Geschenk für ihre Freundin. Sie geht noch einmal hinein. Sie findet ein kleines Geschenk. Es ist ein Schal. Sie steckt den Schal in die Tüte. Danach geht sie in ein Lokal. Im Lokal setzt sie sich an einen Tisch. Auf dem Tisch liegt eine Uhr als Dekoration. Elena lacht. Sie holt ihre Tüte. Sie schaut auf die neue Jacke und den neuen Schuh. Sie denkt: „Ich habe eine gute Grösse gefunden. Ich habe ein schönes Geschenk. Ich habe neue Kleidung.\" Elena trinkt Wasser im Lokal und ist zufrieden."
     }
   ],
   nomenList: [
@@ -317,6 +322,11 @@ export const LESSON_9: Lesson = {
       id: "brot_und_los",
       title: "Brot & Los",
       content: "Heute ist Sonntag. Ich will Frühstück machen. Ich gehe in Küche und es ist klein, aber fein. Ich finde keinen Käse. Ich mache Brot mit Tomate. Ich nehme Teller. Teller liegt auf Tisch. Ich will Farbe sehen. Ich nehme rote Tasse. Ich öffne Kühlschrank und es ist leer. Ich will nicht einkaufen. Ich suche Messer, und ich finde Messer im Schrank. Ich mag Ordnung. Ich lege alles richtig. Ecke ist dunkel. Ich höre Musik. Musik ist laut. Ich will Pause machen. Ich setze mich auf Stuhl. Neben mir ist Aufzug. Aufzug ist laut. Ich will nicht Aufzug fahren. Ich nehme Treppe. Ich zähle Stock. Ich bin müde. Garten ist ruhig. Ich esse Brot im Garten und Garten ist grün. Ich sehe Bild an Wand und Bild zeigt Kuh. Ich lache. Ich will Bild malen. Leben in Schweiz ist schön. Ich denke an Wohnung. Ich habe viele Möbel. Möbel sind alt, aber ich kann gut damit leben. Mein Raum ist bunt. Ich habe Teppich. Ich liebe Farben. Ich sehe Schlüssel und Schlüssel liegt auf Boden. Ich nehme ihn. Ohne Schlüssel bin ich verloren. Ich mache Tür zu. Tür ist kaputt. Ich will neue Tür kaufen. Heute ist kein guter Tag, aber ich kann lachen.",
+    },
+    {
+      id: "baby_und_blumen",
+      title: "Baby & Blumen!",
+      content: "Clara wacht am Morgen auf. Draussen ist Winter. Der Wind weht. Die Sonne scheint aber auch. Clara zieht die Jacke an und geht hinaus. Vor dem Haus steht ein grosser Baum. Am Boden liegt etwas Schnee. Clara sieht eine kleine Blume, die schon wächst. Sie lächelt. Am See bewegt sich das Wasser. Der Wind macht kleine Wellen. Clara atmet tief ein. Sie denkt: „Heute ist schön.\" Auf dem Arm trägt sie ihr Baby. Das Baby schaut zur Sonne. Es lacht. Clara ist froh. Sie setzt sich auf eine Bank am See. Sie hört das Wasser. Sie schaut den Baum an. Sie riecht die Blume. Das Baby schläft ein. Clara denkt an die Woche. Am Montag geht sie arbeiten. Am Dienstag besucht sie eine Freundin. Am Mittwoch hat sie einen Termin. Am Donnerstag macht sie Sport. Am Freitag geht sie einkaufen. Am Samstag kocht sie. Am Sonntag geht sie wieder zum See. Sie nimmt ihr Baby und zeigt ihm den Baum, das Wasser und die Blume. Clara denkt: „Ich habe die Sonne. Ich habe den Wind. Ich habe mein Baby. Ich bin glücklich.\""
     }
   ],
   nomenList: [
@@ -416,6 +426,21 @@ export const LESSON_12: Lesson = {
       id: "bestes_fest",
       title: "Bestes Fest!",
       content: "Lisa bekommt eine Einladung. Am Samstag ist eine Feier. Sie freut sich. Auf dem Tisch liegt ein Ticket. Mit dem Ticket kann sie zur Party gehen. Am Abend kommt sie an. Viele Gäste warten schon. Jeder Gast hat einen Platz. Lisa sitzt neben ihrer Freundin. Es gibt Musik und ein Lied. Alle singen. Danach reden sie über Sport. Ein Junge spricht über Fussball. An der Wand hängt ein grosses Poster von einer Mannschaft. Lisa lacht. Später gibt es Kuchen. Alle essen. Nach der Feier geht Lisa nach Hause. Am nächsten Tag sieht sie ein neues Poster in der Stadt. Es zeigt ein Kino. Dort läuft ein neuer Film. Lisa nimmt einen Prospekt. Darin steht: „Film nur mit Anmeldung.“ Sie ruft an und macht die Anmeldung. Am Abend geht sie ins Kino. Sie zeigt ihr Ticket. Sie setzt sich auf einen guten Platz. Viele Gäste sind da. Vor dem Film läuft ein Lied. Lisa denkt: „Gestern hatte ich eine Party. Heute habe ich einen Film. Ich habe Spass.“ Sie schaut den Film bis zum Ende. Dann geht sie heim. Sie ist froh.",
+    },
+    {
+      id: "migros_ist_gross",
+      title: "Migros ist gross!",
+      content: "Nina kauft eine CD. Auf der CD ist neue Musik. Sie setzt sich auf einen Stuhl und hört die CD. Sie bewegt den Arm im Takt. Sie nickt mit dem Kopf. Sie schliesst ein Auge und lacht. Dann legt sie die Hand auf den Bauch. Sie fühlt, wie der Bauch sich bewegt. Danach stellt sie ein Bein auf den Boden und tippt mit dem Fuss. Sie singt mit dem Mund. Nina denkt: „Ich habe gute Musik. Ich habe Freude.\" Am Abend schaut sie in den Spiegel. Sie sieht ihr Haar. Sie kämmt das Haar und bindet es zusammen. Sie bewegt den Arm hoch. Sie schaut auf die Hand. Sie hebt ein kleines Gewicht. Sie macht Sport. Sie sagt: „Ich habe Kraft.\" Dann streckt sie das andere Bein. Der Fuss steht fest auf dem Boden. Sie atmet tief durch den Mund. Der Kopf ist leicht. Das Auge ist ruhig. Der Bauch ist stark. Nina hört wieder die CD. Sie bewegt sich zu der Musik. Sie denkt: „Ich habe einen gesunden Körper. Ich bin zufrieden.\""
+    },
+    {
+      id: "schnell_und_hell",
+      title: "Schnell & hell!",
+      content: "Ali denkt an den Verkehr. Er will heute reisen. An der Haltestelle wartet schon ein Bus. Ali hat aber ein Fahrrad. Er fährt los. Auf der Strasse sieht er ein Auto und einen Lkw. Sie fahren auf die Autobahn. Ali fährt weiter bis zur Strassenbahn. Dort wartet eine kleine Gruppe. Alle hören Musik. Ali steigt ein. Die Strassenbahn fährt schnell. Nach kurzer Zeit erreicht er einen neuen Ort. Dort sieht er ein Hotel. Vor dem Hotel steht ein Automat. Ali nimmt ein Ticket. Auf dem Ticket steht die Uhrzeit und der Grad vom Wetter. Es sind 25 Grad. Ali ist froh. Er setzt sich in den Garten vom Hotel. Eine Gruppe singt Musik. Ali hört zu und lacht. Am Abend denkt er: „Heute war viel Verkehr. Ich habe einen Bus gesehen. Ich habe ein Auto und einen Lkw gesehen. Ich habe die Autobahn gesehen. Ich habe die Strassenbahn benutzt. Ich habe eine Gruppe gehört. Ich habe ein gutes Hotel gefunden. Ich bin zufrieden.\""
+    },
+    {
+      id: "schweiz_und_schalter",
+      title: "Schweiz & Schalter",
+      content: "Tom will heute einen Brief schreiben. Er nimmt eine Briefmarke und klebt sie auf den Brief. Dann geht er zur Post. In der Post ist ein Schalter. Ein Beamte sitzt dort. Tom sagt: „Ich habe hier einen Brief. Ich brauche eine Auskunft.\" Der Beamte nickt. Er nimmt den Brief und prüft die Briefmarke. Dann fragt er nach der Adresse und nach der Postleitzahl. Tom zeigt alles. Auf dem Brief sind Absender, Adresse, Postleitzahl und Datum. Der Beamte sagt: „Alles ist richtig.\" Tom ist froh. Neben dem Schalter liegt ein Formular. Darauf steht neue Information. Tom liest. In der Zeitung am Eingang findet er auch Information. Es geht um die Polizei und um das Telefon. Dort steht: Bei Notruf ist ein Anruf wichtig. Tom denkt: Das ist gut zu wissen. Dann klingelt sein Handy. Ein Freund spricht. Der Freund sagt: „Ich brauche deine Adresse.\" Tom lacht und liest die Adresse vor. Am Abend ist Tom zu Hause. Er denkt an den Brief. Er ist zufrieden. Er hat eine Briefmarke benutzt. Er hat ein Formular gesehen. Er hat neue Information. Er ist glücklich."
     }
   ],
   nomenList: [
@@ -553,7 +578,32 @@ export const LESSON_16: Lesson = {
     {
       id: "ich_lese_mit_kaese",
       title: "Ich lese mit Käse!",
-      content: "Anna hat einen neuen Job. Sie arbeitet in einer Firma. Ihr Chef ist streng. Eine Kollegin ist nett. Anna schreibt mit einem Kugelschreiber. Ein Kunde macht einen Anruf. Der Kunde will einen Termin. Anna notiert die Frage. Sie hat eine Stunde Zeit. Dann geht sie zum Chef. Der Chef sagt: „Der Termin ist möglich.“ Anna macht ein Praktikum. Sie arbeitet am Drucker. Die Maschine braucht Papier. Plötzlich ist ein Fehler. Der Drucker stoppt. Anna ruft die Kollegin. Die Kollegin sagt: „Wir brauchen neues Papier.“ Zusammen holen sie Papier. Die Maschine arbeitet wieder. Anna ist froh. In der Pause liest sie eine Zeitung. In der Zeitung ist eine Anzeige. Dort steht: „Neuer Job in einer grossen Firma.“ Anna lacht. Sie sagt: „Ich habe schon einen Job.“ Dann schreibt sie eine E-Mail. In der E-Mail steht eine Frage an den Chef. Am Abend ist Anna zu Hause. In der Tasche ist ein Kugelschreiber und ein Blatt Papier. Sie denkt an den Kunde und an den Termin. Zu Hause isst sie Brot mit Käse. Sie ist zufrieden.",
+      content: "Anna hat einen neuen Job. Sie arbeitet in einer Firma. Ihr Chef ist streng. Eine Kollegin ist nett. Anna schreibt mit einem Kugelschreiber. Ein Kunde macht einen Anruf. Der Kunde will einen Termin. Anna notiert die Frage. Sie hat eine Stunde Zeit. Dann geht sie zum Chef. Der Chef sagt: „Der Termin ist möglich.\" Anna macht ein Praktikum. Sie arbeitet am Drucker. Die Maschine braucht Papier. Plötzlich ist ein Fehler. Der Drucker stoppt. Anna ruft die Kollegin. Die Kollegin sagt: „Wir brauchen neues Papier.\" Zusammen holen sie Papier. Die Maschine arbeitet wieder. Anna ist froh. In der Pause liest sie eine Zeitung. In der Zeitung ist eine Anzeige. Dort steht: „Neuer Job in einer grossen Firma.\" Anna lacht. Sie sagt: „Ich habe schon einen Job.\" Dann schreibt sie eine E-Mail. In der E-Mail steht eine Frage an den Chef. Am Abend ist Anna zu Hause. In der Tasche ist ein Kugelschreiber und ein Blatt Papier. Sie denkt an den Kunde und an den Termin. Zu Hause isst sie Brot mit Käse. Sie ist zufrieden."
+    },
+    {
+      id: "zoo_und_so",
+      title: "Zoo & so!",
+      content: "Jonas hat Freizeit. Er geht in ein Hotel. An der Rezeption fragt er nach einer Karte. Er möchte einen Eintritt für den Zoo. Die Frau an der Rezeption gibt die Karte. Am Morgen steht Jonas vor dem Zoo. Ein Schild zeigt den Weg. Er geht hinein. Dort beginnt eine Führung. Ein Mann erklärt die Tiere. Jonas macht Fotos. Er denkt: „Das ist wie Urlaub.\" Später nimmt er einen Prospekt. Darin steht eine Reise ans Meer. Jonas liest alles. Ein Reiseführer spricht mit einer Gruppe. Jonas hört zu. Dann geht er weiter. Am Abend will Jonas noch ins Kino. Vor dem Kino hängt ein grosses Schild. Darauf steht der Name von einem Film. Jonas kauft eine Karte. Er zeigt die Karte am Eingang. Der Eintritt ist frei mit dem Gutschein aus dem Prospekt. Jonas lacht. Er denkt: „Ich habe einen Zoo besucht. Ich habe eine Führung gesehen. Ich habe einen guten Film.\" Spät in der Nacht ist er im Hotel. An der Rezeption sagt er: „Danke. Der Urlaub ist schön.\" Jonas geht ins Zimmer. Er hat viele Bilder und gute Erinnerungen."
+    },
+    {
+      id: "lernen_mit_sternen",
+      title: "Lernen mit Sternen!",
+      content: "Herr Meier ist Lehrer. Er geht in die Klasse. Dort warten viele Schüler. Heute hat er eine Aufgabe. Er zeigt ein Beispiel. Dann sagt er: „Bitte macht die Lösung.\" Ein Schüler schreibt einen Satz an die Tafel. Herr Meier nickt. Dann beginnt ein Lied. Die Schüler singen. Der Unterricht macht Spass. Danach liest Herr Meier einen Text. Das Thema ist Sport. Die Schüler hören zu. Dann gibt es eine Hausaufgabe. Herr Meier sagt: „Bitte schreibt den Text noch einmal mit dem Bleistift.\" Später macht er einen Test. Jeder Schüler bekommt ein Blatt. Darauf ist ein Satz. Die Schüler schreiben. Nach dem Test ist eine Pause. Alle gehen hinaus. Herr Meier bleibt in der Klasse. Er liest die Lösung. Er denkt: „Ich habe gute Schüler. Ich habe ein gutes Thema. Ich habe eine schöne Klasse.\" Nach der Pause kommt ein Schüler. Er sagt: „Die Hausaufgabe war leicht.\" Herr Meier lacht. Am Ende denkt er: „Ich habe meinen Unterricht. Ich habe meine Schüler. Ich bin froh.\""
+    },
+    {
+      id: "coop_loop",
+      title: "Coop-Loop!",
+      content: "Markus geht in ein Geschäft. Dort sieht er ein Angebot. Auf dem Tisch steht ein Glas. Daneben liegen viele Lebensmittel. Der Preis ist klein. Markus nimmt eine Tüte und legt Obst hinein. An der Kasse schaut die Frau auf die Uhr. Markus lacht und sagt: „Ich habe Zeit.\" Er zahlt. Dann geht er weiter. Im Regal liegt ein Geschenk. Markus denkt an seine Mutter. Er nimmt das Geschenk in seine Tasche. Danach kauft er ein Hähnchen. Er steckt es auch in die Tüte. Draußen sieht er ein kleines Lokal. Er setzt sich an einen Tisch. Auf dem Tisch steht ein Glas Wasser. Markus holt seine Tasche und seine Tüte. Er denkt: „Ich habe ein Geschenk. Ich habe ein Hähnchen. Ich habe viele Lebensmittel.\" Im Lokal läuft Musik. Markus sieht auf die Uhr. Es ist schon spät. Er trinkt aus dem Glas und geht nach Hause. Dort packt er alles aus. Er legt die Lebensmittel in den Schrank. Er legt das Geschenk auf den Tisch. Markus ist froh."
+    },
+    {
+      id: "zug_und_klug",
+      title: "Zug & klug!",
+      content: "Laura fährt mit der Bahn. Sie geht früh zum Bahnhof. Am Eingang hört sie eine Ansage: „Achtung am Gleis 3, der Zug fährt ein.\" Viele Menschen warten schon. Laura zeigt ihre Fahrkarte. Dann steigt sie in die S-Bahn. Im Zug macht sie einen Blick aus dem Fenster. Sie sieht einen neuen Ort. Dort ist das Meer. Laura macht ein Foto. Eine Durchsage sagt: „Die Ankunft ist in zehn Minuten.\" Laura freut sich. Am Ort macht sie einen kleinen Ausflug. Sie besucht eine Sehenswürdigkeit. Dann geht sie in ein Hotel. Sie hat ein Zimmer mit Halbpension. Am Abend liest sie die Speisekarte. Es gibt Fisch und Gemüse. Laura ist froh. Am nächsten Morgen hört sie wieder eine Ansage. Sie muss zurück. Am Gleis wartet ihr Zug. Ein Mann fragt nach dem Anschluss. Laura zeigt ihm ihre Fahrkarte. Sie sagt: „Der Anschluss ist im nächsten Bahnhof.\" Der Mann bedankt sich. Laura lacht. Sie denkt: „Der Ausflug war schön. Ich habe viele Fotos. Ich habe gute Erinnerungen.\" Dann kommt die Durchsage: „Bitte einsteigen.\" Laura nimmt ihren Platz. Der Zug fährt los."
+    },
+    {
+      id: "hallo_handy",
+      title: "Hallo Handy!",
+      content: "Heute bin ich in Post. Ich will Brief schicken. Er ist für meine Schwester. Ich will lange Nachricht schreiben. Ich nehme eine bunte Briefmarke und will sie aufkleben. Dann hole ich ein langes Formular. Ich schreibe Name, Adresse, Postleitzahl, Datum und Absender. Ich brauche Hilfe. Ich sehe eine Frau am Schalter. Ich sage, dass ich Information brauche. Sie sagt: \"Es ist kein Problem\", und gibt mir einen Kugelschreiber. Ich frage, ob ich den Brief heute schicken kann. Sie sagt: \"Ja\". Ich will Brief abgeben. Ich will auch meine Schwester anrufen. Sie hat Telefon an Wand und sie hört eine Klingel. Niemand antwortet. Mein Handy ist modern. Ich höre Musik. Dann sehe ich einen Mann und er braucht Hilfe. Ich sage: \"Hallo.\" Er fragt: \"Wo ist die Polizei?\" Ich will ihm Weg zeigen. Wir gehen zusammen. Dort fragt er nach Auskunft. Ein Beamter kommt, er ist freundlich und bittet um Geduld. Ich nicke. Dann gehe ich in Bank. Ich nehme meinen Pass mit und sehe den nächsten freien Schalter. Ich sage: \"Ich will ein neues Konto eröffnen.\" Die Frau dort gibt mir eine Karte. Ich bin froh. Zu Hause lese ich eine Zeitung mit vielen Bildern und trinke Tee. Ich bin müde, aber zufrieden."
     }
   ],
   nomenList: [
