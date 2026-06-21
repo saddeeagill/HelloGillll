@@ -33,10 +33,7 @@ export default function LevelPage() {
             <Logo showBack={true} />
           </div>
           
-          {/* Mobile Level Title */}
-          <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-black z-10 pointer-events-none">
-            {levelUpper}
-          </div>
+          {/* Mobile Level Title (Removed from here, moved to main content) */}
 
           {/* Mobile Sidebar Toggle Button */}
           <button 
@@ -207,6 +204,9 @@ export default function LevelPage() {
         {/* Main Content Area */}
         <main className="flex-grow p-4 md:p-8 lg:p-12 text-black overflow-y-auto w-full bg-gray-50/30">
           <div className="w-full max-w-5xl mx-auto h-full">
+            {/* Mobile Level Title placed above the active view */}
+            <h2 className="md:hidden text-2xl font-bold mb-4 text-[#000000]">{levelUpper}</h2>
+            
             {activeView === 'vocabulary' && (
               <VocabularyView level={levelUpper} activeCategory={vocabCategory} />
             )}

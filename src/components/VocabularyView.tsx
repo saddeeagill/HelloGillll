@@ -181,29 +181,32 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
   return (
     <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-3 md:px-0 relative">
       {/* Header section */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-4 md:mb-6 pt-2">
-        <div className="flex flex-col items-start gap-3 w-full lg:w-auto">
+      <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 mb-4 md:mb-6 pt-2">
+        {/* Title */}
+        <div className="flex-1 flex justify-start">
           <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight whitespace-nowrap">
             Vokabular
           </h1>
-          <div className="relative group w-full md:w-64 lg:w-80">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg className="h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <input
-              type="text"
-              placeholder="Suchen..."
-              className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+        </div>
+        
+        {/* Search Bar */}
+        <div className="flex-1 relative group w-full">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg className="h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </div>
+          <input
+            type="text"
+            placeholder="Suchen..."
+            className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
         
         {/* Controls: Language Selector */}
-        <div className="flex items-center gap-2 shrink-0 justify-end w-full lg:w-auto">
+        <div className="flex-1 flex items-center gap-2 justify-start md:justify-end w-full">
           <label className="text-sm font-bold text-gray-500 uppercase tracking-wide"> Muttersprache </label>
           <select 
             value={selectedLangCode}

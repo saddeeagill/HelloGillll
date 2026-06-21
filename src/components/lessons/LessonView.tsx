@@ -7,7 +7,12 @@ import TheorieTab from "./TheorieTab";
 import PruefungTab from "./PruefungTab";
 import { LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_5, LESSON_6, LESSON_7, LESSON_8, LESSON_9, LESSON_10, LESSON_11, LESSON_12, LESSON_13, LESSON_14, LESSON_15, LESSON_16 } from "@/data/lessons";
 
-const TABS = ["Geschichte", "Nomen", "Quiz", "Theorie", "Prüfung"];
+const getTabs = (lessonId: string) => {
+  const lessonNum = parseInt(lessonId.replace('lektion_', ''), 10) || 1;
+  return (lessonNum >= 4 && lessonNum <= 16) 
+    ? ["Geschichte", "Nomen", "Theorie"] 
+    : ["Geschichte", "Nomen", "Quiz", "Theorie", "Prüfung"];
+};
 
 export default function LessonView({ lessonId }: { lessonId: string }) {
   const [activeTab, setActiveTab] = useState("Geschichte");
@@ -33,6 +38,8 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
     : lessonId === 'lektion_3' ? LESSON_3
     : lessonId === 'lektion_2' ? LESSON_2
     : LESSON_1;
+
+  const TABS = getTabs(lesson.id);
 
   useEffect(() => {
     setActiveTopicId(lesson.topics[0]?.id || "");
@@ -69,13 +76,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
               onClick={() => setShowPrintMenu(!showPrintMenu)}
               className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-black text-sm font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-sm print:hidden"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-              </svg>
-              PDF Drucken
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              PDF / Drucken
             </button>
             
             {showPrintMenu && (
@@ -97,21 +98,22 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
           </div>
         </div>
         
-        {/* Tabs */}
-        <div className="flex overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide gap-2 snap-x">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-colors border-2 ${
-                activeTab === tab
-                  ? "bg-[#e5e7eb] text-black border-[#e5e7eb] shadow-sm"
-                  : "bg-white text-black border-gray-200 hover:border-gray-400 hover:shadow-sm"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        {/* Tabs Dropdown */}
+        <div className="relative mb-4 w-full md:w-64">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value)}
+            className="w-full appearance-none px-4 py-3 bg-white border-2 border-gray-200 text-black font-bold rounded-xl focus:outline-none focus:border-black transition-colors shadow-sm cursor-pointer"
+          >
+            {TABS.map((tab) => (
+              <option key={tab} value={tab}>
+                {tab}
+              </option>
+            ))}
+          </select>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
         </div>
       </div>
 
