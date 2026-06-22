@@ -1,81 +1,77 @@
-﻿"use client";
-import React, { useState } from 'react';
+
+"use client";
+import React, { useState, useEffect } from 'react';
 
 interface Question {
-  id: number;
-  verb: string;
+  id: string;
+  text: string;
   answer: string;
 }
 
-const QUESTIONS: Question[] = [
-  { id: 1, verb: 'sind', answer: 'wir/sie/Sie' },
-  { id: 2, verb: 'bin', answer: 'ich' },
-  { id: 3, verb: 'ist', answer: 'er/sie/es/man' },
-  { id: 4, verb: 'bist', answer: 'du' },
-  { id: 5, verb: 'seid', answer: 'ihr' },
-  { id: 6, verb: 'sind', answer: 'wir/sie/Sie' },
-  { id: 7, verb: 'ist', answer: 'er/sie/es/man' },
-  { id: 8, verb: 'sind', answer: 'wir/sie/Sie' },
-  { id: 9, verb: 'ist', answer: 'er/sie/es/man' },
-  { id: 10, verb: 'ist', answer: 'er/sie/es/man' },
+const POOL = [
+  { text: 'Wer ___ du?', answer: 'bist' },
+  { text: 'Wo ___ ihr?', answer: 'seid' },
+  { text: 'Wie ___ das Wetter?', answer: 'ist' },
+  { text: 'Warum ___ er sauer?', answer: 'ist' },
+  { text: 'Wann ___ wir endlich da?', answer: 'sind' },
+  { text: 'Wer ___ diese Leute?', answer: 'sind' },
+  { text: 'Woher ___ Sie?', answer: 'sind' },
+  { text: 'Wie alt ___ ich?', answer: 'bin' },
+  { text: 'Wo ___ sie (Sg.) gerade?', answer: 'ist' },
+  { text: 'Warum ___ es so teuer?', answer: 'ist' },
 ];
 
-const getValidAnswers = (verb: string) => {
-  if (verb === 'bin') return ['ich'];
-  if (verb === 'bist') return ['du'];
-  if (verb === 'ist') return ['er', 'sie', 'es', 'man'];
-  if (verb === 'sind') return ['wir', 'sie']; // 'sie' covers both plural and formal when lowercased
-  if (verb === 'seid') return ['ihr'];
-  return [];
-};
+function generateQuestions(): Question[] {
+  const shuffled = [...POOL].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 10).map((q, i) => ({
+    id: `q_${i}_${Date.now()}`,
+    text: q.text,
+    answer: q.answer
+  }));
+}
 
 export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) => void }) {
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [userAnswersList, setUserAnswersList] = useState<string[]>([]);
   const [score, setScore] = useState(0);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
 
-  const currentQ = QUESTIONS[currentIndex];
+  useEffect(() => {
+    setQuestions(generateQuestions());
+  }, []);
+
+  if (questions.length === 0) return null;
+
+  const currentQ = questions[currentIndex];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (showFeedback) {
-      // Move to next question
-      if (currentIndex + 1 < QUESTIONS.length) {
-        setCurrentIndex(currentIndex + 1);
-        setUserAnswer("");
-        setShowFeedback(false);
-      } else {
-        setQuizFinished(true);
-      }
-      return;
-    }
+    if (!userAnswer.trim()) return;
 
-    const correct = getValidAnswers(currentQ.verb).includes(userAnswer.trim().toLowerCase());
-    setIsCorrect(correct);
-    if (correct) setScore(score + 1);
+    const correct = userAnswer.trim().toLowerCase() === currentQ.answer.toLowerCase();
+    if (correct) setScore(s => s + 1);
     
-    // Save answer
-    setUserAnswersList([...userAnswersList, userAnswer]);
-    
-    setShowFeedback(true);
+    // Instant auto-advance
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex(currentIndex + 1);
+      setUserAnswer("");
+    } else {
+      setQuizFinished(true);
+    }
   };
 
   const handleRepeat = () => {
+    setQuestions(generateQuestions());
     setCurrentIndex(0);
     setScore(0);
     setUserAnswer("");
-    setUserAnswersList([]);
-    setShowFeedback(false);
     setQuizFinished(false);
   };
 
   if (quizFinished) {
     const passed = score >= 8;
-    const percent = Math.round((score / QUESTIONS.length) * 100);
+    const percent = Math.round((score / questions.length) * 100);
     
     return (
       <div className="flex flex-col items-center justify-center h-full w-full max-w-3xl mx-auto pt-16 px-4 pb-20">
@@ -85,7 +81,7 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-10">
           <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
             <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Ergebnis</span>
-            <span className="text-3xl font-black text-black">{score} / {QUESTIONS.length}</span>
+            <span className="text-3xl font-black text-black">{score} / {questions.length}</span>
           </div>
           <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
             <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Prozent</span>
@@ -105,34 +101,6 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
             Zurück zur Übersicht
           </button>
         </div>
-
-        <div className="w-full text-left">
-          <h3 className="text-2xl font-black text-black mb-6">Deine Antworten</h3>
-          <div className="space-y-6">
-            {QUESTIONS.map((q, index) => {
-              const ans = userAnswersList[index] || "";
-              const isAnsCorrect = getValidAnswers(q.verb).includes(ans.trim().toLowerCase());
-              return (
-                <div key={q.id} className="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm">
-                  <div className="font-bold text-gray-400 uppercase tracking-widest text-sm mb-4">Frage {index + 1}</div>
-                  <div className="text-2xl font-black text-black mb-6">______ {q.verb}</div>
-                  <div className="space-y-2">
-                    <div className="text-lg">
-                      <span className="font-medium text-gray-500">Deine Antwort: </span>
-                      <span className={`font-bold ${isAnsCorrect ? 'text-green-500' : 'text-red-500'}`}>{ans || "-"}</span>
-                    </div>
-                    {!isAnsCorrect && (
-                      <div className="text-lg">
-                        <span className="font-medium text-gray-500">Richtige Antwort: </span>
-                        <span className="font-bold text-black">{q.answer}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
     );
   }
@@ -140,66 +108,48 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
   return (
     <div className="flex flex-col h-full w-full max-w-2xl mx-auto pb-20 px-4 md:px-0 pt-8">
       <button onClick={() => onBack(false)} className="flex items-center gap-2 text-gray-500 hover:text-black mb-8 w-fit transition-colors">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
         <span className="font-semibold">Zurück</span>
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 4</h3>
-        <p className="text-lg font-medium text-gray-500">Gemischte Konjugation</p>
+        <h3 className="text-xl font-bold text-black mb-1">Level 4: W-Fragen</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Frage {currentIndex + 1} von {QUESTIONS.length}</span>
-          <span className="text-sm font-bold text-black bg-gray-100 px-4 py-2 rounded-full">Richtige Antworten: {score} / {QUESTIONS.length}</span>
+        <div className="flex justify-between items-center mb-8">
+          <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Frage {currentIndex + 1} von {questions.length}</span>
+          <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 4</span>
         </div>
 
-        <p className="text-xl font-bold text-black mb-8">Welche Person passt?</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze das richtige Verb in der W-Frage:</p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-          <div className="flex items-center gap-4 text-4xl font-black text-black">
-            <span>______ {currentQ.verb}</span>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className="flex items-center gap-4 text-3xl font-black text-black">
+            <span>{currentQ.text}</span>
           </div>
 
           <div>
             <input
               type="text"
               autoFocus
-              disabled={showFeedback}
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
               placeholder="Deine Antwort"
-              className={`w-full text-2xl font-bold p-6 border-2 rounded-2xl focus:outline-none transition-colors ${
-                showFeedback 
-                  ? isCorrect 
-                    ? "border-green-500 bg-green-50 text-green-700" 
-                    : "border-red-500 bg-red-50 text-red-700"
-                  : "border-gray-200 focus:border-black"
-              }`}
+              className="w-full text-2xl font-bold p-4 border-2 rounded-xl focus:outline-none transition-colors border-gray-200 focus:border-black"
             />
           </div>
 
-          {showFeedback && !isCorrect && (
-            <div className="text-red-500 font-bold text-lg px-2">
-              Richtige Antwort: <span className="text-black">{currentQ.answer}</span>
-            </div>
-          )}
-          {showFeedback && isCorrect && (
-            <div className="text-green-500 font-bold text-lg px-2">
-              Richtig!
-            </div>
-          )}
-
           <button 
             type="submit"
-            disabled={!userAnswer.trim() && !showFeedback}
-            className={`w-full py-5 rounded-2xl font-bold text-xl transition-all ${
-              !userAnswer.trim() && !showFeedback
+            disabled={!userAnswer.trim()}
+            className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
+              !userAnswer.trim()
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                 : "bg-black text-white hover:bg-gray-800 shadow-md hover:shadow-lg"
             }`}
           >
-            {showFeedback ? "Weiter" : "Antworten"}
+            Antworten
           </button>
         </form>
       </div>

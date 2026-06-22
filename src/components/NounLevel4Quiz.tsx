@@ -1,7 +1,33 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { VOCABULARY } from '../data/vocabulary';
-import { SUPPORTED_LANGUAGES } from '../data/languages';
+
+interface Question {
+  id: string;
+  text: string;
+  answer: string;
+}
+
+const POOL = [
+  { text: 'Das Auto ___ klein, aber schnell.', answer: 'ist' },
+  { text: 'Die Kinder ___ müde und hungrig.', answer: 'sind' },
+  { text: 'Der Lehrer ___ freundlich und nett.', answer: 'ist' },
+  { text: 'Der Hund ___ schwarz und jung.', answer: 'ist' },
+  { text: 'Die Freunde ___ Zeit und Lust.', answer: 'haben' },
+  { text: 'Der Bus ___ voll, aber sauber.', answer: 'ist' },
+  { text: 'Die Mutter ___ Tasche und Handy.', answer: 'hat' },
+  { text: 'Das Zimmer ___ gross, aber dunkel.', answer: 'ist' },
+  { text: 'Die Schüler ___ Pause oder Unterricht.', answer: 'haben' },
+  { text: 'Das Restaurant ___ offen und warm.', answer: 'ist' }
+];
+
+function generateQuestions(): Question[] {
+  const shuffled = [...POOL].sort(() => 0.5 - Math.random());
+  return shuffled.map((q, i) => ({
+    id: `q_${i}_${Date.now()}`,
+    text: q.text,
+    answer: q.answer
+  }));
+}
 
 interface NounLevel4QuizProps {
   onBack: (passed?: boolean) => void;
@@ -9,7 +35,7 @@ interface NounLevel4QuizProps {
 }
 
 export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4QuizProps) {
-  const [questions, setQuestions] = useState<any[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
@@ -17,24 +43,11 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
   const [showFeedback, setShowFeedback] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
   const [userAnswersList, setUserAnswersList] = useState<string[]>([]);
-  
+
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const getTranslationForOption = (item: any, langCode: string) => {
-    if (langCode === 'ur' && item.urdu) return item.urdu;
-    return item.translation;
-  };
-
-  const getLanguageName = () => {
-    return SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.name || "Language";
-  };
-
   const initializeQuiz = () => {
-    const nouns = VOCABULARY.filter(item => item.category === "Nouns" || item.category === "Nomen");
-    const shuffled = [...nouns].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 10);
-    setQuestions(selected);
-    
+    setQuestions(generateQuestions());
     setCurrentIndex(0);
     setScore(0);
     setUserAnswer("");
@@ -42,6 +55,7 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
     setShowFeedback(false);
     setQuizFinished(false);
     setUserAnswersList([]);
+    setTimeout(() => inputRef.current?.focus(), 100);
   };
 
   useEffect(() => {
@@ -50,7 +64,7 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (showFeedback) {
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(prev => prev + 1);
@@ -67,16 +81,13 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
     if (!userAnswer.trim()) return;
 
     const currentQ = questions[currentIndex];
-    
-    const normalizedUserAnswer = userAnswer.trim().toLowerCase();
-    const normalizedCorrectAnswer = currentQ.word.trim().toLowerCase();
-    
-    // Level 4 requires exact spelling
-    const correct = normalizedUserAnswer === normalizedCorrectAnswer;
+    const normalizedUser = userAnswer.trim().toLowerCase();
+    const normalizedCorrect = currentQ.answer.toLowerCase();
+    const correct = normalizedUser === normalizedCorrect;
 
     setIsCorrect(correct);
     setShowFeedback(true);
-    
+
     if (correct) {
       setScore(prev => prev + 1);
     }
@@ -84,18 +95,18 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
   };
 
   if (questions.length === 0) {
-    return <div>Lädt...</div>;
+    return <div className="text-center py-10 font-bold">Lädt...</div>;
   }
 
   if (quizFinished) {
     const passed = score >= 8;
     const percent = Math.round((score / questions.length) * 100);
-    
+
     return (
       <div className="flex flex-col items-center justify-center h-full w-full max-w-3xl mx-auto pt-16 px-4 pb-20">
         <h2 className="text-4xl font-black text-black mb-2">{passed ? "Super!" : "Versuch es nochmal!"}</h2>
         <p className="text-lg font-bold text-gray-500 mb-10">{passed ? "Du hast bestanden!" : "Du brauchst mindestens 80%"}</p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-10">
           <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
             <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Ergebnis</span>
@@ -125,14 +136,12 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
           <div className="space-y-6">
             {questions.map((q, index) => {
               const ans = userAnswersList[index] || "";
-              const normalizedAns = ans.trim().toLowerCase();
-              const normalizedCorrect = q.word.trim().toLowerCase();
-              const isAnsCorrect = normalizedAns === normalizedCorrect;
-              
+              const isAnsCorrect = ans.trim().toLowerCase() === q.answer.toLowerCase();
+
               return (
                 <div key={q.id} className="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm">
-                  <div className="font-bold text-gray-400 uppercase tracking-widest text-sm mb-4">Wort {index + 1}</div>
-                  <div className="text-2xl font-black text-black mb-6">{getTranslationForOption(q, selectedLangCode)}</div>
+                  <div className="font-bold text-gray-400 uppercase tracking-widest text-sm mb-4">Frage {index + 1}</div>
+                  <div className="text-2xl font-black text-black mb-6">{q.text.replace('___', `[ ${ans || '?'} ]`)}</div>
                   <div className="space-y-2">
                     <div className="text-lg">
                       <span className="font-medium text-gray-500">Deine Antwort: </span>
@@ -140,8 +149,8 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
                     </div>
                     {!isAnsCorrect && (
                       <div className="text-lg">
-                        <span className="font-medium text-gray-500">Exakte Schreibweise: </span>
-                        <span className="font-bold text-black">{q.word}</span>
+                        <span className="font-medium text-gray-500">Richtige Antwort: </span>
+                        <span className="font-bold text-black">{q.answer}</span>
                       </div>
                     )}
                   </div>
@@ -159,15 +168,13 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
   return (
     <div className="flex flex-col h-full w-full max-w-2xl mx-auto pb-20 px-4 md:px-0 pt-8">
       <button onClick={() => onBack(false)} className="flex items-center gap-2 text-gray-500 hover:text-black mb-8 w-fit transition-colors">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
         <span className="font-semibold">Zurück</span>
       </button>
 
       <div className="mb-6 flex justify-between items-center">
         <div>
-          <h3 className="text-xl font-bold text-black mb-1">Level 4: Rechtschreibung</h3>
-          <p className="text-lg font-medium text-gray-500 uppercase tracking-widest">
-            Level 4: Spelling
-          </p>
+          <h3 className="text-xl font-bold text-black mb-1">Level 4: Alltag + Verbindung (aber / und / oder)</h3>
         </div>
         <div className="text-right">
           <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Punkte</p>
@@ -178,21 +185,18 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
       <div className="bg-white border-2 border-gray-100 rounded-3xl shadow-sm p-8 md:p-12 relative">
         <div className="flex justify-between items-center mb-10">
           <span className="text-sm font-bold text-gray-400 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-xl">
-            Question {currentIndex + 1} of {questions.length}
+            Frage {currentIndex + 1} von {questions.length}
           </span>
-          <span className="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-xl flex items-center gap-2">
-            <span>🏳️</span> {getLanguageName()}
+          <span className="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-xl">
+            haben / sein
           </span>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="text-center mb-10">
-            <h2 className="text-5xl font-black text-black mb-8">{getTranslationForOption(currentQ, selectedLangCode)}</h2>
-            
+            <h2 className="text-4xl font-black text-black mb-8">{currentQ.text}</h2>
+
             <div className="w-full max-w-md mx-auto relative">
-              <label className="block text-left text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
-                Spell the word exactly correctly:
-              </label>
               <input
                 ref={inputRef}
                 type="text"
@@ -200,20 +204,19 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
                 onChange={(e) => setUserAnswer(e.target.value)}
                 disabled={showFeedback}
                 autoFocus
-                placeholder="Exact spelling..."
-                className={`w-full p-6 text-2xl font-bold rounded-2xl border-2 transition-all outline-none ${
-                  showFeedback 
-                    ? isCorrect 
-                      ? "border-green-500 bg-green-50 text-green-700" 
+                className={`w-full p-6 text-2xl font-bold rounded-2xl border-2 transition-all outline-none text-center ${
+                  showFeedback
+                    ? isCorrect
+                      ? "border-green-500 bg-green-50 text-green-700"
                       : "border-red-500 bg-red-50 text-red-700"
                     : "border-gray-200 bg-gray-50 focus:border-black focus:bg-white"
                 }`}
               />
-              
+
               {showFeedback && !isCorrect && (
-                <div className="mt-6 p-4 bg-red-50 border-2 border-red-100 rounded-xl text-left">
-                  <span className="block text-sm font-bold text-red-400 uppercase tracking-widest mb-1">Exakte Schreibweise</span>
-                  <span className="text-2xl font-black text-red-600">{currentQ.word}</span>
+                <div className="mt-6 p-4 bg-red-50 border-2 border-red-100 rounded-xl text-center">
+                  <span className="block text-sm font-bold text-red-400 uppercase tracking-widest mb-1">Richtige Antwort</span>
+                  <span className="text-2xl font-black text-red-600">{currentQ.answer}</span>
                 </div>
               )}
               {showFeedback && isCorrect && (
@@ -224,19 +227,17 @@ export default function NounLevel4Quiz({ onBack, selectedLangCode }: NounLevel4Q
             </div>
           </div>
 
-          <button 
+          <button
             type="submit"
             disabled={!userAnswer.trim() && !showFeedback}
             className={`w-full max-w-md mx-auto py-5 rounded-2xl font-bold text-xl transition-all shadow-sm ${
               !userAnswer.trim() && !showFeedback
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                : showFeedback
-                  ? "bg-black text-white hover:bg-gray-800 hover:shadow-md"
-                  : "bg-black text-white hover:bg-gray-800 hover:shadow-md"
+                : "bg-black text-white hover:bg-gray-800 hover:shadow-md"
             }`}
           >
-            {showFeedback 
-              ? currentIndex + 1 < questions.length ? "Nächste Frage ➔" : "Level abschließen" 
+            {showFeedback
+              ? currentIndex + 1 < questions.length ? "Weiter" : "Level abschließen"
               : "Überprüfen"}
           </button>
         </form>

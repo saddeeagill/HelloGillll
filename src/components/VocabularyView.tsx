@@ -5,10 +5,11 @@ import { VOCABULARY } from "../data/vocabulary";
 import { SUPPORTED_LANGUAGES } from "../data/languages";
 import TranslateText from "./TranslateText";
 import NounLevel1Quiz from "./NounLevel1Quiz";
-import NounLevel2Quiz from "./NounLevel2Quiz";
-import NounLevel3Quiz from "./NounLevel3Quiz";
-import NounLevel4Quiz from "./NounLevel4Quiz";
-import NounLevel5Quiz from "./NounLevel5Quiz";
+import VocabNounLevel2Quiz from "./VocabNounLevel2Quiz";
+import VocabNounLevel3Quiz from "./VocabNounLevel3Quiz";
+import VocabNounLevel4Quiz from "./VocabNounLevel4Quiz";
+import VocabNounLevel5Quiz from "./VocabNounLevel5Quiz";
+import VocabNounLevel1Quiz from "./VocabNounLevel1Quiz";
 
 interface VocabItem {
   id: number;
@@ -225,7 +226,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
         {/* Title and Buttons */}
         <div className="flex-1 flex justify-start items-center gap-4">
           <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight whitespace-nowrap">
-            Vokabular
+            {{ "Nouns": "Nomen", "Adjectives": "Adjektive", "Adverbs": "Adverbien", "Regular Verbs": "Regelmäßige Verben", "Irregular Verbs": "Unregelmäßige Verben", "Modal Verbs": "Modalverben" }[activeCategory] || "Vokabular"}
           </h1>
           <button 
             onClick={() => setShowNomenQuiz(true)}
@@ -253,7 +254,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
         
         {/* Controls: Language Selector */}
         <div className="flex-1 flex items-center gap-2 justify-start md:justify-end w-full">
-          <label className="text-sm font-bold text-gray-500 uppercase tracking-wide"> Muttersprache </label>
+          <label className="text-sm font-bold text-gray-500 tracking-wide"> Muttersprache </label>
           <select 
             value={selectedLangCode}
             onChange={(e) => setSelectedLangCode(e.target.value)}
@@ -279,27 +280,27 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
           </div>
 
           {activeLevelNomen === 1 ? (
-            <NounLevel1Quiz 
+            <VocabNounLevel1Quiz 
               onBack={handleLevelBackNomen} 
               selectedLangCode={selectedLangCode} 
             />
           ) : activeLevelNomen === 2 ? (
-            <NounLevel2Quiz 
+            <VocabNounLevel2Quiz 
               onBack={handleLevelBackNomen} 
               selectedLangCode={selectedLangCode} 
             />
           ) : activeLevelNomen === 3 ? (
-            <NounLevel3Quiz 
+            <VocabNounLevel3Quiz 
               onBack={handleLevelBackNomen} 
               selectedLangCode={selectedLangCode} 
             />
           ) : activeLevelNomen === 4 ? (
-            <NounLevel4Quiz 
+            <VocabNounLevel4Quiz 
               onBack={handleLevelBackNomen} 
               selectedLangCode={selectedLangCode} 
             />
           ) : activeLevelNomen === 5 ? (
-            <NounLevel5Quiz 
+            <VocabNounLevel5Quiz 
               onBack={handleLevelBackNomen} 
               selectedLangCode={selectedLangCode} 
             />

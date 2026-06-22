@@ -146,7 +146,7 @@ export const B2_ADJECTIVES = [
   { id: 145, word: "kinderfeindlich", translation: "hostile to children", urdu: "\u062f\u0634\u0645\u0646\u06cc \u0633\u06d2 \u0628\u0686\u0648\u06ba", category: 'Adjectives', level: 'B2' },
   { id: 146, word: "kinderleicht", translation: "child's play", urdu: "\u06a9\u06be\u06cc\u0644 \u06a9\u0627 \u0628\u0686\u0648\u06ba", category: 'Adjectives', level: 'B2' },
   { id: 147, word: "kinderreich", translation: "large number of children", urdu: "\u062a\u0639\u062f\u0627\u062f \u0628\u0691\u06cc \u06a9\u06cc \u0628\u0686\u0648\u06ba", category: 'Adjectives', level: 'B2' },
-  { id: 148, word: "klischeehaft", translation: "clich\u00e9d clich\u00e9d", urdu: "", category: 'Adjectives', level: 'B2' },
+  { id: 148, word: "klischeehaft", translation: "clich\u00e9d", urdu: "", category: 'Adjectives', level: 'B2' },
   { id: 149, word: "konkret", translation: "concrete", urdu: "\u06a9\u0646\u06a9\u0631\u06cc\u0679", category: 'Adjectives', level: 'B2' },
   { id: 150, word: "konkurrenzf\u00e4hig", translation: "competitive", urdu: "\u0645\u0633\u0627\u0628\u0642\u062a\u06cc", category: 'Adjectives', level: 'B2' },
   { id: 151, word: "konstant", translation: "constant", urdu: "\u0645\u0633\u0644\u0633\u0644", category: 'Adjectives', level: 'B2' },

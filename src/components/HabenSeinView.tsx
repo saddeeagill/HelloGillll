@@ -61,9 +61,6 @@ export default function HabenSeinView() {
         className={`w-full flex items-center justify-between p-5 bg-white border-2 ${isUnlocked ? borderColor : 'border-gray-100 opacity-60'} rounded-2xl shadow-sm hover:shadow-md transition-all text-left group`}
       >
         <div className="flex items-center gap-4">
-          <div className={`w-12 h-12 rounded-full ${isUnlocked ? 'bg-yellow-100' : 'bg-gray-100'} flex items-center justify-center text-xl`}>
-            {isUnlocked ? '🟡' : '🔒'}
-          </div>
           <div>
             <h3 className="text-lg font-bold text-black mb-0.5">{title}</h3>
             {subtitle && <p className="text-sm text-gray-500 font-medium">{subtitle}</p>}

@@ -19,7 +19,7 @@ export const A1_NOUNS = [
     "id": 3,
     "word": "Achtung",
     "plural": "",
-    "translation": "danger","urdu": "خطرہ",
+    "translation": "attention","urdu": "خطرہ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -35,7 +35,7 @@ export const A1_NOUNS = [
     "id": 5,
     "word": "Alter",
     "plural": "",
-    "translation": "old","urdu": "پرانا",
+    "translation": "age","urdu": "پرانا",
     "category": "Nouns",
     "level": "A1"
   },
@@ -211,7 +211,7 @@ export const A1_NOUNS = [
     "id": 27,
     "word": "Ausflug",
     "plural": "Ausflüge",
-    "translation": "side trip","urdu": "ضمنی سفر",
+    "translation": "excursion","urdu": "ضمنی سفر",
     "category": "Nouns",
     "level": "A1"
   },
@@ -227,7 +227,7 @@ export const A1_NOUNS = [
     "id": 29,
     "word": "Auskunft",
     "plural": "Auskünfte",
-    "translation": "information","urdu": "معلومات",
+    "translation": "information desk","urdu": "معلومات",
     "category": "Nouns",
     "level": "A1"
   },
@@ -283,7 +283,7 @@ export const A1_NOUNS = [
     "id": 36,
     "word": "Automat",
     "plural": "Automaten",
-    "translation": "automat","urdu": "خودکار",
+    "translation": "vending machine","urdu": "خودکار",
     "category": "Nouns",
     "level": "A1"
   },
@@ -315,7 +315,7 @@ export const A1_NOUNS = [
     "id": 40,
     "word": "Bahn",
     "plural": "Bahnen",
-    "translation": "train","urdu": "ٹرین",
+    "translation": "railway","urdu": "ٹرین",
     "category": "Nouns",
     "level": "A1"
   },
@@ -323,7 +323,7 @@ export const A1_NOUNS = [
     "id": 41,
     "word": "Bahnhof",
     "plural": "Bahnhöfe",
-    "translation": "railroad station","urdu": "ریلوے اسٹیشن",
+    "translation": "train station","urdu": "ریلوے اسٹیشن",
     "category": "Nouns",
     "level": "A1"
   },
@@ -483,7 +483,7 @@ export const A1_NOUNS = [
     "id": 61,
     "word": "Bogen",
     "plural": "Bögen",
-    "translation": "bow","urdu": "جھکنا",
+    "translation": "sheet (of paper)","urdu": "جھکنا",
     "category": "Nouns",
     "level": "A1"
   },
@@ -539,7 +539,7 @@ export const A1_NOUNS = [
     "id": 68,
     "word": "Buchstabe",
     "plural": "Buchstaben",
-    "translation": "letter","urdu": "خط",
+    "translation": "letter (alphabet)","urdu": "خط",
     "category": "Nouns",
     "level": "A1"
   },
@@ -603,7 +603,7 @@ export const A1_NOUNS = [
     "id": 76,
     "word": "Dank",
     "plural": "",
-    "translation": "thanks to","urdu": "کا شکریہ",
+    "translation": "gratitude","urdu": "کا شکریہ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -659,7 +659,7 @@ export const A1_NOUNS = [
     "id": 83,
     "word": "Durchsage",
     "plural": "Durchsagen",
-    "translation": "announcement","urdu": "اعلان",
+    "translation": "public announcement","urdu": "اعلان",
     "category": "Nouns",
     "level": "A1"
   },
@@ -947,7 +947,7 @@ export const A1_NOUNS = [
     "id": 119,
     "word": "Abflug",
     "plural": "Abflüge",
-    "translation": "departure","urdu": "روانگی",
+    "translation": "flight departure","urdu": "روانگی",
     "category": "Nouns",
     "level": "A1"
   },
@@ -1691,7 +1691,7 @@ export const A1_NOUNS = [
     "id": 212,
     "word": "Lokal",
     "plural": "Lokale",
-    "translation": "restaurant",
+    "translation": "restaurant/pub","urdu": "ریسٹورنٹ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -1891,7 +1891,7 @@ export const A1_NOUNS = [
     "id": 237,
     "word": "Partnerin",
     "plural": "Partnerinnen",
-    "translation": "partner",
+    "translation": "female partner",
     "category": "Nouns",
     "level": "A1"
   },
@@ -1923,7 +1923,7 @@ export const A1_NOUNS = [
     "id": 241,
     "word": "Platz",
     "plural": "Plätze",
-    "translation": "place",
+    "translation": "seat",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2091,7 +2091,7 @@ export const A1_NOUNS = [
     "id": 262,
     "word": "Salat",
     "plural": "Salate",
-    "translation": "salad",
+    "translation": "salad","urdu": "سلاد",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2147,7 +2147,7 @@ export const A1_NOUNS = [
     "id": 269,
     "word": "Schluss",
     "plural": "Schlüsse",
-    "translation": "end",
+    "translation": "conclusion",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2187,7 +2187,7 @@ export const A1_NOUNS = [
     "id": 274,
     "word": "Schüler",
     "plural": "Schüler",
-    "translation": "student",
+    "translation": "pupil",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2395,7 +2395,7 @@ export const A1_NOUNS = [
     "id": 300,
     "word": "Ticket",
     "plural": "Tickets",
-    "translation": "ticket",
+    "translation": "ticket (event)",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2451,7 +2451,7 @@ export const A1_NOUNS = [
     "id": 307,
     "word": "Tüte",
     "plural": "Tüten",
-    "translation": "bag",
+    "translation": "plastic bag",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2555,7 +2555,7 @@ export const A1_NOUNS = [
     "id": 320,
     "word": "Wohnung",
     "plural": "Wohnungen",
-    "translation": "apartment",
+    "translation": "flat",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2737,39 +2737,6 @@ export const A1_NOUNS = [
   },
   {
     "id": 343,
-    "word": "Hand",
-    "plural": "Hände",
-    "translation": "hand",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 344,
-    "word": "Fuss",
-    "plural": "Füsse",
-    "translation": "foot",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 345,
-    "word": "Bein",
-    "plural": "Beine",
-    "translation": "leg",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 346,
-    "word": "Arm",
-    "plural": "Arme",
-    "translation": "arm",
-    "urdu": "بازو",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 347,
     "word": "Finger",
     "plural": "Finger",
     "translation": "finger",
@@ -2777,7 +2744,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 348,
+    "id": 344,
     "word": "Zahn",
     "plural": "Zähne",
     "translation": "tooth",
@@ -2785,23 +2752,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 349,
-    "word": "Kopf",
-    "plural": "Köpfe",
-    "translation": "head",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 350,
-    "word": "Bauch",
-    "plural": "Bäuche",
-    "translation": "stomach/belly",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 351,
+    "id": 345,
     "word": "Rücken",
     "plural": "Rücken",
     "translation": "back",
@@ -2809,15 +2760,15 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 352,
+    "id": 346,
     "word": "Hals",
     "plural": "Hälse",
-    "translation": "neck/throat",
+    "translation": "neck","urdu": "گردن",
     "category": "Nouns",
     "level": "A1"
   },
   {
-    "id": 353,
+    "id": 347,
     "word": "Ohr",
     "plural": "Ohren",
     "translation": "ear",
@@ -2825,7 +2776,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 354,
+    "id": 348,
     "word": "Nase",
     "plural": "Nasen",
     "translation": "nose",
@@ -2833,23 +2784,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 355,
-    "word": "Mund",
-    "plural": "Münder",
-    "translation": "mouth",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 356,
-    "word": "Haar",
-    "plural": "Haare",
-    "translation": "hair",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 357,
+    "id": 349,
     "word": "Gesicht",
     "plural": "Gesichter",
     "translation": "face",
@@ -2857,15 +2792,15 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 358,
+    "id": 350,
     "word": "Hose",
     "plural": "Hosen",
-    "translation": "pants/trousers",
+    "translation": "trousers","urdu": "پتلون",
     "category": "Nouns",
     "level": "A1"
   },
   {
-    "id": 359,
+    "id": 351,
     "word": "Hemd",
     "plural": "Hemden",
     "translation": "shirt",
@@ -2873,7 +2808,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 360,
+    "id": 352,
     "word": "Schuhe",
     "plural": "Schuhe",
     "translation": "shoes",
@@ -2881,15 +2816,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 361,
-    "word": "Jacke",
-    "plural": "Jacken",
-    "translation": "jacket",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 362,
+    "id": 353,
     "word": "Mantel",
     "plural": "Mäntel",
     "translation": "coat",
@@ -2897,7 +2824,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 363,
+    "id": 354,
     "word": "Kleid",
     "plural": "Kleider",
     "translation": "dress",
@@ -2905,7 +2832,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 364,
+    "id": 355,
     "word": "Rock",
     "plural": "Röcke",
     "translation": "skirt",
@@ -2913,7 +2840,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 365,
+    "id": 356,
     "word": "Frühling",
     "plural": "",
     "translation": "spring",
@@ -2921,7 +2848,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 366,
+    "id": 357,
     "word": "Sommer",
     "plural": "",
     "translation": "summer",
@@ -2929,39 +2856,15 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 367,
+    "id": 358,
     "word": "Herbst",
     "plural": "",
-    "translation": "autumn/fall",
+    "translation": "autumn","urdu": "خزاں",
     "category": "Nouns",
     "level": "A1"
   },
   {
-    "id": 368,
-    "word": "Winter",
-    "plural": "",
-    "translation": "winter",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 369,
-    "word": "Brot",
-    "plural": "Brote",
-    "translation": "bread",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 370,
-    "word": "Butter",
-    "plural": "",
-    "translation": "butter",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 371,
+    "id": 359,
     "word": "Käse",
     "plural": "",
     "translation": "cheese",
@@ -2969,7 +2872,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 372,
+    "id": 360,
     "word": "Wurst",
     "plural": "Würste",
     "translation": "sausage",
@@ -2977,39 +2880,15 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 373,
-    "word": "Ei",
-    "plural": "Eier",
-    "translation": "egg",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 374,
-    "word": "Salat",
-    "plural": "Salate",
-    "translation": "salad/lettuce",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 375,
-    "word": "Reis",
-    "plural": "",
-    "translation": "rice",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 376,
+    "id": 361,
     "word": "Nudeln",
     "plural": "Nudeln",
-    "translation": "noodles/pasta",
+    "translation": "noodles","urdu": "نوڈلز",
     "category": "Nouns",
     "level": "A1"
   },
   {
-    "id": 377,
+    "id": 362,
     "word": "Suppe",
     "plural": "Suppen",
     "translation": "soup",
@@ -3017,7 +2896,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 378,
+    "id": 363,
     "word": "Messer",
     "plural": "Messer",
     "translation": "knife",
@@ -3025,7 +2904,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 379,
+    "id": 364,
     "word": "Gabel",
     "plural": "Gabeln",
     "translation": "fork",
@@ -3033,7 +2912,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 380,
+    "id": 365,
     "word": "Löffel",
     "plural": "Löffel",
     "translation": "spoon",
@@ -3041,7 +2920,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 381,
+    "id": 366,
     "word": "Teller",
     "plural": "Teller",
     "translation": "plate",
@@ -3049,7 +2928,7 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 382,
+    "id": 367,
     "word": "Tasse",
     "plural": "Tassen",
     "translation": "cup",
@@ -3057,50 +2936,10 @@ export const A1_NOUNS = [
     "level": "A1"
   },
   {
-    "id": 383,
-    "word": "Flasche",
-    "plural": "Flaschen",
-    "translation": "bottle",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 384,
-    "word": "Bank",
-    "plural": "Banken",
-    "translation": "bank",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 385,
-    "word": "Geld",
-    "plural": "",
-    "translation": "money",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 386,
-    "word": "Preis",
-    "plural": "Preise",
-    "translation": "price",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 387,
+    "id": 368,
     "word": "Cent",
     "plural": "Cent",
     "translation": "cent",
-    "category": "Nouns",
-    "level": "A1"
-  },
-  {
-    "id": 388,
-    "word": "Farbe",
-    "plural": "Farben",
-    "translation": "color",
     "category": "Nouns",
     "level": "A1"
   }

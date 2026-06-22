@@ -1,97 +1,96 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface Question {
   id: string;
-  text: string;
-  answer: string;
+  singular: string;
+  acceptedPlural: string[];
 }
 
-const POOL = [
-  { text: 'Die Familie ___ im Urlaub.', answer: 'ist' },
-  { text: 'Die Gäste ___ im Restaurant.', answer: 'sind' },
-  { text: 'Die Mutter ___ drei Kinder.', answer: 'hat' },
-  { text: 'Die Uhr ___ kaputt.', answer: 'ist' },
-  { text: 'Der Bus ___ pünktlich.', answer: 'ist' },
-  { text: 'Die Freunde ___ eine Idee.', answer: 'haben' },
-  { text: 'Die Wohnung ___ gross.', answer: 'ist' },
-  { text: 'Die Kinder ___ im Garten.', answer: 'sind' },
-  { text: 'Der Mann ___ ein Problem.', answer: 'hat' },
-  { text: 'Das Café ___ geöffnet.', answer: 'ist' }
+const POOL: Question[] = [
+  { id: '1', singular: "Kuchen", acceptedPlural: ["Kuchen", "die Kuchen"] },
+  { id: '2', singular: "Absender", acceptedPlural: ["Absender", "die Absender"] },
+  { id: '3', singular: "Januar", acceptedPlural: ["Januare", "die Januare"] },
+  { id: '4', singular: "Anfang", acceptedPlural: ["Anfänge", "die Anfänge"] },
+  { id: '5', singular: "See", acceptedPlural: ["Seen", "die Seen"] },
+  { id: '6', singular: "Winter", acceptedPlural: ["Winter", "die Winter"] },
+  { id: '7', singular: "Dienstag", acceptedPlural: ["Dienstage", "die Dienstage"] },
+  { id: '8', singular: "Geschäft", acceptedPlural: ["Geschäfte", "die Geschäfte"] },
+  { id: '9', singular: "Auskunft", acceptedPlural: ["Auskünfte", "die Auskünfte"] },
+  { id: '10', singular: "E-Mail", acceptedPlural: ["E-Mails", "die E-Mails", "Emails", "die Emails"] }
 ];
 
-function generateQuestions(): Question[] {
-  const shuffled = [...POOL].sort(() => 0.5 - Math.random());
-  return shuffled.map((q, i) => ({
-    id: `q_${i}_${Date.now()}`,
-    text: q.text,
-    answer: q.answer
-  }));
-}
-
-interface NounLevel3QuizProps {
+interface VocabNounLevel3QuizProps {
   onBack: (passed?: boolean) => void;
   selectedLangCode: string;
 }
 
-export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3QuizProps) {
+export default function VocabNounLevel3Quiz({ onBack, selectedLangCode }: VocabNounLevel3QuizProps) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
+
+  // Interaction state
+  const [userInput, setUserInput] = useState<string>("");
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [quizFinished, setQuizFinished] = useState(false);
-  const [userAnswersList, setUserAnswersList] = useState<string[]>([]);
-
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [showHint, setShowHint] = useState(false);
+  
+  // Review state
+  const [userAnswersList, setUserAnswersList] = useState<{user: string, correct: string, isCorrect: boolean}[]>([]);
 
   const initializeQuiz = () => {
-    setQuestions(generateQuestions());
+    const shuffled = [...POOL].sort(() => 0.5 - Math.random());
+    setQuestions(shuffled);
     setCurrentIndex(0);
     setScore(0);
-    setUserAnswer("");
-    setIsCorrect(null);
-    setShowFeedback(false);
     setQuizFinished(false);
     setUserAnswersList([]);
-    setTimeout(() => inputRef.current?.focus(), 100);
+    resetQuestionState();
+  };
+
+  const resetQuestionState = () => {
+    setUserInput("");
+    setIsCorrect(null);
+    setShowFeedback(false);
+    setShowHint(false);
   };
 
   useEffect(() => {
     initializeQuiz();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLangCode]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (showFeedback) {
-      if (currentIndex + 1 < questions.length) {
-        setCurrentIndex(prev => prev + 1);
-        setUserAnswer("");
-        setIsCorrect(null);
-        setShowFeedback(false);
-        setTimeout(() => inputRef.current?.focus(), 100);
-      } else {
-        setQuizFinished(true);
-      }
-      return;
-    }
-
-    if (!userAnswer.trim()) return;
-
+    if (showFeedback || !userInput.trim()) return;
+    
     const currentQ = questions[currentIndex];
-    const normalizedUser = userAnswer.trim().toLowerCase();
-    const normalizedCorrect = currentQ.answer.toLowerCase();
-    const correct = normalizedUser === normalizedCorrect;
-
+    
+    const normalizedInput = userInput.trim().toLowerCase();
+    const correct = currentQ.acceptedPlural.some(ans => ans.toLowerCase() === normalizedInput);
+    
     setIsCorrect(correct);
     setShowFeedback(true);
 
     if (correct) {
       setScore(prev => prev + 1);
     }
-    setUserAnswersList([...userAnswersList, userAnswer]);
+    
+    setUserAnswersList(prev => [
+      ...prev, 
+      { user: userInput.trim(), correct: currentQ.acceptedPlural[0], isCorrect: correct }
+    ]);
+  };
+
+  const handleNext = () => {
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex(prev => prev + 1);
+      resetQuestionState();
+    } else {
+      setQuizFinished(true);
+    }
   };
 
   if (questions.length === 0) {
@@ -135,22 +134,21 @@ export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3Q
           <h3 className="text-2xl font-black text-black mb-6">Deine Antworten</h3>
           <div className="space-y-6">
             {questions.map((q, index) => {
-              const ans = userAnswersList[index] || "";
-              const isAnsCorrect = ans.trim().toLowerCase() === q.answer.toLowerCase();
+              const ans = userAnswersList[index] || { user: "", correct: "", isCorrect: false };
 
               return (
                 <div key={q.id} className="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm">
                   <div className="font-bold text-gray-400 uppercase tracking-widest text-sm mb-4">Frage {index + 1}</div>
-                  <div className="text-2xl font-black text-black mb-6">{q.text.replace('___', `[ ${ans || '?'} ]`)}</div>
+                  <div className="text-2xl font-black text-black mb-6">{q.singular}</div>
                   <div className="space-y-2">
                     <div className="text-lg">
                       <span className="font-medium text-gray-500">Deine Antwort: </span>
-                      <span className={`font-bold ${isAnsCorrect ? 'text-green-500' : 'text-red-500'}`}>{ans || "-"}</span>
+                      <span className={`font-bold ${ans.isCorrect ? 'text-green-500' : 'text-red-500'}`}>{ans.user || "-"}</span>
                     </div>
-                    {!isAnsCorrect && (
+                    {!ans.isCorrect && (
                       <div className="text-lg">
                         <span className="font-medium text-gray-500">Richtige Antwort: </span>
-                        <span className="font-bold text-black">{q.answer}</span>
+                        <span className="font-bold text-black">{ans.correct}</span>
                       </div>
                     )}
                   </div>
@@ -164,6 +162,7 @@ export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3Q
   }
 
   const currentQ = questions[currentIndex];
+  const primaryAnswer = currentQ.acceptedPlural[0];
 
   return (
     <div className="flex flex-col h-full w-full max-w-2xl mx-auto pb-20 px-4 md:px-0 pt-8">
@@ -174,7 +173,7 @@ export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3Q
 
       <div className="mb-6 flex justify-between items-center">
         <div>
-          <h3 className="text-xl font-bold text-black mb-1">Level 3: Alltagssituationen</h3>
+          <h3 className="text-xl font-bold text-black mb-1">Level 3: Plural bilden</h3>
         </div>
         <div className="text-right">
           <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Punkte</p>
@@ -187,59 +186,66 @@ export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3Q
           <span className="text-sm font-bold text-gray-400 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-xl">
             Frage {currentIndex + 1} von {questions.length}
           </span>
-          <span className="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-xl">
-            haben / sein
-          </span>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-black text-black mb-8">{currentQ.text}</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-5xl font-black text-black mb-4 tracking-tight">
+            {currentQ.singular}
+          </h2>
+        </div>
 
-            <div className="w-full max-w-md mx-auto relative">
-              <input
-                ref={inputRef}
-                type="text"
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                disabled={showFeedback}
-                autoFocus
-                className={`w-full p-6 text-2xl font-bold rounded-2xl border-2 transition-all outline-none text-center ${
-                  showFeedback
-                    ? isCorrect
-                      ? "border-green-500 bg-green-50 text-green-700"
-                      : "border-red-500 bg-red-50 text-red-700"
-                    : "border-gray-200 bg-gray-50 focus:border-black focus:bg-white"
-                }`}
-              />
-
-              {showFeedback && !isCorrect && (
-                <div className="mt-6 p-4 bg-red-50 border-2 border-red-100 rounded-xl text-center">
-                  <span className="block text-sm font-bold text-red-400 uppercase tracking-widest mb-1">Richtige Antwort</span>
-                  <span className="text-2xl font-black text-red-600">{currentQ.answer}</span>
-                </div>
-              )}
-              {showFeedback && isCorrect && (
-                <div className="mt-6 p-4 bg-green-50 border-2 border-green-100 rounded-xl text-center">
-                  <span className="text-2xl font-black text-green-600">Richtig!</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={!userAnswer.trim() && !showFeedback}
-            className={`w-full max-w-md mx-auto py-5 rounded-2xl font-bold text-xl transition-all shadow-sm ${
-              !userAnswer.trim() && !showFeedback
-                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                : "bg-black text-white hover:bg-gray-800 hover:shadow-md"
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto w-full">
+          <input
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            disabled={showFeedback}
+            className={`w-full text-center p-5 rounded-2xl font-bold text-2xl border-2 focus:outline-none transition-all ${
+              showFeedback 
+                ? isCorrect 
+                  ? "bg-green-50 border-green-500 text-green-900" 
+                  : "bg-red-50 border-red-500 text-red-900"
+                : "bg-gray-50 border-gray-200 focus:border-black text-black placeholder-gray-300"
             }`}
-          >
-            {showFeedback
-              ? currentIndex + 1 < questions.length ? "Weiter" : "Level abschließen"
-              : "Überprüfen"}
-          </button>
+            autoFocus
+            autoComplete="off"
+          />
+          
+          {showFeedback ? (
+            <div className="mt-4 text-center animate-fade-in">
+              {isCorrect ? (
+                <div className="text-green-500 font-bold text-lg mb-6">Richtig!</div>
+              ) : (
+                <div className="mb-6">
+                  <div className="text-red-500 font-bold text-lg mb-2">Falsch!</div>
+                  <div className="text-gray-600 font-medium">
+                    Die richtige Antwort ist: <span className="text-black font-black text-xl">{primaryAnswer}</span>
+                  </div>
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="w-full py-5 rounded-2xl font-bold text-xl transition-all shadow-sm bg-black text-white hover:bg-gray-800 hover:shadow-md"
+              >
+                {currentIndex + 1 < questions.length ? "Weiter" : "Level abschließen"}
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3 mt-4">
+              <button
+                type="submit"
+                disabled={!userInput.trim()}
+                className={`w-full py-5 rounded-2xl font-bold text-xl transition-all shadow-sm ${
+                  userInput.trim() 
+                    ? "bg-black text-white hover:bg-gray-800" 
+                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                }`}
+              >
+                Prüfen
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </div>

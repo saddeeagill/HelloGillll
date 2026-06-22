@@ -1554,7 +1554,7 @@ export const B1_REGULAR_VERBS_PART1 = [
     wir: "demotivieren",
     ihr: "demotiviert",
     sie_Sie: "demotivieren",
-    translation: "to demotivating demotivating",
+    translation: "to demotivate",
     urdu: "",
     category: 'Regular Verbs',
     level: 'B1'
