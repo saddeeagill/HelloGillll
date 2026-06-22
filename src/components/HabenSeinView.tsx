@@ -187,11 +187,11 @@ export default function HabenSeinView() {
   }
 
   if (selectedQuiz === 'noun') {
-    if (activeLevelNoun === 1) return <NounLevel1Quiz onBack={handleLevelBackNoun} />;
-    if (activeLevelNoun === 2) return <NounLevel2Quiz onBack={handleLevelBackNoun} />;
-    if (activeLevelNoun === 3) return <NounLevel3Quiz onBack={handleLevelBackNoun} />;
-    if (activeLevelNoun === 4) return <NounLevel4Quiz onBack={handleLevelBackNoun} />;
-    if (activeLevelNoun === 5) return <NounLevel5Quiz onBack={handleLevelBackNoun} />;
+    if (activeLevelNoun === 1) return <NounLevel1Quiz onBack={handleLevelBackNoun} selectedLangCode="en" />;
+    if (activeLevelNoun === 2) return <NounLevel2Quiz onBack={handleLevelBackNoun} selectedLangCode="en" />;
+    if (activeLevelNoun === 3) return <NounLevel3Quiz onBack={handleLevelBackNoun} selectedLangCode="en" />;
+    if (activeLevelNoun === 4) return <NounLevel4Quiz onBack={handleLevelBackNoun} selectedLangCode="en" />;
+    if (activeLevelNoun === 5) return <NounLevel5Quiz onBack={handleLevelBackNoun} selectedLangCode="en" />;
 
     return (
       <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-4 md:px-0 pt-8">
