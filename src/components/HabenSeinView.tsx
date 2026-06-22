@@ -103,29 +103,21 @@ export default function HabenSeinView() {
           <span className="font-semibold">Zurück</span>
         </button>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Main Levels List */}
-          <div className="w-full md:w-2/3 space-y-4 mb-10">
-            {renderLevelButton(1, "Level 1: Personentabelle", "Der Anfang", "border-yellow-200", "text-yellow-600", unlocked, setActiveLevel)}
-            {renderLevelButton(2, "Level 2: Ja/Nein Fragen", "Kurze Antworten", "border-orange-200", "text-orange-600", unlocked, setActiveLevel)}
-            {renderLevelButton(3, "Level 3: Verneinung", "kein/keine", "border-purple-200", "text-purple-600", unlocked, setActiveLevel)}
-            {renderLevelButton(4, "Level 4: W-Fragen", "wer, wie, was, wo...", "border-pink-200", "text-pink-600", unlocked, setActiveLevel)}
-            {renderLevelButton(5, "Level 5: Gemischte Sätze", "Alles zusammenführen", "border-green-200", "text-green-600", unlocked, setActiveLevel)}
-          </div>
-
-          {/* Stats Sidebar */}
-          <div className="w-full md:w-1/3 flex flex-col gap-4">
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-4xl font-black text-black">0</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Punkte</span>
+        <div className="flex flex-col gap-8 mb-10">
+          
+          {/* Stats Horizontal Row */}
+          <div className="w-full flex flex-row flex-wrap justify-end gap-4">
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-2xl font-black text-black">0</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Punkte</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-4xl font-black text-black">{unlocked - 1}/5</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Level</span>
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-2xl font-black text-black">{unlocked - 1}/5</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Level</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-xl font-bold text-blue-500">In Arbeit</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Status</span>
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-lg font-bold text-blue-500">In Arbeit</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Status</span>
             </div>
             <button 
               onClick={() => {
@@ -137,12 +129,21 @@ export default function HabenSeinView() {
                   alert("Falsches Passwort.");
                 }
               }}
-              className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-100 cursor-pointer hover:shadow-md transition-all group relative"
+              className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-100 cursor-pointer hover:shadow-md transition-all group relative"
             >
-              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-3 py-1 rounded-full border border-orange-200">Lehrer</span>
-              <span className="text-3xl mb-2 group-hover:scale-110 transition-transform">🏅</span>
-              <span className="text-xs font-bold text-orange-600 uppercase tracking-widest leading-tight">Zugang</span>
+              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-200">Lehrer</span>
+              <span className="text-xl mb-1 group-hover:scale-110 transition-transform">🏅</span>
+              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest leading-tight">Zugang</span>
             </button>
+          </div>
+
+          {/* Main Levels List */}
+          <div className="w-full space-y-4">
+            {renderLevelButton(1, "Level 1: Personentabelle", "Der Anfang", "border-yellow-200", "text-yellow-600", unlocked, setActiveLevel)}
+            {renderLevelButton(2, "Level 2: Ja/Nein Fragen", "Kurze Antworten", "border-orange-200", "text-orange-600", unlocked, setActiveLevel)}
+            {renderLevelButton(3, "Level 3: Verneinung", "kein/keine", "border-purple-200", "text-purple-600", unlocked, setActiveLevel)}
+            {renderLevelButton(4, "Level 4: W-Fragen", "wer, wie, was, wo...", "border-pink-200", "text-pink-600", unlocked, setActiveLevel)}
+            {renderLevelButton(5, "Level 5: Gemischte Sätze", "Alles zusammenführen", "border-green-200", "text-green-600", unlocked, setActiveLevel)}
           </div>
         </div>
       </div>
@@ -200,29 +201,21 @@ export default function HabenSeinView() {
           <span className="font-semibold">Zurück</span>
         </button>
 
-        <div className="flex flex-col md:flex-row gap-8 mb-10">
-          {/* Main Levels List */}
-          <div className="w-full md:w-2/3 space-y-4">
-            {renderLevelButton(1, "Level 1: Einfach", "Präsens, Singular, konkrete Nomen", "border-yellow-200", "text-yellow-600", unlockedLevelNoun, setActiveLevelNoun)}
-            {renderLevelButton(2, "Level 2: Etwas schwieriger", "Plural, Besitz & Zustand gemischt", "border-orange-200", "text-orange-600", unlockedLevelNoun, setActiveLevelNoun)}
-            {renderLevelButton(3, "Level 3: Alltagssituationen", "Zeit, Ort, Familie, Gefühle", "border-purple-200", "text-purple-600", unlockedLevelNoun, setActiveLevelNoun)}
-            {renderLevelButton(4, "Level 4: Alltag + Verbindung", "aber / und / oder", "border-pink-200", "text-pink-600", unlockedLevelNoun, setActiveLevelNoun)}
-            {renderLevelButton(5, "Level 5: Alltag mit Situationen & kleinen Sätzen", "", "border-green-200", "text-green-600", unlockedLevelNoun, setActiveLevelNoun)}
-          </div>
-
-          {/* Stats Sidebar */}
-          <div className="w-full md:w-1/3 flex flex-col gap-4">
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-4xl font-black text-black">0</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Punkte</span>
+        <div className="flex flex-col gap-8 mb-10">
+          
+          {/* Stats Horizontal Row */}
+          <div className="w-full flex flex-row flex-wrap justify-end gap-4">
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-2xl font-black text-black">0</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Punkte</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-4xl font-black text-black">{unlockedLevelNoun - 1}/5</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Level</span>
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-2xl font-black text-black">{unlockedLevelNoun - 1}/5</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Level</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-xl font-bold text-blue-500">In Arbeit</span>
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Status</span>
+            <div className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm">
+              <span className="text-lg font-bold text-blue-500">In Arbeit</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Status</span>
             </div>
             <button 
               onClick={() => {
@@ -233,12 +226,21 @@ export default function HabenSeinView() {
                   alert("Falsches Passwort.");
                 }
               }}
-              className="bg-white border-2 border-gray-100 rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-sm hover:border-orange-300 hover:shadow-md transition-all cursor-pointer group relative"
+              className="bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 flex flex-col justify-center items-center text-center shadow-sm hover:border-orange-300 hover:shadow-md transition-all cursor-pointer group relative"
             >
-              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-3 py-1 rounded-full border border-orange-200">Lehrer</span>
-              <span className="text-3xl mb-2 group-hover:scale-110 transition-transform">🏅</span>
-              <span className="text-xs font-bold text-orange-600 uppercase tracking-widest leading-tight">Zugang</span>
+              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-200">Lehrer</span>
+              <span className="text-xl mb-1 group-hover:scale-110 transition-transform">🏅</span>
+              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest leading-tight">Zugang</span>
             </button>
+          </div>
+
+          {/* Main Levels List */}
+          <div className="w-full space-y-4">
+            {renderLevelButton(1, "Level 1: Einfach", "Präsens, Singular, konkrete Nomen", "border-yellow-200", "text-yellow-600", unlockedLevelNoun, setActiveLevelNoun)}
+            {renderLevelButton(2, "Level 2: Etwas schwieriger", "Plural, Besitz & Zustand gemischt", "border-orange-200", "text-orange-600", unlockedLevelNoun, setActiveLevelNoun)}
+            {renderLevelButton(3, "Level 3: Alltagssituationen", "Zeit, Ort, Familie, Gefühle", "border-purple-200", "text-purple-600", unlockedLevelNoun, setActiveLevelNoun)}
+            {renderLevelButton(4, "Level 4: Alltag + Verbindung", "aber / und / oder", "border-pink-200", "text-pink-600", unlockedLevelNoun, setActiveLevelNoun)}
+            {renderLevelButton(5, "Level 5: Alltag mit Situationen & kleinen Sätzen", "", "border-green-200", "text-green-600", unlockedLevelNoun, setActiveLevelNoun)}
           </div>
         </div>
 
