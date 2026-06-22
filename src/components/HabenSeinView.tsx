@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
 import HabenLevel1Quiz from './HabenLevel1Quiz';
+import HabenLevel2Quiz from './HabenLevel2Quiz';
+import HabenLevel3Quiz from './HabenLevel3Quiz';
+import HabenLevel4Quiz from './HabenLevel4Quiz';
+import HabenLevel5Quiz from './HabenLevel5Quiz';
+import SeinLevel1Quiz from './SeinLevel1Quiz';
+import SeinLevel2Quiz from './SeinLevel2Quiz';
+import SeinLevel3Quiz from './SeinLevel3Quiz';
+import SeinLevel4Quiz from './SeinLevel4Quiz';
+import SeinLevel5Quiz from './SeinLevel5Quiz';
+import NounLevel1Quiz from './NounLevel1Quiz';
+import NounLevel2Quiz from './NounLevel2Quiz';
+import NounLevel3Quiz from './NounLevel3Quiz';
+import NounLevel4Quiz from './NounLevel4Quiz';
+import NounLevel5Quiz from './NounLevel5Quiz';
 import Logo from './Logo';
 
 export default function HabenSeinView() {
@@ -7,11 +21,81 @@ export default function HabenSeinView() {
   const [selectedVerb, setSelectedVerb] = useState<string | null>(null);
   const [activeLevel, setActiveLevel] = useState<number | null>(null);
 
-  if (activeLevel === 1) {
-    return <HabenLevel1Quiz onBack={() => setActiveLevel(null)} />;
+  const [unlockedLevel, setUnlockedLevel] = useState(1);
+  const [unlockedLevelSein, setUnlockedLevelSein] = useState(1);
+  const [unlockedLevelNoun, setUnlockedLevelNoun] = useState(1);
+  const [activeLevelNoun, setActiveLevelNoun] = useState<number | null>(null);
+
+  const handleLevelBack = (passed?: boolean) => {
+    if (passed && activeLevel) {
+      if (selectedVerb === 'haben') {
+        setUnlockedLevel(prev => Math.max(prev, activeLevel + 1));
+      } else if (selectedVerb === 'sein') {
+        setUnlockedLevelSein(prev => Math.max(prev, activeLevel + 1));
+      }
+    }
+    setActiveLevel(null);
+  };
+
+  const handleLevelBackNoun = (passed?: boolean) => {
+    if (passed && activeLevelNoun) {
+      setUnlockedLevelNoun(prev => Math.max(prev, activeLevelNoun + 1));
+    }
+    setActiveLevelNoun(null);
+  };
+
+  const renderLevelButton = (
+    level: number, 
+    title: string, 
+    subtitle: string, 
+    borderColor: string, 
+    textColor: string, 
+    unlockedStatus: number,
+    setLvlAction: (l: number) => void
+  ) => {
+    const isUnlocked = unlockedStatus >= level;
+    
+    return (
+      <button 
+        onClick={() => isUnlocked && setLvlAction(level)}
+        className={`w-full flex items-center justify-between p-5 bg-white border-2 ${isUnlocked ? borderColor : 'border-gray-100 opacity-60'} rounded-2xl shadow-sm hover:shadow-md transition-all text-left group`}
+      >
+        <div className="flex items-center gap-4">
+          <div className={`w-12 h-12 rounded-full ${isUnlocked ? 'bg-yellow-100' : 'bg-gray-100'} flex items-center justify-center text-xl`}>
+            {isUnlocked ? '🟡' : '🔒'}
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-black mb-0.5">{title}</h3>
+            {subtitle && <p className="text-sm text-gray-500 font-medium">{subtitle}</p>}
+          </div>
+        </div>
+        {isUnlocked && <span className={`font-bold ${textColor} opacity-0 group-hover:opacity-100 transition-opacity`}>Starten ➔</span>}
+      </button>
+    );
+  };
+
+  if (activeLevel) {
+    if (selectedVerb === 'haben') {
+      if (activeLevel === 1) return <HabenLevel1Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 2) return <HabenLevel2Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 3) return <HabenLevel3Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 4) return <HabenLevel4Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 5) return <HabenLevel5Quiz onBack={handleLevelBack} />;
+    } else if (selectedVerb === 'sein') {
+      if (activeLevel === 1) return <SeinLevel1Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 2) return <SeinLevel2Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 3) return <SeinLevel3Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 4) return <SeinLevel4Quiz onBack={handleLevelBack} />;
+      if (activeLevel === 5) return <SeinLevel5Quiz onBack={handleLevelBack} />;
+    }
   }
 
-  if (selectedVerb === 'haben') {
+  if (selectedVerb) {
+    const isHaben = selectedVerb === 'haben';
+    const unlocked = isHaben ? unlockedLevel : unlockedLevelSein;
+    const title = isHaben ? 'haben' : 'sein';
+    const initial = isHaben ? 'H' : 'S';
+
     return (
       <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-4 md:px-0 pt-8">
         <button onClick={() => setSelectedVerb(null)} className="flex items-center gap-2 text-gray-500 hover:text-black mb-8 w-fit transition-colors">
@@ -20,97 +104,52 @@ export default function HabenSeinView() {
         </button>
 
         <div className="flex flex-col md:flex-row gap-8 mb-10 items-start">
-          {/* Header Info */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 w-full md:w-auto">
             <div className="w-24 h-24 rounded-full bg-black flex items-center justify-center text-4xl font-black text-white shadow-lg mb-2">
-              H
+              {initial}
             </div>
-            <h1 className="text-3xl font-black text-black">haben</h1>
-            <p className="text-gray-500 font-medium">Conjugation Quiz</p>
+            <h1 className="text-3xl font-black text-black">{title}</h1>
+            <p className="text-gray-500 font-medium">Konjugations Quiz</p>
           </div>
 
-          {/* Stats Dashboard */}
           <div className="flex-grow grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
               <span className="text-3xl font-black text-black">0</span>
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Points</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Punkte</span>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-3xl font-black text-black">0/5</span>
+              <span className="text-3xl font-black text-black">{unlocked - 1}/5</span>
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Level</span>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-lg font-bold text-blue-500">In progress</span>
+              <span className="text-lg font-bold text-blue-500">In Arbeit</span>
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Status</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-100">
-              <span className="text-2xl mb-1">🏅</span>
-              <span className="text-xs font-bold text-orange-600 uppercase tracking-widest leading-tight">Teacher Access</span>
-            </div>
+            <button 
+              onClick={() => {
+                const pwd = prompt("Lehrer-Passwort eingeben:");
+                if (pwd === "242424") {
+                  if (isHaben) setUnlockedLevel(5);
+                  else setUnlockedLevelSein(5);
+                } else if (pwd !== null) {
+                  alert("Falsches Passwort.");
+                }
+              }}
+              className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-100 cursor-pointer hover:shadow-md transition-all group relative"
+            >
+              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-200">Lehrer</span>
+              <span className="text-2xl mb-1 group-hover:scale-110 transition-transform">🏅</span>
+              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest leading-tight">Zugang</span>
+            </button>
           </div>
         </div>
 
-        {/* Levels List */}
         <div className="space-y-4 mb-10">
-          <button 
-            onClick={() => setActiveLevel(1)}
-            className="w-full flex items-center justify-between p-5 bg-white border-2 border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition-all text-left group"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">🟡</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 1: Person table</h3>
-                <p className="text-sm text-gray-500 font-medium">The start</p>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl">🟠</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 2: Mixed persons</h3>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-xl">🟣</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 3: Conjugation of person</h3>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-xl border-2 border-gray-200">⚪</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 4: Mixed conjugation</h3>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-xl border-2 border-gray-200">⚪</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 5: Translation of native language → German</h3>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-        </div>
-
-        <div className="text-center bg-gray-50 rounded-xl p-4 border border-gray-200">
-          <p className="text-sm font-semibold text-gray-500">
-            At least <span className="text-black">80%</span> (8 out of 10) correct to advance to the next level
-          </p>
+          {renderLevelButton(1, "Level 1: Personentabelle", "Der Anfang", "border-yellow-200", "text-yellow-600", unlocked, setActiveLevel)}
+          {renderLevelButton(2, "Level 2: Ja/Nein Fragen", "Kurze Antworten", "border-orange-200", "text-orange-600", unlocked, setActiveLevel)}
+          {renderLevelButton(3, "Level 3: Verneinung", "kein/keine", "border-purple-200", "text-purple-600", unlocked, setActiveLevel)}
+          {renderLevelButton(4, "Level 4: W-Fragen", "wer, wie, was, wo...", "border-pink-200", "text-pink-600", unlocked, setActiveLevel)}
+          {renderLevelButton(5, "Level 5: Gemischte Sätze", "Alles zusammenführen", "border-green-200", "text-green-600", unlocked, setActiveLevel)}
         </div>
       </div>
     );
@@ -163,6 +202,12 @@ export default function HabenSeinView() {
   }
 
   if (selectedQuiz === 'noun') {
+    if (activeLevelNoun === 1) return <NounLevel1Quiz onBack={handleLevelBackNoun} />;
+    if (activeLevelNoun === 2) return <NounLevel2Quiz onBack={handleLevelBackNoun} />;
+    if (activeLevelNoun === 3) return <NounLevel3Quiz onBack={handleLevelBackNoun} />;
+    if (activeLevelNoun === 4) return <NounLevel4Quiz onBack={handleLevelBackNoun} />;
+    if (activeLevelNoun === 5) return <NounLevel5Quiz onBack={handleLevelBackNoun} />;
+
     return (
       <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-4 md:px-0 pt-8">
         <button onClick={() => setSelectedQuiz(null)} className="flex items-center gap-2 text-gray-500 hover:text-black mb-8 w-fit transition-colors">
@@ -171,91 +216,46 @@ export default function HabenSeinView() {
         </button>
 
         <div className="flex flex-col md:flex-row gap-8 mb-10 items-start">
-          {/* Header Info */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 w-full md:w-auto">
-            <div className="mb-4 transform scale-150 origin-left md:origin-left scale-100 flex justify-center md:justify-start">
-               <Logo showBack={false} />
-            </div>
             <h1 className="text-3xl font-black text-black">Haben / Sein Quiz</h1>
           </div>
 
-          {/* Stats Dashboard */}
           <div className="flex-grow grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
               <span className="text-3xl font-black text-black">0</span>
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Punkte</span>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="text-3xl font-black text-black">0/5</span>
+              <span className="text-3xl font-black text-black">{unlockedLevelNoun - 1}/5</span>
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Level</span>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm">
               <span className="text-lg font-bold text-blue-500">In Arbeit</span>
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Status</span>
             </div>
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-100 relative">
-              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-200">Abzeichen</span>
-              <span className="text-2xl mb-1 mt-2">🏅</span>
-              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest leading-tight">Lehrer<br/>Zugang</span>
-            </div>
+            <button 
+              onClick={() => {
+                const pwd = prompt("Lehrer-Passwort eingeben:");
+                if (pwd === "242424") {
+                  setUnlockedLevelNoun(5);
+                } else if (pwd !== null) {
+                  alert("Falsches Passwort.");
+                }
+              }}
+              className="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col justify-center items-center text-center shadow-sm hover:border-orange-300 hover:shadow-md transition-all cursor-pointer group relative"
+            >
+              <span className="absolute -top-3 bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-200">Lehrer</span>
+              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest leading-tight group-hover:scale-110 transition-transform">Zugang</span>
+            </button>
           </div>
         </div>
 
-        {/* Levels List */}
         <div className="space-y-4 mb-10">
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition-all text-left group">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">🟡</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 1: Einfach</h3>
-                <p className="text-sm text-gray-500 font-medium">Präsens, Singular, konkrete Nomen</p>
-              </div>
-            </div>
-            <span className="font-bold text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity">Starten ➔</span>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl">🟠</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 2: Etwas schwieriger</h3>
-                <p className="text-sm text-gray-500 font-medium">Plural, Besitz & Zustand gemischt</p>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-xl">🟣</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 3: Alltagssituationen</h3>
-                <p className="text-sm text-gray-500 font-medium">Zeit, Ort, Familie, Gefühle</p>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-xl border-2 border-gray-200">⚪</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 4: Alltag + Verbindung</h3>
-                <p className="text-sm text-gray-500 font-medium">aber / und / oder</p>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
-
-          <button className="w-full flex items-center justify-between p-5 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-left opacity-60">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-xl border-2 border-gray-200">⚪</div>
-              <div>
-                <h3 className="text-lg font-bold text-black mb-0.5">Level 5: Alltag mit Situationen & kleinen Sätzen</h3>
-              </div>
-            </div>
-            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          </button>
+          {renderLevelButton(1, "Level 1: Einfach", "Präsens, Singular, konkrete Nomen", "border-yellow-200", "text-yellow-600", unlockedLevelNoun, setActiveLevelNoun)}
+          {renderLevelButton(2, "Level 2: Etwas schwieriger", "Plural, Besitz & Zustand gemischt", "border-orange-200", "text-orange-600", unlockedLevelNoun, setActiveLevelNoun)}
+          {renderLevelButton(3, "Level 3: Alltagssituationen", "Zeit, Ort, Familie, Gefühle", "border-purple-200", "text-purple-600", unlockedLevelNoun, setActiveLevelNoun)}
+          {renderLevelButton(4, "Level 4: Alltag + Verbindung", "aber / und / oder", "border-pink-200", "text-pink-600", unlockedLevelNoun, setActiveLevelNoun)}
+          {renderLevelButton(5, "Level 5: Alltag mit Situationen & kleinen Sätzen", "", "border-green-200", "text-green-600", unlockedLevelNoun, setActiveLevelNoun)}
         </div>
 
         <div className="text-center bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -270,9 +270,9 @@ export default function HabenSeinView() {
   return (
     <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-4 md:px-0 pt-8">
       <div className="text-center mb-12">
-        <h3 className="text-lg font-semibold text-gray-500 uppercase tracking-widest mb-2">Welcome</h3>
+        <h3 className="text-lg font-semibold text-gray-500 uppercase tracking-widest mb-2">Willkommen</h3>
         <h1 className="text-3xl md:text-5xl font-black text-black drop-shadow-sm tracking-tight">
-          Choose a quiz
+          Wähle ein Quiz
         </h1>
       </div>
 
