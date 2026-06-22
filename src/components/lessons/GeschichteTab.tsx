@@ -30,6 +30,25 @@ export default function GeschichteTab({
     }
   };
 
+  // Helper to highlight specific words marked with **word** in the text
+  const renderHighlightedText = (text: string) => {
+    // Split by **...** to find marked words
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        // Remove the ** from the start and end
+        const word = part.slice(2, -2);
+        return (
+          <span key={i} className="bg-[#000000] text-white px-1 py-0.5 rounded font-bold mx-px shadow-sm">
+            {word}
+          </span>
+        );
+      }
+      return <React.Fragment key={i}>{part}</React.Fragment>;
+    });
+  };
+
   return (
     <div className="flex flex-col md:flex-row gap-6">
       {/* Topics Sidebar */}
@@ -83,7 +102,7 @@ export default function GeschichteTab({
         {/* Story Text */}
         <div className="prose max-w-none text-black leading-relaxed md:text-lg print:text-black print:text-base">
           <h2 className="text-2xl font-bold mb-4">{activeTopic?.title}</h2>
-          <p className="whitespace-pre-wrap">{activeTopic?.content}</p>
+          <p className="whitespace-pre-wrap">{activeTopic ? renderHighlightedText(activeTopic.content) : ""}</p>
         </div>
       </div>
     </div>
