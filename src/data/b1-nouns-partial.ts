@@ -17,7 +17,7 @@ export const B1_NOUNS_PARTIAL = [
   { id: 16, word: "Alltagssprache", plural: "Alltagssprachen", translation: "everyday language", urdu: "\u0632\u0628\u0627\u0646 \u06a9\u06cc \u0631\u0648\u0632\u0645\u0631\u06c1", category: 'Nouns', level: 'B1' },
   { id: 17, word: "Alltagsszene", plural: "Alltagsszenen", translation: "Everyday scene", urdu: "\u0645\u0646\u0638\u0631 \u06a9\u0627 \u0631\u0648\u0632\u0645\u0631\u06c1", category: 'Nouns', level: 'B1' },
   { id: 18, word: "Alzheimer", plural: "-", translation: "Alzheimer", urdu: "\u0627\u0644\u0632\u0627\u0626\u0645\u0631", category: 'Nouns', level: 'B1' },
-  { id: 19, word: "Amateur", plural: "Boxerin", translation: "Amateurboxerinnen Amateur boxer", urdu: "\u0628\u0627\u06a9\u0633\u0631 \u0634\u0648\u0642\u06cc\u06c1", category: 'Nouns', level: 'B1' },
+  { id: 19, word: "Amateurboxerin", plural: "Amateurboxerinnen", translation: "female amateur boxer", urdu: "\u0628\u0627\u06a9\u0633\u0631 \u0634\u0648\u0642\u06cc\u06c1", category: 'Nouns', level: 'B1' },
   { id: 20, word: "Amt", plural: "\u00c4mter", translation: "Government office", urdu: "\u062f\u0641\u062a\u0631", category: 'Nouns', level: 'B1' },
   { id: 21, word: "Amtsinhaberin", plural: "Amtsinhaberinnen", translation: "incumbent", urdu: "\u062f\u0627\u0631 \u0630\u0645\u06c1", category: 'Nouns', level: 'B1' },
   { id: 22, word: "Amtssprache", plural: "Amtssprachen", translation: "Official language", urdu: "\u0632\u0628\u0627\u0646 \u0633\u0631\u06a9\u0627\u0631\u06cc", category: 'Nouns', level: 'B1' },
