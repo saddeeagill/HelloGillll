@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 export default function TheorieTab({ lesson }: { lesson: any }) {
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(0.75);
 
   if (!lesson) return null;
   
@@ -20,7 +20,7 @@ export default function TheorieTab({ lesson }: { lesson: any }) {
 
   const handleZoomIn = () => setZoom(prev => Math.min(prev + 0.25, 3));
   const handleZoomOut = () => setZoom(prev => Math.max(prev - 0.25, 0.25));
-  const handleResetZoom = () => setZoom(1);
+  const handleResetZoom = () => setZoom(0.75);
 
   return (
     <div className="flex flex-col items-center justify-start w-full h-[100vh] overflow-hidden bg-gray-50 text-center relative p-0">
