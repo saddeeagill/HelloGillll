@@ -33,7 +33,7 @@ export default function NounLevel3Quiz({ onBack, selectedLangCode }: NounLevel3Q
     // Only pick nouns that have a defined 'plural' field that is not empty
     const nouns = VOCABULARY.filter(item => 
       (item.category === "Nouns" || item.category === "Nomen") && 
-      item.plural && item.plural.trim() !== "" && item.plural !== "-"
+      (item as any).plural && (item as any).plural.trim() !== "" && (item as any).plural !== "-"
     );
     const shuffled = [...nouns].sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 10);
