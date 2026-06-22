@@ -166,7 +166,7 @@ export default function HabenSeinView() {
                 haben
               </h2>
               <span className="text-xl md:text-2xl font-bold text-gray-400 group-hover:text-black transition-colors lowercase">
-                conjugation
+                konjugation
               </span>
             </button>
 
