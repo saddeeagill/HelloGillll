@@ -37,11 +37,16 @@ async function processQueue(targetLang: string) {
     const combinedWithNewlines = chunk.map(q => q.text).join('\n');
     
     try {
-      const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=de&tl=${targetLang}&dt=t&q=${encodeURIComponent(combinedWithNewlines)}`);
-      if (!res.ok) throw new Error("Network response was not ok");
-      const data = await res.json();
+      const res = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: combinedWithNewlines, targetLang }),
+      });
       
-      const translatedLines = data[0].map((item: any) => item[0]).join('').split('\n');
+      if (!res.ok) throw new Error("Network response was not ok");
+      
+      const data = await res.json();
+      const translatedLines = data.translatedLines;
       
       chunk.forEach((item, index) => {
         const translated = translatedLines[index]?.trim() || item.text;

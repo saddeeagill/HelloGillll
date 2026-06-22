@@ -218,9 +218,9 @@ export const A1_REGULAR_VERBS = [
   {
     "id": 25,
     "word": "entschuldigen",
-    "translation": "",
-    "principalParts": "entschuldigte - entschuldigt",
-    "conjugation": "ich entschuldige\ndu entschuldigst\ner/sie/es\nentschuldigt\nto\nexcuse/apologize\nto\nexcuse/apologize\nwir entschuldigen\nihr entschuldigt\nSie/sie\nentschuldigen",
+    "translation": "to excuse/apologize",
+    "principalParts": "entschuldigen - entschuldigte - entschuldigt",
+    "conjugation": "ich entschuldige\ndu entschuldigst\ner/sie/es entschuldigt\nwir entschuldigen\nihr entschuldigt\nSie/sie entschuldigen",
     "category": "Regular Verbs",
     "level": "A1"
   },
@@ -650,9 +650,9 @@ export const A1_REGULAR_VERBS = [
   {
     "id": 73,
     "word": "(sich) vorstellen",
-    "translation": "",
+    "translation": "to introduce/imagine",
     "principalParts": "(sich) vorstellen - stellte vor - vorgestellt",
-    "conjugation": "ich vorstelle mich\ndu vorstellst dich\ner/sie/es vorstellt\nsich\nwir vorstellen uns\nihr vorstellt euch\nSie/sie vorstellen\nsich\nto\nintroduce/imagine\nto\nintroduce/imagine",
+    "conjugation": "ich stelle mich vor\ndu stellst dich vor\ner/sie/es stellt sich vor\nwir stellen uns vor\nihr stellt euch vor\nSie/sie stellen sich vor",
     "category": "Regular Verbs",
     "level": "A1"
   },

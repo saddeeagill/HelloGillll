@@ -122,7 +122,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
         {activeTab === "Geschichte" && <GeschichteTab lesson={lesson} activeTopicId={activeTopicId} setActiveTopicId={setActiveTopicId} />}
         {activeTab === "Nomen" && <NomenTab lesson={lesson} />}
         {activeTab === "Quiz" && <QuizTab lesson={lesson} />}
-        {activeTab === "Theorie" && <TheorieTab />}
+        {activeTab === "Theorie" && <TheorieTab lesson={lesson} />}
         {activeTab === "Prüfung" && <PruefungTab lesson={lesson} />}
       </div>
 

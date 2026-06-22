@@ -298,10 +298,10 @@ export const A1_IRREGULAR_VERBS = [
   },
   {
     "id": 34,
-    "word": "kennen ich kenne",
-    "translation": "",
-    "principalParts": "kennen - kannte - gekannt er/sie/es kennt wir kennen",
-    "conjugation": "ihr kennt\nSie/sie kennen",
+    "word": "kennen",
+    "translation": "to know",
+    "principalParts": "kennen - kannte - gekannt",
+    "conjugation": "ich kenne\ndu kennst\ner/sie/es kennt\nwir kennen\nihr kennt\nSie/sie kennen",
     "category": "Irregular Verbs",
     "level": "A1"
   },
@@ -371,9 +371,9 @@ export const A1_IRREGULAR_VERBS = [
   {
     "id": 42,
     "word": "möchten",
-    "translation": "",
+    "translation": "to want/would like",
     "principalParts": "möchten - mochte - gemocht",
-    "conjugation": "ich möchte\ndu möchtest\ner/sie/es möchte\nwir möchten\nihr möchtet\nSie/sie möchten\nwould like to would like to",
+    "conjugation": "ich möchte\ndu möchtest\ner/sie/es möchte\nwir möchten\nihr möchtet\nSie/sie möchten",
     "category": "Irregular Verbs",
     "level": "A1"
   },
@@ -532,10 +532,10 @@ export const A1_IRREGULAR_VERBS = [
   },
   {
     "id": 60,
-    "word": "tun ich tue",
-    "translation": "",
-    "principalParts": "tun - tat - getan er/sie/es tut wir tun",
-    "conjugation": "ihr tut\nSie/sie tun",
+    "word": "tun",
+    "translation": "to do",
+    "principalParts": "tun - tat - getan",
+    "conjugation": "ich tue\ndu tust\ner/sie/es tut\nwir tun\nihr tut\nSie/sie tun",
     "category": "Irregular Verbs",
     "level": "A1"
   },

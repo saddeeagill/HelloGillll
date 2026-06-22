@@ -90,7 +90,7 @@ export default function SeinLevel2Quiz({ onBack }: { onBack: (passed?: boolean) 
             Wiederholen
           </button>
           <button onClick={() => onBack(score >= 8)} className="flex-1 px-6 py-4 bg-black text-white font-bold text-lg rounded-xl hover:bg-gray-800 transition-colors">
-            Zurück zur Übersicht
+            ZurÃ¼ck zur Ãœbersicht
           </button>
         </div>
 
@@ -128,7 +128,7 @@ export default function SeinLevel2Quiz({ onBack }: { onBack: (passed?: boolean) 
   return (
     <div className="flex flex-col h-full w-full max-w-2xl mx-auto pb-20 px-4 md:px-0 pt-8">
       <button onClick={() => onBack(false)} className="flex items-center gap-2 text-gray-500 hover:text-black mb-8 w-fit transition-colors">
-        <span className="font-semibold">Zurück</span>
+        <span className="font-semibold">ZurÃ¼ck</span>
       </button>
 
       <div className="mb-8">
@@ -142,7 +142,7 @@ export default function SeinLevel2Quiz({ onBack }: { onBack: (passed?: boolean) 
           <span className="text-sm font-bold text-black bg-gray-100 px-4 py-2 rounded-full">Richtige Antworten: {score} / {QUESTIONS.length}</span>
         </div>
 
-        <p className="text-xl font-bold text-black mb-8">Ergänze die richtige Verbform:</p>
+        <p className="text-xl font-bold text-black mb-8">ErgÃ¤nze die richtige Verbform:</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           <div className="flex items-center gap-4 text-4xl font-black text-black">

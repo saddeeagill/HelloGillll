@@ -110,19 +110,20 @@ export default function LevelPage() {
                   </ul>
                 </div>
               </li>
-              <li>
-                <button 
-                  onClick={() => { setActiveView('haben_sein'); setSidebarOpen(false); }}
-                  className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
-                    activeView === 'haben_sein' 
-                      ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
-                      : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
-                  }`}
-                >
-                  haben & sein
-                </button>
-              </li>
-
+              {levelUpper === 'A1' && (
+                <li>
+                  <button 
+                    onClick={() => { setActiveView('haben_sein'); setSidebarOpen(false); }}
+                    className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
+                      activeView === 'haben_sein' 
+                        ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
+                        : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
+                    }`}
+                  >
+                    haben & sein
+                  </button>
+                </li>
+              )}
             </ul>
 
             {levelUpper === 'A1' && (
@@ -156,48 +157,21 @@ export default function LevelPage() {
               </div>
             )}
 
-            {levelUpper === 'A2' && (
+            {/* Removed A2 Lektionen explicitly for levels > A1 per request */}
+            {levelUpper === 'A1' && (
               <div className="mt-8">
                 <button 
-                  onClick={() => setLessonsExpanded(!lessonsExpanded)}
-                  className="w-full text-left px-3 py-3 border-2 border-gray-200 bg-white rounded-xl font-bold flex justify-between items-center hover:border-gray-400 transition-all text-[#000000] text-sm"
+                  onClick={() => { setActiveView('exam'); setSidebarOpen(false); }}
+                  className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
+                    activeView === 'exam' 
+                      ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
+                      : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
+                  }`}
                 >
-                  <span>Lektionen (A2)</span>
-                  <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${lessonsExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  Prüfung {levelUpper}
                 </button>
-                
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${lessonsExpanded ? 'max-h-[1000px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                  <ul className="space-y-1 pl-1 border-l-2 border-gray-200 ml-2 py-1">
-                    {a2Lektionen.map(num => (
-                      <li key={`a2_lektion_${num}`}>
-                        <button 
-                          onClick={() => { setActiveView(`a2_lektion_${num}`); setSidebarOpen(false); }}
-                          className={`w-full text-left px-2 py-2 font-semibold rounded-lg transition-all text-xs ${
-                            activeView === `a2_lektion_${num}`
-                              ? 'bg-[#e5e7eb] text-black shadow-sm'
-                              : 'text-gray-600 hover:text-black hover:bg-gray-100'
-                          }`}
-                        >
-                          Lektion {num} (A2)
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             )}
-            <div className="mt-8">
-              <button 
-                onClick={() => { setActiveView('exam'); setSidebarOpen(false); }}
-                className={`w-full text-left px-3 py-3 border-2 rounded-xl font-bold transition-all text-sm ${
-                  activeView === 'exam' 
-                    ? 'bg-[#e5e7eb] border-[#e5e7eb] text-black shadow-md' 
-                    : 'bg-white border-gray-200 text-black hover:border-gray-400 hover:shadow-md'
-                }`}
-              >
-                Prüfung {levelUpper}
-              </button>
-            </div>
           </div>
         </aside>
 

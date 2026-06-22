@@ -2764,6 +2764,7 @@ export const A1_NOUNS = [
     "word": "Arm",
     "plural": "Arme",
     "translation": "arm",
+    "urdu": "بازو",
     "category": "Nouns",
     "level": "A1"
   },
