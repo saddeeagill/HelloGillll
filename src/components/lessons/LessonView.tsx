@@ -14,12 +14,14 @@ const getTopicNouns = (content: string, nomenList?: any[]) => {
   if (!nomenList) return [];
   const matches = content.match(/\*\*(.*?)\*\*/g) || [];
   const highlightedWords = matches.map((m) => m.slice(2, -2).toLowerCase());
+  
   const filtered = nomenList.filter(
     (nomen) =>
       highlightedWords.includes(nomen.singular.toLowerCase()) ||
       highlightedWords.includes(nomen.plural.toLowerCase())
   );
-  return filtered.sort((a, b) => a.singular.localeCompare(b.singular));
+  
+  return filtered.sort((a, b) => a.id - b.id);
 };
 
 const getTabs = (lessonId: string) => {
@@ -71,16 +73,165 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handlePrint = (mode: "geschichte" | "alle" | "theorie") => {
-    setPrintMode(mode);
-    setShowPrintMenu(false);
-    setTimeout(() => {
-      window.print();
-    }, 1500);
+  // Build plain HTML string for a story content (converts **word** to <strong>)
+  const buildStoryHtml = (content: string): string => {
+    return content
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\*\*(.*?)\*\*/g, '<strong style="background:#000;color:#fff;padding:1px 4px;border-radius:3px;">$1</strong>')
+      .replace(/\n/g, '<br>');
   };
 
+  // Build noun table HTML for a set of nouns
+  const buildNounTableHtml = (nouns: any[]): string => {
+    if (nouns.length === 0) return '';
+    const langLabel = SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || 'Translation';
+    const rows = nouns.map((nomen, index) => `
+      <tr>
+        <td>${index + 1}</td>
+        <td><strong>${nomen.singular}</strong></td>
+        <td>${nomen.plural}</td>
+        <td>${nomen.english}</td>
+        <td>${nomen.english}</td>
+      </tr>`).join('');
+    return `
+      <div class="noun-section">
+        <h4>Nomen</h4>
+        <table>
+          <thead>
+            <tr>
+              <th class="nr">Nr.</th>
+              <th>Singular</th>
+              <th>Plural</th>
+              <th>English</th>
+              <th>${langLabel}</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  };
+
+  const handlePrint = (mode: "geschichte" | "alle" | "theorie") => {
+    setShowPrintMenu(false);
+
+    const topicsToPrint = mode === 'alle'
+      ? lesson.topics
+      : lesson.topics.filter(t => t.id === activeTopicId);
+
+    let bodyContent = '';
+
+    if (mode === 'theorie') {
+      const imgSrc = lesson.id.startsWith("a2_lektion_")
+        ? `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("a2_lektion_", "")}-a2.jpg`
+        : `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("lektion_", "")}-a1.jpg`;
+      bodyContent = `<div style="text-align:center;"><img src="${imgSrc}" style="max-width:100%;height:auto;" /></div>`;
+    } else {
+      bodyContent = topicsToPrint.map(topic => {
+        const nouns = getTopicNouns(topic.content, lesson.nomenList);
+        const storyHtml = buildStoryHtml(topic.content);
+        const nounHtml = buildNounTableHtml(nouns);
+        return `
+          <div class="story-block">
+            <h2>${topic.title}</h2>
+            <p class="story-text">${storyHtml}</p>
+            ${nounHtml}
+          </div>`;
+      }).join('');
+    }
+
+    const printHtml = `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>${lesson.title}</title>
+  <style>
+    @page { size: A4 portrait; margin: 15mm 12mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12pt;
+      color: #000;
+      background: #fff;
+      padding: 0;
+    }
+    h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .story-block {
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 15pt;
+      font-weight: bold;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      page-break-after: avoid;
+    }
+    .story-text {
+      line-height: 1.7;
+      margin-bottom: 16px;
+      white-space: pre-wrap;
+    }
+    .noun-section {
+      margin-top: 16px;
+    }
+    h4 {
+      font-size: 12pt;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      page-break-after: avoid;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      page-break-inside: auto;
+    }
+    thead { display: table-header-group; }
+    thead tr {
+      background: #f0f0f0;
+      border-bottom: 2px solid #ccc;
+    }
+    th {
+      padding: 6px 8px;
+      font-weight: bold;
+      text-align: left;
+    }
+    th.nr { width: 40px; }
+    td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    tr { page-break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <h1>${lesson.title}</h1>
+  ${bodyContent}
+  <script>window.onload = function(){ window.print(); };<\/script>
+</body>
+</html>`;
+
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.open();
+      printWindow.document.write(printHtml);
+      printWindow.document.close();
+    }
+  };
+
+
   return (
-    <div className="flex flex-col h-full w-full max-w-5xl mx-auto pb-20 px-3 md:px-0">
+    <div className="flex flex-col min-h-screen w-full max-w-5xl mx-auto pb-20 px-3 md:px-0 print:block print:min-h-0 print:pb-0">
       {/* Header section */}
       <div className="mb-4 md:mb-6 pt-2 print:hidden">
         <div className="flex justify-between items-center mb-4">
@@ -167,12 +318,12 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
             {lesson.topics.map((topic) => {
               const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
               return (
-              <div key={topic.id} className="mb-10 break-inside-avoid">
-                <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
+              <div key={topic.id} className="mb-10">
+                <h3 className="text-xl font-bold mb-2 break-after-avoid">{topic.title}</h3>
                 <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
                 {topicNouns.length > 0 && (
-                  <div className="mt-4">
-                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1">Nomen</h4>
+                  <div className="mt-6">
+                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1 break-after-avoid">Nomen</h4>
                     <table className="w-full text-left border-collapse text-sm">
                       <thead>
                         <tr className="bg-gray-100 border-b-2 border-gray-200 text-black">
@@ -210,12 +361,12 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
             {lesson.topics.filter(t => t.id === activeTopicId).map((topic) => {
               const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
               return (
-              <div key={topic.id} className="mb-10 break-inside-avoid">
-                <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
+              <div key={topic.id} className="mb-10">
+                <h3 className="text-xl font-bold mb-2 break-after-avoid">{topic.title}</h3>
                 <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
                 {topicNouns.length > 0 && (
-                  <div className="mt-4">
-                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1">Nomen</h4>
+                  <div className="mt-6">
+                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1 break-after-avoid">Nomen</h4>
                     <table className="w-full text-left border-collapse text-sm">
                       <thead>
                         <tr className="bg-gray-100 border-b-2 border-gray-200 text-black">

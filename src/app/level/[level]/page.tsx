@@ -32,7 +32,7 @@ export default function LevelPage() {
 
 
   return (
-    <div className="min-h-screen bg-white font-sans flex flex-col md:pl-48">
+    <div className="min-h-screen bg-white font-sans flex flex-col md:pl-48 print:block print:min-h-0 print:pl-0">
       {/* Header Container */}
       <div className="w-full bg-white flex flex-col z-20 shadow-sm relative print:hidden">
         <div className="relative w-full flex items-center justify-center">
