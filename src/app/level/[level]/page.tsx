@@ -52,7 +52,7 @@ export default function LevelPage() {
       ? `<th>Nr.</th><th>Wort</th><th>Plural</th><th>Artikel</th><th>English</th><th>${langLabel}</th>`
       : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
 
-    const rows = filteredWords.map((item, i) => {
+    const rows = filteredWords.map((item: any, i) => {
       if (isNoun) {
         return `<tr>
           <td>${i + 1}</td>
