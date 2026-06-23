@@ -259,7 +259,8 @@ export const A1_NOUNS = [
     "id": 33,
     "word": "Ausweis",
     "plural": "Ausweise",
-    "translation": "ID card","urdu": "شناختی کارڈ",
+    "translation": "ID card",
+    "urdu": "شناختی کارڈ",
     "category": "Nouns",
     "level": "A1"
   },

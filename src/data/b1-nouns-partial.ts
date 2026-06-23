@@ -92,7 +92,7 @@ export const B1_NOUNS_PARTIAL = [
   { id: 91, word: "Aussicht", plural: "Aussichten", translation: "Outlook /", urdu: "\u0645\u0646\u0638\u0631 \u0627\u0645\u06a9\u0627\u0646\u0627\u062a", category: 'Nouns', level: 'B1' },
   { id: 92, word: "Ausstellerin", plural: "Ausstellerinnen", translation: "exhibitor", urdu: "\u0646\u0645\u0627\u0626\u0634 \u06a9\u0646\u0646\u062f\u06c1", category: 'Nouns', level: 'B1' },
   { id: 93, word: "Austausch", plural: "Austausche", translation: "Exchange", urdu: "\u062a\u0628\u0627\u062f\u0644\u06c1", category: 'Nouns', level: 'B1' },
-  { id: 94, word: "Ausweis", plural: "Ausweise", translation: "ID card", urdu: "", category: 'Nouns', level: 'B1' },
+  { id: 94, word: "Ausweis", plural: "Ausweise", translation: "ID card", urdu: "شناختی کارڈ", category: 'Nouns', level: 'B1' },
   { id: 95, word: "Auswirkung", plural: "Auswirkungen", translation: "impact", urdu: "\u0627\u062b\u0631", category: 'Nouns', level: 'B1' },
   { id: 96, word: "Auszeit", plural: "Auszeiten", translation: "Time out", urdu: "\u0648\u0642\u062a \u062e\u062a\u0645", category: 'Nouns', level: 'B1' },
   { id: 97, word: "Autofahrerin", plural: "Autofahrerinnen", translation: "female driver", urdu: "\u062e\u0627\u062a\u0648\u0646 \u0688\u0631\u0627\u0626\u06cc\u0648\u0631", category: 'Nouns', level: 'B1' },

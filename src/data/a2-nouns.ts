@@ -29,7 +29,7 @@ export const A2_NOUNS = [
   { id: 28, word: "Auskunft", plural: "Auskünfte", translation: "information", urdu: "معلومات", category: 'Nouns', level: 'A2' },
   { id: 29, word: "Ausland", plural: "Ausländer", translation: "foreign country", urdu: "ملک بیرون", category: 'Nouns', level: 'A2' },
   { id: 30, word: "Ausstellung", plural: "Ausstellungen", translation: "exhibition", urdu: "نمائش", category: 'Nouns', level: 'A2' },
-  { id: 31, word: "Ausweis", plural: "Ausweise", translation: "ID card", urdu: "کارڈ شناختی", category: 'Nouns', level: 'A2' },
+  { id: 31, word: "Ausweis", plural: "Ausweise", translation: "ID card", urdu: "شناختی کارڈ", category: 'Nouns', level: 'A2' },
   { id: 32, word: "Auto", plural: "Autos", translation: "car", urdu: "گاڑی", category: 'Nouns', level: 'A2' },
   { id: 33, word: "Baby", plural: "Babys", translation: "baby", urdu: "بچہ", category: 'Nouns', level: 'A2' },
   { id: 34, word: "Bäckerei", plural: "Bäckereien", translation: "bakery", urdu: "بیکری", category: 'Nouns', level: 'A2' },
