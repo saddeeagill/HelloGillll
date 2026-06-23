@@ -10,9 +10,20 @@ import { renderHighlightedText } from "@/utils/highlight";
 import { SUPPORTED_LANGUAGES } from "@/data/languages";
 import TranslateText from "../TranslateText";
 
-const getTopicNouns = (content: string, nomenList?: any[]) => {
+const getTopicNouns = (topic: { content: string; nomenIds?: number[] }, nomenList?: any[]) => {
   if (!nomenList) return [];
-  const matches = content.match(/\*\*(.*?)\*\*/g) || [];
+
+  // Use explicit nomenIds if the topic has them — 100% deterministic
+  if (topic.nomenIds && topic.nomenIds.length > 0) {
+    const idSet = new Set(topic.nomenIds);
+    return nomenList.filter((n) => idSet.has(n.id)).sort((a, b) => {
+      // Sort by the order they appear in nomenIds, not by id
+      return topic.nomenIds!.indexOf(a.id) - topic.nomenIds!.indexOf(b.id);
+    });
+  }
+
+  // Fallback: detect from **highlighted** words in story content
+  const matches = topic.content.match(/\*\*(.*?)\*\*/g) || [];
   const highlightedWords = matches.map((m) => m.slice(2, -2).toLowerCase());
   
   const filtered = nomenList.filter(
@@ -129,7 +140,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
       bodyContent = `<div style="text-align:center;"><img src="${imgSrc}" style="max-width:100%;height:auto;" /></div>`;
     } else {
       bodyContent = topicsToPrint.map(topic => {
-        const nouns = getTopicNouns(topic.content, lesson.nomenList);
+        const nouns = getTopicNouns(topic, lesson.nomenList);
         const storyHtml = buildStoryHtml(topic.content);
         const nounHtml = buildNounTableHtml(nouns);
         return `
