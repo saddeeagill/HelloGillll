@@ -314,6 +314,7 @@ export const LESSON_8: Lesson = {
     {
       id: "klein_aber_fein",
       title: "Klein, aber fein!",
+      nomenIds: [4, 2, 14, 16, 12, 15, 10, 5, 3, 6, 13, 17, 1, 7, 8, 11, 9],
       content: "Mein Zimmer ist klein, aber fein. Ich habe kleines **Doppelzimmer**. Ich schlafe gern. Mein **Bett** ist bequem. Ich habe rote Decke. Neben **Bett** ist kleiner **Tisch**. Tisch hat Lampe. Ich lese Buch. Ich höre Musik. Ich mag Ruhe. Tür ist zu. Schlüssel liegt auf Regal. Ohne **Schlüssel** kann ich nicht raus. Neben **Tür** ist **Toilette**. Toilette ist sauber. Dusche ist neu. Ich singe Lied. Ich bin lustig. Bild hängt über **Toilette**. Bild zeigt Katze. Ich gehe zur **Ecke**. Ich höre nichts. Ich finde **Schrank** leer. Ich will neue Kleider. Ich sehe Spiegel. Ich finde mich schön. Ordnung ist wichtig. Ich lege alles richtig. Balkon in **Wohnung** ist klein. Ich sehe Vogel. Garten ist unter mir. Garten ist bunt. Blumen sind schön. Ich liebe Natur. Ich sehe **Haus** gegenüber. Haus ist blau. Mein **Raum** ist hell. Ich bin zufrieden. Ich höre Schritte. Papa kommt. Papa bringt Pizza. Ich will essen. Ich liebe meine **Wohnung**. Ich kann schlafen, essen und lachen. Mein **Leben** ist gut, und ich bin glücklich.",
     }
   ],
@@ -345,11 +346,13 @@ export const LESSON_9: Lesson = {
     {
       id: "brot_und_los",
       title: "Brot & Los",
+      nomenIds: [7, 6, 9, 1, 13, 10, 21, 17, 15, 12, 8, 22, 20, 4, 28, 11, 16, 23],
       content: "Heute ist Sonntag. Ich will Frühstück machen. Ich gehe in Küche und es ist klein, aber fein. Ich finde keinen Käse. Ich mache Brot mit Tomate. Ich nehme Teller. Teller liegt auf **Tisch**. Ich will **Farbe** sehen. Ich nehme rote Tasse. Ich öffne **Kühlschrank** und es ist leer. Ich will nicht einkaufen. Ich suche Messer, und ich finde Messer im **Schrank**. Ich mag **Ordnung**. Ich lege alles richtig. Ecke ist dunkel. Ich höre Musik. Musik ist laut. Ich will Pause machen. Ich setze mich auf Stuhl. Neben mir ist **Aufzug**. **Aufzug** ist laut. Ich will nicht **Aufzug** fahren. Ich nehme **Treppe**. Ich zähle **Stock**. Ich bin müde. Garten ist ruhig. Ich esse Brot im **Garten** und **Garten** ist grün. Ich sehe **Bild** an Wand und **Bild** zeigt Kuh. Ich lache. Ich will **Bild** malen. Leben in Schweiz ist schön. Ich denke an **Wohnung**. Ich habe viele **Möbel**. **Möbel** sind alt, aber ich kann gut damit leben. Mein Raum ist bunt. Ich habe Teppich. Ich liebe Farben. Ich sehe **Schlüssel** und **Schlüssel** liegt auf Boden. Ich nehme ihn. Ohne **Schlüssel** bin ich verloren. Ich mache **Tür** zu. **Tür** ist kaputt. Ich will neue **Tür** kaufen. Heute ist kein guter Tag, aber ich kann lachen.",
     },
     {
       id: "baby_und_blumen",
       title: "Baby & Blumen!",
+      nomenIds: [14, 25, 19, 26, 2, 5, 18, 24, 3, 27],
       content: "Clara wacht am **Morgen** auf. Draussen ist **Winter**. Der **Wind** weht. Die **Sonne** scheint aber auch. Clara zieht die Jacke an und geht hinaus. Vor dem Haus steht ein grosser **Baum**. Am Boden liegt etwas Schnee. Clara sieht eine kleine **Blume**, die schon wächst. Sie lächelt. Am **See** bewegt sich das **Wasser**. Der **Wind** macht kleine Wellen. Clara atmet tief ein. Sie denkt: „Heute ist schön.\" Auf dem Arm trägt sie ihr **Baby**. Das **Baby** schaut zur **Sonne**. Es lacht. Clara ist froh. Sie setzt sich auf eine Bank am **See**. Sie hört das **Wasser**. Sie schaut den **Baum** an. Sie riecht die **Blume**. Das **Baby** schläft ein. Clara denkt an die **Woche**. Am Montag geht sie arbeiten. Am Dienstag besucht sie eine Freundin. Am Mittwoch hat sie einen Termin. Am Donnerstag macht sie Sport. Am Freitag geht sie einkaufen. Am Samstag kocht sie. Am Sonntag geht sie wieder zum **See**. Sie nimmt ihr **Baby** und zeigt ihm den **Baum**, das **Wasser** und die **Blume**. Clara denkt: „Ich habe die **Sonne**. Ich habe den **Wind**. Ich habe mein **Baby**. Ich bin glücklich.\""
     }
   ],
@@ -392,6 +395,7 @@ export const LESSON_10: Lesson = {
     {
       id: "pruefung",
       title: "Prüfung!",
+      nomenIds: [7, 14, 3, 1, 16, 15, 8, 2, 5, 9, 12, 11, 4, 6, 13, 10],
       content: "Fatma besucht einen **Kurs**. Dort lernt sie eine neue **Sprache**. Auf dem Tisch liegt ein **Buch**. Darin ist eine **Aufgabe**. Das **Thema** ist Familie. Fatma liest den **Text**. Der **Lehrer** stellt eine **Aussage**. Fatma denkt kurz nach. Sie macht einen kleinen **Fehler**. Der **Lehrer** erklärt ruhig. Danach singen alle ein **Lied**. Der **Kurs** macht Spass. Später kommt eine **Prüfung**. Fatma ist nervös. Sie denkt: „Ich habe ein **Problem**.“ Doch sie öffnet das **Buch** und liest. Sie schreibt eine Antwort. Am Ende sieht sie ihr **Ergebnis**. Es ist gut. Der **Lehrer** sagt: „**Glückwunsch**.“ Fatma lacht. Sie ist froh. Neben ihr sitzt ein anderer **Schüler**. Auch er hat ein gutes **Ergebnis**. Gemeinsam gehen sie in die **Pause**. Fatma trinkt Wasser. Sie denkt an die **Aufgabe** und an das **Thema**. Sie sagt: „Ich habe gelernt. Ich habe ein gutes **Buch**. Ich habe einen guten **Kurs**.“ Nach der **Pause** liest sie einen neuen **Text**. Der **Lehrer** erklärt wieder eine **Aussage**. Fatma schreibt und singt ein **Lied**. Am Ende denkt sie: „Ich habe keinen grossen **Fehler**. Ich habe ein gutes **Ergebnis**. Ich bin zufrieden.“",
     }
   ],

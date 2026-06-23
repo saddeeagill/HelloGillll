@@ -48,11 +48,22 @@ export default function LevelPage() {
     const categoryLabel = CATEGORY_LABELS[vocabCategory] || vocabCategory;
 
     const isNoun = vocabCategory === 'Nouns';
+    const isVerb = vocabCategory === 'Regular Verbs' || vocabCategory === 'Irregular Verbs' || vocabCategory === 'Modal Verbs';
+
     const headerCols = isNoun
       ? `<th>Nr.</th><th>Wort</th><th>Plural</th><th>Artikel</th><th>English</th><th>${langLabel}</th>`
+      : isVerb
+      ? `<th>Nr.</th><th>Wort</th><th>Konjugation (Conjugation)</th><th>English</th><th>${langLabel}</th>`
       : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
 
+    const getNativeTranslation = (item: any) => {
+      if (selectedLangCode === 'ur' && item.urdu) return item.urdu;
+      return item.translation;
+    };
+
     const rows = filteredWords.map((item: any, i) => {
+      const nativeTranslation = getNativeTranslation(item);
+
       if (isNoun) {
         return `<tr>
           <td>${i + 1}</td>
@@ -60,14 +71,51 @@ export default function LevelPage() {
           <td>${item.plural || '-'}</td>
           <td>${item.article || '-'}</td>
           <td>${item.translation}</td>
-          <td>${item.translation}</td>
+          <td>${nativeTranslation}</td>
         </tr>`;
       }
+
+      if (isVerb) {
+        let conjText = '-';
+        if (item.conjugation) {
+          conjText = item.conjugation.replace(/\n/g, '<br/>');
+        } else if (item.ich) {
+          conjText = [
+            `ich ${item.ich}`,
+            `du ${item.du}`,
+            `er/sie/es ${item.er_sie_es}`,
+            `wir ${item.wir}`,
+            `ihr ${item.ihr}`,
+            `sie/Sie ${item.sie_Sie}`
+          ].join('<br/>');
+        }
+
+        const rawForms = item.principalParts || item.konjugationen || '';
+        const otherForms = rawForms
+          ? rawForms.split(/\s*-\s*|\s*,\s*/)
+              .map((p: any) => p.trim())
+              .filter((p: any) => p && p !== item.word)
+          : [];
+        
+        let wortHtml = `<strong>${item.word}</strong>`;
+        if (otherForms.length > 0) {
+          wortHtml += `<div style="font-size: 8.5pt; font-weight: normal; color: #555; margin-top: 4px; padding-left: 10px;">${otherForms.join('<br/>')}</div>`;
+        }
+
+        return `<tr>
+          <td>${i + 1}</td>
+          <td>${wortHtml}</td>
+          <td style="white-space: nowrap; line-height: 1.4;">${conjText}</td>
+          <td>${item.translation}</td>
+          <td>${nativeTranslation}</td>
+        </tr>`;
+      }
+
       return `<tr>
         <td>${i + 1}</td>
         <td><strong>${item.word}</strong></td>
         <td>${item.translation}</td>
-        <td>${item.translation}</td>
+        <td>${nativeTranslation}</td>
       </tr>`;
     }).join('');
 
