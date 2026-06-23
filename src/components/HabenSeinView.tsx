@@ -136,11 +136,11 @@ export default function HabenSeinView() {
 
           {/* Main Levels List */}
           <div className="w-full md:w-2/3 space-y-4">
-            {renderLevelButton(1, "Level 1: Personentabelle", "Der Anfang", "border-yellow-200", "text-yellow-600", unlocked, setActiveLevel)}
-            {renderLevelButton(2, "Level 2: Ja/Nein Fragen", "Kurze Antworten", "border-orange-200", "text-orange-600", unlocked, setActiveLevel)}
-            {renderLevelButton(3, "Level 3: Verneinung", "kein/keine", "border-purple-200", "text-purple-600", unlocked, setActiveLevel)}
-            {renderLevelButton(4, "Level 4: W-Fragen", "wer, wie, was, wo...", "border-pink-200", "text-pink-600", unlocked, setActiveLevel)}
-            {renderLevelButton(5, "Level 5: Gemischte Sätze", "Alles zusammenführen", "border-green-200", "text-green-600", unlocked, setActiveLevel)}
+            {renderLevelButton(1, "Level 1", "Personentabelle", "border-yellow-200", "text-yellow-600", unlocked, setActiveLevel)}
+            {renderLevelButton(2, "Level 2", "Gemischte Personen", "border-orange-200", "text-orange-600", unlocked, setActiveLevel)}
+            {renderLevelButton(3, "Level 3", "Konjugation zu Person", "border-purple-200", "text-purple-600", unlocked, setActiveLevel)}
+            {renderLevelButton(4, "Level 4", "Gemischte Konjugation", "border-pink-200", "text-pink-600", unlocked, setActiveLevel)}
+            {renderLevelButton(5, "Level 5", "Übersetzung Muttersprache → Deutsch", "border-green-200", "text-green-600", unlocked, setActiveLevel)}
           </div>
         </div>
       </div>
@@ -259,10 +259,10 @@ export default function HabenSeinView() {
           className="flex flex-col items-center justify-center p-12 bg-white border-2 border-gray-100 rounded-3xl shadow-sm hover:shadow-xl hover:border-gray-300 transition-all text-center group min-h-[250px]"
         >
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            haben / sein
+            haben &amp; sein
           </h2>
           <span className="text-xl md:text-2xl font-bold text-gray-400 group-hover:text-black transition-colors lowercase">
-            konjugation
+            (Konjugation)
           </span>
         </button>
 
