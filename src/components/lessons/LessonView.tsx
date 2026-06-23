@@ -7,6 +7,20 @@ import TheorieTab from "./TheorieTab";
 import PruefungTab from "./PruefungTab";
 import { LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_5, LESSON_6, LESSON_7, LESSON_8, LESSON_9, LESSON_10, LESSON_11, LESSON_12, LESSON_13, LESSON_14, LESSON_15, LESSON_16 } from "@/data/lessons";
 import { renderHighlightedText } from "@/utils/highlight";
+import { SUPPORTED_LANGUAGES } from "@/data/languages";
+import TranslateText from "../TranslateText";
+
+const getTopicNouns = (content: string, nomenList?: any[]) => {
+  if (!nomenList) return [];
+  const matches = content.match(/\*\*(.*?)\*\*/g) || [];
+  const highlightedWords = matches.map((m) => m.slice(2, -2).toLowerCase());
+  const filtered = nomenList.filter(
+    (nomen) =>
+      highlightedWords.includes(nomen.singular.toLowerCase()) ||
+      highlightedWords.includes(nomen.plural.toLowerCase())
+  );
+  return filtered.sort((a, b) => a.singular.localeCompare(b.singular));
+};
 
 const getTabs = (lessonId: string) => {
   const lessonNum = parseInt(lessonId.replace('lektion_', ''), 10) || 1;
@@ -18,6 +32,7 @@ const getTabs = (lessonId: string) => {
 export default function LessonView({ lessonId }: { lessonId: string }) {
   const [activeTab, setActiveTab] = useState("Geschichte");
   const [activeTopicId, setActiveTopicId] = useState("");
+  const [selectedLangCode, setSelectedLangCode] = useState("pt");
   const [showPrintMenu, setShowPrintMenu] = useState(false);
   const [printMode, setPrintMode] = useState<"geschichte" | "alle" | "theorie">("alle");
   const menuRef = useRef<HTMLDivElement>(null);
@@ -61,7 +76,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
     setShowPrintMenu(false);
     setTimeout(() => {
       window.print();
-    }, 100);
+    }, 1500);
   };
 
   return (
@@ -127,7 +142,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
       {/* Content Area */}
       <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 md:p-8 min-h-[500px] print:hidden">
         {activeTab === "Geschichte" && <GeschichteTab lesson={lesson} activeTopicId={activeTopicId} setActiveTopicId={setActiveTopicId} />}
-        {activeTab === "Nomen" && <NomenTab lesson={lesson} />}
+        {activeTab === "Nomen" && <NomenTab lesson={lesson} selectedLangCode={selectedLangCode} setSelectedLangCode={setSelectedLangCode} />}
         {activeTab === "Quiz" && <QuizTab lesson={lesson} />}
         {activeTab === "Theorie" && <TheorieTab lesson={lesson} />}
         {activeTab === "Prüfung" && <PruefungTab lesson={lesson} />}
@@ -148,48 +163,90 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
           </div>
         ) : printMode === "alle" ? (
           <>
-            <h2 className="text-2xl font-bold mb-4 mt-8">Alle Geschichten</h2>
-            {lesson.topics.map((topic) => (
-              <div key={topic.id} className="mb-6">
+            <h2 className="text-2xl font-bold mb-2 mt-8">Alle Geschichten</h2>
+            {lesson.topics.map((topic) => {
+              const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
+              return (
+              <div key={topic.id} className="mb-10 break-inside-avoid">
                 <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
                 <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
+                {topicNouns.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1">Nomen</h4>
+                    <table className="w-full text-left border-collapse text-sm">
+                      <thead>
+                        <tr className="bg-gray-100 border-b-2 border-gray-200 text-black">
+                          <th className="py-2 px-3 font-semibold text-sm w-12">Nr.</th>
+                          <th className="py-2 px-3 font-semibold text-sm">Singular</th>
+                          <th className="py-2 px-3 font-semibold text-sm">Plural</th>
+                          <th className="py-2 px-3 font-semibold text-sm">English</th>
+                          <th className="py-2 px-3 font-semibold text-sm">
+                            {SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || "Translation"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {topicNouns.map((nomen, index) => (
+                          <tr key={nomen.id} className="border-b border-gray-100">
+                            <td className="py-2 px-3 font-medium text-gray-500">{index + 1}</td>
+                            <td className="py-2 px-3 font-bold text-black">{nomen.singular}</td>
+                            <td className="py-2 px-3 text-black">{nomen.plural}</td>
+                            <td className="py-2 px-3 text-black font-medium">{nomen.english}</td>
+                            <td className="py-2 px-3 text-black font-medium">
+                              {selectedLangCode === 'en' ? nomen.english : <TranslateText text={nomen.singular} targetLang={selectedLangCode} />}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
-            ))}
+            )})}
           </>
         ) : (
           <>
-            <h2 className="text-2xl font-bold mb-4 mt-8">Geschichte</h2>
-            {lesson.topics.filter(t => t.id === activeTopicId).map((topic) => (
-              <div key={topic.id} className="mb-6">
+            <h2 className="text-2xl font-bold mb-2 mt-8">Geschichte</h2>
+            {lesson.topics.filter(t => t.id === activeTopicId).map((topic) => {
+              const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
+              return (
+              <div key={topic.id} className="mb-10 break-inside-avoid">
                 <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
                 <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
+                {topicNouns.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="text-lg font-bold mb-2 border-b border-gray-300 pb-1">Nomen</h4>
+                    <table className="w-full text-left border-collapse text-sm">
+                      <thead>
+                        <tr className="bg-gray-100 border-b-2 border-gray-200 text-black">
+                          <th className="py-2 px-3 font-semibold text-sm w-12">Nr.</th>
+                          <th className="py-2 px-3 font-semibold text-sm">Singular</th>
+                          <th className="py-2 px-3 font-semibold text-sm">Plural</th>
+                          <th className="py-2 px-3 font-semibold text-sm">English</th>
+                          <th className="py-2 px-3 font-semibold text-sm">
+                            {SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || "Translation"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {topicNouns.map((nomen, index) => (
+                          <tr key={nomen.id} className="border-b border-gray-100">
+                            <td className="py-2 px-3 font-medium text-gray-500">{index + 1}</td>
+                            <td className="py-2 px-3 font-bold text-black">{nomen.singular}</td>
+                            <td className="py-2 px-3 text-black">{nomen.plural}</td>
+                            <td className="py-2 px-3 text-black font-medium">{nomen.english}</td>
+                            <td className="py-2 px-3 text-black font-medium">
+                              {selectedLangCode === 'en' ? nomen.english : <TranslateText text={nomen.singular} targetLang={selectedLangCode} />}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
-            ))}
+            )})}
           </>
-        )}
-
-        {printMode !== "theorie" && lesson.nomenList && lesson.nomenList.length > 0 && (
-          <div className="break-before-page">
-            <h2 className="text-2xl font-bold mb-4 mt-8 border-b-2 border-black pb-2">Nomen</h2>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  <th className="border-b border-gray-400 py-2 font-bold">Singular</th>
-                  <th className="border-b border-gray-400 py-2 font-bold">Plural</th>
-                  <th className="border-b border-gray-400 py-2 font-bold">Englisch</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lesson.nomenList.map((nomen) => (
-                  <tr key={nomen.id}>
-                    <td className="border-b border-gray-200 py-2">{nomen.singular}</td>
-                    <td className="border-b border-gray-200 py-2">{nomen.plural}</td>
-                    <td className="border-b border-gray-200 py-2">{nomen.english}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         )}
       </div>
     </div>

@@ -8,6 +8,8 @@ import LessonView from '@/components/lessons/LessonView';
 import HabenSeinView from '@/components/HabenSeinView';
 import Logo from '@/components/Logo';
 
+import { SUPPORTED_LANGUAGES } from '@/data/languages';
+
 export default function LevelPage() {
   const params = useParams();
   const level = typeof params?.level === 'string' ? params.level : 'A1';
@@ -16,6 +18,11 @@ export default function LevelPage() {
   const [vocabCategory, setVocabCategory] = useState('Nouns');
   const [vocabExpanded, setVocabExpanded] = useState(true);
   const [lessonsExpanded, setLessonsExpanded] = useState(false);
+
+  // Hoisted Vocabulary State
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedLangCode, setSelectedLangCode] = useState("pt");
+  const [showNomenQuiz, setShowNomenQuiz] = useState(false);
 
   const levelUpper = level.toUpperCase();
   
@@ -27,7 +34,7 @@ export default function LevelPage() {
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col md:pl-48">
       {/* Header Container */}
-      <div className="w-full bg-white flex flex-col z-20 shadow-sm relative">
+      <div className="w-full bg-white flex flex-col z-20 shadow-sm relative print:hidden">
         <div className="relative w-full flex items-center justify-center">
           <div className="w-full">
             <Logo showBack={true} />
@@ -46,13 +53,13 @@ export default function LevelPage() {
 
       </div>
       
-      <div className="w-full h-[3px] bg-[#e5e7eb] relative z-10"></div>
+      <div className="w-full h-[3px] bg-[#e5e7eb] relative z-10 print:hidden"></div>
 
       <div className="flex flex-1 relative">
         {/* Sidebar Overlay for Mobile */}
         {sidebarOpen && (
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden print:hidden" 
             onClick={() => setSidebarOpen(false)}
           ></div>
         )}
@@ -60,7 +67,7 @@ export default function LevelPage() {
         {/* Sidebar */}
         <aside className={`
           fixed top-0 left-0 h-screen w-48 bg-gray-50 border-r border-gray-200 z-50
-          transform transition-transform duration-300 ease-in-out overflow-y-auto
+          transform transition-transform duration-300 ease-in-out overflow-y-auto print:hidden
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
         `}>
           <div className="p-4">
@@ -85,7 +92,7 @@ export default function LevelPage() {
                   <span>Vokabular</span>
                   <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${vocabExpanded && activeView === 'vocabulary' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${vocabExpanded && activeView === 'vocabulary' ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${vocabExpanded && activeView === 'vocabulary' ? 'max-h-[1500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
                   <ul className="pl-1 border-l-2 border-gray-200 ml-2 space-y-1 py-1">
                     {["Nouns", "Adjectives", "Adverbs", "Regular Verbs", "Irregular Verbs", "Modal Verbs"].map(cat => {
                       const CATEGORY_MAP: Record<string, string> = { "Nouns": "Nomen", "Adjectives": "Adjektive", "Adverbs": "Adverbien", "Regular Verbs": "Regelmäßige Verben", "Irregular Verbs": "Unregelmäßige Verben", "Modal Verbs": "Modalverben" };
@@ -95,9 +102,10 @@ export default function LevelPage() {
                           onClick={() => {
                             setVocabCategory(cat);
                             setSidebarOpen(false);
+                            setShowNomenQuiz(false); // Reset nomen quiz view when changing category
                           }}
                           className={`w-full text-left px-2 py-2 rounded-lg font-medium transition-colors text-xs ${
-                            vocabCategory === cat
+                            vocabCategory === cat && !showNomenQuiz
                               ? 'bg-gray-200 text-black shadow-sm'
                               : 'text-gray-600 hover:text-black hover:bg-gray-100'
                           }`}
@@ -108,6 +116,55 @@ export default function LevelPage() {
                       );
                     })}
                   </ul>
+
+                  {/* Vokabular Extra Controls (Sidebar Injection) */}
+                  <div className="mt-4 px-2 flex flex-col gap-3">
+                    <button 
+                      onClick={() => {
+                        setShowNomenQuiz(true);
+                        setSidebarOpen(false);
+                      }}
+                      className={`w-full py-2 font-bold rounded-xl transition-all text-xs shadow-sm ${showNomenQuiz ? 'bg-black text-white' : 'bg-white border-2 border-gray-200 text-black hover:border-black'}`}
+                    >
+                      Nomen Quiz
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setTimeout(() => window.print(), 1500);
+                      }}
+                      className="w-full py-2 bg-gray-100 text-black border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-200 transition-all text-xs flex justify-center items-center gap-2"
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                      PDF / Drucken
+                    </button>
+                    <hr className="border-gray-200 my-1" />
+                    
+                    <div className="flex flex-col gap-1 w-full">
+                      <label className="text-xs font-bold text-gray-500">Suchen</label>
+                      <input
+                        type="text"
+                        placeholder="Wort suchen..."
+                        className="w-full px-2 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                    </div>
+                    
+                    <div className="flex flex-col gap-1 w-full">
+                      <label className="text-xs font-bold text-gray-500">Sprache</label>
+                      <select 
+                        value={selectedLangCode}
+                        onChange={(e) => setSelectedLangCode(e.target.value)}
+                        className="bg-white border border-gray-200 text-black text-xs rounded-lg block w-full p-1.5 cursor-pointer shadow-sm focus:outline-none focus:border-black"
+                      >
+                        {SUPPORTED_LANGUAGES.map(lang => (
+                          <option key={lang.code} value={lang.code}>
+                            {lang.name === 'English' ? 'Englisch' : lang.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </li>
               {levelUpper === 'A1' && (
@@ -182,7 +239,14 @@ export default function LevelPage() {
             <h2 className="md:hidden text-2xl font-bold mb-4 text-[#000000]">{levelUpper}</h2>
             
             {activeView === 'vocabulary' && (
-              <VocabularyView level={levelUpper} activeCategory={vocabCategory} />
+              <VocabularyView 
+                level={levelUpper} 
+                activeCategory={vocabCategory}
+                searchQuery={searchQuery}
+                selectedLangCode={selectedLangCode}
+                showNomenQuiz={showNomenQuiz}
+                setShowNomenQuiz={setShowNomenQuiz}
+              />
             )}
             {activeView === 'exam' && <ExamView />}
             

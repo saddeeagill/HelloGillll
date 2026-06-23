@@ -1,6 +1,7 @@
-
 "use client";
 import React, { useState, useEffect } from 'react';
+import TranslateText from './TranslateText';
+import { SUPPORTED_LANGUAGES } from '@/data/languages';
 
 interface Question {
   id: string;
@@ -9,16 +10,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: 'Das ___ mein Auto.', answer: 'ist' },
-  { text: '___ ihr bereit?', answer: 'Seid' },
-  { text: 'Ich ___ nicht sicher.', answer: 'bin' },
-  { text: 'Warum ___ sie (Pl.) so laut?', answer: 'sind' },
-  { text: 'Du ___ mein bester Freund.', answer: 'bist' },
-  { text: 'Wir ___ sehr glücklich.', answer: 'sind' },
-  { text: '___ Sie der neue Lehrer?', answer: 'Sind' },
-  { text: 'Es ___ ein schöner Tag.', answer: 'ist' },
-  { text: 'Sie (Sg.) ___ nicht zu Hause.', answer: 'ist' },
-  { text: 'Wer ___ da?', answer: 'ist' },
+  { text: 'I am', answer: 'ich bin' },
+  { text: 'You are (informal)', answer: 'du bist' },
+  { text: 'He is', answer: 'er ist' },
+  { text: 'She is', answer: 'sie ist' },
+  { text: 'It is', answer: 'es ist' },
+  { text: 'We are', answer: 'wir sind' },
+  { text: 'You are (formal)', answer: 'Sie sind' },
+  { text: 'They are', answer: 'sie sind' },
+  { text: 'You all are', answer: 'ihr seid' },
+  { text: 'One is', answer: 'man ist' },
 ];
 
 function generateQuestions(): Question[] {
@@ -36,6 +37,9 @@ export default function SeinLevel5Quiz({ onBack }: { onBack: (passed?: boolean) 
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
+  
+  // Translation state
+  const [selectedLangCode, setSelectedLangCode] = useState("en");
 
   useEffect(() => {
     setQuestions(generateQuestions());
@@ -113,7 +117,7 @@ export default function SeinLevel5Quiz({ onBack }: { onBack: (passed?: boolean) 
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 5: Gemischte Sätze</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 5: Übersetzung Muttersprache → Deutsch</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,11 +126,27 @@ export default function SeinLevel5Quiz({ onBack }: { onBack: (passed?: boolean) 
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 5</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze die richtige Verbform (sein):</p>
+        <p className="text-lg font-medium text-gray-600 mb-4">Übersetze ins Deutsche:</p>
+
+        <div className="mb-8 flex flex-col gap-2">
+          <label className="text-sm font-bold text-gray-500 uppercase tracking-wider">Wähle deine Muttersprache:</label>
+          <select 
+            value={selectedLangCode} 
+            onChange={e => setSelectedLangCode(e.target.value)}
+            className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-black font-medium focus:outline-none focus:border-black transition-colors cursor-pointer"
+          >
+            {SUPPORTED_LANGUAGES.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name === 'English' ? 'Englisch' : lang.name}</option>
+            ))}
+          </select>
+        </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">
-            <span>{currentQ.text}</span>
+            <span>
+              {selectedLangCode === 'en' ? currentQ.text : <TranslateText text={currentQ.text} targetLang={selectedLangCode} />}
+              {' '}______
+            </span>
           </div>
 
           <div>

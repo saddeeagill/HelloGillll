@@ -9,16 +9,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: '___ du müde?', answer: 'Bist' },
-  { text: '___ er zu Hause?', answer: 'Ist' },
-  { text: '___ wir fertig?', answer: 'Sind' },
-  { text: '___ ihr bereit?', answer: 'Seid' },
-  { text: '___ sie (Sg.) krank?', answer: 'Ist' },
-  { text: '___ Sie Herr Müller?', answer: 'Sind' },
-  { text: '___ ich zu spät?', answer: 'Bin' },
-  { text: '___ es kalt draußen?', answer: 'Ist' },
-  { text: '___ sie (Pl.) schon da?', answer: 'Sind' },
-  { text: '___ man hier sicher?', answer: 'Ist' },
+  { text: 'er ______', answer: 'ist' },
+  { text: 'wir ______', answer: 'sind' },
+  { text: 'ich ______', answer: 'bin' },
+  { text: 'sie (they) ______', answer: 'sind' },
+  { text: 'du ______', answer: 'bist' },
+  { text: 'man ______', answer: 'ist' },
+  { text: 'ihr ______', answer: 'seid' },
+  { text: 'es ______', answer: 'ist' },
+  { text: 'Sie (formal) ______', answer: 'sind' },
+  { text: 'sie (she) ______', answer: 'ist' },
 ];
 
 function generateQuestions(): Question[] {
@@ -113,7 +113,7 @@ export default function SeinLevel2Quiz({ onBack }: { onBack: (passed?: boolean) 
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 2: Ja/Nein Fragen</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 2: Gemischte Personen</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,7 +122,7 @@ export default function SeinLevel2Quiz({ onBack }: { onBack: (passed?: boolean) 
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 2</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze das richtige Verb am Satzanfang:</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze die richtige Verbform:</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">

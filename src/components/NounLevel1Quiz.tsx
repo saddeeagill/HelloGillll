@@ -8,16 +8,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: 'Der Hund ___ groß.', answer: 'ist' },
-  { text: 'Die Frau ___ ein Auto.', answer: 'hat' },
-  { text: 'Der Tisch ___ rund.', answer: 'ist' },
-  { text: 'Der Mann ___ Hunger.', answer: 'hat' },
-  { text: 'Das Kind ___ müde.', answer: 'ist' },
-  { text: 'Das Haus ___ einen Garten.', answer: 'hat' },
-  { text: 'Das Buch ___ interessant.', answer: 'ist' },
-  { text: 'Der Lehrer ___ freundlich.', answer: 'ist' },
-  { text: 'Das Brot ___ frisch.', answer: 'ist' },
-  { text: 'Das Auto ___ vier Räder.', answer: 'hat' }
+  { text: 'Hund ___ groß.', answer: 'ist' },
+  { text: 'Frau ___ ein Auto.', answer: 'hat' },
+  { text: 'Tisch ___ rund.', answer: 'ist' },
+  { text: 'Mann ___ Hunger.', answer: 'hat' },
+  { text: 'Kind ___ müde.', answer: 'ist' },
+  { text: 'Haus ___ einen Garten.', answer: 'hat' },
+  { text: 'Buch ___ interessant.', answer: 'ist' },
+  { text: 'Lehrer ___ freundlich.', answer: 'ist' },
+  { text: 'Brot ___ frisch.', answer: 'ist' },
+  { text: 'Auto ___ vier Räder.', answer: 'hat' }
 ];
 
 function generateQuestions(): Question[] {

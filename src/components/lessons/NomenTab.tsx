@@ -6,9 +6,16 @@ import TranslateText from "../TranslateText";
 
 
 
-export default function NomenTab({ lesson }: { lesson: Lesson }) {
+export default function NomenTab({ 
+  lesson, 
+  selectedLangCode, 
+  setSelectedLangCode 
+}: { 
+  lesson: Lesson;
+  selectedLangCode: string;
+  setSelectedLangCode: (val: string) => void;
+}) {
   const [activeTopicId, setActiveTopicId] = useState(lesson.topics[0]?.id || "");
-  const [selectedLangCode, setSelectedLangCode] = useState("pt");
   const activeTopic = lesson.topics.find((t) => t.id === activeTopicId);
 
   // Helper to highlight specific nouns in the text

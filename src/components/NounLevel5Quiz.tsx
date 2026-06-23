@@ -8,16 +8,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: 'Die Frauen ___ ein Auto und es ___ gut.', answer: 'haben, ist' },
-  { text: 'Die Männer ___ zu Hause und sie ___ Pizza.', answer: 'sind, haben' },
-  { text: 'Die Kinder ___ im Park und sie ___ Spass.', answer: 'sind, haben' },
-  { text: 'Die Lehrer ___ in der Schule und sie ___ Bücher.', answer: 'sind, haben' },
-  { text: 'Das Haus ___ alt, aber der Garten ___ Blumen.', answer: 'ist, hat' },
-  { text: 'Die Freunde ___ in der Stadt und sie ___ Hunger.', answer: 'sind, haben' },
-  { text: 'Der Zug ___ voll, aber du ___ Brot.', answer: 'ist, hast' },
-  { text: 'Das Kind ___ gesund und es ___ einen Apfel.', answer: 'ist, hat' },
-  { text: 'Die Katzen ___ im Bett und die Hunde ___ Milch.', answer: 'sind, haben' },
-  { text: 'Die Leute ___ Äpfel und sie ___ sauber.', answer: 'haben, sind' }
+  { text: 'Frauen ___ ein Auto und es ___ gut.', answer: 'haben, ist' },
+  { text: 'Männer ___ zu Hause und sie ___ Pizza.', answer: 'sind, haben' },
+  { text: 'Kinder ___ im Park und sie ___ Spass.', answer: 'sind, haben' },
+  { text: 'Lehrer ___ in der Schule und sie ___ Bücher.', answer: 'sind, haben' },
+  { text: 'Haus ___ alt, aber Garten ___ Blumen.', answer: 'ist, hat' },
+  { text: 'Freunde ___ in der Stadt und sie ___ Hunger.', answer: 'sind, haben' },
+  { text: 'Zug ___ voll, aber du ___ Brot.', answer: 'ist, hast' },
+  { text: 'Kind ___ gesund und es ___ einen Apfel.', answer: 'ist, hat' },
+  { text: 'Katzen ___ im Bett und Hunde ___ Milch.', answer: 'sind, haben' },
+  { text: 'Leute ___ Äpfel und sie ___ sauber.', answer: 'haben, sind' },
 ];
 
 function generateQuestions(): Question[] {

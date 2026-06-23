@@ -1,6 +1,7 @@
-
 "use client";
 import React, { useState, useEffect } from 'react';
+import TranslateText from './TranslateText';
+import { SUPPORTED_LANGUAGES } from '@/data/languages';
 
 interface Question {
   id: string;
@@ -9,16 +10,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: 'Wir ___ heute keine Schule.', answer: 'haben' },
-  { text: '___ du einen Hund?', answer: 'Hast' },
-  { text: 'Ich ___ eine gute Idee.', answer: 'habe' },
-  { text: 'Warum ___ er keine Zeit?', answer: 'hat' },
-  { text: 'Ihr ___ wirklich Glück!', answer: 'habt' },
-  { text: 'Sie (Pl.) ___ ein neues Haus.', answer: 'haben' },
-  { text: '___ Sie kurz Zeit für mich?', answer: 'Haben' },
-  { text: 'Es ___ heute keinen Zweck.', answer: 'hat' },
-  { text: 'Sie (Sg.) ___ eine Frage.', answer: 'hat' },
-  { text: 'Wer ___ mein Buch?', answer: 'hat' },
+  { text: 'I have', answer: 'ich habe' },
+  { text: 'You have (informal)', answer: 'du hast' },
+  { text: 'He has', answer: 'er hat' },
+  { text: 'She has', answer: 'sie hat' },
+  { text: 'It has', answer: 'es hat' },
+  { text: 'We have', answer: 'wir haben' },
+  { text: 'You have (formal)', answer: 'Sie haben' },
+  { text: 'They have', answer: 'sie haben' },
+  { text: 'You all have', answer: 'ihr habt' },
+  { text: 'One has', answer: 'man hat' },
 ];
 
 function generateQuestions(): Question[] {
@@ -36,6 +37,9 @@ export default function HabenLevel5Quiz({ onBack }: { onBack: (passed?: boolean)
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
+  
+  // Translation state
+  const [selectedLangCode, setSelectedLangCode] = useState("en");
 
   useEffect(() => {
     setQuestions(generateQuestions());
@@ -113,7 +117,7 @@ export default function HabenLevel5Quiz({ onBack }: { onBack: (passed?: boolean)
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 5: Gemischte Sätze</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 5: Übersetzung Muttersprache → Deutsch</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,11 +126,27 @@ export default function HabenLevel5Quiz({ onBack }: { onBack: (passed?: boolean)
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 5</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze die richtige Verbform (haben):</p>
+        <p className="text-lg font-medium text-gray-600 mb-4">Übersetze ins Deutsche:</p>
+
+        <div className="mb-8 flex flex-col gap-2">
+          <label className="text-sm font-bold text-gray-500 uppercase tracking-wider">Wähle deine Muttersprache:</label>
+          <select 
+            value={selectedLangCode} 
+            onChange={e => setSelectedLangCode(e.target.value)}
+            className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-black font-medium focus:outline-none focus:border-black transition-colors cursor-pointer"
+          >
+            {SUPPORTED_LANGUAGES.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name === 'English' ? 'Englisch' : lang.name}</option>
+            ))}
+          </select>
+        </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">
-            <span>{currentQ.text}</span>
+            <span>
+              {selectedLangCode === 'en' ? currentQ.text : <TranslateText text={currentQ.text} targetLang={selectedLangCode} />}
+              {' '}______
+            </span>
           </div>
 
           <div>

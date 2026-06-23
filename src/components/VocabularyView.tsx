@@ -41,12 +41,22 @@ const CATEGORIES = [
   "Modal Verbs",
 ];
 
-export default function VocabularyView({ level = "A1", activeCategory = "Nouns" }: { level?: string, activeCategory?: string }) {
-  const [selectedLangCode, setSelectedLangCode] = useState("pt");
-  const [searchQuery, setSearchQuery] = useState("");
-  
+export default function VocabularyView({ 
+  level = "A1", 
+  activeCategory = "Nouns",
+  searchQuery = "",
+  selectedLangCode = "pt",
+  showNomenQuiz = false,
+  setShowNomenQuiz
+}: { 
+  level?: string;
+  activeCategory?: string;
+  searchQuery?: string;
+  selectedLangCode?: string;
+  showNomenQuiz?: boolean;
+  setShowNomenQuiz?: (val: boolean) => void;
+}) {
   // Nomen Quiz State
-  const [showNomenQuiz, setShowNomenQuiz] = useState(false);
   const [unlockedLevelNomen, setUnlockedLevelNomen] = useState(1);
   const [activeLevelNomen, setActiveLevelNomen] = useState<number | null>(null);
 
@@ -219,61 +229,17 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
     (showNounColumns ? 1 : 0) +
     (showVerbColumns ? 1 : 0);
 
+  const titleText = { "Nouns": "Nomen", "Adjectives": "Adjektive", "Adverbs": "Adverbien", "Regular Verbs": "Regelmäßige Verben", "Irregular Verbs": "Unregelmäßige Verben", "Modal Verbs": "Modalverben" }[activeCategory] || "Vokabular";
+
   return (
-    <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-3 md:px-0 relative">
-      {/* Header section */}
-      <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 mb-4 md:mb-6 pt-2">
-        {/* Title and Buttons */}
-        <div className="flex-1 flex justify-start items-center gap-4">
-          <h1 className="text-xl md:text-2xl font-bold text-black drop-shadow-sm tracking-tight whitespace-nowrap">
-            {{ "Nouns": "Nomen", "Adjectives": "Adjektive", "Adverbs": "Adverbien", "Regular Verbs": "Regelmäßige Verben", "Irregular Verbs": "Unregelmäßige Verben", "Modal Verbs": "Modalverben" }[activeCategory] || "Vokabular"}
-          </h1>
-          <button 
-            onClick={() => setShowNomenQuiz(true)}
-            className="px-4 py-2 bg-black text-white font-bold rounded-xl shadow-md hover:bg-gray-800 transition-all text-sm whitespace-nowrap"
-          >
-            Nomen Quiz
-          </button>
-        </div>
-        
-        {/* Search Bar */}
-        <div className="flex-1 relative group w-full">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg className="h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-          <input
-            type="text"
-            placeholder="Suchen..."
-            className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-black placeholder-gray-400 focus:outline-none focus:border-black transition-all shadow-sm"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-        
-        {/* Controls: Language Selector */}
-        <div className="flex-1 flex items-center gap-2 justify-start md:justify-end w-full">
-          <label className="text-sm font-bold text-gray-500 tracking-wide"> Muttersprache </label>
-          <select 
-            value={selectedLangCode}
-            onChange={(e) => setSelectedLangCode(e.target.value)}
-            className="bg-white border border-gray-200 text-black text-sm rounded-lg focus:ring-[#000000] focus:border-[#000000] block p-2 md:py-2.5 font-medium cursor-pointer shadow-sm"
-          >
-            {SUPPORTED_LANGUAGES.map(lang => (
-              <option key={lang.code} value={lang.code}>
-                {lang.name === 'English' ? 'Englisch' : lang.name} ({lang.nativeName})
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+    <div className="flex flex-col h-full w-full max-w-5xl mx-auto pb-20 px-3 md:px-0 relative">
+      <div className="flex-1 flex flex-col min-w-0 pt-2 md:pt-4">
 
       {/* Word Table / Nomen Quiz View */}
       {showNomenQuiz ? (
         <div className="flex flex-col h-full w-full pt-4">
           <div className="flex justify-between items-center mb-8">
-            <button onClick={() => setShowNomenQuiz(false)} className="flex items-center gap-2 text-gray-500 hover:text-black w-fit transition-colors">
+            <button onClick={() => setShowNomenQuiz && setShowNomenQuiz(false)} className="flex items-center gap-2 text-gray-500 hover:text-black w-fit transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
               <span className="font-semibold">Zurück</span>
             </button>
@@ -393,7 +359,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                             <span className="text-sm font-medium text-black whitespace-nowrap">{item.id})</span>
                             <button 
                               onClick={(e) => { e.stopPropagation(); playAudio(item.word); }}
-                              className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0"
+                              className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0 print:hidden"
                               title="Hören (Listen)"
                             >
                               <svg className="w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="currentColor">
@@ -413,7 +379,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                                 <div key={i} className="flex items-center gap-1.5">
                                   <button 
                                     onClick={(e) => { e.stopPropagation(); playAudio(part); }}
-                                    className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                    className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0 print:hidden"
                                     title="Hören"
                                   >
                                     <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
@@ -434,7 +400,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                             <div className="flex items-center gap-1.5 mt-1 text-xs text-black">
                               <button 
                                 onClick={(e) => { e.stopPropagation(); playAudio((item as VocabItem).plural!); }}
-                                className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0 print:hidden"
                                 title="Hören (Listen)"
                               >
                                 <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
@@ -462,7 +428,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                                       <div key={i} className="flex items-center gap-1.5 mb-1.5">
                                         <button 
                                           onClick={(e) => { e.stopPropagation(); playAudio(line.trim()); }}
-                                          className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                          className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0 print:hidden"
                                           title="Hören"
                                         >
                                           <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
@@ -487,7 +453,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                                     <div key={i} className="flex items-center gap-1.5 mb-1.5">
                                       <button 
                                         onClick={(e) => { e.stopPropagation(); playAudio(line.trim()); }}
-                                        className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                        className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0 print:hidden"
                                         title="Hören"
                                       >
                                         <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
@@ -535,7 +501,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                     const numQuestions = Math.min(groupNum * 5, wordsSoFar);
 
                     const quizRow = (
-                      <tr key={`quiz-row-${wordsSoFar}`} className="bg-gray-100">
+                      <tr key={`quiz-row-${wordsSoFar}`} className="bg-gray-100 print:hidden">
                         <td colSpan={colSpanCount} className="py-4 px-4 text-left border-b border-gray-200">
                           <button
                             onClick={() => startQuiz(wordsSoFar, numQuestions)}
@@ -665,6 +631,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

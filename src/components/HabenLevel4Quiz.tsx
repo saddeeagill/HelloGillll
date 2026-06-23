@@ -5,25 +5,26 @@ import React, { useState, useEffect } from 'react';
 interface Question {
   id: string;
   text: string;
-  answer: string;
+  answer: string[];
 }
 
-const POOL = [
-  { text: 'Was ___ du da?', answer: 'hast' },
-  { text: 'Wo ___ ihr das Auto?', answer: 'habt' },
-  { text: 'Warum ___ sie (Pl.) keine Zeit?', answer: 'haben' },
-  { text: 'Wann ___ wir Pause?', answer: 'haben' },
-  { text: 'Wie viel Geld ___ er?', answer: 'hat' },
-  { text: 'Wer ___ eine Idee?', answer: 'hat' },
-  { text: 'Wieso ___ ich immer Pech?', answer: 'habe' },
-  { text: 'Was ___ Sie gesagt?', answer: 'haben' },
-  { text: 'Woher ___ sie (Sg.) das?', answer: 'hat' },
-  { text: 'Wann ___ es angefangen?', answer: 'hat' },
+const POOL: Omit<Question, 'id'>[] = [
+  { text: '______ haben', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ habe', answer: ['ich'] },
+  { text: '______ hat', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ hast', answer: ['du'] },
+  { text: '______ habt', answer: ['ihr'] },
+  { text: '______ haben', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ hat', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ haben', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ hat', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ hat', answer: ['er', 'sie', 'es', 'man'] },
 ];
 
 function generateQuestions(): Question[] {
+  // We can shuffle the pool, but since it has exactly 10 items, we just use them all.
   const shuffled = [...POOL].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 10).map((q, i) => ({
+  return shuffled.map((q, i) => ({
     id: `q_${i}_${Date.now()}`,
     text: q.text,
     answer: q.answer
@@ -49,7 +50,9 @@ export default function HabenLevel4Quiz({ onBack }: { onBack: (passed?: boolean)
     e.preventDefault();
     if (!userAnswer.trim()) return;
 
-    const correct = userAnswer.trim().toLowerCase() === currentQ.answer.toLowerCase();
+    const userInput = userAnswer.trim().toLowerCase();
+    const correct = currentQ.answer.some(ans => ans.toLowerCase() === userInput);
+    
     if (correct) setScore(s => s + 1);
     
     // Instant auto-advance
@@ -113,7 +116,7 @@ export default function HabenLevel4Quiz({ onBack }: { onBack: (passed?: boolean)
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 4: W-Fragen</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 4: Gemischte Konjugation</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,7 +125,7 @@ export default function HabenLevel4Quiz({ onBack }: { onBack: (passed?: boolean)
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 4</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze das richtige Verb in der W-Frage:</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Welche Person passt?</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">

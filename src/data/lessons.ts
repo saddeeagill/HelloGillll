@@ -54,6 +54,22 @@ export const LESSON_1: Lesson = {
     { id: 15, singular: 'Partner', plural: 'Partner', english: 'partner (male)' },
     { id: 16, singular: 'Partnerin', plural: 'Partnerinnen', english: 'partner (female)' },
     { id: 17, singular: 'Vater', plural: 'Väter', english: 'father' },
+    { id: 18, singular: 'Bruder', plural: 'Brüder', english: 'brother' },
+    { id: 19, singular: 'Dame', plural: 'Damen', english: 'lady' },
+    { id: 20, singular: 'Dank', plural: '-', english: 'thanks' },
+    { id: 21, singular: 'Familienname', plural: 'Familiennamen', english: 'last name' },
+    { id: 22, singular: 'Freundin', plural: 'Freundinnen', english: 'friend (female)' },
+    { id: 23, singular: 'Grossmutter', plural: 'Grossmütter', english: 'grandmother' },
+    { id: 24, singular: 'Grossvater', plural: 'Grossväter', english: 'grandfather' },
+    { id: 25, singular: 'Hausfrau', plural: 'Hausfrauen', english: 'housewife' },
+    { id: 26, singular: 'Hausmann', plural: 'Hausmänner', english: 'househusband' },
+    { id: 27, singular: 'Mädchen', plural: 'Mädchen', english: 'girl' },
+    { id: 28, singular: 'Mann', plural: 'Männer', english: 'man' },
+    { id: 29, singular: 'Oma', plural: 'Omas', english: 'grandmother' },
+    { id: 30, singular: 'Opa', plural: 'Opas', english: 'grandfather' },
+    { id: 31, singular: 'Sohn', plural: 'Söhne', english: 'son' },
+    { id: 32, singular: 'Vorname', plural: 'Vornamen', english: 'first name' },
+    { id: 33, singular: 'Junge', plural: 'Jungen', english: 'boy' }
   ]
 };
 

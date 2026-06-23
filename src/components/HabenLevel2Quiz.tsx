@@ -9,16 +9,16 @@ interface Question {
 }
 
 const POOL = [
-  { text: '___ du Zeit?', answer: 'Hast' },
-  { text: '___ er ein Auto?', answer: 'Hat' },
-  { text: '___ wir Glück?', answer: 'Haben' },
-  { text: '___ ihr Hunger?', answer: 'Habt' },
-  { text: '___ sie (Sg.) eine Katze?', answer: 'Hat' },
-  { text: '___ Sie Fragen?', answer: 'Haben' },
-  { text: '___ ich recht?', answer: 'Habe' },
-  { text: '___ es funktioniert?', answer: 'Hat' },
-  { text: '___ sie (Pl.) Zeit?', answer: 'Haben' },
-  { text: '___ man hier Empfang?', answer: 'Hat' },
+  { text: 'er ______', answer: 'hat' },
+  { text: 'wir ______', answer: 'haben' },
+  { text: 'ich ______', answer: 'habe' },
+  { text: 'sie (they) ______', answer: 'haben' },
+  { text: 'du ______', answer: 'hast' },
+  { text: 'man ______', answer: 'hat' },
+  { text: 'ihr ______', answer: 'habt' },
+  { text: 'es ______', answer: 'hat' },
+  { text: 'Sie (formal) ______', answer: 'haben' },
+  { text: 'sie (she) ______', answer: 'hat' },
 ];
 
 function generateQuestions(): Question[] {
@@ -113,7 +113,7 @@ export default function HabenLevel2Quiz({ onBack }: { onBack: (passed?: boolean)
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 2: Ja/Nein Fragen</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 2: Gemischte Personen</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,7 +122,7 @@ export default function HabenLevel2Quiz({ onBack }: { onBack: (passed?: boolean)
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 2</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze das richtige Verb am Satzanfang:</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze die richtige Verbform:</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">

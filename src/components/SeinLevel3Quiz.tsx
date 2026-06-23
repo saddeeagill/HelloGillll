@@ -5,25 +5,25 @@ import React, { useState, useEffect } from 'react';
 interface Question {
   id: string;
   text: string;
-  answer: string;
+  answer: string[];
 }
 
-const POOL = [
-  { text: 'Ich ___ nicht müde.', answer: 'bin' },
-  { text: 'Er ___ nicht hier.', answer: 'ist' },
-  { text: 'Wir ___ nicht fertig.', answer: 'sind' },
-  { text: 'Sie (Sg.) ___ nicht da.', answer: 'ist' },
-  { text: 'Ihr ___ nicht zu Hause.', answer: 'seid' },
-  { text: 'Du ___ nicht allein.', answer: 'bist' },
-  { text: 'Sie (Pl.) ___ nicht bereit.', answer: 'sind' },
-  { text: 'Es ___ nicht so einfach.', answer: 'ist' },
-  { text: 'Sie (formal) ___ nicht dran.', answer: 'sind' },
-  { text: 'Man ___ nie sicher.', answer: 'ist' },
+const POOL: Omit<Question, 'id'>[] = [
+  { text: '______ bin', answer: ['ich'] },
+  { text: '______ bist', answer: ['du'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ seid', answer: ['ihr'] },
 ];
 
 function generateQuestions(): Question[] {
   const shuffled = [...POOL].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 10).map((q, i) => ({
+  return shuffled.map((q, i) => ({
     id: `q_${i}_${Date.now()}`,
     text: q.text,
     answer: q.answer
@@ -49,7 +49,9 @@ export default function SeinLevel3Quiz({ onBack }: { onBack: (passed?: boolean) 
     e.preventDefault();
     if (!userAnswer.trim()) return;
 
-    const correct = userAnswer.trim().toLowerCase() === currentQ.answer.toLowerCase();
+    const userInput = userAnswer.trim().toLowerCase();
+    const correct = currentQ.answer.some(ans => ans.toLowerCase() === userInput);
+    
     if (correct) setScore(s => s + 1);
     
     // Instant auto-advance
@@ -113,7 +115,7 @@ export default function SeinLevel3Quiz({ onBack }: { onBack: (passed?: boolean) 
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 3: Verneinung</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 3: Konjugation zu Person</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,7 +124,7 @@ export default function SeinLevel3Quiz({ onBack }: { onBack: (passed?: boolean) 
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 3</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze die richtige Verbform von sein:</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Welche Person passt?</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">

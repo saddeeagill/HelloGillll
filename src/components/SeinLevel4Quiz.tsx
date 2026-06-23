@@ -5,25 +5,25 @@ import React, { useState, useEffect } from 'react';
 interface Question {
   id: string;
   text: string;
-  answer: string;
+  answer: string[];
 }
 
-const POOL = [
-  { text: 'Wer ___ du?', answer: 'bist' },
-  { text: 'Wo ___ ihr?', answer: 'seid' },
-  { text: 'Wie ___ das Wetter?', answer: 'ist' },
-  { text: 'Warum ___ er sauer?', answer: 'ist' },
-  { text: 'Wann ___ wir endlich da?', answer: 'sind' },
-  { text: 'Wer ___ diese Leute?', answer: 'sind' },
-  { text: 'Woher ___ Sie?', answer: 'sind' },
-  { text: 'Wie alt ___ ich?', answer: 'bin' },
-  { text: 'Wo ___ sie (Sg.) gerade?', answer: 'ist' },
-  { text: 'Warum ___ es so teuer?', answer: 'ist' },
+const POOL: Omit<Question, 'id'>[] = [
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ bin', answer: ['ich'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ bist', answer: ['du'] },
+  { text: '______ seid', answer: ['ihr'] },
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ sind', answer: ['wir', 'sie', 'Sie'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
+  { text: '______ ist', answer: ['er', 'sie', 'es', 'man'] },
 ];
 
 function generateQuestions(): Question[] {
   const shuffled = [...POOL].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 10).map((q, i) => ({
+  return shuffled.map((q, i) => ({
     id: `q_${i}_${Date.now()}`,
     text: q.text,
     answer: q.answer
@@ -49,7 +49,9 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
     e.preventDefault();
     if (!userAnswer.trim()) return;
 
-    const correct = userAnswer.trim().toLowerCase() === currentQ.answer.toLowerCase();
+    const userInput = userAnswer.trim().toLowerCase();
+    const correct = currentQ.answer.some(ans => ans.toLowerCase() === userInput);
+    
     if (correct) setScore(s => s + 1);
     
     // Instant auto-advance
@@ -113,7 +115,7 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
       </button>
 
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-black mb-1">Level 4: W-Fragen</h3>
+        <h3 className="text-xl font-bold text-black mb-1">Level 4: Gemischte Konjugation</h3>
       </div>
 
       <div className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm p-6 md:p-10 relative">
@@ -122,7 +124,7 @@ export default function SeinLevel4Quiz({ onBack }: { onBack: (passed?: boolean) 
           <span className="text-sm font-bold text-black bg-gray-100 px-3 py-1 rounded-full">Level: 4</span>
         </div>
 
-        <p className="text-lg font-medium text-gray-600 mb-6">Ergänze das richtige Verb in der W-Frage:</p>
+        <p className="text-lg font-medium text-gray-600 mb-6">Welche Person passt?</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-4 text-3xl font-black text-black">
