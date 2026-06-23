@@ -19,7 +19,7 @@ export const A1_NOUNS = [
     "id": 3,
     "word": "Achtung",
     "plural": "",
-    "translation": "attention","urdu": "خطرہ",
+    "translation": "attention","urdu": "توجہ / دھیان",
     "category": "Nouns",
     "level": "A1"
   },
@@ -27,7 +27,7 @@ export const A1_NOUNS = [
     "id": 4,
     "word": "Adresse",
     "plural": "Adressen",
-    "translation": "address","urdu": "پتہ",
+    "translation": "order/tidiness","urdu": "ترتیب",
     "category": "Nouns",
     "level": "A1"
   },
@@ -35,7 +35,7 @@ export const A1_NOUNS = [
     "id": 5,
     "word": "Alter",
     "plural": "",
-    "translation": "age","urdu": "پرانا",
+    "translation": "age","urdu": "عمر",
     "category": "Nouns",
     "level": "A1"
   },
@@ -83,7 +83,7 @@ export const A1_NOUNS = [
     "id": 11,
     "word": "Anruf",
     "plural": "Anrufe",
-    "translation": "call","urdu": "کال کریں۔",
+    "translation": "shop","urdu": "دکان",
     "category": "Nouns",
     "level": "A1"
   },
@@ -131,7 +131,7 @@ export const A1_NOUNS = [
     "id": 17,
     "word": "Apartment",
     "plural": "Apartments",
-    "translation": "apartment","urdu": "اپارٹمنٹ",
+    "translation": "moment","urdu": "لمحہ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -155,7 +155,7 @@ export const A1_NOUNS = [
     "id": 20,
     "word": "Arbeit",
     "plural": "Arbeiten",
-    "translation": "work","urdu": "کام",
+    "translation": "girl","urdu": "لڑکی",
     "category": "Nouns",
     "level": "A1"
   },
@@ -195,7 +195,7 @@ export const A1_NOUNS = [
     "id": 25,
     "word": "Aufzug",
     "plural": "Aufzüge",
-    "translation": "elevator","urdu": "لفٹ",
+    "translation": "floor (storey)","urdu": "منزل",
     "category": "Nouns",
     "level": "A1"
   },
@@ -259,7 +259,7 @@ export const A1_NOUNS = [
     "id": 33,
     "word": "Ausweis",
     "plural": "Ausweise",
-    "translation": "id","urdu": "ID",
+    "translation": "ID card","urdu": "شناختی کارڈ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -283,7 +283,7 @@ export const A1_NOUNS = [
     "id": 36,
     "word": "Automat",
     "plural": "Automaten",
-    "translation": "vending machine","urdu": "خودکار",
+    "translation": "vending machine","urdu": "وینڈنگ مشین",
     "category": "Nouns",
     "level": "A1"
   },
@@ -291,7 +291,7 @@ export const A1_NOUNS = [
     "id": 37,
     "word": "Baby",
     "plural": "Babys",
-    "translation": "baby","urdu": "بچہ",
+    "translation": "back (body)","urdu": "کمر / پیٹھ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -467,7 +467,7 @@ export const A1_NOUNS = [
     "id": 59,
     "word": "Blick",
     "plural": "Blicke",
-    "translation": "view","urdu": "دیکھیں",
+    "translation": "finger","urdu": "انگلی",
     "category": "Nouns",
     "level": "A1"
   },
@@ -483,7 +483,7 @@ export const A1_NOUNS = [
     "id": 61,
     "word": "Bogen",
     "plural": "Bögen",
-    "translation": "sheet (of paper)","urdu": "جھکنا",
+    "translation": "sheet (of paper)","urdu": "کاغذ کا ورق",
     "category": "Nouns",
     "level": "A1"
   },
@@ -507,7 +507,7 @@ export const A1_NOUNS = [
     "id": 64,
     "word": "Brot",
     "plural": "Brote",
-    "translation": "bread","urdu": "روٹی",
+    "translation": "break","urdu": "وقفہ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -595,7 +595,7 @@ export const A1_NOUNS = [
     "id": 75,
     "word": "Dame",
     "plural": "Damen",
-    "translation": "lady","urdu": "عورت",
+    "translation": "luck","urdu": "قسمت",
     "category": "Nouns",
     "level": "A1"
   },
@@ -619,7 +619,7 @@ export const A1_NOUNS = [
     "id": 78,
     "word": "Disco",
     "plural": "Discos",
-    "translation": "disco","urdu": "ڈسکو",
+    "translation": "bus stop","urdu": "بس اسٹاپ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -803,7 +803,7 @@ export const A1_NOUNS = [
     "id": 101,
     "word": "Essen",
     "plural": "",
-    "translation": "eat","urdu": "کھاؤ",
+    "translation": "food/meal","urdu": "کھانا",
     "category": "Nouns",
     "level": "A1"
   },
@@ -987,7 +987,7 @@ export const A1_NOUNS = [
     "id": 124,
     "word": "Frage",
     "plural": "Fragen",
-    "translation": "ask","urdu": "پوچھو",
+    "translation": "question","urdu": "سوال",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2835,7 +2835,7 @@ export const A1_NOUNS = [
     "id": 355,
     "word": "Rock",
     "plural": "Röcke",
-    "translation": "skirt",
+    "translation": "skirt","urdu": "اسکرٹ",
     "category": "Nouns",
     "level": "A1"
   },
