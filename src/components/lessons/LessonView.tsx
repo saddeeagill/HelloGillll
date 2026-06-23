@@ -327,7 +327,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
           <>
             <h2 className="text-2xl font-bold mb-2 mt-8">Alle Geschichten</h2>
             {lesson.topics.map((topic) => {
-              const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
+              const topicNouns = getTopicNouns(topic, lesson.nomenList);
               return (
               <div key={topic.id} className="mb-10">
                 <h3 className="text-xl font-bold mb-2 break-after-avoid">{topic.title}</h3>
@@ -370,7 +370,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
           <>
             <h2 className="text-2xl font-bold mb-2 mt-8">Geschichte</h2>
             {lesson.topics.filter(t => t.id === activeTopicId).map((topic) => {
-              const topicNouns = getTopicNouns(topic.content, lesson.nomenList);
+              const topicNouns = getTopicNouns(topic, lesson.nomenList);
               return (
               <div key={topic.id} className="mb-10">
                 <h3 className="text-xl font-bold mb-2 break-after-avoid">{topic.title}</h3>
