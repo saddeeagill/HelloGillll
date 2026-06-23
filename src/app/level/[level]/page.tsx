@@ -9,6 +9,16 @@ import HabenSeinView from '@/components/HabenSeinView';
 import Logo from '@/components/Logo';
 
 import { SUPPORTED_LANGUAGES } from '@/data/languages';
+import { VOCABULARY } from '@/data/vocabulary';
+
+const CATEGORY_LABELS: Record<string, string> = {
+  "Nouns": "Nomen",
+  "Adjectives": "Adjektive",
+  "Adverbs": "Adverbien",
+  "Regular Verbs": "Regelmäßige Verben",
+  "Irregular Verbs": "Unregelmäßige Verben",
+  "Modal Verbs": "Modalverben",
+};
 
 export default function LevelPage() {
   const params = useParams();
@@ -28,7 +38,75 @@ export default function LevelPage() {
   
   const a1Lektionen = Array.from({ length: 16 }, (_, i) => i + 1);
   // We'll prepare an array for A2 lessons as well (currently empty or placeholder)
-  const a2Lektionen = [1]; 
+  const a2Lektionen = [1];
+
+  const handleVocabPrint = () => {
+    const filteredWords = VOCABULARY.filter(
+      (item) => item.level === levelUpper && item.category === vocabCategory
+    );
+    const langLabel = SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || 'Translation';
+    const categoryLabel = CATEGORY_LABELS[vocabCategory] || vocabCategory;
+
+    const isNoun = vocabCategory === 'Nouns';
+    const headerCols = isNoun
+      ? `<th>Nr.</th><th>Wort</th><th>Plural</th><th>Artikel</th><th>English</th><th>${langLabel}</th>`
+      : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
+
+    const rows = filteredWords.map((item, i) => {
+      if (isNoun) {
+        return `<tr>
+          <td>${i + 1}</td>
+          <td><strong>${item.word}</strong></td>
+          <td>${item.plural || '-'}</td>
+          <td>${item.article || '-'}</td>
+          <td>${item.translation}</td>
+          <td>${item.translation}</td>
+        </tr>`;
+      }
+      return `<tr>
+        <td>${i + 1}</td>
+        <td><strong>${item.word}</strong></td>
+        <td>${item.translation}</td>
+        <td>${item.translation}</td>
+      </tr>`;
+    }).join('');
+
+    const printHtml = `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>${levelUpper} – ${categoryLabel}</title>
+  <style>
+    @page { size: A4 portrait; margin: 15mm 12mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 12pt; color: #000; background: #fff; }
+    h1 { font-size: 20pt; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 20px; }
+    h2 { font-size: 14pt; font-weight: bold; margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 10pt; page-break-inside: auto; }
+    thead { display: table-header-group; }
+    thead tr { background: #f0f0f0; border-bottom: 2px solid #ccc; }
+    th { padding: 6px 8px; font-weight: bold; text-align: left; }
+    td { padding: 5px 8px; border-bottom: 1px solid #eee; text-align: left; }
+    tr { page-break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <h1>${levelUpper} – ${categoryLabel}</h1>
+  <table>
+    <thead><tr>${headerCols}</tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <script>window.onload = function(){ window.print(); };<\/script>
+</body>
+</html>`;
+
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.open();
+      printWindow.document.write(printHtml);
+      printWindow.document.close();
+    }
+  };
 
 
   return (
@@ -129,9 +207,7 @@ export default function LevelPage() {
                       Nomen Quiz
                     </button>
                     <button 
-                      onClick={() => {
-                        setTimeout(() => window.print(), 1500);
-                      }}
+                      onClick={handleVocabPrint}
                       className="w-full py-2 bg-gray-100 text-black border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-200 transition-all text-xs flex justify-center items-center gap-2"
                     >
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
