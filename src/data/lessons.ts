@@ -148,11 +148,13 @@ export const LESSON_3: Lesson = {
     {
       id: "schoen_gruen",
       title: "Schön & grün",
+      nomenIds: [3, 5, 7, 8, 1, 2, 4, 6, 9],
       content: "Tim wacht am **Morgen** auf. Die **Sonne** scheint. Der **Wind** weht leicht. Es ist **Winter**, aber die Luft ist klar. Tim zieht seine Jacke an und geht hinaus. Vor dem Haus steht ein grosser **Baum**. Der **Baum** ist ohne Blätter. Neben dem **Baum** wächst eine kleine **Blume**. Tim staunt. Er sagt: „Die **Blume** lebt im **Winter**.\" Dann geht Tim zum **See**. Das **Wasser** ist kalt. Der **Wind** bewegt das **Wasser**. Kleine Wellen kommen zum Ufer. Tim setzt sich hin und schaut auf den **See**. Er denkt: „Ich habe Ruhe. Ich habe Zeit.\" Er lächelt. Tim denkt an seine **Woche**. Am Montag geht er in die Stadt. Am Dienstag besucht er Freunde. Am Mittwoch schreibt er Briefe. Am Donnerstag kocht er Suppe. Am Freitag liest er ein Buch. Am Samstag macht er Sport. Am Sonntag geht er wieder zum **See**. Dort sieht er den **Baum**, die **Blume**, die **Sonne** und hört den **Wind**. Er fühlt das **Wasser** mit der Hand. Tim sagt: „Ich habe den **Winter**. Ich habe den **Morgen**. Ich habe den **See**. Ich habe die **Woche**. Ich bin zufrieden.\"",
     },
     {
       id: "wollen_chillen",
       title: "Wollen chillen",
+      nomenIds: [3, 5, 7, 8, 1, 2, 4, 6, 9],
       content: "Mia wacht am **Morgen** auf. Die **Sonne** scheint hell. Der **Wind** kommt durch das Fenster. Es ist **Winter**, aber Mia hat warme Decken. Sie steht auf und geht in den Garten. Dort sieht sie einen grossen **Baum**. Der **Baum** ist still. Neben dem **Baum** liegt eine kleine **Blume**. Die **Blume** ist bunt, auch im **Winter**. Mia freut sich.\n\nDann läuft sie weiter zum **See**. Das **Wasser** im **See** ist klar. Der **Wind** macht kleine Wellen. Die **Sonne** spiegelt sich im **Wasser**. Mia setzt sich auf eine Bank und schaut lange. Sie denkt: „Ich habe den **Morgen**. Ich habe die **Sonne**. Ich habe den **Wind**.\" Sie lächelt.\n\nMia denkt an ihre **Woche**. Am Montag hat sie Arbeit. Am Dienstag besucht sie ihre Mutter. Am Mittwoch hat sie Sport. Am Donnerstag spielt sie Musik. Am Freitag kocht sie. Am Samstag liest sie ein Buch. Am Sonntag geht sie wieder zum **See**. Dort sieht sie den **Baum**, die **Blume** und das **Wasser**. Sie atmet tief. Sie denkt: „Ich habe den **Winter**. Ich habe eine gute **Woche**. Ich bin glücklich.\"",
     }
   ],
