@@ -8,7 +8,7 @@ import TranslateText from "../TranslateText";
 
 export default function NomenTab({ lesson }: { lesson: Lesson }) {
   const [activeTopicId, setActiveTopicId] = useState(lesson.topics[0]?.id || "");
-  const [selectedLangCode, setSelectedLangCode] = useState("en");
+  const [selectedLangCode, setSelectedLangCode] = useState("pt");
   const activeTopic = lesson.topics.find((t) => t.id === activeTopicId);
 
   // Helper to highlight specific nouns in the text
@@ -21,8 +21,9 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
       if (n.plural !== '-') wordsToHighlight.add(n.plural);
     });
 
-    // We split by non-word boundaries to keep punctuation intact
-    return text.split(/(\b)/).map((segment, i) => {
+    // We split by non-word boundaries to keep punctuation intact, but first strip markdown asterisks
+    const cleanText = text.replace(/\*\*/g, '');
+    return cleanText.split(/(\b)/).map((segment, i) => {
       if (wordsToHighlight.has(segment)) {
         return (
           <span key={i} className="bg-[#000000] text-white px-1 py-0.5 rounded font-bold mx-px shadow-sm">
@@ -76,6 +77,7 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
                 <th className="py-3 px-4 font-semibold text-sm w-16">Nr.</th>
                 <th className="py-3 px-4 font-semibold text-sm">Singular</th>
                 <th className="py-3 px-4 font-semibold text-sm">Plural</th>
+                <th className="py-3 px-4 font-semibold text-sm">English</th>
                 <th className="py-3 px-4 font-semibold text-sm">
                   {SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || "Translation"}
                 </th>
@@ -110,6 +112,9 @@ export default function NomenTab({ lesson }: { lesson: Lesson }) {
                   </td>
                   <td className="py-3 px-4 text-sm text-black align-middle">
                     {item.plural}
+                  </td>
+                  <td className="py-3 px-4 text-sm font-medium text-black align-middle">
+                    {item.english}
                   </td>
                   <td className="py-3 px-4 text-sm text-black align-middle">
                     {selectedLangCode === 'en' ? (

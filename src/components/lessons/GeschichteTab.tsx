@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Lesson } from "@/data/lessons";
+import { renderHighlightedText } from "@/utils/highlight";
 
 export default function GeschichteTab({ 
   lesson,
@@ -28,25 +29,6 @@ export default function GeschichteTab({
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
-  };
-
-  // Helper to highlight specific words marked with **word** in the text
-  const renderHighlightedText = (text: string) => {
-    // Split by **...** to find marked words
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    
-    return parts.map((part, i) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
-        // Remove the ** from the start and end
-        const word = part.slice(2, -2);
-        return (
-          <span key={i} className="bg-[#000000] text-white px-1 py-0.5 rounded font-bold mx-px shadow-sm">
-            {word}
-          </span>
-        );
-      }
-      return <React.Fragment key={i}>{part}</React.Fragment>;
-    });
   };
 
   return (

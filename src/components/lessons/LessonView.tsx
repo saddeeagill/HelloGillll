@@ -6,6 +6,7 @@ import QuizTab from "./QuizTab";
 import TheorieTab from "./TheorieTab";
 import PruefungTab from "./PruefungTab";
 import { LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_5, LESSON_6, LESSON_7, LESSON_8, LESSON_9, LESSON_10, LESSON_11, LESSON_12, LESSON_13, LESSON_14, LESSON_15, LESSON_16 } from "@/data/lessons";
+import { renderHighlightedText } from "@/utils/highlight";
 
 const getTabs = (lessonId: string) => {
   const lessonNum = parseInt(lessonId.replace('lektion_', ''), 10) || 1;
@@ -18,7 +19,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
   const [activeTab, setActiveTab] = useState("Geschichte");
   const [activeTopicId, setActiveTopicId] = useState("");
   const [showPrintMenu, setShowPrintMenu] = useState(false);
-  const [printMode, setPrintMode] = useState<"geschichte" | "alle">("alle");
+  const [printMode, setPrintMode] = useState<"geschichte" | "alle" | "theorie">("alle");
   const menuRef = useRef<HTMLDivElement>(null);
   
   // Currently we only have Lektion 1 to 16 data
@@ -55,7 +56,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handlePrint = (mode: "geschichte" | "alle") => {
+  const handlePrint = (mode: "geschichte" | "alle" | "theorie") => {
     setPrintMode(mode);
     setShowPrintMenu(false);
     setTimeout(() => {
@@ -89,9 +90,15 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
                 </button>
                 <button
                   onClick={() => handlePrint("alle")}
-                  className="block w-full text-left px-4 py-3 text-sm font-semibold hover:bg-gray-50 transition-colors"
+                  className="block w-full text-left px-4 py-3 text-sm font-semibold hover:bg-gray-50 border-b border-gray-100 transition-colors"
                 >
                   Alle Geschichten
+                </button>
+                <button
+                  onClick={() => handlePrint("theorie")}
+                  className="block w-full text-left px-4 py-3 text-sm font-semibold hover:bg-gray-50 transition-colors"
+                >
+                  Theorie
                 </button>
               </div>
             )}
@@ -130,13 +137,22 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
       <div className="hidden print:block text-black">
         <h1 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-black">{lesson.title}</h1>
         
-        {printMode === "alle" ? (
+        {printMode === "theorie" ? (
+          <div className="w-full text-center mt-8">
+            <h2 className="text-2xl font-bold mb-4">Theorie</h2>
+            <img 
+              src={lesson.id.startsWith("a2_lektion_") ? `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("a2_lektion_", "")}-a2.jpg` : `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("lektion_", "")}-a1.jpg`}
+              alt="Theorie"
+              className="max-w-full h-auto mx-auto"
+            />
+          </div>
+        ) : printMode === "alle" ? (
           <>
             <h2 className="text-2xl font-bold mb-4 mt-8">Alle Geschichten</h2>
             {lesson.topics.map((topic) => (
               <div key={topic.id} className="mb-6">
                 <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
-                <p className="whitespace-pre-wrap leading-relaxed">{topic.content}</p>
+                <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
               </div>
             ))}
           </>
@@ -146,13 +162,13 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
             {lesson.topics.filter(t => t.id === activeTopicId).map((topic) => (
               <div key={topic.id} className="mb-6">
                 <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
-                <p className="whitespace-pre-wrap leading-relaxed">{topic.content}</p>
+                <p className="whitespace-pre-wrap leading-relaxed">{renderHighlightedText(topic.content)}</p>
               </div>
             ))}
           </>
         )}
 
-        {lesson.nomenList && lesson.nomenList.length > 0 && (
+        {printMode !== "theorie" && lesson.nomenList && lesson.nomenList.length > 0 && (
           <div className="break-before-page">
             <h2 className="text-2xl font-bold mb-4 mt-8 border-b-2 border-black pb-2">Nomen</h2>
             <table className="w-full text-left border-collapse">

@@ -217,7 +217,7 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
     1 + // English
     (selectedLangCode !== 'en' ? 1 : 0) + // Native translation
     (showNounColumns ? 1 : 0) +
-    (showVerbColumns ? 2 : 0);
+    (showVerbColumns ? 1 : 0);
 
   return (
     <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20 px-3 md:px-0 relative">
@@ -356,14 +356,9 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                   </th>
                 )}
                 {showVerbColumns && (
-                  <>
-                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
-                      Stammformen
-                    </th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
-                      Konjugationen
-                    </th>
-                  </>
+                  <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
+                    Konjugationen
+                  </th>
                 )}
                 <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
                   English
@@ -392,21 +387,44 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                         index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                       }`}
                     >
-                      <td className="py-2 px-3 md:py-3 md:px-4 align-middle">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-black whitespace-nowrap">{item.id})</span>
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); playAudio(item.word); }}
-                            className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0"
-                            title="Hören (Listen)"
-                          >
-                            <svg className="w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="currentColor">
-                              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                            </svg>
-                          </button>
-                          <span className="text-sm font-medium text-black">{item.word}</span>
+                      <td className="py-2 px-3 md:py-3 md:px-4 align-top">
+                        <div className="flex flex-col gap-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium text-black whitespace-nowrap">{item.id})</span>
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); playAudio(item.word); }}
+                              className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0"
+                              title="Hören (Listen)"
+                            >
+                              <svg className="w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                              </svg>
+                            </button>
+                            <span className="text-sm font-bold text-black">{item.word}</span>
+                          </div>
+                          {isVerb && ((item as VocabItem).principalParts || (item as any).konjugationen) && (
+                            <div className="flex flex-col gap-1.5 ml-8">
+                              {((item as VocabItem).principalParts || (item as any).konjugationen)?.split(/\s*-\s*|\s*,\s*/)
+                                .map((p: string) => p.trim())
+                                .filter((p: string) => p !== item.word)
+                                .map((part: string, i: number) => (
+                                <div key={i} className="flex items-center gap-1.5">
+                                  <button 
+                                    onClick={(e) => { e.stopPropagation(); playAudio(part); }}
+                                    className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                    title="Hören"
+                                  >
+                                    <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
+                                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                    </svg>
+                                  </button>
+                                  <span className="text-xs text-black font-normal">{part}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </td>
 
@@ -433,34 +451,39 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
 
                       {showVerbColumns && (
                         <>
+
                           <td className="py-2 px-3 md:py-3 md:px-4 align-top">
-                            {isVerb && (item as VocabItem).principalParts ? (
-                              <div className="text-xs text-black block mt-1">
-                                {(item as VocabItem).principalParts?.split(',').map((part, i) => (
-                                  <div key={i} className="flex items-center gap-1.5 mb-1.5">
-                                    <button 
-                                      onClick={(e) => { e.stopPropagation(); playAudio(part.trim()); }}
-                                      className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
-                                      title="Hören"
-                                    >
-                                      <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                      </svg>
-                                    </button>
-                                    <span>{part.trim()}{i < ((item as VocabItem).principalParts?.split(',').length || 0) - 1 ? ',' : ''}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            ) : (
-                              <span className="text-gray-400 mt-1 block">-</span>
-                            )}
-                          </td>
-                          <td className="py-2 px-3 md:py-3 md:px-4 align-top">
-                            {isVerb && (item as VocabItem).conjugation ? (
-                              <div className="text-xs text-black leading-relaxed mt-1 bg-white border border-gray-200 p-2 rounded-lg inline-block w-full">
-                                {(item as VocabItem).conjugation?.split('\n').map((line, i) => {
-                                  if (!line.trim()) return null;
-                                  return (
+                            {isVerb ? (
+                              (item as VocabItem).conjugation ? (
+                                <div className="text-xs text-black leading-relaxed mt-1 bg-white border border-gray-200 p-2 rounded-lg inline-block w-full">
+                                  {(item as VocabItem).conjugation?.split('\n').map((line, i) => {
+                                    if (!line.trim()) return null;
+                                    return (
+                                      <div key={i} className="flex items-center gap-1.5 mb-1.5">
+                                        <button 
+                                          onClick={(e) => { e.stopPropagation(); playAudio(line.trim()); }}
+                                          className="w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#000000] hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                                          title="Hören"
+                                        >
+                                          <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                          </svg>
+                                        </button>
+                                        <span>{line.trim()}</span>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              ) : (item as any).ich ? (
+                                <div className="text-xs text-black leading-relaxed mt-1 bg-white border border-gray-200 p-2 rounded-lg inline-block w-full">
+                                  {[
+                                    `ich ${(item as any).ich}`,
+                                    `du ${(item as any).du}`,
+                                    `er/sie/es ${(item as any).er_sie_es}`,
+                                    `wir ${(item as any).wir}`,
+                                    `ihr ${(item as any).ihr}`,
+                                    `sie/Sie ${(item as any).sie_Sie}`
+                                  ].map((line, i) => (
                                     <div key={i} className="flex items-center gap-1.5 mb-1.5">
                                       <button 
                                         onClick={(e) => { e.stopPropagation(); playAudio(line.trim()); }}
@@ -473,12 +496,12 @@ export default function VocabularyView({ level = "A1", activeCategory = "Nouns" 
                                       </button>
                                       <span>{line.trim()}</span>
                                     </div>
-                                  );
-                                })}
-                              </div>
-                            ) : (
-                              <span className="text-gray-400 mt-1 block">-</span>
-                            )}
+                                  ))}
+                                </div>
+                              ) : (
+                                <span className="text-gray-400 mt-1 block">-</span>
+                              )
+                            ) : null}
                           </td>
                         </>
                       )}
