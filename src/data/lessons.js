@@ -525,10 +525,42 @@ exports.LESSON_14 = {
         {
             id: "p_wie_puenktlich",
             title: "P wie Pünktlich!",
+            nomenIds: [24, 4, 29, 11, 14, 20, 8, 5, 12, 6, 30, 7, 1, 22, 17, 3, 13, 27, 2, 25, 9, 19, 23, 26, 18, 15, 10, 28, 21, 16],
             content: "Sofia plant eine **Reise** ins **Ausland**. Sie ruft ein **Taxi**. Der **Fahrer** ist pünktlich. Zusammen fahren sie zum **Flughafen**. Dort stellt Sofia ihren **Koffer** ab. Am **Eingang** sieht sie einen **Automat**. Sie nimmt eine **Fahrkarte** für den **Bus** zum **Terminal**. Dann hört sie eine **Durchsage**: „Der **Abflug** nach Rom ist in dreissig **Minuten**.“ Sofia geht schnell. Am **Gleis** steht der **Bus**. Sie steigt ein und denkt an den **Anschluss** zum **Flugzeug**. Im **Flughafen** wartet sie noch kurz. Dann sieht sie das **Flugzeug**. Sie steigt ein. Nach zwei **Stunden** ist die **Ankunft** in Italien. Sofia nimmt ein **Taxi**. Der **Fahrer** bringt sie in die **Stadt**. Dort hat sie ein **Einzelzimmer** in einem kleinen **Hotel**. Sie legt den **Koffer** ab und geht spazieren. In der **Stadt** hört sie **Musik** auf der **Strasse**. Eine **Gruppe** spielt **Gitarre**. Sofia bleibt stehen. Sie macht **Fotos** und lächelt. Am **Ende** des **Tages** sitzt sie im **Hotel**. Sie denkt: „Ich habe eine gute **Reise**. Ich habe einen **Abflug** und eine **Ankunft**. Ich habe ein **Einzelzimmer**. Ich habe schöne **Musik** gehört. Dieses **Land** ist toll.“ Sofia ist froh.",
         }
     ],
-    nomenList: []
+    nomenList: [
+        { id: 1, singular: "Abflug", plural: "Abflüge", english: "departure" },
+        { id: 2, singular: "Ankunft", plural: "Ankünfte", english: "arrival" },
+        { id: 3, singular: "Anschluss", plural: "Anschlüsse", english: "connection" },
+        { id: 4, singular: "Ausland", plural: "-", english: "abroad" },
+        { id: 5, singular: "Automat", plural: "Automaten", english: "ticket machine" },
+        { id: 6, singular: "Bus", plural: "Busse", english: "bus" },
+        { id: 7, singular: "Durchsage", plural: "Durchsagen", english: "announcement" },
+        { id: 8, singular: "Eingang", plural: "Eingänge", english: "entrance" },
+        { id: 9, singular: "Einzelzimmer", plural: "Einzelzimmer", english: "single room" },
+        { id: 10, singular: "Ende", plural: "Enden", english: "end" },
+        { id: 11, singular: "Fahrer", plural: "Fahrer", english: "driver" },
+        { id: 12, singular: "Fahrkarte", plural: "Fahrkarten", english: "ticket" },
+        { id: 13, singular: "Flugzeug", plural: "Flugzeuge", english: "airplane" },
+        { id: 14, singular: "Flughafen", plural: "Flughäfen", english: "airport" },
+        { id: 15, singular: "Foto", plural: "Fotos", english: "photo" },
+        { id: 16, singular: "Gitarre", plural: "Gitarren", english: "guitar" },
+        { id: 17, singular: "Gleis", plural: "Gleise", english: "platform/track" },
+        { id: 18, singular: "Gruppe", plural: "Gruppen", english: "group" },
+        { id: 19, singular: "Hotel", plural: "Hotels", english: "hotel" },
+        { id: 20, singular: "Koffer", plural: "Koffer", english: "suitcase" },
+        { id: 21, singular: "Land", plural: "Länder", english: "country" },
+        { id: 22, singular: "Minute", plural: "Minuten", english: "minute" },
+        { id: 23, singular: "Musik", plural: "-", english: "music" },
+        { id: 24, singular: "Reise", plural: "Reisen", english: "trip" },
+        { id: 25, singular: "Stadt", plural: "Städte", english: "city" },
+        { id: 26, singular: "Strasse", plural: "Strassen", english: "street" },
+        { id: 27, singular: "Stunde", plural: "Stunden", english: "hour" },
+        { id: 28, singular: "Tag", plural: "Tage", english: "day" },
+        { id: 29, singular: "Taxi", plural: "Taxis", english: "taxi" },
+        { id: 30, singular: "Terminal", plural: "Terminals", english: "terminal" }
+    ]
 };
 exports.LESSON_15 = {
     id: "lektion_15",
