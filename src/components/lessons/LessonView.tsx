@@ -9,6 +9,7 @@ import { LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_5, LESSON_6, LESSON_7, L
 import { renderHighlightedText } from "@/utils/highlight";
 import { SUPPORTED_LANGUAGES } from "@/data/languages";
 import TranslateText from "../TranslateText";
+import { translateText } from "@/utils/translate";
 
 const getTopicNouns = (topic: { content: string; nomenIds?: number[] }, nomenList?: any[]) => {
   if (!nomenList) return [];
@@ -95,17 +96,20 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
   };
 
   // Build noun table HTML for a set of nouns
-  const buildNounTableHtml = (nouns: any[]): string => {
+  const buildNounTableHtml = (nouns: any[], translationMap: Record<number, string> = {}): string => {
     if (nouns.length === 0) return '';
     const langLabel = SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || 'Translation';
-    const rows = nouns.map((nomen, index) => `
+    const rows = nouns.map((nomen, index) => {
+      const nativeTranslation = selectedLangCode === 'en' ? nomen.english : (translationMap[nomen.id] || nomen.english);
+      return `
       <tr>
         <td>${index + 1}</td>
         <td><strong>${nomen.singular}</strong></td>
         <td>${nomen.plural}</td>
         <td>${nomen.english}</td>
-        <td>${nomen.english}</td>
-      </tr>`).join('');
+        <td>${nativeTranslation}</td>
+      </tr>`;
+    }).join('');
     return `
       <div class="noun-section">
         <h4>Nomen</h4>
@@ -124,7 +128,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
       </div>`;
   };
 
-  const handlePrint = (mode: "geschichte" | "alle" | "theorie") => {
+  const handlePrint = async (mode: "geschichte" | "alle" | "theorie") => {
     setShowPrintMenu(false);
 
     const topicsToPrint = mode === 'alle'
@@ -139,10 +143,24 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
         : `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("lektion_", "")}-a1.jpg`;
       bodyContent = `<div style="text-align:center;"><img src="${imgSrc}" style="max-width:100%;height:auto;" /></div>`;
     } else {
+      const allNounsToPrint = new Set<any>();
+      topicsToPrint.forEach(topic => {
+        getTopicNouns(topic, lesson.nomenList).forEach(n => allNounsToPrint.add(n));
+      });
+
+      const translationMap: Record<number, string> = {};
+      if (selectedLangCode !== 'en' && selectedLangCode !== 'de') {
+        const promises = Array.from(allNounsToPrint).map(async (nomen) => {
+          const tr = await translateText(nomen.singular, selectedLangCode);
+          translationMap[nomen.id] = tr;
+        });
+        await Promise.all(promises);
+      }
+
       bodyContent = topicsToPrint.map(topic => {
         const nouns = getTopicNouns(topic, lesson.nomenList);
         const storyHtml = buildStoryHtml(topic.content);
-        const nounHtml = buildNounTableHtml(nouns);
+        const nounHtml = buildNounTableHtml(nouns, translationMap);
         return `
           <div class="story-block">
             <h2>${topic.title}</h2>
