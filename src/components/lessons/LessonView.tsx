@@ -141,7 +141,7 @@ export default function LessonView({ lessonId }: { lessonId: string }) {
       const imgSrc = lesson.id.startsWith("a2_lektion_")
         ? `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("a2_lektion_", "")}-a2.jpg`
         : `https://hello-gill-app.vercel.app/theory-lektion-${lesson.id.replace("lektion_", "")}-a1.jpg`;
-      bodyContent = `<div style="text-align:center;"><img src="${imgSrc}" style="max-width:100%;height:auto;" /></div>`;
+      bodyContent = `<div style="text-align:center;"><img src="${imgSrc}" style="max-width:100%;height:auto;" onerror="this.style.display='none'" /></div>`;
     } else {
       const allNounsToPrint = new Set<any>();
       topicsToPrint.forEach(topic => {

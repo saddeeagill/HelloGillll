@@ -313,8 +313,11 @@ export default function VocabularyView({
             <table className="w-full text-left border-collapse min-w-[500px] md:min-w-[800px]">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200 text-black">
+                <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-16">
+                  Sr
+                </th>
                 <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
-                  Deutsch
+                  Singular
                 </th>
                 {showNounColumns && (
                   <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
@@ -354,9 +357,11 @@ export default function VocabularyView({
                       }`}
                     >
                       <td className="py-2 px-3 md:py-3 md:px-4 align-top">
+                        <span className="text-sm font-medium text-black">{index + 1}</span>
+                      </td>
+                      <td className="py-2 px-3 md:py-3 md:px-4 align-top">
                         <div className="flex flex-col gap-2">
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-black whitespace-nowrap">{item.id})</span>
                             <button 
                               onClick={(e) => { e.stopPropagation(); playAudio(item.word); }}
                               className="w-6 h-6 rounded-full bg-[#000000] text-white flex items-center justify-center hover:bg-[#333333] transition-colors flex-shrink-0 print:hidden"

@@ -6,6 +6,7 @@ import VocabularyView from '@/components/VocabularyView';
 import ExamView from '@/components/ExamView';
 import LessonView from '@/components/lessons/LessonView';
 import HabenSeinView from '@/components/HabenSeinView';
+import GeneralVocabQuizView from '@/components/GeneralVocabQuizView';
 import Logo from '@/components/Logo';
 
 import { SUPPORTED_LANGUAGES } from '@/data/languages';
@@ -33,6 +34,7 @@ export default function LevelPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLangCode, setSelectedLangCode] = useState("pt");
   const [showNomenQuiz, setShowNomenQuiz] = useState(false);
+  const [showGeneralVocabQuiz, setShowGeneralVocabQuiz] = useState(false);
 
   const levelUpper = level.toUpperCase();
   
@@ -229,6 +231,7 @@ export default function LevelPage() {
                             setVocabCategory(cat);
                             setSidebarOpen(false);
                             setShowNomenQuiz(false); // Reset nomen quiz view when changing category
+                            setShowGeneralVocabQuiz(false);
                           }}
                           className={`w-full text-left px-2 py-2 rounded-lg font-medium transition-colors text-xs ${
                             vocabCategory === cat && !showNomenQuiz
@@ -248,11 +251,22 @@ export default function LevelPage() {
                     <button 
                       onClick={() => {
                         setShowNomenQuiz(true);
+                        setShowGeneralVocabQuiz(false);
                         setSidebarOpen(false);
                       }}
                       className={`w-full py-2 font-bold rounded-xl transition-all text-xs shadow-sm ${showNomenQuiz ? 'bg-black text-white' : 'bg-white border-2 border-gray-200 text-black hover:border-black'}`}
                     >
                       Nomen Quiz
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setShowGeneralVocabQuiz(true);
+                        setShowNomenQuiz(false);
+                        setSidebarOpen(false);
+                      }}
+                      className={`w-full py-2 font-bold rounded-xl transition-all text-xs shadow-sm ${showGeneralVocabQuiz ? 'bg-black text-white' : 'bg-white border-2 border-gray-200 text-black hover:border-black'}`}
+                    >
+                      Vokabular-Quiz
                     </button>
                     <button 
                       onClick={handleVocabPrint}
@@ -362,7 +376,7 @@ export default function LevelPage() {
             {/* Mobile Level Title placed above the active view */}
             <h2 className="md:hidden text-2xl font-bold mb-4 text-[#000000]">{levelUpper}</h2>
             
-            {activeView === 'vocabulary' && (
+            {activeView === 'vocabulary' && !showGeneralVocabQuiz && (
               <VocabularyView 
                 level={levelUpper} 
                 activeCategory={vocabCategory}
@@ -370,6 +384,13 @@ export default function LevelPage() {
                 selectedLangCode={selectedLangCode}
                 showNomenQuiz={showNomenQuiz}
                 setShowNomenQuiz={setShowNomenQuiz}
+              />
+            )}
+            {activeView === 'vocabulary' && showGeneralVocabQuiz && (
+              <GeneralVocabQuizView
+                level={levelUpper}
+                selectedLangCode={selectedLangCode}
+                onBack={() => setShowGeneralVocabQuiz(false)}
               />
             )}
             {activeView === 'exam' && <ExamView />}
