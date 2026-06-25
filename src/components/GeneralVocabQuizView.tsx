@@ -241,10 +241,10 @@ export default function GeneralVocabQuizView({ level = "A1", selectedLangCode, o
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-xl font-bold text-gray-800">Quiz - Level {level}</h2>
-          <p className="text-sm font-bold text-gray-500">Question {currentIndex + 1} of {questions.length}</p>
+          <p className="text-sm font-bold text-gray-500">Frage {currentIndex + 1} von {questions.length}</p>
         </div>
         <div className="text-right">
-          <p className="text-lg font-black text-black">Points: {score}</p>
+          <p className="text-lg font-black text-black">Punkte: {score}</p>
         </div>
       </div>
 
