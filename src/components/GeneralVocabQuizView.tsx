@@ -84,12 +84,22 @@ export default function GeneralVocabQuizView({ level = "A1", selectedLangCode, o
     }
 
     const generatedQuestions: Question[] = selectedWords.map(word => {
-      let distractorPool = VOCABULARY.filter(w => w.level === level.toUpperCase() && w.id !== word.id && w.category === word.category);
-      if (distractorPool.length < 3) {
-        distractorPool = VOCABULARY.filter(w => w.level === level.toUpperCase() && w.id !== word.id);
-      }
-      const shuffledDistractors = [...distractorPool].sort(() => 0.5 - Math.random());
-      const selectedDistractors = shuffledDistractors.slice(0, 3).map(w => w.translation);
+      // Find all possible distractors with different English translations
+      let distractorPool = VOCABULARY.filter(w => 
+        w.level === level.toUpperCase() && 
+        w.translation.trim().toLowerCase() !== word.translation.trim().toLowerCase()
+      );
+      
+      // Prioritize same category if possible
+      let sameCatDistractors = distractorPool.filter(w => w.category === word.category);
+      let chosenDistractorPool = sameCatDistractors.length >= 10 ? sameCatDistractors : distractorPool;
+      
+      // Get unique English translations to prevent identical English distractors
+      const uniqueTranslations = Array.from(new Set(chosenDistractorPool.map(w => w.translation)));
+      const shuffledDistractors = uniqueTranslations.sort(() => 0.5 - Math.random());
+      
+      // Take up to 10 distractors so that we have options if some translate to duplicate values in target language
+      const selectedDistractors = shuffledDistractors.slice(0, 10);
 
       return {
         id: word.id.toString(),
@@ -129,11 +139,31 @@ export default function GeneralVocabQuizView({ level = "A1", selectedLangCode, o
         );
 
         if (isMounted) {
-          const options = [translatedCorrect, ...translatedDistractors];
+          const correctClean = translatedCorrect.trim();
+          const correctLower = correctClean.toLowerCase();
+          
+          // Filter out translations that match the correct answer or are duplicate
+          const uniqueDistractors: string[] = [];
+          for (const d of translatedDistractors) {
+            const dClean = d.trim();
+            const dLower = dClean.toLowerCase();
+            if (dLower !== correctLower && !uniqueDistractors.map(x => x.toLowerCase()).includes(dLower)) {
+              uniqueDistractors.push(dClean);
+            }
+            if (uniqueDistractors.length === 3) break;
+          }
+          
+          // Fallback if not enough unique distractors
+          while (uniqueDistractors.length < 3) {
+            const fallbackOption = `Option ${uniqueDistractors.length + 1}`;
+            uniqueDistractors.push(fallbackOption);
+          }
+
+          const options = [correctClean, ...uniqueDistractors];
           const shuffledOptions = options.sort(() => 0.5 - Math.random());
+          
           setTranslatedOptions(shuffledOptions);
-          // Assuming the correct answer to check against
-          setTranslatedQuestion(translatedCorrect);
+          setTranslatedQuestion(correctClean);
           setIsLoadingTranslations(false);
         }
       } catch (error) {
