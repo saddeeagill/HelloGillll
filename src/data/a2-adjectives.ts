@@ -17,7 +17,7 @@ export const A2_ADJECTIVES = [
   { id: 16, word: 'dunkel', translation: 'dark', category: 'Adjectives', level: 'A2', urdu: "اندھیرا" },
   { id: 17, word: 'dünn', translation: 'thin', category: 'Adjectives', level: 'A2', urdu: "ü  پتال" },
   { id: 18, word: 'echt', translation: 'real', category: 'Adjectives', level: 'A2', urdu: "اصلی" },
-  { id: 19, word: 'egal', translation: 'doesn\'t matter', category: 'Adjectives', level: 'A2', urdu: "'  نہیں بات کوئی" },
+  { id: 19, word: 'egal', translation: 'no matter / same', category: 'Adjectives', level: 'A2', urdu: 'برابر / کوئی فرق نہیں پڑتا' },
   { id: 20, word: 'eigen-', translation: 'own', category: 'Adjectives', level: 'A2', urdu: "اپنا" },
   { id: 21, word: 'einig-', translation: 'some', category: 'Adjectives', level: 'A2', urdu: "کچھ" },
   { id: 22, word: 'einzel-', translation: 'single', category: 'Adjectives', level: 'A2', urdu: "اکیال" },
