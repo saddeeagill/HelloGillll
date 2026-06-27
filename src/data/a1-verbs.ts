@@ -6,26 +6,23 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "abfahren - fuhr ab - abgefahren",
     "conjugation": "ich fahre ab\ndu fährst ab\ner/sie/es fährt ab\nwir fahren ab\nihr fahrt ab\nSie/sie fahren ab",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "روانہ ہونا" },
   {
     "id": 2,
     "word": "abfliegen",
-    "translation": "to take off",
+    "translation": "to take off (flight)",
     "principalParts": "abfliegen - flog ab - abgeflogen",
     "conjugation": "ich fliege ab\ndu fliegst ab\ner/sie/es fliegt ab\nwir fliegen ab\nihr fliegt ab\nSie/sie fliegen ab",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پرواز کرنا" },
   {
     "id": 3,
     "word": "abgeben",
-    "translation": "to hand in",
+    "translation": "to hand in / deliver",
     "principalParts": "abgeben - gab ab - abgegeben",
     "conjugation": "ich gebe ab\ndu gibst ab\ner/sie/es gibt ab\nwir geben ab\nihr gebt ab\nSie/sie geben ab",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جمع کروانا" },
   {
     "id": 4,
     "word": "anbieten",
@@ -33,26 +30,23 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "anbieten - bot an - angeboten",
     "conjugation": "ich biete an\ndu bietest an\ner/sie/es bietet an\nwir bieten an\nihr bietet an\nSie/sie bieten an",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پیشکش کرنا" },
   {
     "id": 5,
     "word": "anfangen",
-    "translation": "to begin",
+    "translation": "to begin / start",
     "principalParts": "anfangen - fing an - angefangen",
     "conjugation": "ich fange an\ndu fängst an\ner/sie/es fängt an\nwir fangen an\nihr fangt an\nSie/sie fangen an",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شروع کرنا" },
   {
     "id": 6,
     "word": "anrufen",
-    "translation": "to call",
+    "translation": "to call (on phone)",
     "principalParts": "anrufen - rief an - angerufen",
     "conjugation": "ich rufe an\ndu rufst an\ner/sie/es ruft an\nwir rufen an\nihr ruft an\nSie/sie rufen an",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "فون کرنا" },
   {
     "id": 7,
     "word": "anziehen (sich)",
@@ -60,8 +54,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "anziehen - zog an - angezogen",
     "conjugation": "ich ziehe mich an\ndu ziehst dich an\ner/sie/es zieht sich an\nwir ziehen uns an\nihr zieht euch an\nSie/sie ziehen sich\nan",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کپڑے پہننا" },
   {
     "id": 8,
     "word": "aufstehen",
@@ -69,35 +62,31 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "aufstehen - stand auf - aufgestanden",
     "conjugation": "ich stehe auf\ndu stehst auf\ner/sie/es steht auf\nwir stehen auf\nihr steht auf\nSie/sie stehen auf",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اٹھنا" },
   {
     "id": 9,
     "word": "aussehen",
-    "translation": "to look like",
+    "translation": "to look like / appear",
     "principalParts": "aussehen - sah aus - ausgesehen",
     "conjugation": "ich sehe aus\ndu siehst aus\ner/sie/es sieht aus\nwir sehen aus\nihr seht aus\nSie/sie sehen aus",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دکھائی دینا" },
   {
     "id": 10,
     "word": "aussteigen",
-    "translation": "to get off",
+    "translation": "to get off / disembark",
     "principalParts": "aussteigen - stieg aus - ausgestiegen",
     "conjugation": "ich steige aus\ndu steigst aus\ner/sie/es steigt aus\nwir steigen aus\nihr steigt aus\nSie/sie steigen aus",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اترنا (گاڑی سے)" },
   {
     "id": 11,
     "word": "ausziehen (sich)",
-    "translation": "to get",
+    "translation": "to undress / move out",
     "principalParts": "ausziehen - zog aus - ausgezogen",
     "conjugation": "ich ziehe mich aus\ndu ziehst dich aus\ner/sie/es zieht sich\naus\nwir ziehen uns aus\nihr zieht euch aus\nSie/sie ziehen sich\naus\nundressed\nundressed",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کپڑے اتارنا / مکان بدلنا" },
   {
     "id": 12,
     "word": "beginnen",
@@ -105,35 +94,31 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "beginnen - begann - begonnen",
     "conjugation": "ich beginne\ndu beginnst\ner/sie/es beginnt\nwir beginnen\nihr beginnt\nSie/sie beginnen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شروع کرنا" },
   {
     "id": 13,
     "word": "bekommen",
-    "translation": "to get/receive",
+    "translation": "to get / receive",
     "principalParts": "bekommen - bekam - bekommen",
     "conjugation": "ich bekomme\ndu bekommst\ner/sie/es bekommt\nwir bekommen\nihr bekommt\nSie/sie bekommen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "حاصل کرنا / ملنا" },
   {
     "id": 14,
     "word": "bitten",
-    "translation": "to ask/request",
+    "translation": "to ask / request",
     "principalParts": "bitten - bat - gebeten",
     "conjugation": "ich bitte\ndu bittest\ner/sie/es bittet\nwir bitten\nihr bittet\nSie/sie bitten",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "درخواست کرنا" },
   {
     "id": 15,
     "word": "bleiben",
-    "translation": "to stay",
+    "translation": "to stay / remain",
     "principalParts": "bleiben - blieb - geblieben",
     "conjugation": "ich bleibe\ndu bleibst\ner/sie/es bleibt\nwir bleiben\nihr bleibt\nSie/sie bleiben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ٹھہرنا / رہنا" },
   {
     "id": 16,
     "word": "bringen",
@@ -141,17 +126,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "bringen - brachte - gebracht",
     "conjugation": "ich bringe\ndu bringst\ner/sie/es bringt\nwir bringen\nihr bringt\nSie/sie bringen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لانا" },
   {
     "id": 17,
     "word": "dürfen",
-    "translation": "to be allowed",
+    "translation": "to be allowed to",
     "principalParts": "dürfen - durfte - gedurft",
     "conjugation": "ich darf\ndu darfst\ner/sie/es darf\nwir dürfen\nihr dürft\nSie/sie dürfen\nto\nto",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اجازت ہونا" },
   {
     "id": 18,
     "word": "einladen",
@@ -159,17 +142,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "einladen - lud ein - eingeladen",
     "conjugation": "ich lade ein\ndu lädst ein\ner/sie/es lädt ein\nwir laden ein\nihr ladet ein\nSie/sie laden ein",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دعوت دینا" },
   {
     "id": 19,
     "word": "einsteigen",
-    "translation": "to get on",
+    "translation": "to get on / board",
     "principalParts": "einsteigen - stieg ein - eingestiegen",
     "conjugation": "ich steige ein\ndu steigst ein\ner/sie/es steigt ein\nwir steigen ein\nihr steigt ein\nSie/sie steigen ein",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سوار ہونا" },
   {
     "id": 20,
     "word": "empfehlen",
@@ -177,8 +158,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "empfehlen - empfahl - empfohlen",
     "conjugation": "ich empfehle\ndu empfiehlst\ner/sie/es empfiehlt\nwir empfehlen\nihr empfehlt\nSie/sie empfehlen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سفارش کرنا" },
   {
     "id": 21,
     "word": "essen",
@@ -186,17 +166,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "essen - aß - gegessen",
     "conjugation": "ich esse\ndu isst\ner/sie/es isst\nwir essen\nihr esst\nSie/sie essen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھانا" },
   {
     "id": 22,
     "word": "fahren",
-    "translation": "to drive/go",
+    "translation": "to drive / travel / go",
     "principalParts": "fahren - fuhr - gefahren",
     "conjugation": "ich fahre\ndu fährst\ner/sie/es fährt\nwir fahren\nihr fahrt\nSie/sie fahren",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "گاڑی چلانا / سفر کرنا" },
   {
     "id": 23,
     "word": "fernsehen",
@@ -204,8 +182,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "fernsehen - sah fern - ferngesehen",
     "conjugation": "ich sehe fern\ndu siehst fern\ner/sie/es sieht fern\nwir sehen fern\nihr seht fern\nSie/sie sehen fern",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ٹی وی دیکھنا" },
   {
     "id": 24,
     "word": "finden",
@@ -213,8 +190,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "finden - fand - gefunden",
     "conjugation": "ich finde\ndu findest\ner/sie/es findet\nwir finden\nihr findet\nSie/sie finden",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پانا / تلاش کرنا" },
   {
     "id": 25,
     "word": "fliegen",
@@ -222,8 +198,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "fliegen - flog - geflogen",
     "conjugation": "ich fliege\ndu fliegst\ner/sie/es fliegt\nwir fliegen\nihr fliegt\nSie/sie fliegen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اڑنا / پرواز کرنا" },
   {
     "id": 26,
     "word": "geben",
@@ -231,17 +206,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "geben - gab - gegeben",
     "conjugation": "ich gebe\ndu gibst\ner/sie/es gibt\nwir geben\nihr gebt\nSie/sie geben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دینا" },
   {
     "id": 27,
     "word": "gefallen",
-    "translation": "to like/please",
+    "translation": "to please / like",
     "principalParts": "gefallen - gefiel - gefallen es gefällt mir",
     "conjugation": "es gefällt dir\nes gefällt ihm/ihr\nes gefällt uns\nes gefällt euch\nes gefällt Ihnen/ihnen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پسند آنا" },
   {
     "id": 28,
     "word": "gehen",
@@ -249,8 +222,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "gehen - ging - gegangen",
     "conjugation": "ich gehe\ndu gehst\ner/sie/es geht\nwir gehen\nihr geht\nSie/sie gehen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جانا" },
   {
     "id": 29,
     "word": "gewinnen",
@@ -258,8 +230,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "gewinnen - gewann - gewonnen",
     "conjugation": "ich gewinne\ndu gewinnst\ner/sie/es gewinnt\nwir gewinnen\nihr gewinnt\nSie/sie gewinnen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جیتنا" },
   {
     "id": 30,
     "word": "haben",
@@ -267,26 +238,23 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "haben - hatte - gehabt",
     "conjugation": "ich habe\ndu hast\ner/sie/es hat\nwir haben\nihr habt\nSie/sie haben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رکھنا / ہونا" },
   {
     "id": 31,
     "word": "halten",
-    "translation": "to hold/stop",
+    "translation": "to hold / stop",
     "principalParts": "halten - hielt - gehalten",
     "conjugation": "ich halte\ndu hältst\ner/sie/es hält\nwir halten\nihr haltet\nSie/sie halten",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پکڑنا / رکنا" },
   {
     "id": 32,
     "word": "heissen",
-    "translation": "to be called",
+    "translation": "to be called / named",
     "principalParts": "heißen - hieß - geheißen",
     "conjugation": "ich heiße\ndu heißt\ner/sie/es heißt\nwir heißen\nihr heißt\nSie/sie heißen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "نام ہونا" },
   {
     "id": 33,
     "word": "helfen",
@@ -294,17 +262,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "helfen - half - geholfen",
     "conjugation": "ich helfe\ndu hilfst\ner/sie/es hilft\nwir helfen\nihr helft\nSie/sie helfen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "مدد کرنا" },
   {
     "id": 34,
     "word": "kennen",
-    "translation": "to know",
+    "translation": "to know (a person/place)",
     "principalParts": "kennen - kannte - gekannt",
     "conjugation": "ich kenne\ndu kennst\ner/sie/es kennt\nwir kennen\nihr kennt\nSie/sie kennen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جاننا / پہچاننا" },
   {
     "id": 35,
     "word": "kommen",
@@ -312,17 +278,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "kommen - kam - gekommen",
     "conjugation": "ich komme\ndu kommst\ner/sie/es kommt\nwir kommen\nihr kommt\nSie/sie kommen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "آنا" },
   {
     "id": 36,
     "word": "laufen",
-    "translation": "to run/walk",
+    "translation": "to run / walk",
     "principalParts": "laufen - lief - gelaufen",
     "conjugation": "ich laufe\ndu läufst\ner/sie/es läuft\nwir laufen\nihr lauft\nSie/sie laufen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دوڑنا / چلنا" },
   {
     "id": 37,
     "word": "lesen",
@@ -330,17 +294,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "lesen - las - gelesen",
     "conjugation": "ich lese\ndu liest\ner/sie/es liest\nwir lesen\nihr lest\nSie/sie lesen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پڑھنا" },
   {
     "id": 38,
     "word": "liegen",
-    "translation": "to lie",
+    "translation": "to lie / be situated",
     "principalParts": "liegen - lag - gelegen",
     "conjugation": "ich liege\ndu liegst\ner/sie/es liegt\nwir liegen\nihr liegt\nSie/sie liegen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لیٹنا / واقع ہونا" },
   {
     "id": 39,
     "word": "mitbringen",
@@ -348,8 +310,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "mitbringen - brachte mit - mitgebracht",
     "conjugation": "ich bringe mit\ndu bringst mit\ner/sie/es bringt mit\nwir bringen mit\nihr bringt mit\nSie/sie bringen mit",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ساتھ لانا" },
   {
     "id": 40,
     "word": "mitkommen",
@@ -357,8 +318,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "mitkommen - kam mit - mitgekommen",
     "conjugation": "ich komme mit\ndu kommst mit\ner/sie/es kommt mit\nwir kommen mit\nihr kommt mit\nSie/sie kommen mit",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ساتھ آنا" },
   {
     "id": 41,
     "word": "mitnehmen",
@@ -366,17 +326,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "mitnehmen - nahm mit - mitgenommen",
     "conjugation": "ich nehme mit\ndu nimmst mit\ner/sie/es nimmt mit\nwir nehmen mit\nihr nehmt mit\nSie/sie nehmen mit",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ساتھ لے جانا" },
   {
     "id": 42,
     "word": "möchten",
-    "translation": "to want/would like",
+    "translation": "would like",
     "principalParts": "möchten - mochte - gemocht",
     "conjugation": "ich möchte\ndu möchtest\ner/sie/es möchte\nwir möchten\nihr möchtet\nSie/sie möchten",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "چاہوں گا" },
   {
     "id": 43,
     "word": "nehmen",
@@ -384,17 +342,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "nehmen - nahm - genommen",
     "conjugation": "ich nehme\ndu nimmst\ner/sie/es nimmt\nwir nehmen\nihr nehmt\nSie/sie nehmen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لینا" },
   {
     "id": 44,
     "word": "radfahren",
-    "translation": "to cycle",
+    "translation": "to ride a bicycle",
     "principalParts": "radfahren - fuhr Rad - Rad gefahren",
     "conjugation": "ich fahre Rad\ndu fährst Rad\ner/sie/es fährt Rad\nwir fahren Rad\nihr fahrt Rad\nSie/sie fahren Rad",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سائیکل چلانا" },
   {
     "id": 45,
     "word": "riechen",
@@ -402,17 +358,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "riechen - roch - gerochen",
     "conjugation": "ich rieche\ndu riechst\ner/sie/es riecht\nwir riechen\nihr riecht\nSie/sie riechen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سونگھنا" },
   {
     "id": 46,
     "word": "scheinen",
-    "translation": "to shine/seem",
+    "translation": "to shine / seem",
     "principalParts": "scheinen - schien - geschienen",
     "conjugation": "ich scheine\ndu scheinst\ner/sie/es scheint\nwir scheinen\nihr scheint\nSie/sie scheinen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "چمکنا / معلوم ہونا" },
   {
     "id": 47,
     "word": "schlafen",
@@ -420,8 +374,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "schlafen - schlief - geschlafen",
     "conjugation": "ich schlafe\ndu schläfst\ner/sie/es schläft\nwir schlafen\nihr schlaft\nSie/sie schlafen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سونا" },
   {
     "id": 48,
     "word": "schliessen",
@@ -429,8 +382,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "schließen - schloss - geschlossen",
     "conjugation": "ich schließe\ndu schließt\ner/sie/es schließt\nwir schließen\nihr schließt\nSie/sie schließen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بند کرنا" },
   {
     "id": 49,
     "word": "schreiben",
@@ -438,8 +390,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "schreiben - schrieb - geschrieben",
     "conjugation": "ich schreibe\ndu schreibst\ner/sie/es schreibt\nwir schreiben\nihr schreibt\nSie/sie schreiben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لکھنا" },
   {
     "id": 50,
     "word": "schwimmen",
@@ -447,8 +398,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "schwimmen - schwamm - geschwommen",
     "conjugation": "ich schwimme\ndu schwimmst\ner/sie/es schwimmt\nwir schwimmen\nihr schwimmt\nSie/sie schwimmen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "تیرنا" },
   {
     "id": 51,
     "word": "sehen",
@@ -456,8 +406,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "sehen - sah - gesehen",
     "conjugation": "ich sehe\ndu siehst\ner/sie/es sieht\nwir sehen\nihr seht\nSie/sie sehen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دیکھنا" },
   {
     "id": 52,
     "word": "sein",
@@ -465,8 +414,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "sein - war - gewesen",
     "conjugation": "ich bin\ndu bist\ner/sie/es ist\nwir sind\nihr seid\nSie/sie sind",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ہونا" },
   {
     "id": 53,
     "word": "sitzen",
@@ -474,17 +422,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "sitzen - saß - gesessen",
     "conjugation": "ich sitze\ndu sitzt\ner/sie/es sitzt\nwir sitzen\nihr sitzt\nSie/sie sitzen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بیٹھنا" },
   {
     "id": 54,
     "word": "sollen",
-    "translation": "should/ought to",
+    "translation": "should",
     "principalParts": "sollen - sollte - gesollt",
     "conjugation": "ich soll\ndu sollst\ner/sie/es soll\nwir sollen\nihr sollt\nSie/sie sollen\nto\nto",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "چاہیے" },
   {
     "id": 55,
     "word": "sprechen",
@@ -492,8 +438,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "sprechen - sprach - gesprochen",
     "conjugation": "ich spreche\ndu sprichst\ner/sie/es spricht\nwir sprechen\nihr sprecht\nSie/sie sprechen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بولنا" },
   {
     "id": 56,
     "word": "stehen",
@@ -501,8 +446,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "stehen - stand - gestanden",
     "conjugation": "ich stehe\ndu stehst\ner/sie/es steht\nwir stehen\nihr steht\nSie/sie stehen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھڑا ہونا" },
   {
     "id": 57,
     "word": "sterben",
@@ -510,8 +454,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "sterben - starb - gestorben",
     "conjugation": "ich sterbe\ndu stirbst\ner/sie/es stirbt\nwir sterben\nihr sterbt\nSie/sie sterben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "مرنا" },
   {
     "id": 58,
     "word": "treffen (sich)",
@@ -519,8 +462,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "treffen - traf - getroffen",
     "conjugation": "ich treffe mich\ndu triffst dich\ner/sie/es trifft sich\nwir treffen uns\nihr trefft euch\nSie/sie treffen sich",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ملنا" },
   {
     "id": 59,
     "word": "trinken",
@@ -528,8 +470,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "trinken - trank - getrunken",
     "conjugation": "ich trinke\ndu trinkst\ner/sie/es trinkt\nwir trinken\nihr trinkt\nSie/sie trinken",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پینا" },
   {
     "id": 60,
     "word": "tun",
@@ -537,17 +478,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "tun - tat - getan",
     "conjugation": "ich tue\ndu tust\ner/sie/es tut\nwir tun\nihr tut\nSie/sie tun",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کرنا" },
   {
     "id": 61,
     "word": "unterhalten (sich)",
-    "translation": "to converse",
+    "translation": "to converse / chat",
     "principalParts": "unterhalten - unterhielt - unterhalten",
     "conjugation": "ich unterhalte mich\ndu unterhältst dich\ner/sie/es unterhält\nsich\nwir unterhalten uns\nihr unterhaltet euch\nSie/sie unterhalten\nsich",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بات چیت کرنا" },
   {
     "id": 62,
     "word": "unterschreiben",
@@ -555,8 +494,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "unterschreiben - unterschrieb - unterschrieben",
     "conjugation": "ich unterschreibe\ndu unterschreibst\ner/sie/es\nunterschreibt\nwir unterschreiben\nihr unterschreibt\nSie/sie\nunterschreiben",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دستخط کرنا" },
   {
     "id": 63,
     "word": "vergessen",
@@ -564,8 +502,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "vergessen - vergaß - vergessen",
     "conjugation": "ich vergesse\ndu vergisst\ner/sie/es vergisst\nwir vergessen\nihr vergesst\nSie/sie vergessen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بھولنا" },
   {
     "id": 64,
     "word": "verstehen",
@@ -573,17 +510,15 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "verstehen - verstand - verstanden",
     "conjugation": "ich verstehe\ndu verstehst\ner/sie/es versteht\nwir verstehen\nihr versteht\nSie/sie verstehen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سمجھنا" },
   {
     "id": 65,
     "word": "vorhaben",
-    "translation": "to plan",
+    "translation": "to plan / intend",
     "principalParts": "vorhaben - hatte vor - vorgehabt",
     "conjugation": "ich habe vor\ndu hast vor\ner/sie/es hat vor\nwir haben vor\nihr habt vor\nSie/sie haben vor",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ارادہ کرنا" },
   {
     "id": 66,
     "word": "waschen",
@@ -591,8 +526,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "waschen - wusch - gewaschen",
     "conjugation": "ich wasche\ndu wäschst\ner/sie/es wäscht\nwir waschen\nihr wascht\nSie/sie waschen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دھونا" },
   {
     "id": 67,
     "word": "wehtun",
@@ -600,8 +534,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "wehtun - tat weh - wehgetan",
     "conjugation": "ich tue weh\ndu tust weh\ner/sie/es tut weh\nwir tun weh\nihr tut weh\nSie/sie tun weh",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "درد ہونا" },
   {
     "id": 68,
     "word": "werden",
@@ -609,8 +542,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "werden - wurde - geworden",
     "conjugation": "ich werde\ndu wirst\ner/sie/es wird\nwir werden\nihr werdet\nSie/sie werden",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بننا / ہونا" },
   {
     "id": 69,
     "word": "werfen",
@@ -618,35 +550,31 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "werfen - warf - geworfen",
     "conjugation": "ich werfe\ndu wirfst\ner/sie/es wirft\nwir werfen\nihr werft\nSie/sie werfen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پھینکنا" },
   {
     "id": 70,
     "word": "wissen",
-    "translation": "to know",
+    "translation": "to know (a fact)",
     "principalParts": "wissen - wusste - gewusst",
     "conjugation": "ich weiß\ndu weißt\ner/sie/es weiß\nwir wissen\nihr wisst\nSie/sie wissen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جاننا / علم ہونا" },
   {
     "id": 71,
     "word": "tragen",
-    "translation": "to carry/to to carry/to",
+    "translation": "to wear / carry",
     "principalParts": "tragen - trug - getragen",
     "conjugation": "ich trage\ndu trägst\ner/sie/es trägt\nwir tragen\nihr tragt\nSie/sie tragen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پہننا / اٹھانا" },
   {
     "id": 72,
     "word": "ziehen",
-    "translation": "to pull",
+    "translation": "to pull / move",
     "principalParts": "ziehen - zog - gezogen",
     "conjugation": "ich ziehe\ndu ziehst\ner/sie/es zieht\nwir ziehen\nihr zieht\nSie/sie ziehen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھینچنا / منتقل ہونا" },
   {
     "id": 73,
     "word": "waschen",
@@ -654,8 +582,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "waschen - wusch - gewaschen",
     "conjugation": "ich wasche\ndu wäschst\ner/sie/es wäscht\nwir waschen\nihr wascht\nSie/sie waschen",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دھونا" },
   {
     "id": 74,
     "word": "aufwachen",
@@ -663,8 +590,7 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "aufwachen - wachte auf - aufgewacht",
     "conjugation": "ich wache auf\ndu wachst auf\ner/sie/es wacht auf\nwir wachen auf\nihr wacht auf\nSie/sie wachen auf",
     "category": "Irregular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جاگنا" },
   {
     "id": 75,
     "word": "einschlafen",
@@ -672,6 +598,5 @@ export const A1_IRREGULAR_VERBS = [
     "principalParts": "einschlafen - schlief ein - eingeschlafen",
     "conjugation": "ich schlafe ein\ndu schläfst ein\ner/sie/es schläft ein\nwir schlafen ein\nihr schlaft ein\nSie/sie schlafen ein",
     "category": "Irregular Verbs",
-    "level": "A1"
-  }
+    "level": "A1", "urdu": "سو جانا" }
 ];

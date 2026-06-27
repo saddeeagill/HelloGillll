@@ -6,8 +6,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "abholen - holte ab - abgeholt",
     "conjugation": "ich hole ab\ndu holst ab\ner/sie/es holt ab\nwir holen ab\nihr holt ab\nSie/sie holen ab",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لینے جانا / لے آنا" },
   {
     "id": 2,
     "word": "anklicken",
@@ -15,35 +14,31 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "anklicken - klickte an - angeklickt",
     "conjugation": "ich klicke an\ndu klickst an\ner/sie/es klickt an\nwir klicken an\nihr klickt an\nSie/sie klicken an",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کلک کرنا" },
   {
     "id": 3,
     "word": "ankreuzen",
-    "translation": "to check/mark",
+    "translation": "to check / mark",
     "principalParts": "ankreuzen - kreuzte an - angekreuzt",
     "conjugation": "ich kreuze an\ndu kreuzst an\ner/sie/es kreuzt an\nwir kreuzen an\nihr kreuzt an\nSie/sie kreuzen an",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "نشان لگانا" },
   {
     "id": 4,
     "word": "anmachen",
-    "translation": "to turn on",
+    "translation": "to turn on / switch on",
     "principalParts": "anmachen - machte an - angemacht",
     "conjugation": "ich mache an\ndu machst an\ner/sie/es macht an\nwir machen an\nihr macht an\nSie/sie machen an",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "چلانا / آن کرنا" },
   {
     "id": 5,
     "word": "anmelden (sich)",
-    "translation": "to register/sign up",
+    "translation": "to register / sign up",
     "principalParts": "anmelden (sich) - meldete an - angemeldet",
     "conjugation": "ich melde mich an\ndu meldest dich an\ner/sie/es meldet sich\nan\nwir melden uns an\nihr meldet euch an\nSie/sie melden sich\nan",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رجسٹریشن کروانا" },
   {
     "id": 6,
     "word": "antworten",
@@ -51,8 +46,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "antworten - antwortete - geantwortet",
     "conjugation": "ich antworte\ndu antwortest\ner/sie/es antwortet\nwir antworten\nihr antwortet\nSie/sie antworten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جواب دینا" },
   {
     "id": 7,
     "word": "arbeiten",
@@ -60,8 +54,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "arbeiten - arbeitete - gearbeitet",
     "conjugation": "ich arbeite\ndu arbeitest\ner/sie/es arbeitet\nwir arbeiten\nihr arbeitet\nSie/sie arbeiten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کام کرنا" },
   {
     "id": 8,
     "word": "aufhören",
@@ -69,35 +62,31 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "aufhören - hörte auf - aufgehört",
     "conjugation": "ich höre auf\ndu hörst auf\ner/sie/es hört auf\nwir hören auf\nihr hört auf\nSie/sie hören auf",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رکنا / ختم کرنا" },
   {
     "id": 9,
     "word": "ausfüllen",
-    "translation": "to fill out",
+    "translation": "to fill out (a form)",
     "principalParts": "ausfüllen - füllte aus - ausgefüllt",
     "conjugation": "ich fülle aus\ndu füllst aus\ner/sie/es füllt aus\nwir füllen aus\nihr füllt aus\nSie/sie füllen aus",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پر کرنا (فارم)" },
   {
     "id": 10,
     "word": "ausmachen",
-    "translation": "to turn off",
+    "translation": "to turn off / switch off",
     "principalParts": "ausmachen - machte aus - ausgemacht",
     "conjugation": "ich mache aus\ndu machst aus\ner/sie/es macht aus\nwir machen aus\nihr macht aus\nSie/sie machen aus",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بند کرنا (بجلی کا آلہ)" },
   {
     "id": 11,
     "word": "baden",
-    "translation": "to bathe",
+    "translation": "to bathe / take a bath",
     "principalParts": "baden - badete - gebadet",
     "conjugation": "ich bade\ndu badest\ner/sie/es badet\nwir baden\nihr badet\nSie/sie baden",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "نہانا" },
   {
     "id": 12,
     "word": "bedeuten",
@@ -105,8 +94,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "bedeuten - bedeutete - bedeutet",
     "conjugation": "ich bedeute\ndu bedeutest\ner/sie/es bedeutet\nwir bedeuten\nihr bedeutet\nSie/sie bedeuten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "معنی ہونا" },
   {
     "id": 13,
     "word": "benutzen",
@@ -114,17 +102,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "benutzen - benutzte - benutzt",
     "conjugation": "ich benutze\ndu benutzst\ner/sie/es benutzt\nwir benutzen\nihr benutzt\nSie/sie benutzen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "استعمال کرنا" },
   {
     "id": 14,
     "word": "besichtigen",
-    "translation": "to visit/tour",
+    "translation": "to visit / tour",
     "principalParts": "besichtigen - besichtigte - besichtigt",
     "conjugation": "ich besichtige\ndu besichtigt\ner/sie/es besichtigt\nwir besichtigen\nihr besichtigt\nSie/sie besichtigen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سیر کرنا / دیکھنا" },
   {
     "id": 15,
     "word": "bestellen",
@@ -132,8 +118,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "bestellen - bestellte - bestellt",
     "conjugation": "ich bestelle\ndu bestellst\ner/sie/es bestellt\nwir bestellen\nihr bestellt\nSie/sie bestellen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "آرڈر دینا" },
   {
     "id": 16,
     "word": "besuchen",
@@ -141,8 +126,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "besuchen - besuchte - besucht",
     "conjugation": "ich besuche\ndu besuchst\ner/sie/es besucht\nwir besuchen\nihr besucht\nSie/sie besuchen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ملاقات کے لیے جانا" },
   {
     "id": 17,
     "word": "bezahlen",
@@ -150,8 +134,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "bezahlen - bezahlte - bezahlt",
     "conjugation": "ich bezahle\ndu bezahlst\ner/sie/es bezahlt\nwir bezahlen\nihr bezahlt\nSie/sie bezahlen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ادائیگی کرنا" },
   {
     "id": 18,
     "word": "brauchen",
@@ -159,8 +142,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "brauchen - brauchte - gebraucht",
     "conjugation": "ich brauche\ndu brauchst\ner/sie/es braucht\nwir brauchen\nihr braucht\nSie/sie brauchen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ضرورت ہونا" },
   {
     "id": 19,
     "word": "danken",
@@ -168,8 +150,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "danken - dankte - gedankt",
     "conjugation": "ich danke\ndu dankst\ner/sie/es dankt\nwir danken\nihr dankt\nSie/sie danken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شکریہ ادا کرنا" },
   {
     "id": 20,
     "word": "drucken",
@@ -177,26 +158,23 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "drucken - druckte - gedruckt",
     "conjugation": "ich drucke\ndu druckst\ner/sie/es druckt\nwir drucken\nihr druckt\nSie/sie drucken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پرنٹ کرنا" },
   {
     "id": 21,
     "word": "drücken",
-    "translation": "to press/push",
+    "translation": "to press / push",
     "principalParts": "drücken - drückte - gedrückt",
     "conjugation": "ich drücke\ndu drückst\ner/sie/es drückt\nwir drücken\nihr drückt\nSie/sie drücken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دبانا" },
   {
     "id": 22,
     "word": "duschen",
-    "translation": "to shower",
+    "translation": "to shower / take a shower",
     "principalParts": "duschen - duschte - geduscht",
     "conjugation": "ich dusche\ndu duschst\ner/sie/es duscht\nwir duschen\nihr duscht\nSie/sie duschen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شاور لینا" },
   {
     "id": 23,
     "word": "einkaufen",
@@ -204,8 +182,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "einkaufen - kaufte ein - eingekauft",
     "conjugation": "ich kaufe ein\ndu kaufst ein\ner/sie/es kauft ein\nwir kaufen ein\nihr kauft ein\nSie/sie kaufen ein",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "خریداری کرنا" },
   {
     "id": 24,
     "word": "enden",
@@ -213,17 +190,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "enden - endete - geendet",
     "conjugation": "ich ende\ndu endest\ner/sie/es endet\nwir enden\nihr endet\nSie/sie enden",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ختم ہونا" },
   {
     "id": 25,
     "word": "entschuldigen",
-    "translation": "to excuse/apologize",
+    "translation": "to excuse / apologize",
     "principalParts": "entschuldigen - entschuldigte - entschuldigt",
     "conjugation": "ich entschuldige\ndu entschuldigst\ner/sie/es entschuldigt\nwir entschuldigen\nihr entschuldigt\nSie/sie entschuldigen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "معافی مانگنا" },
   {
     "id": 26,
     "word": "erklären",
@@ -231,8 +206,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "erklären - erklärte - erklärt",
     "conjugation": "ich erkläre\ndu erklärst\ner/sie/es erklärt\nwir erklären\nihr erklärt\nSie/sie erklären",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "وضاحت کرنا" },
   {
     "id": 27,
     "word": "erlauben",
@@ -240,17 +214,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "erlauben - erlaubte - erlaubt",
     "conjugation": "ich erlaube\ndu erlaubst\ner/sie/es erlaubt\nwir erlauben\nihr erlaubt\nSie/sie erlauben",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اجازت دینا" },
   {
     "id": 28,
     "word": "erzählen",
-    "translation": "to tell/narrate",
+    "translation": "to tell / narrate",
     "principalParts": "erzählen - erzählte - erzählt",
     "conjugation": "ich erzähle\ndu erzählst\ner/sie/es erzählt\nwir erzählen\nihr erzählt\nSie/sie erzählen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کہانی سنانا / بتانا" },
   {
     "id": 29,
     "word": "feiern",
@@ -258,17 +230,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "feiern - feierte - gefeiert",
     "conjugation": "ich feie\ndu feist\ner/sie/es feit\nwir feien\nihr feit\nSie/sie feien",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جشن منانا" },
   {
     "id": 30,
     "word": "fehlen",
-    "translation": "to be missing",
+    "translation": "to be missing / absent",
     "principalParts": "fehlen - fehlte - gefehlt",
     "conjugation": "ich fehle\ndu fehlst\ner/sie/es fehlt\nwir fehlen\nihr fehlt\nSie/sie fehlen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "غیر حاضر ہونا / کمی ہونا" },
   {
     "id": 31,
     "word": "fragen",
@@ -276,17 +246,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "fragen - fragte - gefragt",
     "conjugation": "ich frage\ndu fragst\ner/sie/es fragt\nwir fragen\nihr fragt\nSie/sie fragen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پوچھنا" },
   {
     "id": 32,
     "word": "sich freuen",
-    "translation": "to be happy/glad",
+    "translation": "to be happy / look forward to",
     "principalParts": "sich freuen - freute - gefreut",
     "conjugation": "ich sich freue\ndu sich freust\ner/sie/es sich freut\nwir sich freuen\nihr sich freut\nSie/sie sich freuen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "خوش ہونا" },
   {
     "id": 33,
     "word": "frühstücken",
@@ -294,8 +262,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "frühstücken - frühstückte - gefrühstückt",
     "conjugation": "ich frühstücke\ndu frühstückst\ner/sie/es frühstückt\nwir frühstücken\nihr frühstückt\nSie/sie frühstücken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ناشتہ کرنا" },
   {
     "id": 34,
     "word": "glauben",
@@ -303,8 +270,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "glauben - glaubte - geglaubt",
     "conjugation": "ich glaube\ndu glaubst\ner/sie/es glaubt\nwir glauben\nihr glaubt\nSie/sie glauben",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "اعتقاد رکھنا / یقین کرنا" },
   {
     "id": 35,
     "word": "gratulieren",
@@ -312,17 +278,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "gratulieren - gratulierte - gegratuliert",
     "conjugation": "ich gratuliere\ndu gratulierst\ner/sie/es gratuliert\nwir gratulieren\nihr gratuliert\nSie/sie gratulieren",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "مبارکباد دینا" },
   {
     "id": 36,
     "word": "grillen",
-    "translation": "to grill/barbecue",
+    "translation": "to grill / barbecue",
     "principalParts": "grillen - grillte - gegrillt",
     "conjugation": "ich grille\ndu grillst\ner/sie/es grillt\nwir grillen\nihr grillt\nSie/sie grillen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "گرل کرنا" },
   {
     "id": 37,
     "word": "heiraten",
@@ -330,26 +294,23 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "heiraten - heiratete - geheiratet",
     "conjugation": "ich heirate\ndu heiratest\ner/sie/es heiratet\nwir heiraten\nihr heiratet\nSie/sie heiraten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شادی کرنا" },
   {
     "id": 38,
     "word": "holen",
-    "translation": "to get/fetch",
+    "translation": "to get / fetch",
     "principalParts": "holen - holte - geholt",
     "conjugation": "ich hole\ndu holst\ner/sie/es holt\nwir holen\nihr holt\nSie/sie holen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "لانا" },
   {
     "id": 39,
     "word": "hören",
-    "translation": "to hear/listen",
+    "translation": "to hear / listen",
     "principalParts": "hören - hörte - gehört",
     "conjugation": "ich höre\ndu hörst\ner/sie/es hört\nwir hören\nihr hört\nSie/sie hören",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سننا" },
   {
     "id": 40,
     "word": "kaufen",
@@ -357,17 +318,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "kaufen - kaufte - gekauft",
     "conjugation": "ich kaufe\ndu kaufst\ner/sie/es kauft\nwir kaufen\nihr kauft\nSie/sie kaufen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "خریدنا" },
   {
     "id": 41,
     "word": "kennenlernen",
-    "translation": "to get to know to get to know",
+    "translation": "to get to know",
     "principalParts": "kennenlernen - lernte kennen - kennengelernt",
     "conjugation": "ich kennenlerne\ndu kennenlernst\ner/sie/es\nkennenlernt\nwir kennenlernen\nihr kennenlernt\nSie/sie\nkennenlernen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جان پہچان کرنا" },
   {
     "id": 42,
     "word": "kochen",
@@ -375,8 +334,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "kochen - kochte - gekocht",
     "conjugation": "ich koche\ndu kochst\ner/sie/es kocht\nwir kochen\nihr kocht\nSie/sie kochen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پکانا" },
   {
     "id": 43,
     "word": "kosten",
@@ -384,17 +342,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "kosten - kostete - gekostet",
     "conjugation": "ich koste\ndu kostest\ner/sie/es kostet\nwir kosten\nihr kostet\nSie/sie kosten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "قیمت ہونا" },
   {
     "id": 44,
     "word": "kriegen",
-    "translation": "to get/receive",
+    "translation": "to get / receive",
     "principalParts": "kriegen - kriegte - gekriegt",
     "conjugation": "ich kriege\ndu kriegst\ner/sie/es kriegt\nwir kriegen\nihr kriegt\nSie/sie kriegen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ملنا / حاصل کرنا" },
   {
     "id": 45,
     "word": "sich kümmern",
@@ -402,8 +358,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "sich kümmern - kümmerte - gekümmert",
     "conjugation": "ich sich kümme\ndu sich kümmst\ner/sie/es sich kümmt\nwir sich kümmen\nihr sich kümmt\nSie/sie sich kümmen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "دیکھ بھال کرنا" },
   {
     "id": 46,
     "word": "lachen",
@@ -411,8 +366,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "lachen - lachte - gelacht",
     "conjugation": "ich lache\ndu lachst\ner/sie/es lacht\nwir lachen\nihr lacht\nSie/sie lachen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ہنسنا" },
   {
     "id": 47,
     "word": "leben",
@@ -420,17 +374,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "leben - lebte - gelebt",
     "conjugation": "ich lebe\ndu lebst\ner/sie/es lebt\nwir leben\nihr lebt\nSie/sie leben",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "جینا / رہنا" },
   {
     "id": 48,
     "word": "legen",
-    "translation": "to put/lay",
+    "translation": "to put / lay",
     "principalParts": "legen - legte - gelegt",
     "conjugation": "ich lege\ndu legst\ner/sie/es legt\nwir legen\nihr legt\nSie/sie legen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رکھنا / لٹانا" },
   {
     "id": 49,
     "word": "lernen",
@@ -438,8 +390,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "lernen - lernte - gelernt",
     "conjugation": "ich lerne\ndu lernst\ner/sie/es lernt\nwir lernen\nihr lernt\nSie/sie lernen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سیکھنا" },
   {
     "id": 50,
     "word": "lieben",
@@ -447,17 +398,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "lieben - liebte - geliebt",
     "conjugation": "ich liebe\ndu liebst\ner/sie/es liebt\nwir lieben\nihr liebt\nSie/sie lieben",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "محبت کرنا" },
   {
     "id": 51,
     "word": "machen",
-    "translation": "to make/do",
+    "translation": "to make / do",
     "principalParts": "machen - machte - gemacht",
     "conjugation": "ich mache\ndu machst\ner/sie/es macht\nwir machen\nihr macht\nSie/sie machen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کرنا / بنانا" },
   {
     "id": 52,
     "word": "mieten",
@@ -465,8 +414,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "mieten - mietete - gemietet",
     "conjugation": "ich miete\ndu mietest\ner/sie/es mietet\nwir mieten\nihr mietet\nSie/sie mieten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کرائے پر لینا" },
   {
     "id": 53,
     "word": "mitmachen",
@@ -474,8 +422,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "mitmachen - machte mit - mitgemacht",
     "conjugation": "ich mache mit\ndu machst mit\ner/sie/es macht mit\nwir machen mit\nihr macht mit\nSie/sie machen mit",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "شرکت کرنا" },
   {
     "id": 54,
     "word": "öffnen",
@@ -483,8 +430,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "öffnen - öffnete - geöffnet",
     "conjugation": "ich öffne\ndu öffnest\ner/sie/es öffnet\nwir öffnen\nihr öffnet\nSie/sie öffnen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھولنا" },
   {
     "id": 55,
     "word": "rauchen",
@@ -492,8 +438,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "rauchen - rauchte - geraucht",
     "conjugation": "ich rauche\ndu rauchst\ner/sie/es raucht\nwir rauchen\nihr raucht\nSie/sie rauchen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سگریٹ نوشی کرنا" },
   {
     "id": 56,
     "word": "regnen",
@@ -501,8 +446,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "regnen - regnete - geregnet",
     "conjugation": "ich regne\ndu regnest\ner/sie/es regnet\nwir regnen\nihr regnet\nSie/sie regnen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بارش ہونا" },
   {
     "id": 57,
     "word": "reisen",
@@ -510,8 +454,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "reisen - reiste - gereist",
     "conjugation": "ich reise\ndu reisst\ner/sie/es reist\nwir reisen\nihr reist\nSie/sie reisen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "سفر کرنا" },
   {
     "id": 58,
     "word": "reparieren",
@@ -519,8 +462,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "reparieren - reparierte - repariert",
     "conjugation": "ich repariere\ndu reparierst\ner/sie/es repariert\nwir reparieren\nihr repariert\nSie/sie reparieren",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "مرمت کرنا" },
   {
     "id": 59,
     "word": "sagen",
@@ -528,8 +470,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "sagen - sagte - gesagt",
     "conjugation": "ich sage\ndu sagst\ner/sie/es sagt\nwir sagen\nihr sagt\nSie/sie sagen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کہنا" },
   {
     "id": 60,
     "word": "schicken",
@@ -537,8 +478,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "schicken - schickte - geschickt",
     "conjugation": "ich schicke\ndu schickst\ner/sie/es schickt\nwir schicken\nihr schickt\nSie/sie schicken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بھیجنا" },
   {
     "id": 61,
     "word": "schmecken",
@@ -546,8 +486,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "schmecken - schmeckte - geschmeckt",
     "conjugation": "ich schmecke\ndu schmeckst\ner/sie/es schmeckt\nwir schmecken\nihr schmeckt\nSie/sie schmecken",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ذائقہ ہونا" },
   {
     "id": 62,
     "word": "spielen",
@@ -555,35 +494,31 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "spielen - spielte - gespielt",
     "conjugation": "ich spiele\ndu spielst\ner/sie/es spielt\nwir spielen\nihr spielt\nSie/sie spielen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھیلنا" },
   {
     "id": 63,
     "word": "stellen",
-    "translation": "to put/place",
+    "translation": "to put / place",
     "principalParts": "stellen - stellte - gestellt",
     "conjugation": "ich stelle\ndu stellst\ner/sie/es stellt\nwir stellen\nihr stellt\nSie/sie stellen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کھڑا کر کے رکھنا" },
   {
     "id": 64,
     "word": "studieren",
-    "translation": "to study",
+    "translation": "to study (at university)",
     "principalParts": "studieren - studierte - studiert",
     "conjugation": "ich studiere\ndu studierst\ner/sie/es studiert\nwir studieren\nihr studiert\nSie/sie studieren",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پڑھنا (یونیورسٹی میں)" },
   {
     "id": 65,
     "word": "suchen",
-    "translation": "to search",
+    "translation": "to search / look for",
     "principalParts": "suchen - suchte - gesucht",
     "conjugation": "ich suche\ndu suchst\ner/sie/es sucht\nwir suchen\nihr sucht\nSie/sie suchen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "تلاش کرنا" },
   {
     "id": 66,
     "word": "tanzen",
@@ -591,8 +526,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "tanzen - tanzte - getanzt",
     "conjugation": "ich tanze\ndu tanzst\ner/sie/es tanzt\nwir tanzen\nihr tanzt\nSie/sie tanzen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ناچنا" },
   {
     "id": 67,
     "word": "telefonieren",
@@ -600,8 +534,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "telefonieren - telefonierte - getelefoniert",
     "conjugation": "ich telefoniere\ndu telefonierst\ner/sie/es telefoniert\nwir telefonieren\nihr telefoniert\nSie/sie telefonieren",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "فون پر بات کرنا" },
   {
     "id": 68,
     "word": "übernachten",
@@ -609,8 +542,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "übernachten - übernachtete - geübernachtet",
     "conjugation": "ich übernachte\ndu übernachtest\ner/sie/es\nübernachtet\nwir übernachten\nihr übernachtet\nSie/sie übernachten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رات گزارنا" },
   {
     "id": 69,
     "word": "verdienen",
@@ -618,8 +550,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "verdienen - verdiente - verdient",
     "conjugation": "ich verdiene\ndu verdienst\ner/sie/es verdient\nwir verdienen\nihr verdient\nSie/sie verdienen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کمانا" },
   {
     "id": 70,
     "word": "verkaufen",
@@ -627,8 +558,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "verkaufen - verkaufte - verkauft",
     "conjugation": "ich verkaufe\ndu verkaufst\ner/sie/es verkauft\nwir verkaufen\nihr verkauft\nSie/sie verkaufen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بیچنا" },
   {
     "id": 71,
     "word": "vermieten",
@@ -636,26 +566,23 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "vermieten - vermietete - vermietet",
     "conjugation": "ich vermiete\ndu vermietest\ner/sie/es vermietet\nwir vermieten\nihr vermietet\nSie/sie vermieten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "کرائے پر دینا" },
   {
     "id": 72,
     "word": "verpassen",
-    "translation": "to miss",
+    "translation": "to miss (bus/train)",
     "principalParts": "verpassen - verpasste - verpasst",
     "conjugation": "ich verpasse\ndu verpassst\ner/sie/es verpasst\nwir verpassen\nihr verpasst\nSie/sie verpassen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "چھوٹ جانا (گاڑی وغیرہ)" },
   {
     "id": 73,
     "word": "(sich) vorstellen",
-    "translation": "to introduce/imagine",
+    "translation": "to introduce / imagine",
     "principalParts": "(sich) vorstellen - stellte vor - vorgestellt",
     "conjugation": "ich stelle mich vor\ndu stellst dich vor\ner/sie/es stellt sich vor\nwir stellen uns vor\nihr stellt euch vor\nSie/sie stellen sich vor",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "تعارف کروانا" },
   {
     "id": 74,
     "word": "wandern",
@@ -663,8 +590,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "wandern - wanderte - gewandert",
     "conjugation": "ich wande\ndu wandest\ner/sie/es wandet\nwir wanden\nihr wandet\nSie/sie wanden",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "پیدل سفر کرنا (پہاڑوں میں)" },
   {
     "id": 75,
     "word": "warten",
@@ -672,8 +598,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "warten - wartete - gewartet",
     "conjugation": "ich warte\ndu wartest\ner/sie/es wartet\nwir warten\nihr wartet\nSie/sie warten",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "انتظار کرنا" },
   {
     "id": 76,
     "word": "weinen",
@@ -681,17 +606,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "weinen - weinte - geweint",
     "conjugation": "ich weine\ndu weinst\ner/sie/es weint\nwir weinen\nihr weint\nSie/sie weinen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رونا" },
   {
     "id": 77,
     "word": "wohnen",
-    "translation": "to live/reside",
+    "translation": "to live / reside",
     "principalParts": "wohnen - wohnte - gewohnt",
     "conjugation": "ich wohne\ndu wohnst\ner/sie/es wohnt\nwir wohnen\nihr wohnt\nSie/sie wohnen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "رہنا / سکونت اختیار کرنا" },
   {
     "id": 78,
     "word": "wünschen",
@@ -699,8 +622,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "wünschen - wünschte - gewünscht",
     "conjugation": "ich wünsche\ndu wünschst\ner/sie/es wünscht\nwir wünschen\nihr wünscht\nSie/sie wünschen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "خواہش کرنا" },
   {
     "id": 79,
     "word": "zahlen",
@@ -708,17 +630,15 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "zahlen - zahlte - gezahlt",
     "conjugation": "ich zahle\ndu zahlst\ner/sie/es zahlt\nwir zahlen\nihr zahlt\nSie/sie zahlen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "ادائیگی کرنا" },
   {
     "id": 80,
     "word": "zuhören",
-    "translation": "to listen",
+    "translation": "to listen to",
     "principalParts": "zuhören - hörte zu - zugehört",
     "conjugation": "ich höre zu\ndu hörst zu\ner/sie/es hört zu\nwir hören zu\nihr hört zu\nSie/sie hören zu",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "غور سے سننا" },
   {
     "id": 81,
     "word": "zumachen",
@@ -726,8 +646,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "zumachen - machte zu - zugemacht",
     "conjugation": "ich mache zu\ndu machst zu\ner/sie/es macht zu\nwir machen zu\nihr macht zu\nSie/sie machen zu",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "بند کرنا" },
   {
     "id": 82,
     "word": "putzen",
@@ -735,8 +654,7 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "putzen - putzte - geputzt",
     "conjugation": "ich putze\ndu putzst\ner/sie/es putzt\nwir putzen\nihr putzt\nSie/sie putzen",
     "category": "Regular Verbs",
-    "level": "A1"
-  },
+    "level": "A1", "urdu": "صاف کرنا" },
   {
     "id": 83,
     "word": "drehen",
@@ -744,6 +662,5 @@ export const A1_REGULAR_VERBS = [
     "principalParts": "drehen - drehte - gedreht",
     "conjugation": "ich drehe\ndu drehst\ner/sie/es dreht\nwir drehen\nihr dreht\nSie/sie drehen",
     "category": "Regular Verbs",
-    "level": "A1"
-  }
+    "level": "A1", "urdu": "گھمانا" }
 ];
