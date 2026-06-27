@@ -233,7 +233,7 @@ export const B1_ADJECTIVES = [
   { id: 232, word: "g\u00fctig", translation: "kind", urdu: "\u0642\u0633\u0645", category: 'Adjectives', level: 'B1' },
   { id: 233, word: "halb", translation: "half", urdu: "\u0646\u0635\u0641", category: 'Adjectives', level: 'B1' },
   { id: 234, word: "handwerklich", translation: "handcrafted", urdu: "\u062f\u0633\u062a\u06a9\u0627\u0631\u06cc", category: 'Adjectives', level: 'B1' },
-  { id: 235, word: "haternannt", translation: "haternann haternann", urdu: "", category: 'Adjectives', level: 'B1' },
+  { id: 235, word: "haternannt", translation: "appointed / declared", urdu: "مقرر کردہ / نامزد کردہ", category: 'Adjectives', level: 'B1' },
   { id: 236, word: "hatvorausgedacht", translation: "thought ahead", urdu: "\u0633\u0648\u0686\u0627 \u0622\u06af\u06d2", category: 'Adjectives', level: 'B1' },
   { id: 237, word: "hauptberuflich", translation: "full-time", urdu: "\u0648\u0642\u062a\u06cc \u06a9\u0644", category: 'Adjectives', level: 'B1' },
   { id: 238, word: "haupts\u00e4chlich", translation: "primarily", urdu: "\u0628\u0646\u06cc\u0627\u062f\u06cc \u0637\u0648\u0631 \u067e\u0631", category: 'Adjectives', level: 'B1' },

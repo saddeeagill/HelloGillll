@@ -9,7 +9,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "packen",
     ihr: "packt",
     sie_Sie: "packen",
-    translation: " grab / up pack / pack to",
+    translation: "to grab / up pack / pack",
     urdu: "بند کرنا / پیک کرنا / پکڑنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -24,7 +24,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "parken",
     ihr: "parkt",
     sie_Sie: "parken",
-    translation: " park to",
+    translation: "to park",
     urdu: "پارک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -54,7 +54,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "passen",
     ihr: "passt",
     sie_Sie: "passen",
-    translation: " match / suit / fit to",
+    translation: "to match / suit / fit",
     urdu: "مناسب ہونا / میل کھانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -84,8 +84,8 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "",
     ihr: "",
     sie_Sie: "",
-    translation: "",
-    urdu: "",
+    translation: "to generalize",
+    urdu: "عمومی بات کرنا / ایک ہی صف میں کھڑا کرنا",
     category: 'Regular Verbs',
     level: 'B1'
   },
@@ -114,7 +114,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "pflanzen",
     ihr: "pflanzt",
     sie_Sie: "pflanzen",
-    translation: " plant to",
+    translation: "to plant",
     urdu: "پودا لگانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -159,7 +159,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "planen",
     ihr: "plant",
     sie_Sie: "planen",
-    translation: " schedule / intend / plan to",
+    translation: "to schedule / intend / plan",
     urdu: "منصوبہ بنانا / شیڈول کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -204,8 +204,8 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "",
     ihr: "",
     sie_Sie: "",
-    translation: "",
-    urdu: "",
+    translation: "to program",
+    urdu: "پروگرام کرنا",
     category: 'Regular Verbs',
     level: 'B1'
   },
@@ -249,7 +249,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "publizieren",
     ihr: "publiziert",
     sie_Sie: "publizieren",
-    translation: " publish to",
+    translation: "to publish",
     urdu: "شائع کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -339,7 +339,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "rauchen",
     ihr: "raucht",
     sie_Sie: "rauchen",
-    translation: " puff / smoke to",
+    translation: "to puff / smoke",
     urdu: "تمباکو کش کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -354,7 +354,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reagieren",
     ihr: "reagiert",
     sie_Sie: "reagieren",
-    translation: " respond / react to",
+    translation: "to respond / react",
     urdu: "ردعمل کرنا / جواب دینا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -369,7 +369,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reaktivieren",
     ihr: "reaktiviert",
     sie_Sie: "reaktivieren",
-    translation: " reactivate to",
+    translation: "to reactivate",
     urdu: "دوبارہ چالو کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -399,7 +399,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "rechnen",
     ihr: "rechnet",
     sie_Sie: "rechnen",
-    translation: " calculate to",
+    translation: "to calculate",
     urdu: "حساب کرنا / گننا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -429,7 +429,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reduzieren",
     ihr: "reduziert",
     sie_Sie: "reduzieren",
-    translation: " decrease / reduce to",
+    translation: "to decrease / reduce",
     urdu: "کم کرنا / گھٹانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -489,7 +489,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "-",
     ihr: "-",
     sie_Sie: "-",
-    translation: " rain to",
+    translation: "to rain",
     urdu: "بارش ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -519,7 +519,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reichen",
     ihr: "reicht",
     sie_Sie: "reichen",
-    translation: " suffice / hand / reach to",
+    translation: "to suffice / hand / reach",
     urdu: "پہنچانا / دینا / کافی ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -534,7 +534,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reinigen",
     ihr: "reinigt",
     sie_Sie: "reinigen",
-    translation: " purify / clean to",
+    translation: "to purify / clean",
     urdu: "صاف کرنا / پاک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -549,7 +549,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reisen",
     ihr: "reist",
     sie_Sie: "reisen",
-    translation: " journey / travel to",
+    translation: "to journey / travel",
     urdu: "سفر کرنا / گھومنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -594,7 +594,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reparieren",
     ihr: "repariert",
     sie_Sie: "reparieren",
-    translation: " mend / fix / repair to",
+    translation: "to mend / fix / repair",
     urdu: "مرمت کرنا / ٹھیک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -609,7 +609,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "reproduzieren",
     ihr: "reproduziert",
     sie_Sie: "reproduzieren",
-    translation: " reproduce to",
+    translation: "to reproduce",
     urdu: "دوبارہ پیدا کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -624,7 +624,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "respektieren",
     ihr: "respektiert",
     sie_Sie: "respektieren",
-    translation: " respect to",
+    translation: "to respect",
     urdu: "عزت کرنا / وقار دینا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -639,7 +639,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "restaurieren",
     ihr: "restauriert",
     sie_Sie: "restaurieren",
-    translation: " restore to",
+    translation: "to restore",
     urdu: "بحال کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -699,7 +699,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "riskieren",
     ihr: "riskiert",
     sie_Sie: "riskieren",
-    translation: " risk to",
+    translation: "to risk",
     urdu: "خطرہ مول لینا / رسک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -759,7 +759,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "sagen",
     ihr: "sagt",
     sie_Sie: "sagen",
-    translation: " say to",
+    translation: "to say",
     urdu: "کہنا / بیان کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -774,7 +774,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "sammeln",
     ihr: "sammelt",
     sie_Sie: "sammeln",
-    translation: " collect to",
+    translation: "to collect",
     urdu: "جمع کرنا / اکٹھا کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -864,7 +864,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "schildern",
     ihr: "schildert",
     sie_Sie: "schildern",
-    translation: " describe to",
+    translation: "to describe",
     urdu: "بیان کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -984,7 +984,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "schützen",
     ihr: "schützt",
     sie_Sie: "schützen",
-    translation: " shield / guard / protect to",
+    translation: "to shield / guard / protect",
     urdu: "تحفظ کرنا / حفاظت کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -999,7 +999,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "schwindeln",
     ihr: "schwindelt",
     sie_Sie: "schwindeln",
-    translation: " cheat to",
+    translation: "to cheat",
     urdu: "دھوکہ دینا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1014,7 +1014,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "schwitzen",
     ihr: "schwitzt",
     sie_Sie: "schwitzen",
-    translation: " sweat to",
+    translation: "to sweat",
     urdu: "پسینہ آنا / پسینہ بہنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1059,7 +1059,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "senken",
     ihr: "senkt",
     sie_Sie: "senken",
-    translation: " reduce to",
+    translation: "to reduce",
     urdu: "نیچے کرنا / کم کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1074,7 +1074,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "setzen",
     ihr: "setzt",
     sie_Sie: "setzen",
-    translation: " set to",
+    translation: "to set",
     urdu: "رکھنا / قائم کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1194,7 +1194,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "irren uns",
     ihr: "irrt euch",
     sie_Sie: "irren sich",
-    translation: " err / mistaken be to",
+    translation: "to err / mistaken be",
     urdu: "غلطی ہونا / بھول جانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1269,7 +1269,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "stellen sicher",
     ihr: "stellt sicher",
     sie_Sie: "stellen sicher",
-    translation: " ensure to",
+    translation: "to ensure",
     urdu: "یقینی بنائیں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1284,7 +1284,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "siegen",
     ihr: "siegt",
     sie_Sie: "siegen",
-    translation: " prevail / triumph / win to",
+    translation: "to prevail / triumph / win",
     urdu: "جیتنا / کامیابی حاصل کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1299,7 +1299,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "speichern",
     ihr: "speichert",
     sie_Sie: "speichern",
-    translation: " preserve / store / save to",
+    translation: "to preserve / store / save",
     urdu: "محفوظ کرنا / ذخیرہ کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1344,7 +1344,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "spielen",
     ihr: "spielt",
     sie_Sie: "spielen",
-    translation: " play to",
+    translation: "to play",
     urdu: "کھیلنا / بجانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1404,7 +1404,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "spüren",
     ihr: "spürt",
     sie_Sie: "spüren",
-    translation: " sense to",
+    translation: "to sense",
     urdu: "محسوس کرنا / ادراک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1419,7 +1419,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "stammen",
     ihr: "stammt",
     sie_Sie: "stammen",
-    translation: " origin to",
+    translation: "to origin",
     urdu: "ذرائع سے ہونا / ماخذ ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1434,8 +1434,8 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "stapfen",
     ihr: "stapft",
     sie_Sie: "stapfen",
-    translation: "to stomping stomping",
-    urdu: "",
+    translation: "to trudge / stomp",
+    urdu: "بھاری قدموں سے چلنا",
     category: 'Regular Verbs',
     level: 'B1'
   },
@@ -1464,7 +1464,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "starten",
     ihr: "startet",
     sie_Sie: "starten",
-    translation: " begin / launch / start to",
+    translation: "to begin / launch / start",
     urdu: "شروع کرنا / آغاز کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1494,7 +1494,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "stecken",
     ihr: "steckt",
     sie_Sie: "stecken",
-    translation: " put to",
+    translation: "to put",
     urdu: "رکھنا / داخل کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1509,7 +1509,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "steigern",
     ihr: "steigert",
     sie_Sie: "steigern",
-    translation: " increase to",
+    translation: "to increase",
     urdu: "بڑھانا / بہتر کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1524,7 +1524,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "stellen",
     ihr: "stellt",
     sie_Sie: "stellen",
-    translation: " place to",
+    translation: "to place",
     urdu: "رکھنا / قائم کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1584,7 +1584,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "streiken",
     ihr: "streikt",
     sie_Sie: "streiken",
-    translation: " strike to",
+    translation: "to strike",
     urdu: "ہڑتال کرنا / احتجاج کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1659,7 +1659,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "tanken",
     ihr: "tankt",
     sie_Sie: "tanken",
-    translation: " tank / refuel to",
+    translation: "to tank / refuel",
     urdu: "ایندھن بھرنا / ٹینک کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1674,7 +1674,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "tauchen",
     ihr: "taucht",
     sie_Sie: "tauchen",
-    translation: " submerge / dive to",
+    translation: "to submerge / dive",
     urdu: "غوطہ کرنا / غار ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1749,7 +1749,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "töten",
     ihr: "tötet",
     sie_Sie: "töten",
-    translation: " kill to",
+    translation: "to kill",
     urdu: "قتل کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1779,7 +1779,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "trauen",
     ihr: "traut",
     sie_Sie: "trauen",
-    translation: " dare / trust to",
+    translation: "to dare / trust",
     urdu: "اعتماد کرنا / جرات کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1794,7 +1794,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "träumen",
     ihr: "träumt",
     sie_Sie: "träumen",
-    translation: " dream to",
+    translation: "to dream",
     urdu: "خواب دیکھنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1869,7 +1869,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "überleben",
     ihr: "überlebt",
     sie_Sie: "überleben",
-    translation: " survive to",
+    translation: "to survive",
     urdu: "زندہ رہنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1914,7 +1914,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "gestalten um",
     ihr: "gestaltet um",
     sie_Sie: "gestalten um",
-    translation: " redesign to",
+    translation: "to redesign",
     urdu: "دوبارہ ڈیزائن",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1929,7 +1929,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "umrunden",
     ihr: "umrundet",
     sie_Sie: "umrunden",
-    translation: " circumnavigate to",
+    translation: "to circumnavigate",
     urdu: "چکر لگانا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1944,7 +1944,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "setzen um",
     ihr: "setzt um",
     sie_Sie: "setzen um",
-    translation: " implement to",
+    translation: "to implement",
     urdu: "نافذ کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1959,7 +1959,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "unterfordern",
     ihr: "unterfordert",
     sie_Sie: "unterfordern",
-    translation: " underchallenge to",
+    translation: "to underchallenge",
     urdu: "کم چیلنج",
     category: 'Regular Verbs',
     level: 'B1'
@@ -1974,8 +1974,8 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "",
     ihr: "",
     sie_Sie: "",
-    translation: "",
-    urdu: "",
+    translation: "to generalize",
+    urdu: "عمومیت دینا / سب پر لاگو کرنا",
     category: 'Regular Verbs',
     level: 'B1'
   },
@@ -2004,7 +2004,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "veranstalten",
     ihr: "veranstaltet",
     sie_Sie: "veranstalten",
-    translation: " organize to",
+    translation: "to organize",
     urdu: "منظم کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2019,7 +2019,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verantworten",
     ihr: "verantwortet",
     sie_Sie: "verantworten",
-    translation: " responsible be to",
+    translation: "to be responsible",
     urdu: "ذمہ دار ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2064,7 +2064,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verbauen",
     ihr: "verbaut",
     sie_Sie: "verbauen",
-    translation: " install to",
+    translation: "to install",
     urdu: "انسٹال کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2214,7 +2214,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verhindern",
     ihr: "verhindert",
     sie_Sie: "verhindern",
-    translation: " impede to",
+    translation: "to impede",
     urdu: "روکنا / روک تھام کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2244,7 +2244,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verlagern",
     ihr: "verlagert",
     sie_Sie: "verlagern",
-    translation: " relocate to",
+    translation: "to relocate",
     urdu: "منتقل کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2259,7 +2259,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verlangen",
     ihr: "verlangt",
     sie_Sie: "verlangen",
-    translation: " demand to",
+    translation: "to demand",
     urdu: "مطالبه کرنا / مانگنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2319,7 +2319,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "veröffentlichen",
     ihr: "veröffentlicht",
     sie_Sie: "veröffentlichen",
-    translation: " publish to",
+    translation: "to publish",
     urdu: "شائع کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2364,7 +2364,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verpennen",
     ihr: "verpennt",
     sie_Sie: "verpennen",
-    translation: " oversleep to",
+    translation: "to oversleep",
     urdu: "زیادہ نیند",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2394,7 +2394,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verreisen",
     ihr: "verreist",
     sie_Sie: "verreisen",
-    translation: " away go / travel to",
+    translation: "to go away / travel",
     urdu: "سفر کرنا / روانہ ہونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2514,7 +2514,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "vertonen",
     ihr: "vertont",
     sie_Sie: "vertonen",
-    translation: " sound to",
+    translation: "to sound",
     urdu: "آواز کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2559,7 +2559,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verwählen",
     ihr: "verwählt",
     sie_Sie: "verwählen",
-    translation: " misdialed to",
+    translation: "to misdialed",
     urdu: "غلط ڈائل کیا گیا۔",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2574,7 +2574,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verwalten",
     ihr: "verwaltet",
     sie_Sie: "verwalten",
-    translation: " administer to",
+    translation: "to administer",
     urdu: "انتظام کرنا / حکومت کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2604,7 +2604,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verwechseln",
     ihr: "verwechselt",
     sie_Sie: "verwechseln",
-    translation: " with confuse to",
+    translation: "to confuse with",
     urdu: "الجھن کرنا / غلط کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2619,7 +2619,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verwenden",
     ihr: "verwendet",
     sie_Sie: "verwenden",
-    translation: " apply / employ / use to",
+    translation: "to apply / employ / use",
     urdu: "استعمال کرنا / اطالق کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2649,7 +2649,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verwöhnen",
     ihr: "verwöhnt",
     sie_Sie: "verwöhnen",
-    translation: " pamper to",
+    translation: "to pamper",
     urdu: "الڈ پیار",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2694,7 +2694,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "verzweifeln",
     ihr: "verzweifelt",
     sie_Sie: "verzweifeln",
-    translation: " hope lose / despair to",
+    translation: "to lose hope / despair",
     urdu: "مایوس ہونا / امید کھونا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2724,7 +2724,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "setzen voraus",
     ihr: "setzt voraus",
     sie_Sie: "setzen voraus",
-    translation: " presuppose to",
+    translation: "to presuppose",
     urdu: "فرض کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2754,7 +2754,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "sagen vorher",
     ihr: "sagt vorher",
     sie_Sie: "sagen vorher",
-    translation: " predict to",
+    translation: "to predict",
     urdu: "پیشن گوئی",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2814,7 +2814,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "wählen",
     ihr: "wählt",
     sie_Sie: "wählen",
-    translation: " elect / choose to",
+    translation: "to elect / choose",
     urdu: "چننا / ووٹ دینا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2844,7 +2844,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "wandern",
     ihr: "wandert",
     sie_Sie: "wandern",
-    translation: " trek / wander / hike to",
+    translation: "to trek / wander / hike",
     urdu: "پیدل چلنا / سفر کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2859,7 +2859,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "warten",
     ihr: "wartet",
     sie_Sie: "warten",
-    translation: " wait to",
+    translation: "to wait",
     urdu: "انتظار کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2874,7 +2874,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "wechseln",
     ihr: "wechselt",
     sie_Sie: "wechseln",
-    translation: " change to",
+    translation: "to change",
     urdu: "بدلنا / تبدیلی کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2919,7 +2919,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "leiten weiter",
     ihr: "leitet weiter",
     sie_Sie: "leiten weiter",
-    translation: " relay / route / forward to",
+    translation: "to relay / route / forward",
     urdu: "آگے بھیجنا / راستہ دینا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2979,7 +2979,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "würdigen",
     ihr: "würdigt",
     sie_Sie: "würdigen",
-    translation: " appreciate to",
+    translation: "to appreciate",
     urdu: "تعریف کریں",
     category: 'Regular Verbs',
     level: 'B1'
@@ -2994,7 +2994,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "zahlen",
     ihr: "zahlt",
     sie_Sie: "zahlen",
-    translation: " pay to",
+    translation: "to pay",
     urdu: "ادائیگی کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -3024,7 +3024,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "zertifizieren",
     ihr: "zertifiziert",
     sie_Sie: "zertifizieren",
-    translation: " certify to",
+    translation: "to certify",
     urdu: "سرٹیفائی کرنا / تصدیق کرنا",
     category: 'Regular Verbs',
     level: 'B1'
@@ -3054,7 +3054,7 @@ export const B1_REGULAR_VERBS_PART2 = [
     wir: "arbeiten",
     ihr: "arbeitet zusammen",
     sie_Sie: "arbeiten",
-    translation: "zusammen collaborate to",
+    translation: "to collaborate",
     urdu: "تعاون کریں",
     category: 'Regular Verbs',
     level: 'B1'
