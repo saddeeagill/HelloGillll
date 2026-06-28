@@ -227,7 +227,7 @@ export const A1_NOUNS = [
     "id": 29,
     "word": "Auskunft",
     "plural": "Auskünfte",
-    "translation": "information desk","urdu": "معلومات",
+    "translation": "information","urdu": "معلومات",
     "category": "Nouns",
     "level": "A1"
   },
@@ -315,7 +315,7 @@ export const A1_NOUNS = [
     "id": 40,
     "word": "Bahn",
     "plural": "Bahnen",
-    "translation": "railway","urdu": "ٹرین",
+    "translation": "railway / train","urdu": "ریلوے / ٹرین",
     "category": "Nouns",
     "level": "A1"
   },
@@ -715,7 +715,7 @@ export const A1_NOUNS = [
     "id": 90,
     "word": "Eingang",
     "plural": "Eingänge",
-    "translation": "entrance","urdu": "داخلہ",
+    "translation": "entrance","urdu": "داخلی راستہ",
     "category": "Nouns",
     "level": "A1"
   },
@@ -723,7 +723,7 @@ export const A1_NOUNS = [
     "id": 91,
     "word": "Einladung",
     "plural": "Einladungen",
-    "translation": "invitation","urdu": "دعوت نامہ",
+    "translation": "invitation","urdu": "دعوت",
     "category": "Nouns",
     "level": "A1"
   },
@@ -2307,7 +2307,7 @@ export const A1_NOUNS = [
     "id": 289,
     "word": "Student",
     "plural": "Studenten",
-    "translation": "university student","urdu": "یونیورسٹی کا طالب علم",
+    "translation": "student","urdu": "طالب علم",
     "category": "Nouns",
     "level": "A1"
   },
