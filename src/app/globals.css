@@ -45,8 +45,6 @@ body {
     min-height: 0 !important;
     max-height: none !important;
     overflow: visible !important;
-    display: block !important;
-    flex: none !important;
     padding-left: 0 !important;
   }
 

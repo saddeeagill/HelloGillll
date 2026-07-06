@@ -221,6 +221,8 @@ export default function VocabularyView({
     activeCategory === "Regular Verbs" ||
     activeCategory === "Modal Verbs";
   const showNounColumns = activeCategory === "Nouns";
+  const showAdjectiveColumns = activeCategory === "Adjectives";
+  const showAdverbColumns = activeCategory === "Adverbs";
 
   const colSpanCount = 
     1 + // Deutsch
@@ -317,7 +319,7 @@ export default function VocabularyView({
                   Sr
                 </th>
                 <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/4">
-                  Singular
+                  {showVerbColumns ? 'Verb' : (showNounColumns ? 'Singular' : (showAdjectiveColumns ? 'Adjektive' : (showAdverbColumns ? 'Adverbien' : 'Wort')))}
                 </th>
                 {showNounColumns && (
                   <th className="py-2 px-3 md:py-3 md:px-4 font-semibold text-xs md:text-sm w-1/6">
@@ -427,7 +429,7 @@ export default function VocabularyView({
                             {isVerb ? (
                               (item as VocabItem).conjugation ? (
                                 <div className="text-xs text-black leading-relaxed mt-1 bg-white border border-gray-200 p-2 rounded-lg inline-block w-full">
-                                  {(item as VocabItem).conjugation?.split('\n').map((line, i) => {
+                                  {(item as VocabItem).conjugation?.split(/\\n|\n/).map((line, i) => {
                                     if (!line.trim()) return null;
                                     return (
                                       <div key={i} className="flex items-center gap-1.5 mb-1.5">

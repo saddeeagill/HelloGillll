@@ -51,11 +51,17 @@ export default function LevelPage() {
 
     const isNoun = vocabCategory === 'Nouns';
     const isVerb = vocabCategory === 'Regular Verbs' || vocabCategory === 'Irregular Verbs' || vocabCategory === 'Modal Verbs';
+    const isAdjective = vocabCategory === 'Adjectives';
+    const isAdverb = vocabCategory === 'Adverbs';
 
     const headerCols = isNoun
-      ? `<th>Nr.</th><th>Wort</th><th>Plural</th><th>Artikel</th><th>English</th><th>${langLabel}</th>`
+      ? `<th>Nr.</th><th>Singular</th><th>Plural</th><th>English</th><th>${langLabel}</th>`
       : isVerb
-      ? `<th>Nr.</th><th>Wort</th><th>Konjugation (Conjugation)</th><th>English</th><th>${langLabel}</th>`
+      ? `<th>Nr.</th><th>Verb</th><th>Konjugationen</th><th>English</th><th>${langLabel}</th>`
+      : isAdjective
+      ? `<th>Nr.</th><th>Adjektive</th><th>English</th><th>${langLabel}</th>`
+      : isAdverb
+      ? `<th>Nr.</th><th>Adverbien</th><th>English</th><th>${langLabel}</th>`
       : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
 
     const getNativeTranslation = (item: any) => {
@@ -71,7 +77,6 @@ export default function LevelPage() {
           <td>${i + 1}</td>
           <td><strong>${item.word}</strong></td>
           <td>${item.plural || '-'}</td>
-          <td>${item.article || '-'}</td>
           <td>${item.translation}</td>
           <td>${nativeTranslation}</td>
         </tr>`;
@@ -80,9 +85,10 @@ export default function LevelPage() {
       if (isVerb) {
         let conjText = '-';
         if (item.conjugation) {
-          conjText = item.conjugation.replace(/\n/g, '<br/>');
+          const formattedConj = item.conjugation.split(/\\n|\n/).join('<br/>');
+          conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
         } else if (item.ich) {
-          conjText = [
+          const formattedConj = [
             `ich ${item.ich}`,
             `du ${item.du}`,
             `er/sie/es ${item.er_sie_es}`,
@@ -90,6 +96,7 @@ export default function LevelPage() {
             `ihr ${item.ihr}`,
             `sie/Sie ${item.sie_Sie}`
           ].join('<br/>');
+          conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
         }
 
         const rawForms = item.principalParts || item.konjugationen || '';

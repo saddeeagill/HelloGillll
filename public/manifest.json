@@ -1,0 +1,24 @@
+{
+  "name": "hello gill",
+  "short_name": "hello gill",
+  "description": "hello gill - Learn German",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffe400",
+  "theme_color": "#ffe400",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ]
+}
