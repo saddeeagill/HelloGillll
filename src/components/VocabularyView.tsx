@@ -60,6 +60,15 @@ export default function VocabularyView({
   const [unlockedLevelNomen, setUnlockedLevelNomen] = useState(1);
   const [activeLevelNomen, setActiveLevelNomen] = useState<number | null>(null);
 
+  // Lazy Loading / Pagination State
+  const [visibleCount, setVisibleCount] = useState(50);
+
+  // Reset pagination when category, level, or search changes
+  useEffect(() => {
+    setVisibleCount(50);
+  }, [level, activeCategory, searchQuery]);
+
+
   // Quiz State
   const [quizState, setQuizState] = useState<{
     isActive: boolean;
@@ -96,6 +105,8 @@ export default function VocabularyView({
     const matchesCategory = item.category === activeCategory;
     return matchesLevel && matchesSearch && matchesCategory;
   });
+
+  const visibleWords = filteredWords.slice(0, visibleCount);
 
   const playAudio = (word: string) => {
     if ("speechSynthesis" in window) {
@@ -342,8 +353,8 @@ export default function VocabularyView({
               </tr>
             </thead>
             <tbody>
-              {filteredWords.length > 0 ? (
-                filteredWords.flatMap((item, index) => {
+              {visibleWords.length > 0 ? (
+                visibleWords.flatMap((item, index) => {
                   const uniqueId = `${item.category}-${item.id}`;
                   const isVerb =
                     item.category === "Irregular Verbs" ||
@@ -500,7 +511,7 @@ export default function VocabularyView({
 
                   // Determine if we should render a Quiz row
                   const isMultipleOf25 = (index + 1) % 25 === 0;
-                  const isLastItem = index === filteredWords.length - 1;
+                  const isLastItem = index === visibleWords.length - 1 && visibleWords.length === filteredWords.length;
                   
                   if (isMultipleOf25 || isLastItem) {
                     const wordsSoFar = index + 1;
@@ -526,23 +537,25 @@ export default function VocabularyView({
                 })
               ) : (
                 <tr>
-                  <td
-                    colSpan={colSpanCount}
-                    className="py-12 text-center"
-                  >
-                    <div className="text-5xl mb-4">🔍</div>
-                    <h3 className="text-xl font-bold text-gray-600">
-                      No words found
-                    </h3>
-                    <p className="text-gray-400 mt-2">
-                      Try a different search or category.
-                    </p>
+                  <td colSpan={colSpanCount} className="py-8 text-center text-gray-500">
+                    Keine Vokabeln gefunden. (No vocabulary found.)
                   </td>
                 </tr>
               )}
             </tbody>
-          </table>
-        </div>
+            </table>
+          </div>
+          
+          {visibleCount < filteredWords.length && (
+            <div className="mt-6 flex justify-center pb-8">
+              <button
+                onClick={() => setVisibleCount(prev => prev + 50)}
+                className="px-6 py-2.5 bg-white border border-gray-200 text-black font-bold rounded-xl shadow-sm hover:border-gray-400 hover:shadow-md transition-all"
+              >
+                Mehr laden ({filteredWords.length - visibleCount} weitere)
+              </button>
+            </div>
+          )}
         </div>
       )}
 
