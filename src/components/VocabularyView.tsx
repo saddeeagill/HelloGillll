@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { VOCABULARY } from "../data/vocabulary";
 import { SUPPORTED_LANGUAGES } from "../data/languages";
 import TranslateText from "./TranslateText";
@@ -107,6 +107,17 @@ export default function VocabularyView({
   });
 
   const visibleWords = filteredWords.slice(0, visibleCount);
+
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastElementRef = useCallback((node: HTMLDivElement | null) => {
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && visibleCount < filteredWords.length) {
+        setVisibleCount(prev => prev + 50);
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [visibleCount, filteredWords.length]);
 
   const playAudio = (word: string) => {
     if ("speechSynthesis" in window) {
@@ -547,13 +558,8 @@ export default function VocabularyView({
           </div>
           
           {visibleCount < filteredWords.length && (
-            <div className="mt-6 flex justify-center pb-8">
-              <button
-                onClick={() => setVisibleCount(prev => prev + 50)}
-                className="px-6 py-2.5 bg-white border border-gray-200 text-black font-bold rounded-xl shadow-sm hover:border-gray-400 hover:shadow-md transition-all"
-              >
-                Mehr laden ({filteredWords.length - visibleCount} weitere)
-              </button>
+            <div ref={lastElementRef} className="h-10 mt-6 flex justify-center pb-8 items-center text-gray-400 text-sm">
+              Wird geladen...
             </div>
           )}
         </div>
