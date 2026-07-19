@@ -28,8 +28,8 @@ async function processQueue(targetLang: string) {
   if (currentQueue.length === 0) return;
 
   // Google Translate API has a ~2000 char limit for GET requests.
-  // We chunk by 40 items.
-  const CHUNK_SIZE = 40;
+  // We chunk by 10 items to prevent URI Too Long or Rate Limit errors.
+  const CHUNK_SIZE = 10;
   for (let i = 0; i < currentQueue.length; i += CHUNK_SIZE) {
     const chunk = currentQueue.slice(i, i + CHUNK_SIZE);
     
@@ -57,6 +57,11 @@ async function processQueue(targetLang: string) {
       console.error("Translation error", error);
       // Fallback to original text on error
       chunk.forEach(item => item.resolve(item.text));
+    }
+
+    // Add a small delay between requests to avoid rate limits
+    if (i + CHUNK_SIZE < currentQueue.length) {
+      await new Promise(r => setTimeout(r, 500));
     }
   }
 }
