@@ -11,6 +11,7 @@ import Logo from '@/components/Logo';
 
 import { SUPPORTED_LANGUAGES } from '@/data/languages';
 import { VOCABULARY } from '@/data/vocabulary';
+import { translateBatch } from '@/utils/translate';
 
 const CATEGORY_LABELS: Record<string, string> = {
   "Nouns": "Nomen",
@@ -35,6 +36,7 @@ export default function LevelPage() {
   const [selectedLangCode, setSelectedLangCode] = useState("pt");
   const [showNomenQuiz, setShowNomenQuiz] = useState(false);
   const [showGeneralVocabQuiz, setShowGeneralVocabQuiz] = useState(false);
+  const [isPrinting, setIsPrinting] = useState(false);
 
   const levelUpper = level.toUpperCase();
   
@@ -42,93 +44,107 @@ export default function LevelPage() {
   // We'll prepare an array for A2 lessons as well (currently empty or placeholder)
   const a2Lektionen = [1];
 
-  const handleVocabPrint = () => {
-    const filteredWords = VOCABULARY.filter(
-      (item) => item.level === levelUpper && item.category === vocabCategory
-    );
-    const langLabel = SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || 'Translation';
-    const categoryLabel = CATEGORY_LABELS[vocabCategory] || vocabCategory;
+  const handleVocabPrint = async () => {
+    if (isPrinting) return;
+    setIsPrinting(true);
+    try {
+      const filteredWords = VOCABULARY.filter(
+        (item) => item.level === levelUpper && item.category === vocabCategory
+      );
+      const langLabel = SUPPORTED_LANGUAGES.find(l => l.code === selectedLangCode)?.nativeName || 'Translation';
+      const categoryLabel = CATEGORY_LABELS[vocabCategory] || vocabCategory;
 
-    const isNoun = vocabCategory === 'Nouns';
-    const isVerb = vocabCategory === 'Regular Verbs' || vocabCategory === 'Irregular Verbs' || vocabCategory === 'Modal Verbs';
-    const isAdjective = vocabCategory === 'Adjectives';
-    const isAdverb = vocabCategory === 'Adverbs';
+      const isNoun = vocabCategory === 'Nouns';
+      const isVerb = vocabCategory === 'Regular Verbs' || vocabCategory === 'Irregular Verbs' || vocabCategory === 'Modal Verbs';
+      const isAdjective = vocabCategory === 'Adjectives';
+      const isAdverb = vocabCategory === 'Adverbs';
 
-    const headerCols = isNoun
-      ? `<th>Nr.</th><th>Singular</th><th>Plural</th><th>English</th><th>${langLabel}</th>`
-      : isVerb
-      ? `<th>Nr.</th><th>Verb</th><th>Konjugationen</th><th>English</th><th>${langLabel}</th>`
-      : isAdjective
-      ? `<th>Nr.</th><th>Adjektive</th><th>English</th><th>${langLabel}</th>`
-      : isAdverb
-      ? `<th>Nr.</th><th>Adverbien</th><th>English</th><th>${langLabel}</th>`
-      : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
+      const headerCols = isNoun
+        ? `<th>Nr.</th><th>Singular</th><th>Plural</th><th>English</th><th>${langLabel}</th>`
+        : isVerb
+        ? `<th>Nr.</th><th>Verb</th><th>Konjugationen</th><th>English</th><th>${langLabel}</th>`
+        : isAdjective
+        ? `<th>Nr.</th><th>Adjektive</th><th>English</th><th>${langLabel}</th>`
+        : isAdverb
+        ? `<th>Nr.</th><th>Adverbien</th><th>English</th><th>${langLabel}</th>`
+        : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
 
-    const getNativeTranslation = (item: any) => {
-      if (selectedLangCode === 'ur' && item.urdu) return item.urdu;
-      return item.translation;
-    };
+      // Resolve all translations at once using the fast batch function.
+      // Cache-hits (words already viewed on screen) are instant.
+      // Remaining words are fetched in parallel 50-word chunks — no serial delay.
+      let nativeTranslations: string[];
+      if (selectedLangCode === 'en') {
+        // English = stored translation, no API needed
+        nativeTranslations = filteredWords.map((item: any) => item.translation);
+      } else if (selectedLangCode === 'ur') {
+        // Urdu uses pre-baked field when available, falls back to English
+        nativeTranslations = filteredWords.map((item: any) => item.urdu || item.translation);
+      } else {
+        // All other languages: batch-translate the English translations
+        const englishTexts = filteredWords.map((item: any) => item.translation);
+        nativeTranslations = await translateBatch(englishTexts, selectedLangCode);
+      }
 
-    const rows = filteredWords.map((item: any, i) => {
-      const nativeTranslation = getNativeTranslation(item);
+      const rows = filteredWords.map((item: any, i) => {
+        const nativeTranslation = nativeTranslations[i];
 
-      if (isNoun) {
-        return `<tr>
+        if (isNoun) {
+          return `<tr>
           <td>${i + 1}</td>
           <td><strong>${item.word}</strong></td>
           <td>${item.plural || '-'}</td>
           <td>${item.translation}</td>
           <td>${nativeTranslation}</td>
         </tr>`;
-      }
-
-      if (isVerb) {
-        let conjText = '-';
-        if (item.conjugation) {
-          const formattedConj = item.conjugation.split(/\\n|\n/).join('<br/>');
-          conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
-        } else if (item.ich) {
-          const formattedConj = [
-            `ich ${item.ich}`,
-            `du ${item.du}`,
-            `er/sie/es ${item.er_sie_es}`,
-            `wir ${item.wir}`,
-            `ihr ${item.ihr}`,
-            `sie/Sie ${item.sie_Sie}`
-          ].join('<br/>');
-          conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
         }
 
-        const rawForms = item.principalParts || item.konjugationen || '';
-        const otherForms = rawForms
-          ? rawForms.split(/\s*-\s*|\s*,\s*/)
-              .map((p: any) => p.trim())
-              .filter((p: any) => p && p !== item.word)
-          : [];
-        
-        let wortHtml = `<strong>${item.word}</strong>`;
-        if (otherForms.length > 0) {
-          wortHtml += `<div style="font-size: 8.5pt; font-weight: normal; color: #555; margin-top: 4px; padding-left: 10px;">${otherForms.join('<br/>')}</div>`;
-        }
+        if (isVerb) {
+          let conjText = '-';
+          if (item.conjugation) {
+            const formattedConj = item.conjugation.split(/\\n|\n/).join('<br/>');
+            conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
+          } else if (item.ich) {
+            const formattedConj = [
+              `ich ${item.ich}`,
+              `du ${item.du}`,
+              `er/sie/es ${item.er_sie_es}`,
+              `wir ${item.wir}`,
+              `ihr ${item.ihr}`,
+              `sie/Sie ${item.sie_Sie}`
+            ].join('<br/>');
+            conjText = `<div style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; background-color: #f9fafb; line-height: 1.5; font-size: 9pt;">${formattedConj}</div>`;
+          }
 
-        return `<tr>
+          const rawForms = item.principalParts || item.konjugationen || '';
+          const otherForms = rawForms
+            ? rawForms.split(/\s*-\s*|\s*,\s*/)
+                .map((p: any) => p.trim())
+                .filter((p: any) => p && p !== item.word)
+            : [];
+          
+          let wortHtml = `<strong>${item.word}</strong>`;
+          if (otherForms.length > 0) {
+            wortHtml += `<div style="font-size: 8.5pt; font-weight: normal; color: #555; margin-top: 4px; padding-left: 10px;">${otherForms.join('<br/>')}</div>`;
+          }
+
+          return `<tr>
           <td>${i + 1}</td>
           <td>${wortHtml}</td>
           <td style="white-space: nowrap; line-height: 1.4;">${conjText}</td>
           <td>${item.translation}</td>
           <td>${nativeTranslation}</td>
         </tr>`;
-      }
+        }
 
-      return `<tr>
+        return `<tr>
         <td>${i + 1}</td>
         <td><strong>${item.word}</strong></td>
         <td>${item.translation}</td>
         <td>${nativeTranslation}</td>
       </tr>`;
-    }).join('');
+      }).join('');
 
-    const printHtml = `<!DOCTYPE html>
+      const printHtml = `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -157,11 +173,14 @@ export default function LevelPage() {
 </body>
 </html>`;
 
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
-      printWindow.document.open();
-      printWindow.document.write(printHtml);
-      printWindow.document.close();
+      const printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.open();
+        printWindow.document.write(printHtml);
+        printWindow.document.close();
+      }
+    } finally {
+      setIsPrinting(false);
     }
   };
 
@@ -277,10 +296,23 @@ export default function LevelPage() {
                     </button>
                     <button 
                       onClick={handleVocabPrint}
-                      className="w-full py-2 bg-gray-100 text-black border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-200 transition-all text-xs flex justify-center items-center gap-2"
+                      disabled={isPrinting}
+                      className={`w-full py-2 text-black border border-gray-200 font-bold rounded-xl shadow-sm transition-all text-xs flex justify-center items-center gap-2 ${isPrinting ? 'bg-gray-200 opacity-70 cursor-not-allowed' : 'bg-gray-100 hover:bg-gray-200'}`}
                     >
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                      PDF / Drucken
+                      {isPrinting ? (
+                        <>
+                          <svg className="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                          </svg>
+                          Bitte warten…
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                          PDF / Drucken
+                        </>
+                      )}
                     </button>
                     <hr className="border-gray-200 my-1" />
                     
