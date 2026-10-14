@@ -152,28 +152,25 @@ export default function LevelPage() {
       </tr>`;
       }).join('');
 
-      const colCount = isNoun || isVerb ? 5 : 4;
-
       const printHtml = `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>${levelUpper} – ${categoryLabel}</title>
+  <title>&#8203;</title>
   <style>
     @page {
       size: A4 portrait;
       margin: 15mm 12mm 18mm 12mm;
+      @top-left { content: ""; }
+      @top-center { content: ""; }
+      @top-right { content: ""; }
+      @bottom-left { content: ""; }
+      @bottom-center { content: ""; }
       @bottom-right {
-        content: "${levelUpper} • Seite " counter(page) " von " counter(pages);
+        content: "Seite " counter(page) " von " counter(pages);
         font-size: 9pt;
         font-family: Arial, Helvetica, sans-serif;
         color: #555;
-      }
-      @bottom-left {
-        content: "hello gill — ${categoryLabel}";
-        font-size: 8.5pt;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #888;
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,23 +182,17 @@ export default function LevelPage() {
     th { padding: 6px 8px; font-weight: bold; text-align: left; }
     td { padding: 5px 8px; border-bottom: 1px solid #eee; text-align: left; }
     tr { page-break-inside: avoid; }
-    tfoot { display: table-footer-group; }
-    tfoot td { border: none; padding-top: 8px; font-size: 8.5pt; color: #777; text-align: right; }
   </style>
 </head>
 <body>
-  <h1>${levelUpper} – ${categoryLabel}</h1>
+  <h1>${levelUpper} ${categoryLabel}</h1>
   <table>
     <thead><tr>${headerCols}</tr></thead>
     <tbody>${rows}</tbody>
-    <tfoot>
-      <tr>
-        <td colspan="${colCount}">${levelUpper} – ${categoryLabel}</td>
-      </tr>
-    </tfoot>
   </table>
   <script>
     window.onload = function(){
+      document.title = '\\u200B';
       setTimeout(function(){
         window.print();
       }, 200);
