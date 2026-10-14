@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hello-gill-v1';
+const CACHE_NAME = 'hello-gill-v2';
 const PRECACHE_ASSETS = [
   '/',
   '/manifest.json',
