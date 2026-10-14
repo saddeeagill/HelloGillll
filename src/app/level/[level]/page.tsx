@@ -47,6 +47,20 @@ export default function LevelPage() {
   const handleVocabPrint = async () => {
     if (isPrinting) return;
     setIsPrinting(true);
+
+    // Open window immediately on user click to prevent popup blockers
+    let printWindow: Window | null = null;
+    try {
+      printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.open();
+        printWindow.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"/><title>PDF / Druck vorbereiten...</title><style>body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;background:#f9fafb;color:#333;}.loader{width:36px;height:36px;border:4px solid #e5e7eb;border-top-color:#000;border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:14px;}@keyframes spin{to{transform:rotate(360deg);}}h2{font-size:16px;margin:0 0 6px 0;}p{font-size:13px;color:#6b7280;margin:0;}</style></head><body><div class="loader"></div><h2>PDF / Druck wird vorbereitet…</h2><p>Übersetzungen werden geladen, bitte einen kurzen Moment warten.</p></body></html>`);
+        printWindow.document.close();
+      }
+    } catch {
+      printWindow = null;
+    }
+
     try {
       const filteredWords = VOCABULARY.filter(
         (item) => item.level === levelUpper && item.category === vocabCategory
@@ -69,18 +83,12 @@ export default function LevelPage() {
         ? `<th>Nr.</th><th>Adverbien</th><th>English</th><th>${langLabel}</th>`
         : `<th>Nr.</th><th>Wort</th><th>English</th><th>${langLabel}</th>`;
 
-      // Resolve all translations at once using the fast batch function.
-      // Cache-hits (words already viewed on screen) are instant.
-      // Remaining words are fetched in parallel 50-word chunks — no serial delay.
       let nativeTranslations: string[];
       if (selectedLangCode === 'en') {
-        // English = stored translation, no API needed
         nativeTranslations = filteredWords.map((item: any) => item.translation);
       } else if (selectedLangCode === 'ur') {
-        // Urdu uses pre-baked field when available, falls back to English
         nativeTranslations = filteredWords.map((item: any) => item.urdu || item.translation);
       } else {
-        // All other languages: batch-translate the English translations
         const englishTexts = filteredWords.map((item: any) => item.translation);
         nativeTranslations = await translateBatch(englishTexts, selectedLangCode);
       }
@@ -144,23 +152,41 @@ export default function LevelPage() {
       </tr>`;
       }).join('');
 
+      const colCount = isNoun || isVerb ? 5 : 4;
+
       const printHtml = `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <title>${levelUpper} – ${categoryLabel}</title>
   <style>
-    @page { size: A4 portrait; margin: 15mm 12mm; }
+    @page {
+      size: A4 portrait;
+      margin: 15mm 12mm 18mm 12mm;
+      @bottom-right {
+        content: "${levelUpper} • Seite " counter(page) " von " counter(pages);
+        font-size: 9pt;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #555;
+      }
+      @bottom-left {
+        content: "hello gill — ${categoryLabel}";
+        font-size: 8.5pt;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #888;
+      }
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, Helvetica, sans-serif; font-size: 12pt; color: #000; background: #fff; }
-    h1 { font-size: 20pt; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 20px; }
-    h2 { font-size: 14pt; font-weight: bold; margin-bottom: 12px; }
-    table { width: 100%; border-collapse: collapse; font-size: 10pt; page-break-inside: auto; }
+    h1 { font-size: 20pt; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 10pt; }
     thead { display: table-header-group; }
     thead tr { background: #f0f0f0; border-bottom: 2px solid #ccc; }
     th { padding: 6px 8px; font-weight: bold; text-align: left; }
     td { padding: 5px 8px; border-bottom: 1px solid #eee; text-align: left; }
     tr { page-break-inside: avoid; }
+    tfoot { display: table-footer-group; }
+    tfoot td { border: none; padding-top: 8px; font-size: 8.5pt; color: #777; text-align: right; }
   </style>
 </head>
 <body>
@@ -168,16 +194,46 @@ export default function LevelPage() {
   <table>
     <thead><tr>${headerCols}</tr></thead>
     <tbody>${rows}</tbody>
+    <tfoot>
+      <tr>
+        <td colspan="${colCount}">${levelUpper} – ${categoryLabel}</td>
+      </tr>
+    </tfoot>
   </table>
-  <script>window.onload = function(){ window.print(); };<\/script>
+  <script>
+    window.onload = function(){
+      setTimeout(function(){
+        window.print();
+      }, 200);
+    };
+  <\/script>
 </body>
 </html>`;
 
-      const printWindow = window.open('', '_blank');
-      if (printWindow) {
+      if (printWindow && !printWindow.closed) {
         printWindow.document.open();
         printWindow.document.write(printHtml);
         printWindow.document.close();
+      } else {
+        // Fallback: print via hidden iframe if popup was blocked or closed
+        let iframe = document.getElementById('print-fallback-iframe') as HTMLIFrameElement;
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = 'print-fallback-iframe';
+          iframe.style.position = 'fixed';
+          iframe.style.right = '0';
+          iframe.style.bottom = '0';
+          iframe.style.width = '0';
+          iframe.style.height = '0';
+          iframe.style.border = '0';
+          document.body.appendChild(iframe);
+        }
+        const doc = iframe.contentWindow?.document;
+        if (doc) {
+          doc.open();
+          doc.write(printHtml);
+          doc.close();
+        }
       }
     } finally {
       setIsPrinting(false);
